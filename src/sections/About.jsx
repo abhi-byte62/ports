@@ -24,7 +24,7 @@ const About = () => {
 
           <div>
             <p className="text-lg leading-8 text-zinc-400">
-              I'm a Software Engineering student who enjoys building backend
+              I'm a Software Engineering student who enjoys building frontend
               systems, networking tools, and developer-focused applications.
             </p>
 

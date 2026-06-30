@@ -20,7 +20,7 @@ const Footer = () => {
               </h2>
 
               <p className="mt-6 leading-8 text-zinc-400">
-                Software Engineer passionate about backend systems, networking,
+                Software Engineer passionate about systems, networking,
                 developer tools, and building scalable software that solves
                 real-world problems.
               </p>
