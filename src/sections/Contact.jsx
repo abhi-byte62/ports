@@ -11,7 +11,7 @@ const contacts = [
     name: "Email",
     icon: <FaEnvelope size={20} />,
     link: "mailto:mrabhisheak@gmail.com",
-    value: "yourmail@gmail.com",
+    value: "mrabhisheak@gmail.com",
   },
   {
     name: "LinkedIn",
