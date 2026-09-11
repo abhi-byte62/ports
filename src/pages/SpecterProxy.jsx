@@ -1,103 +1,129 @@
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import SEO from "../components/SEO/SEO";
 import Container from "../components/Container/Container";
 
-import packetImage from "../assets/images/packet-sniffer.png";
+import specterImage from "../assets/images/specter-proxy.png";
 
 const features = [
   {
-    title: "PCAP Parsing",
+    title: "Transparent Interception",
     description:
-      "Parses captured network packets and converts them into structured data for visualization.",
+      "Sits between client and server, intercepting and forwarding HTTP/HTTPS traffic without requiring any client configuration changes.",
   },
   {
-    title: "3D Network Topology",
+    title: "TLS Analysis",
     description:
-      "Displays packet movement across routers, switches and endpoints using an interactive Three.js scene.",
+      "Performs MITM decryption with dynamically generated certificates so TLS handshakes can be inspected and logged at the application layer.",
   },
   {
-    title: "Traffic Playback",
+    title: "Latency Injection",
     description:
-      "Animates packet flow chronologically to simulate real network activity.",
+      "Simulates real-world network conditions by injecting configurable delays, jitter, and packet loss into forwarded streams.",
   },
   {
-    title: "Interactive Camera",
+    title: "Stream-Oriented Pipeline",
     description:
-      "Supports orbit controls, zoom, and multiple viewpoints for inspecting different areas of the topology.",
+      "Built around Node.js streams so large payloads flow through as buffered chunks — zero full-body buffering, low memory pressure.",
   },
 ];
 
-const PacketSniffer = () => {
+const SpecterProxy = () => {
   return (
-    <main className="min-h-screen bg-[#09090B] py-32 text-white">
+    <main className="min-h-screen bg-[#0a0a0c] py-32 text-white">
+      <SEO
+        title="Specter Proxy | Abhishek M R"
+        description="High-performance HTTP/HTTPS proxy for packet inspection, TLS analysis, latency injection and network simulation."
+        keywords="Node.js Proxy, MITM, TLS, Networking, Streams"
+      />
       <Container>
         {/* ================= HERO ================= */}
 
-        <section className="mb-24">
-          <p className="mb-4 uppercase tracking-[0.25em] text-blue-400">
-            Networking • Three.js • Visualization
+        <section className="mb-20">
+          <p className="mb-4 font-terminal text-xs md:text-sm tracking-[0.25em] text-[#a855f7]">
+            {">"} node_modules/specter-proxy — status: RUNNING
           </p>
 
           <h1 className="font-['Space_Grotesk'] text-6xl font-bold md:text-7xl">
-            Packet Sniffer 3D
+            Specter <span className="text-[#00f0ff]">Proxy</span>
           </h1>
 
-          <p className="mt-8 max-w-3xl text-xl leading-8 text-zinc-400">
-            Interactive visualization of network traffic using PCAP parsing,
-            Three.js, and real-time packet animation.
+          <p className="mt-8 max-w-3xl text-xl leading-8 text-[#8f8f9a]">
+            A high-performance HTTP/HTTPS proxy built for{" "}
+            <span className="text-[#00f0ff]">packet inspection</span>,{" "}
+            <span className="text-[#a855f7]">TLS analysis</span>, latency
+            injection, and network simulation.
           </p>
+
+          <div className="mt-6 font-terminal text-xs text-[#8f8f9a]">
+            <span className="text-[#00ff9d]">$</span> ./specter --intercept
+            --analyze-tls --jitter=40ms
+          </div>
         </section>
 
         {/* ================= IMAGE ================= */}
 
         <img
-          src={packetImage}
-          alt="Packet Sniffer 3D"
-          className="mb-24 rounded-3xl border border-zinc-800 shadow-2xl"
+          src={specterImage}
+          alt="Specter Proxy"
+          className="mb-20 rounded-xl border border-[#2e2e3a] shadow-2xl"
         />
 
         {/* ================= OVERVIEW ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-6 text-4xl font-bold">Overview</h2>
+        <section className="mb-20">
+          <h2 className="mb-6 font-['Space_Grotesk'] text-4xl font-bold">
+            ✓ Overview
+          </h2>
 
-          <p className="text-lg leading-8 text-zinc-400">
-            Packet Sniffer 3D is an interactive visualization platform that
-            transforms captured network packets into animated traffic flowing
-            through a virtual network topology. Instead of reading thousands of
-            lines of packet logs, users can visually understand how data moves
-            between hosts, switches, TAP devices, and routers.
+          <p className="text-lg leading-8 text-[#8f8f9a]">
+            Specter Proxy is a stream-oriented Node.js proxy engineered for
+            deep traffic inspection. Unlike typical forwarding proxies, it
+            terminates TLS to decrypt traffic, lets you inject realistic
+            latency, and pushes every request/response through an
+            inspect-and-forward pipeline — making it a single tool for
+            debugging, MITM labs, and resilience testing.
           </p>
         </section>
 
         {/* ================= PROBLEM ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-6 text-4xl font-bold">Problem Statement</h2>
+        <section className="mb-20">
+          <h2 className="mb-6 font-['Space_Grotesk'] text-4xl font-bold">
+            ✘ Problem Statement
+          </h2>
 
-          <p className="text-lg leading-8 text-zinc-400">
-            Traditional packet analyzers display traffic as large streams of
-            text, making it difficult to understand packet movement across a
-            network. This project was built to convert packet captures into an
-            intuitive visual representation that makes networking concepts
-            easier to explore and understand.
+          <p className="text-lg leading-8 text-[#8f8f9a]">
+            Debugging network-bound applications is painful when you can't see
+            what actually crosses the wire — and most proxies either forward
+            blindly or buffer entire bodies into memory. Specter Proxy answers
+            two questions:{" "}
+            <span className="text-[#facc15]">
+              "what is the client really sending,"
+            </span>{" "}
+            and{" "}
+            <span className="text-[#facc15]">
+              "how does this app behave under degraded networks?"
+            </span>
           </p>
         </section>
 
         {/* ================= TECH STACK ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-8 text-4xl font-bold">Tech Stack</h2>
+        <section className="mb-20">
+          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
+            ⤓ Tech Stack
+          </h2>
 
-          <div className="flex flex-wrap gap-4">
-            {["Three.js", "JavaScript", "Vite", "HTML", "CSS", "PCAP"].map(
+          <div className="flex flex-wrap gap-3">
+            {["Node.js", "Streams", "TLS", "HTTP", "HTTPS", "MITM"].map(
               (tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-zinc-700 bg-zinc-900 px-5 py-2"
+                  className="font-terminal text-xs rounded border border-[#00f0ff]/40 bg-[#00f0ff]/5 px-4 py-2 text-[#00f0ff]"
                 >
-                  {tech}
+                  {tech.toUpperCase()}
                 </span>
               ),
             )}
@@ -106,47 +132,49 @@ const PacketSniffer = () => {
 
         {/* ================= ARCHITECTURE ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-8 text-4xl font-bold">Architecture</h2>
+        <section className="mb-20">
+          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
+            ♻️ Architecture
+          </h2>
 
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-900/50 p-10">
-            <pre className="overflow-x-auto text-lg leading-8 text-blue-400">
-              {`
-         PCAP File / Live Traffic
-                    │
-                    ▼
-             Packet Parser
-                    │
-                    ▼
-        Packet Processing Engine
-                    │
-                    ▼
-     Topology & Animation Engine
-                    │
-                    ▼
-            Three.js Renderer
-                    │
-                    ▼
-      Interactive 3D Visualization
+          <pre className="overflow-x-auto rounded-xl border border-[#2e2e3a] bg-[#121216] p-8 font-terminal text-sm leading-8 text-[#00f0ff]">
+            {`
+  Client ──► CONNECT / HTTP ──► Specter Core
+                                     │
+                    ┌────────────────┼────────────────┐
+                    ▼                ▼                ▼
+              Stream Parser     TLS Terminator    Request Inspect
+                    │                │                │
+                    └────────────────┼────────────────┘
+                                     │
+                             Forwarder / Injector
+                                     │
+                          (latency, jitter, drop)
+                                     │
+                                    ▼
+                                Upstream
 `}
-            </pre>
-          </div>
+          </pre>
         </section>
 
         {/* ================= FEATURES ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-10 text-4xl font-bold">Key Features</h2>
+        <section className="mb-20">
+          <h2 className="mb-10 font-['Space_Grotesk'] text-4xl font-bold">
+            ⌘ Key Features
+          </h2>
 
           <div className="grid gap-8 md:grid-cols-2">
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 transition hover:border-blue-500"
+                className="rounded-xl border border-[#2e2e3a] bg-[#121216]/70 p-8 transition hover:border-[#00f0ff]/60 hover:glow-border"
               >
-                <h3 className="text-2xl font-semibold">{feature.title}</h3>
+                <h3 className="text-2xl font-semibold text-white">
+                  {feature.title}
+                </h3>
 
-                <p className="mt-4 leading-8 text-zinc-400">
+                <p className="mt-4 leading-8 text-[#8f8f9a]">
                   {feature.description}
                 </p>
               </div>
@@ -156,43 +184,45 @@ const PacketSniffer = () => {
 
         {/* ================= ENGINEERING ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-10 text-4xl font-bold">Engineering Challenges</h2>
+        <section className="mb-20">
+          <h2 className="mb-10 font-['Space_Grotesk'] text-4xl font-bold">
+            ⚙ Engineering Challenges
+          </h2>
 
           <div className="space-y-10">
             <div>
-              <h3 className="text-2xl font-semibold">
-                Rendering High-Frequency Traffic
+              <h3 className="text-2xl font-semibold text-white">
+                Backpressure Without Blocking
               </h3>
 
-              <p className="mt-4 text-lg leading-8 text-zinc-400">
-                Efficient rendering techniques were used to keep the animation
-                responsive while visualizing continuous packet movement without
-                causing unnecessary rendering overhead.
+              <p className="mt-4 text-lg leading-8 text-[#8f8f9a]">
+                Piping through many transform stages means respecting
+                backpressure end-to-end. Each stage pauses upstream when its
+                consumers lag, so slow servers don't silently drop payloads.
               </p>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold">
-                Maintaining Packet Order
+              <h3 className="text-2xl font-semibold text-white">
+                Trusting Our Own CA
               </h3>
 
-              <p className="mt-4 text-lg leading-8 text-zinc-400">
-                Packets must remain synchronized with timestamps while
-                travelling between network nodes to preserve the original
-                traffic sequence.
+              <p className="mt-4 text-lg leading-8 text-[#8f8f9a]">
+                Intercepting TLS requires generating on-the-fly certificates
+                for arbitrary hostnames and trusting a local root CA — handling
+                the handshake and session caching without leaking secrets.
               </p>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold">
-                Interactive Camera Controls
+              <h3 className="text-2xl font-semibold text-white">
+                Realistic Latency Injection
               </h3>
 
-              <p className="mt-4 text-lg leading-8 text-zinc-400">
-                Multiple viewing modes and smooth camera movement were designed
-                to allow users to inspect traffic from different perspectives
-                without losing spatial context.
+              <p className="mt-4 text-lg leading-8 text-[#8f8f9a]">
+                Simulating jitter and loss must feel like a real degraded
+                network, not a predictable sleep — so delays use randomized
+                distributions and loss percentages applied per-chunk.
               </p>
             </div>
           </div>
@@ -200,69 +230,90 @@ const PacketSniffer = () => {
 
         {/* ================= PERFORMANCE ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-10 text-4xl font-bold">
-            Performance Optimizations
+        <section className="mb-20">
+          <h2 className="mb-10 font-['Space_Grotesk'] text-4xl font-bold">
+            📈 Performance Optimizations
           </h2>
 
-          <ul className="space-y-5 text-lg text-zinc-400">
-            <li>✓ Optimized rendering pipeline using Three.js.</li>
-            <li>✓ Reused geometry and materials to reduce GPU overhead.</li>
-            <li>✓ Minimized unnecessary DOM updates.</li>
-            <li>✓ Smooth animation loop for packet playback.</li>
+          <ul className="space-y-5 font-terminal text-base text-[#c4c4cc]">
+            <li>
+              <span className="text-[#00ff9d]">✓</span> Chunk-level streaming
+              — no full-body buffering, bounded memory.
+            </li>
+            <li>
+              <span className="text-[#00ff9d]">✓</span> Reused TLS context and
+              certificate cache to cut handshake overhead.
+            </li>
+            <li>
+              <span className="text-[#00ff9d]">✓</span> Single-pass inspect +
+              forward pipeline, avoids decode/re-encode cycles.
+            </li>
+            <li>
+              <span className="text-[#00ff9d]">✓</span> Connection pooling to
+              upstream hosts to amortize TCP handshakes.
+            </li>
           </ul>
         </section>
 
         {/* ================= LEARNINGS ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-8 text-4xl font-bold">Lessons Learned</h2>
+        <section className="mb-20">
+          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
+            ▣ Lessons Learned
+          </h2>
 
-          <p className="text-lg leading-8 text-zinc-400">
-            Building Packet Sniffer 3D deepened my understanding of packet
-            structures, visualization pipelines, Three.js rendering, performance
-            optimization, and designing developer tools that make complex
-            networking concepts easier to understand.
+          <p className="text-lg leading-8 text-[#8f8f9a]">
+            Building Specter Proxy taught me how TLS interception really works
+            under the hood, how backpressure shapes a streaming architecture,
+            and why observing real traffic beats guessing at protocol behavior.
+            It also made clear how much tooling around transparent proxying
+            depends on careful certificate handling.
           </p>
         </section>
 
         {/* ================= FUTURE ================= */}
 
-        <section className="mb-24">
-          <h2 className="mb-8 text-4xl font-bold">Future Improvements</h2>
+        <section className="mb-20">
+          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
+            ▶ Future Improvements
+          </h2>
 
-          <ul className="space-y-4 text-lg text-zinc-400">
-            <li>• Live packet capture from localhost.</li>
-            <li>• Wireshark integration.</li>
-            <li>• Packet search and filtering.</li>
-            <li>• Timeline playback controls.</li>
-            <li>• WebSocket traffic visualization.</li>
+          <ul className="space-y-4 font-terminal text-base text-[#c4c4cc]">
+            <li>• Rule-based traffic rewriting per-host.</li>
+            <li>• WebSocket and HTTP/2 support.</li>
+            <li>• Live traffic dashboard with request timelines.</li>
+            <li>• Replay captured sessions for regression testing.</li>
+            <li>• gRPC protocol inspection.</li>
           </ul>
         </section>
 
         {/* ================= FOOTER ================= */}
 
-        <div className="flex flex-wrap items-center gap-8 border-t border-zinc-800 pt-12">
+        <div className="flex flex-wrap items-center gap-8 border-t border-[#2e2e3a] pt-10 font-terminal text-sm">
           <a
-            href="https://github.com/abhi-byte62/packet-sniffer-3d-"
+            href="https://github.com/abhi-byte62/specter-proxy"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-lg text-blue-400 transition hover:text-blue-300"
+            className="flex items-center gap-3 text-[#00f0ff] transition hover:text-white"
           >
             <FaGithub />
-            View Source Code
+            &gt; view source [specter-proxy]
           </a>
 
           <Link
             to="/"
-            className="text-lg text-zinc-400 transition hover:text-white"
+            className="text-[#8f8f9a] transition hover:text-white"
           >
-            ← Back to Portfolio
+            ← back to portfolio
           </Link>
+
+          <span className="ml-auto text-xs text-[#a855f7]">
+            $ exit 0
+          </span>
         </div>
       </Container>
     </main>
   );
 };
 
-export default PacketSniffer;
+export default SpecterProxy;

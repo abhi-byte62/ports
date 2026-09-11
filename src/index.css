@@ -1,14 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* Terminal color palette */
 :root {
-  --background: #09090b;
-  --surface: #18181b;
-  --border: #27272a;
+  --bg-dark: #0a0a0c;
+  --bg-surface: #121216;
+  --bg-panel: #16161e;
+  --border-main: #2e2e3a;
 
-  --primary: #2563eb;
+  --term-primary: #00f0ff;
+  --term-secondary: #a855f7;
+  --term-success: #00ff9d;
+  --term-error: #ff2a2a;
 
-  --text: #fafafa;
-  --muted: #a1a1aa;
+  --text-main: #e5e5e5;
+  --text-dim: #8f8f9a;
+  --text-code: #00f0ff;
 }
 
 html {
@@ -16,7 +23,95 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
   font-family: "Inter", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Terminal font utility for code elements */
+.family-terminal {
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+}
+
+/* Cursor blink animation */
+.cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Glowing border effect */
+.glow-border {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Terminal text glow */
+.text-terminal {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Box shadow glow for dots */
+.box-shadow-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.8);
+}
+
+/* Scrollbar styling for terminal feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00f0ff40;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff80;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible for keyboard nav */
+:focus-visible {
+  outline: 2px solid #00f0ff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --term-primary: #00ffff;
+    --term-secondary: #ff00ff;
+    --term-success: #00ff00;
+    --term-error: #ff0000;
+    --border-main: #ffffff;
+  }
+}
+
+/* Ensure minimum touch targets */
+button, a[href], [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
 }
