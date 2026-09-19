@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import CursorGlow from "./components/CursorGlow/CursorGlow";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import ScrollTop from "./components/ScrollTop/ScrollTop";
 
@@ -14,12 +13,9 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <BrowserRouter>
-      {/* Global Effects */}
-      <CursorGlow />
       <ScrollProgress />
       <ScrollTop />
 
-      {/* Routes */}
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
@@ -27,7 +23,6 @@ function App() {
           <Route path="/specter-proxy" element={<SpecterProxy />} />
         </Route>
 
-        {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -9,307 +9,114 @@ import specterImage from "../assets/images/specter-proxy.png";
 const features = [
   {
     title: "Transparent Interception",
-    description:
-      "Sits between client and server, intercepting and forwarding HTTP/HTTPS traffic without requiring any client configuration changes.",
+    description: "Intercepts and forwards HTTP/HTTPS traffic between clients and servers without requiring client configuration changes.",
   },
   {
     title: "TLS Analysis",
-    description:
-      "Performs MITM decryption with dynamically generated certificates so TLS handshakes can be inspected and logged at the application layer.",
+    description: "Performs MITM decryption using dynamically generated certificates to log and inspect TLS handshakes at the application layer.",
   },
   {
     title: "Latency Injection",
-    description:
-      "Simulates real-world network conditions by injecting configurable delays, jitter, and packet loss into forwarded streams.",
+    description: "Configurable network simulation allowing developers to inject artificial delays, jitter, and packet loss.",
   },
   {
     title: "Stream-Oriented Pipeline",
-    description:
-      "Built around Node.js streams so large payloads flow through as buffered chunks — zero full-body buffering, low memory pressure.",
-  },
+    description: "Built on Node.js streams to process payloads as buffered chunks, ensuring low memory pressure and zero full-body buffering.",
+  }
 ];
 
 const SpecterProxy = () => {
   return (
-    <main className="min-h-screen bg-[#0a0a0c] py-32 text-white">
+    <main className="min-h-screen bg-zinc-950 py-32 text-zinc-100">
       <SEO
         title="Specter Proxy | Abhishek M R"
-        description="High-performance HTTP/HTTPS proxy for packet inspection, TLS analysis, latency injection and network simulation."
+        description="High-performance HTTP/HTTPS proxy for packet inspection and network simulation."
         keywords="Node.js Proxy, MITM, TLS, Networking, Streams"
       />
       <Container>
-        {/* ================= HERO ================= */}
+        {/* Header */}
+        <section className="mx-auto max-w-4xl text-center mb-24">
+          <Link to="/" className="inline-block text-zinc-500 hover:text-zinc-300 mb-8 transition-colors">
+            &larr; Back to Portfolio
+          </Link>
 
-        <section className="mb-20">
-          <p className="mb-4 font-terminal text-xs md:text-sm tracking-[0.25em] text-[#a855f7]">
-            {">"} node_modules/specter-proxy — status: RUNNING
-          </p>
-
-          <h1 className="font-['Space_Grotesk'] text-6xl font-bold md:text-7xl">
-            Specter <span className="text-[#00f0ff]">Proxy</span>
+          <h1 className="font-['Space_Grotesk'] text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            Specter Proxy
           </h1>
 
-          <p className="mt-8 max-w-3xl text-xl leading-8 text-[#8f8f9a]">
-            A high-performance HTTP/HTTPS proxy built for{" "}
-            <span className="text-[#00f0ff]">packet inspection</span>,{" "}
-            <span className="text-[#a855f7]">TLS analysis</span>, latency
-            injection, and network simulation.
+          <p className="text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto">
+            A high-performance HTTP/HTTPS proxy engineered for packet inspection, TLS analysis, and latency simulation.
           </p>
 
-          <div className="mt-6 font-terminal text-xs text-[#8f8f9a]">
-            <span className="text-[#00ff9d]">$</span> ./specter --intercept
-            --analyze-tls --jitter=40ms
-          </div>
-        </section>
-
-        {/* ================= IMAGE ================= */}
-
-        <img
-          src={specterImage}
-          alt="Specter Proxy"
-          className="mb-20 rounded-xl border border-[#2e2e3a] shadow-2xl"
-        />
-
-        {/* ================= OVERVIEW ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-6 font-['Space_Grotesk'] text-4xl font-bold">
-            ✓ Overview
-          </h2>
-
-          <p className="text-lg leading-8 text-[#8f8f9a]">
-            Specter Proxy is a stream-oriented Node.js proxy engineered for
-            deep traffic inspection. Unlike typical forwarding proxies, it
-            terminates TLS to decrypt traffic, lets you inject realistic
-            latency, and pushes every request/response through an
-            inspect-and-forward pipeline — making it a single tool for
-            debugging, MITM labs, and resilience testing.
-          </p>
-        </section>
-
-        {/* ================= PROBLEM ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-6 font-['Space_Grotesk'] text-4xl font-bold">
-            ✘ Problem Statement
-          </h2>
-
-          <p className="text-lg leading-8 text-[#8f8f9a]">
-            Debugging network-bound applications is painful when you can't see
-            what actually crosses the wire — and most proxies either forward
-            blindly or buffer entire bodies into memory. Specter Proxy answers
-            two questions:{" "}
-            <span className="text-[#facc15]">
-              "what is the client really sending,"
-            </span>{" "}
-            and{" "}
-            <span className="text-[#facc15]">
-              "how does this app behave under degraded networks?"
-            </span>
-          </p>
-        </section>
-
-        {/* ================= TECH STACK ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
-            ⤓ Tech Stack
-          </h2>
-
-          <div className="flex flex-wrap gap-3">
-            {["Node.js", "Streams", "TLS", "HTTP", "HTTPS", "MITM"].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className="font-terminal text-xs rounded border border-[#00f0ff]/40 bg-[#00f0ff]/5 px-4 py-2 text-[#00f0ff]"
-                >
-                  {tech.toUpperCase()}
-                </span>
-              ),
-            )}
-          </div>
-        </section>
-
-        {/* ================= ARCHITECTURE ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
-            ♻️ Architecture
-          </h2>
-
-          <pre className="overflow-x-auto rounded-xl border border-[#2e2e3a] bg-[#121216] p-8 font-terminal text-sm leading-8 text-[#00f0ff]">
-            {`
-  Client ──► CONNECT / HTTP ──► Specter Core
-                                     │
-                    ┌────────────────┼────────────────┐
-                    ▼                ▼                ▼
-              Stream Parser     TLS Terminator    Request Inspect
-                    │                │                │
-                    └────────────────┼────────────────┘
-                                     │
-                             Forwarder / Injector
-                                     │
-                          (latency, jitter, drop)
-                                     │
-                                    ▼
-                                Upstream
-`}
-          </pre>
-        </section>
-
-        {/* ================= FEATURES ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-10 font-['Space_Grotesk'] text-4xl font-bold">
-            ⌘ Key Features
-          </h2>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-xl border border-[#2e2e3a] bg-[#121216]/70 p-8 transition hover:border-[#00f0ff]/60 hover:glow-border"
-              >
-                <h3 className="text-2xl font-semibold text-white">
-                  {feature.title}
-                </h3>
-
-                <p className="mt-4 leading-8 text-[#8f8f9a]">
-                  {feature.description}
-                </p>
-              </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {["Node.js", "Streams", "TLS", "HTTP/HTTPS", "MITM"].map((tech) => (
+              <span key={tech} className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-1.5 text-sm text-zinc-300">
+                {tech}
+              </span>
             ))}
           </div>
         </section>
 
-        {/* ================= ENGINEERING ================= */}
+        {/* Feature Image */}
+        <div className="mx-auto max-w-5xl mb-24 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900">
+          <img src={specterImage} alt="Specter Proxy Interface" className="w-full object-cover" />
+        </div>
 
-        <section className="mb-20">
-          <h2 className="mb-10 font-['Space_Grotesk'] text-4xl font-bold">
-            ⚙ Engineering Challenges
-          </h2>
-
-          <div className="space-y-10">
-            <div>
-              <h3 className="text-2xl font-semibold text-white">
-                Backpressure Without Blocking
-              </h3>
-
-              <p className="mt-4 text-lg leading-8 text-[#8f8f9a]">
-                Piping through many transform stages means respecting
-                backpressure end-to-end. Each stage pauses upstream when its
-                consumers lag, so slow servers don't silently drop payloads.
+        <div className="mx-auto max-w-3xl space-y-24">
+          {/* Overview */}
+          <section>
+            <h2 className="text-3xl font-bold mb-6">Overview</h2>
+            <div className="prose prose-invert prose-zinc max-w-none text-zinc-400">
+              <p>
+                Debugging network-bound applications often requires answering two questions: "What is the client truly sending?" and "How does the app behave under degraded network conditions?".
+              </p>
+              <p>
+                Specter Proxy is a stream-oriented Node.js proxy built to provide deep traffic inspection. Unlike standard forwarding proxies, it terminates TLS to decrypt traffic, allows realistic latency injection, and processes every request/response through an inspect-and-forward stream pipeline. It serves as a unified tool for internal debugging, MITM security evaluation, and resilience testing.
               </p>
             </div>
+          </section>
 
-            <div>
-              <h3 className="text-2xl font-semibold text-white">
-                Trusting Our Own CA
-              </h3>
+          {/* Features */}
+          <section>
+            <h2 className="text-3xl font-bold mb-8">Technical Features</h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {features.map((feature) => (
+                <div key={feature.title} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+                  <h3 className="text-lg font-semibold text-zinc-100 mb-3">{feature.title}</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-              <p className="mt-4 text-lg leading-8 text-[#8f8f9a]">
-                Intercepting TLS requires generating on-the-fly certificates
-                for arbitrary hostnames and trusting a local root CA — handling
-                the handshake and session caching without leaking secrets.
+          {/* Architecture */}
+          <section>
+            <h2 className="text-3xl font-bold mb-6">Engineering Architecture</h2>
+            <div className="prose prose-invert prose-zinc max-w-none text-zinc-400">
+              <p>
+                <strong>Backpressure & Streaming:</strong> Forwarding large payloads across multiple transform stages requires strict end-to-end backpressure handling. The pipeline ensures slow downstream consumers automatically pause upstream readers, preventing memory leaks and silent packet drops.
+              </p>
+              <p>
+                <strong>On-the-fly CA Generation:</strong> Simulating a transparent TLS proxy requires generating CA certificates dynamically for arbitrary hostnames and trusting a local root, all without leaking private keys.
+              </p>
+              <p>
+                <strong>Connection Pooling:</strong> Implemented Keep-Alive and upstream connection pooling to amortize the overhead of TCP handshakes on high-frequency proxy requests.
               </p>
             </div>
+          </section>
+        </div>
 
-            <div>
-              <h3 className="text-2xl font-semibold text-white">
-                Realistic Latency Injection
-              </h3>
-
-              <p className="mt-4 text-lg leading-8 text-[#8f8f9a]">
-                Simulating jitter and loss must feel like a real degraded
-                network, not a predictable sleep — so delays use randomized
-                distributions and loss percentages applied per-chunk.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ================= PERFORMANCE ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-10 font-['Space_Grotesk'] text-4xl font-bold">
-            📈 Performance Optimizations
-          </h2>
-
-          <ul className="space-y-5 font-terminal text-base text-[#c4c4cc]">
-            <li>
-              <span className="text-[#00ff9d]">✓</span> Chunk-level streaming
-              — no full-body buffering, bounded memory.
-            </li>
-            <li>
-              <span className="text-[#00ff9d]">✓</span> Reused TLS context and
-              certificate cache to cut handshake overhead.
-            </li>
-            <li>
-              <span className="text-[#00ff9d]">✓</span> Single-pass inspect +
-              forward pipeline, avoids decode/re-encode cycles.
-            </li>
-            <li>
-              <span className="text-[#00ff9d]">✓</span> Connection pooling to
-              upstream hosts to amortize TCP handshakes.
-            </li>
-          </ul>
-        </section>
-
-        {/* ================= LEARNINGS ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
-            ▣ Lessons Learned
-          </h2>
-
-          <p className="text-lg leading-8 text-[#8f8f9a]">
-            Building Specter Proxy taught me how TLS interception really works
-            under the hood, how backpressure shapes a streaming architecture,
-            and why observing real traffic beats guessing at protocol behavior.
-            It also made clear how much tooling around transparent proxying
-            depends on careful certificate handling.
-          </p>
-        </section>
-
-        {/* ================= FUTURE ================= */}
-
-        <section className="mb-20">
-          <h2 className="mb-8 font-['Space_Grotesk'] text-4xl font-bold">
-            ▶ Future Improvements
-          </h2>
-
-          <ul className="space-y-4 font-terminal text-base text-[#c4c4cc]">
-            <li>• Rule-based traffic rewriting per-host.</li>
-            <li>• WebSocket and HTTP/2 support.</li>
-            <li>• Live traffic dashboard with request timelines.</li>
-            <li>• Replay captured sessions for regression testing.</li>
-            <li>• gRPC protocol inspection.</li>
-          </ul>
-        </section>
-
-        {/* ================= FOOTER ================= */}
-
-        <div className="flex flex-wrap items-center gap-8 border-t border-[#2e2e3a] pt-10 font-terminal text-sm">
+        {/* Footer */}
+        <div className="mx-auto max-w-3xl mt-24 pt-8 border-t border-zinc-800 flex justify-center">
           <a
             href="https://github.com/abhi-byte62/specter-proxy"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 text-[#00f0ff] transition hover:text-white"
+            className="flex items-center gap-2 rounded-lg bg-zinc-100 px-6 py-3 text-sm font-medium text-zinc-900 transition-colors hover:bg-white"
           >
-            <FaGithub />
-            &gt; view source [specter-proxy]
+            <FaGithub className="text-lg" />
+            View Source Code
           </a>
-
-          <Link
-            to="/"
-            className="text-[#8f8f9a] transition hover:text-white"
-          >
-            ← back to portfolio
-          </Link>
-
-          <span className="ml-auto text-xs text-[#a855f7]">
-            $ exit 0
-          </span>
         </div>
       </Container>
     </main>

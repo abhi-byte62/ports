@@ -6,11 +6,10 @@ const ScrollTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 500);
+      setVisible(window.scrollY > 400);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -24,20 +23,35 @@ const ScrollTop = () => {
           behavior: "smooth",
         })
       }
+      aria-label="Scroll back to top"
       className="
         fixed
-        bottom-8
-        right-8
-        z-50
+        bottom-6
+        right-6
+        z-40
+        flex
+        h-10
+        w-10
+        items-center
+        justify-center
         rounded-full
-        bg-blue-600
-        p-4
+        border
+        border-zinc-700/60
+        bg-zinc-900/90
+        text-zinc-400
         shadow-lg
-        transition
-        hover:bg-blue-500
+        backdrop-blur-md
+        transition-all
+        duration-200
+        hover:border-zinc-500
+        hover:bg-zinc-800
+        hover:text-white
+        focus:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-blue-500
       "
     >
-      <HiArrowUp />
+      <HiArrowUp className="text-base" />
     </button>
   );
 };

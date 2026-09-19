@@ -8,17 +8,15 @@ import Container from "../Container/Container";
 
 const Navbar = () => {
   const activeSection = useActiveSection();
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -42,57 +40,72 @@ const Navbar = () => {
         duration-300
         ${
           scrolled
-            ? "bg-[#0a0a0c]/80 backdrop-blur-xl border-b border-[#2e2e3a]"
+            ? "bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/80 shadow-sm"
             : "bg-transparent"
         }
       `}
       role="banner"
     >
       <Container>
-        <nav className="flex h-20 items-center justify-between" aria-label="Main navigation">
-          {/* Logo - Terminal Style */}
+        <nav className="flex h-16 md:h-20 items-center justify-between" aria-label="Main navigation">
+          {/* Brand Logo */}
           <a
             href="#hero"
             className="
               font-['Space_Grotesk']
-              text-xl font-bold tracking-tight
-              family-terminal
-              text-[#00f0ff]
-              glow-border rounded px-2 py-1
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]
+              text-lg
+              md:text-xl
+              font-bold
+              tracking-tight
+              text-zinc-100
+              hover:text-blue-400
+              transition-colors
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-blue-500
+              rounded-md
+              px-1
             "
-            aria-label="Abhishek M R — Home"
+            aria-label="Abhishek M R - Home"
           >
-            {"<AMR />"}
+            Abhishek M R
           </a>
 
-          {/* Desktop Navigation - Terminal Style */}
-          <ul className="hidden items-center gap-8 md:flex font-terminal text-sm" role="menubar">
-            {navigation.map((item) => (
-              <li key={item.name} role="none">
-                <a
-                  href={item.href}
-                  className={`
-                    transition-all duration-300
-                    font-terminal
-                    ${
-                      activeSection === item.href.replace("#", "")
-                        ? "text-[#00f0ff] glow-border px-2 py-1"
-                        : "text-[#8f8f9a] hover:text-[#ffffff] hover:glow-border px-2 py-1"
-                    }
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]
-                  `}
-                  role="menuitem"
-                  aria-current={activeSection === item.href.replace("#", "") ? "page" : undefined}
-                >
-                  [{item.name}[OPTIONAL]]
-                </a>
-              </li>
-            ))}
+          {/* Desktop Navigation */}
+          <ul className="hidden items-center gap-8 md:flex text-sm font-medium" role="menubar">
+            {navigation.map((item) => {
+              const isActive = activeSection === item.href.replace("#", "");
+              return (
+                <li key={item.name} role="none">
+                  <a
+                    href={item.href}
+                    className={`
+                      transition-colors
+                      duration-200
+                      ${
+                        isActive
+                          ? "text-blue-400 font-semibold"
+                          : "text-zinc-400 hover:text-zinc-100"
+                      }
+                      focus-visible:outline-none
+                      focus-visible:ring-2
+                      focus-visible:ring-blue-500
+                      rounded
+                      px-2
+                      py-1
+                    `}
+                    role="menuitem"
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
-          {/* Desktop Resume - Terminal Button */}
-          <div className="hidden md:block">
+          {/* Desktop Resume Button */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="/resume.pdf"
               target="_blank"
@@ -100,32 +113,35 @@ const Navbar = () => {
               className="
                 inline-flex
                 items-center
-                gap-2
-                font-terminal
+                justify-center
+                rounded-lg
+                border
+                border-zinc-700/80
+                bg-zinc-900/60
+                px-4
+                py-2
                 text-sm
-                tracking-wide
-                border border-[#00f0ff]
-                text-[#00f0ff]
-                px-4 py-2
-                rounded
-                glow-border
+                font-medium
+                text-zinc-200
                 transition-all
-                duration-300
-                hover:bg-[#00f0ff10]
-                hover:text-[#ffffff]
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]
+                duration-200
+                hover:border-zinc-500
+                hover:bg-zinc-800/80
+                hover:text-white
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-blue-500
               "
               aria-label="Download Resume (opens in new tab)"
             >
-              <span className="glow-border" aria-hidden="true">{">"}</span>
-              DOWNLOAD RESUME
+              Resume
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="text-3xl text-white md:hidden flex items-center justify-center w-12 h-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0c]"
+            className="text-2xl text-zinc-300 md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-zinc-800 bg-zinc-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -134,18 +150,21 @@ const Navbar = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu - Terminal Style */}
+        {/* Mobile Menu Drawer */}
         {menuOpen && (
           <div
             id="mobile-menu"
             className="
               md:hidden
               rounded-2xl
-              border border-[#2e2e3a]
-              bg-[#121216]/95
+              border
+              border-zinc-800
+              bg-zinc-950/95
               p-6
+              mt-2
+              mb-4
               backdrop-blur-xl
-              font-terminal text-sm
+              shadow-xl
             "
             role="navigation"
             aria-label="Mobile navigation menu"
@@ -158,23 +177,30 @@ const Navbar = () => {
                     onClick={closeMenu}
                     className={`
                       block
-                      text-[#a855f7] hover:text-[#00f0ff]
-                      transition-all duration-300
-                      ${activeSection === item.href.replace("#", "")
-                        ? "glow-border px-2 py-1"
-                        : "px-2 py-1"}
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]
+                      py-2
+                      text-base
+                      font-medium
+                      transition-colors
+                      ${
+                        activeSection === item.href.replace("#", "")
+                          ? "text-blue-400 font-semibold"
+                          : "text-zinc-300 hover:text-white"
+                      }
+                      focus-visible:outline-none
+                      focus-visible:ring-2
+                      focus-visible:ring-blue-500
+                      rounded
                     `}
                     role="menuitem"
                     aria-current={activeSection === item.href.replace("#", "") ? "page" : undefined}
                   >
-                    [{item.name}[OPTIONAL]]
+                    {item.name}
                   </a>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8">
+            <div className="mt-6 pt-4 border-t border-zinc-800">
               <a
                 href="/resume.pdf"
                 target="_blank"
@@ -183,28 +209,25 @@ const Navbar = () => {
                 className="
                   block
                   w-full
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-2
-                  font-terminal
+                  text-center
+                  rounded-lg
+                  border
+                  border-zinc-700
+                  bg-zinc-900
+                  px-4
+                  py-2.5
                   text-sm
-                  tracking-wide
-                  border border-[#00f0ff]
-                  text-[#00f0ff]
-                  px-4 py-3
-                  rounded
-                  glow-border
-                  transition-all
-                  duration-300
-                  hover:bg-[#00f0ff10]
-                  hover:text-[#ffffff]
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00f0ff]
+                  font-medium
+                  text-white
+                  transition-colors
+                  hover:bg-zinc-800
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-blue-500
                 "
                 aria-label="Download Resume (opens in new tab)"
               >
-                <span className="cursor-blink" aria-hidden="true">{">"}</span>
-                DOWNLOAD RESUME
+                Download Resume
               </a>
             </div>
           </div>
