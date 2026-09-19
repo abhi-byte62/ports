@@ -29,14 +29,17 @@ const Skills = () => {
               </h3>
 
               <div className="flex flex-wrap gap-3">
-                {group.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-lg border border-zinc-800 bg-zinc-900/30 px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-100"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {group.items.map((skill) => {
+                  const skillName = typeof skill === "string" ? skill : skill.name;
+                  return (
+                    <span
+                      key={skillName}
+                      className="rounded-lg border border-zinc-800 bg-zinc-900/30 px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-100"
+                    >
+                      {skillName}
+                    </span>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
