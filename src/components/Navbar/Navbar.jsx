@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 import useActiveSection from "../../hooks/useActiveSection";
@@ -7,6 +8,8 @@ import { navigation } from "../../data/navigation";
 import Container from "../Container/Container";
 
 const Navbar = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const activeSection = useActiveSection();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -49,8 +52,8 @@ const Navbar = () => {
       <Container>
         <nav className="flex h-16 md:h-20 items-center justify-between" aria-label="Main navigation">
           {/* Brand Logo */}
-          <a
-            href="#hero"
+          <Link
+            to="/"
             className="
               font-['Space_Grotesk']
               text-lg
@@ -69,16 +72,17 @@ const Navbar = () => {
             aria-label="Abhishek M R - Home"
           >
             Abhishek M R
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className="hidden items-center gap-8 md:flex text-sm font-medium" role="menubar">
             {navigation.map((item) => {
-              const isActive = activeSection === item.href.replace("#", "");
+              const targetHref = isHome ? item.href : `/${item.href}`;
+              const isActive = isHome && activeSection === item.href.replace("#", "");
               return (
                 <li key={item.name} role="none">
                   <a
-                    href={item.href}
+                    href={targetHref}
                     className={`
                       transition-colors
                       duration-200
@@ -170,34 +174,38 @@ const Navbar = () => {
             aria-label="Mobile navigation menu"
           >
             <ul className="space-y-4" role="menubar">
-              {navigation.map((item) => (
-                <li key={item.name} role="none">
-                  <a
-                    href={item.href}
-                    onClick={closeMenu}
-                    className={`
-                      block
-                      py-2
-                      text-base
-                      font-medium
-                      transition-colors
-                      ${
-                        activeSection === item.href.replace("#", "")
-                          ? "text-blue-400 font-semibold"
-                          : "text-zinc-300 hover:text-white"
-                      }
-                      focus-visible:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-blue-500
-                      rounded
-                    `}
-                    role="menuitem"
-                    aria-current={activeSection === item.href.replace("#", "") ? "page" : undefined}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
+              {navigation.map((item) => {
+                const targetHref = isHome ? item.href : `/${item.href}`;
+                const isActive = isHome && activeSection === item.href.replace("#", "");
+                return (
+                  <li key={item.name} role="none">
+                    <a
+                      href={targetHref}
+                      onClick={closeMenu}
+                      className={`
+                        block
+                        py-2
+                        text-base
+                        font-medium
+                        transition-colors
+                        ${
+                          isActive
+                            ? "text-blue-400 font-semibold"
+                            : "text-zinc-300 hover:text-white"
+                        }
+                        focus-visible:outline-none
+                        focus-visible:ring-2
+                        focus-visible:ring-blue-500
+                        rounded
+                      `}
+                      role="menuitem"
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="mt-6 pt-4 border-t border-zinc-800">

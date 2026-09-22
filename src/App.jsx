@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import ScrollTop from "./components/ScrollTop/ScrollTop";
@@ -10,9 +11,20 @@ import PacketSniffer from "./pages/PacketSniffer";
 import SpecterProxy from "./pages/SpecterProxy";
 import NotFound from "./pages/NotFound";
 
+function ScrollToTopOnRoute() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTopOnRoute />
       <ScrollProgress />
       <ScrollTop />
 
