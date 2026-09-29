@@ -22,7 +22,7 @@ export const projects = [
     ],
     metrics: "4.5M+ Evt/s • ~220ns Latency • Invariant P&L",
     image: liquiditylensImage,
-    github: "https://github.com/abhi-byte62/liquiditylens",
+    github: "https://github.com/abhi-byte62/liqudity",
     route: "/liquiditylens",
   },
   {

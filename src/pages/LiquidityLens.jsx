@@ -766,7 +766,7 @@ const LiquidityLens = () => {
             </div>
 
             <a
-              href="https://github.com/abhi-byte62/liquiditylens"
+              href="https://github.com/abhi-byte62/liqudity"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF]"
