@@ -493,7 +493,7 @@ const LiquidityLens = () => {
               <img
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
-                className="w-full rounded-xl object-contain border border-[#1C2942]"
+                className="w-full rounded-xl object-contain shadow-lg"
               />
             </div>
           </div>
