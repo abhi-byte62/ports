@@ -226,7 +226,7 @@ const TaskFlow = () => {
   const [activeScreenshot, setActiveScreenshot] = useState(screenshots[0]);
 
   return (
-    <main className="min-h-screen bg-[#080A0C] py-32 text-[#F2F5F7]">
+    <main className="min-h-screen bg-[#050914] py-32 text-[#F5F7FF]">
       <SEO
         title="TaskFlow | Real-Time Collaborative Task Management Case Study | Abhishek M R"
         description="Engineering case study: FAANG-grade real-time collaborative Kanban workspace built with React 18, Node.js, PostgreSQL 17, Prisma ORM, Socket.io, and OCC concurrency."
@@ -238,7 +238,7 @@ const TaskFlow = () => {
         <div className="mx-auto max-w-5xl mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-[#8B96A3] hover:text-[#5CE6A8] transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
           >
             <HiArrowLeft size={16} />
             Back to Engineering Portfolio
@@ -248,22 +248,22 @@ const TaskFlow = () => {
         {/* Hero Section */}
         <section className="mx-auto max-w-5xl mb-16">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="rounded bg-[#10261C] px-2.5 py-1 text-xs font-mono font-semibold text-[#5CE6A8] border border-[#5CE6A8]/20">
+            <span className="rounded bg-[#0D1B3A] px-2.5 py-1 text-xs font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
               FEATURED CASE STUDY
             </span>
-            <span className="rounded bg-[#101419] px-2.5 py-1 text-xs font-mono text-[#8B96A3] border border-[#222A32]">
+            <span className="rounded bg-[#0D1424] px-2.5 py-1 text-xs font-mono text-[#8D99B5] border border-[#1C2942]">
               DISTRIBUTED SYSTEMS & COLLABORATION
             </span>
-            <span className="rounded bg-[#101419] px-2.5 py-1 text-xs font-mono text-[#8B96A3] border border-[#222A32]">
+            <span className="rounded bg-[#0D1424] px-2.5 py-1 text-xs font-mono text-[#8D99B5] border border-[#1C2942]">
               FULL-STACK ARCHITECTURE
             </span>
           </div>
 
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F2F5F7]">
+          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F5F7FF]">
             TaskFlow: Real-Time Collaborative Kanban & Distributed Task Engine
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-[#8B96A3] leading-relaxed max-w-3xl">
+          <p className="mt-6 text-lg md:text-xl text-[#8D99B5] leading-relaxed max-w-3xl">
             A production-grade, FAANG-level collaborative workspace engineered for high-concurrency real-time teams. Features optimistic concurrency control (OCC), gap-based float positioning algorithms, strict server-side RBAC, and atomic Prisma transactional pipelines.
           </p>
 
@@ -284,7 +284,7 @@ const TaskFlow = () => {
             ].map((tech) => (
               <span
                 key={tech}
-                className="rounded-lg border border-[#222A32] bg-[#101419] px-3.5 py-1.5 text-xs font-medium text-[#8B96A3]"
+                className="rounded-lg border border-[#1C2942] bg-[#0D1424] px-3.5 py-1.5 text-xs font-medium text-[#8D99B5]"
               >
                 {tech}
               </span>
@@ -301,28 +301,28 @@ const TaskFlow = () => {
         <section className="mx-auto max-w-5xl mb-20">
           <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
+              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
                 SYSTEM INTERFACES & WORKFLOWS
               </span>
-              <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F2F5F7] mt-1">
+              <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mt-1">
                 Visual Inspection & Interface Gallery
               </h2>
             </div>
-            <p className="text-xs text-[#8B96A3] font-mono">
+            <p className="text-xs text-[#8D99B5] font-mono">
               Click tabs to inspect production workspace views
             </p>
           </div>
 
           {/* Screenshot Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 p-1.5 rounded-xl border border-[#222A32] bg-[#101419]">
+          <div className="flex flex-wrap gap-2 mb-6 p-1.5 rounded-xl border border-[#1C2942] bg-[#0D1424]">
             {screenshots.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveScreenshot(item)}
                 className={`rounded-lg px-3.5 py-2 text-xs font-medium transition-all ${
                   activeScreenshot.id === item.id
-                    ? "bg-[#5CE6A8] text-[#080A0C] font-semibold shadow-sm"
-                    : "text-[#8B96A3] hover:text-[#F2F5F7] hover:bg-[#151B22]"
+                    ? "bg-[#4D7CFF] text-[#050914] font-semibold shadow-sm"
+                    : "text-[#8D99B5] hover:text-[#F5F7FF] hover:bg-[#10182A]"
                 }`}
               >
                 {item.title}
@@ -331,25 +331,25 @@ const TaskFlow = () => {
           </div>
 
           {/* Active Screenshot Display */}
-          <div className="overflow-hidden rounded-2xl border border-[#222A32] bg-[#101419] shadow-2xl transition-all">
-            <div className="border-b border-[#222A32] bg-[#101419] px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+          <div className="overflow-hidden rounded-2xl border border-[#1C2942] bg-[#0D1424] shadow-2xl transition-all">
+            <div className="border-b border-[#1C2942] bg-[#0D1424] px-6 py-4 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <span className="rounded bg-[#10261C] px-2 py-0.5 text-[10px] font-mono font-semibold text-[#5CE6A8] border border-[#5CE6A8]/20">
+                <span className="rounded bg-[#0D1B3A] px-2 py-0.5 text-[10px] font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
                   {activeScreenshot.badge}
                 </span>
-                <h3 className="font-semibold text-sm text-[#F2F5F7]">
+                <h3 className="font-semibold text-sm text-[#F5F7FF]">
                   {activeScreenshot.title}
                 </h3>
               </div>
-              <p className="text-xs text-[#8B96A3] max-w-xl">
+              <p className="text-xs text-[#8D99B5] max-w-xl">
                 {activeScreenshot.description}
               </p>
             </div>
-            <div className="relative bg-[#080A0C] p-2 sm:p-4">
+            <div className="relative bg-[#050914] p-2 sm:p-4">
               <img
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
-                className="w-full rounded-xl object-contain border border-[#222A32]"
+                className="w-full rounded-xl object-contain border border-[#1C2942]"
               />
             </div>
           </div>
@@ -359,25 +359,25 @@ const TaskFlow = () => {
         <div className="mx-auto max-w-5xl space-y-20">
           {/* Section 1: The Problem & Engineering Vision */}
           <section>
-            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F2F5F7] mb-6">
+            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mb-6">
               1. The Architectural Challenge: Scaling Real-Time Kanban State
             </h2>
-            <div className="prose prose-invert max-w-none text-[#8B96A3] text-sm sm:text-base leading-relaxed space-y-4">
+            <div className="prose prose-invert max-w-none text-[#8D99B5] text-sm sm:text-base leading-relaxed space-y-4">
               <p>
                 Collaborative project management applications face a notoriously difficult distributed systems problem: keeping state synchronized across hundreds of concurrent clients while maintaining sub-millisecond drag responsiveness, zero dirty writes, and transactional correctness.
               </p>
               <p>
                 Naive implementations typically suffer from three crippling bottlenecks:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-[#8B96A3]">
+              <ul className="list-disc pl-6 space-y-2 text-[#8D99B5]">
                 <li>
-                  <strong className="text-[#F2F5F7]">Index Cascades:</strong> Storing card positions as sequential integers (1, 2, 3...) forces a database write on every sibling card whenever a single item is inserted between rows.
+                  <strong className="text-[#F5F7FF]">Index Cascades:</strong> Storing card positions as sequential integers (1, 2, 3...) forces a database write on every sibling card whenever a single item is inserted between rows.
                 </li>
                 <li>
-                  <strong className="text-[#F2F5F7]">Dirty Overwrites (Lost Updates):</strong> When two project managers edit task assignees, tags, or columns simultaneously, standard REST endpoints silently overwrite each other's work without notification.
+                  <strong className="text-[#F5F7FF]">Dirty Overwrites (Lost Updates):</strong> When two project managers edit task assignees, tags, or columns simultaneously, standard REST endpoints silently overwrite each other's work without notification.
                 </li>
                 <li>
-                  <strong className="text-[#F2F5F7]">Decoupled Audit Logs:</strong> Logging state changes via un-isolated background jobs results in orphaned activity feeds if a database connection drops mid-flight.
+                  <strong className="text-[#F5F7FF]">Decoupled Audit Logs:</strong> Logging state changes via un-isolated background jobs results in orphaned activity feeds if a database connection drops mid-flight.
                 </li>
               </ul>
               <p>
@@ -397,20 +397,20 @@ const TaskFlow = () => {
           </section>
 
           {/* Section 3: Deep Dive - OCC & Conflict Resolution */}
-          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
+          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
               TECHNICAL DEEP DIVE 01
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mt-1 mb-4">
               Optimistic Concurrency Control (OCC) & 409 State Recovery
             </h3>
 
-            <div className="text-[#8B96A3] text-sm leading-relaxed space-y-4">
+            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
               <p>
-                To avoid costly database row locks that block read operations, TaskFlow enforces a strictly non-blocking <strong className="text-[#F2F5F7]">Optimistic Concurrency Control (OCC)</strong> model. Every task entity maintains an auto-incrementing integer <code className="text-[#5CE6A8] font-mono">version</code> counter.
+                To avoid costly database row locks that block read operations, TaskFlow enforces a strictly non-blocking <strong className="text-[#F5F7FF]">Optimistic Concurrency Control (OCC)</strong> model. Every task entity maintains an auto-incrementing integer <code className="text-[#4D7CFF] font-mono">version</code> counter.
               </p>
               <p>
-                When a client dispatches a mutation, the current version is submitted alongside payload changes. If another collaborator modified the card in the interim, the server halts execution, aborts the transaction, and returns an HTTP <code className="text-[#5CE6A8] font-mono">409 Conflict</code>. The client-side TanStack Query cache automatically pulls the latest server state and alerts the user with an interactive diff resolution dialog.
+                When a client dispatches a mutation, the current version is submitted alongside payload changes. If another collaborator modified the card in the interim, the server halts execution, aborts the transaction, and returns an HTTP <code className="text-[#4D7CFF] font-mono">409 Conflict</code>. The client-side TanStack Query cache automatically pulls the latest server state and alerts the user with an interactive diff resolution dialog.
               </p>
             </div>
 
@@ -425,20 +425,20 @@ const TaskFlow = () => {
           </section>
 
           {/* Section 4: Deep Dive - Gap-Based Float Positioning */}
-          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
+          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
               TECHNICAL DEEP DIVE 02
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
-              Gap-Based Float Positioning Algorithm (<code className="text-[#5CE6A8] font-mono">O(1)</code> Drag Complexity)
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mt-1 mb-4">
+              Gap-Based Float Positioning Algorithm (<code className="text-[#4D7CFF] font-mono">O(1)</code> Drag Complexity)
             </h3>
 
-            <div className="text-[#8B96A3] text-sm leading-relaxed space-y-4">
+            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
               <p>
-                Instead of recalculating array indices for all items in a column, TaskFlow assigns each task an IEEE 754 floating-point position. When dropping a task between cards at positions <code className="text-[#F2F5F7] font-mono">A</code> and <code className="text-[#F2F5F7] font-mono">B</code>, the new position is simply the mathematical midpoint: <code className="text-[#5CE6A8] font-mono">(A + B) / 2.0</code>.
+                Instead of recalculating array indices for all items in a column, TaskFlow assigns each task an IEEE 754 floating-point position. When dropping a task between cards at positions <code className="text-[#F5F7FF] font-mono">A</code> and <code className="text-[#F5F7FF] font-mono">B</code>, the new position is simply the mathematical midpoint: <code className="text-[#4D7CFF] font-mono">(A + B) / 2.0</code>.
               </p>
               <p>
-                <strong className="text-[#F2F5F7]">Automatic Column Rebalancing:</strong> In high-frequency reordering scenarios where the gap between consecutive cards drops below <code className="text-[#5CE6A8] font-mono">0.001</code>, the system triggers an automatic background rebalance that spaces cards evenly in intervals of 1,000. This maintains <code className="text-[#5CE6A8] font-mono">O(1)</code> insertion performance for 99.9% of user interactions.
+                <strong className="text-[#F5F7FF]">Automatic Column Rebalancing:</strong> In high-frequency reordering scenarios where the gap between consecutive cards drops below <code className="text-[#4D7CFF] font-mono">0.001</code>, the system triggers an automatic background rebalance that spaces cards evenly in intervals of 1,000. This maintains <code className="text-[#4D7CFF] font-mono">O(1)</code> insertion performance for 99.9% of user interactions.
               </p>
             </div>
 
@@ -463,28 +463,28 @@ const TaskFlow = () => {
           </section>
 
           {/* Section 6: Security, RBAC & Observability */}
-          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
+          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
               SECURITY & OBSERVABILITY
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mt-1 mb-4">
               Enterprise RBAC & Production Resilience Matrix
             </h3>
 
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 text-xs sm:text-sm text-[#8B96A3]">
-              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
-                <div className="flex items-center gap-2 text-[#F2F5F7] font-semibold mb-2">
-                  <FiLock className="text-[#5CE6A8]" />
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 text-xs sm:text-sm text-[#8D99B5]">
+              <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-5">
+                <div className="flex items-center gap-2 text-[#F5F7FF] font-semibold mb-2">
+                  <FiLock className="text-[#4D7CFF]" />
                   Hierarchical RBAC
                 </div>
                 <p className="leading-relaxed">
-                  Strict server-side validation enforcing <code className="text-[#F2F5F7] font-mono">OWNER &gt; ADMIN &gt; MEMBER &gt; VIEWER</code> role boundaries on all mutating endpoints.
+                  Strict server-side validation enforcing <code className="text-[#F5F7FF] font-mono">OWNER &gt; ADMIN &gt; MEMBER &gt; VIEWER</code> role boundaries on all mutating endpoints.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
-                <div className="flex items-center gap-2 text-[#F2F5F7] font-semibold mb-2">
-                  <FiZap className="text-[#5CE6A8]" />
+              <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-5">
+                <div className="flex items-center gap-2 text-[#F5F7FF] font-semibold mb-2">
+                  <FiZap className="text-[#4D7CFF]" />
                   Multi-Tier Rate Limiting
                 </div>
                 <p className="leading-relaxed">
@@ -492,23 +492,23 @@ const TaskFlow = () => {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
-                <div className="flex items-center gap-2 text-[#F2F5F7] font-semibold mb-2">
-                  <FiDatabase className="text-[#5CE6A8]" />
+              <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-5">
+                <div className="flex items-center gap-2 text-[#F5F7FF] font-semibold mb-2">
+                  <FiDatabase className="text-[#4D7CFF]" />
                   Health & Liveness Probes
                 </div>
                 <p className="leading-relaxed">
-                  Kubernetes/Docker-ready <code className="text-[#F2F5F7] font-mono">/api/health</code> (liveness) and <code className="text-[#F2F5F7] font-mono">/api/ready</code> (deep DB/Redis readiness verification).
+                  Kubernetes/Docker-ready <code className="text-[#F5F7FF] font-mono">/api/health</code> (liveness) and <code className="text-[#F5F7FF] font-mono">/api/ready</code> (deep DB/Redis readiness verification).
                 </p>
               </div>
             </div>
           </section>
 
           {/* Bottom Actions */}
-          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#222A32] sm:flex-row">
+          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#1C2942] sm:flex-row">
             <Link
               to="/packet-sniffer"
-              className="text-sm font-medium text-[#5CE6A8] hover:text-[#72F0B5] transition-colors"
+              className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
             >
               Next Case Study: Packet Sniffer 3D &rarr;
             </Link>
@@ -517,7 +517,7 @@ const TaskFlow = () => {
               href="https://github.com/abhi-byte62/taskflow"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#5CE6A8] px-5 py-2.5 text-sm font-semibold text-[#080A0C] transition-all hover:bg-[#72F0B5]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF]"
             >
               <FaGithub size={16} />
               Review Source Code on GitHub

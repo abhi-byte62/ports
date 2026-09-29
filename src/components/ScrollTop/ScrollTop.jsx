@@ -36,18 +36,18 @@ const ScrollTop = () => {
         justify-center
         rounded-lg
         border
-        border-[#222A32]
-        bg-[#101419]/90
-        text-[#8B96A3]
+        border-[#1C2942]
+        bg-[#0D1424]/90
+        text-[#8D99B5]
         shadow-lg
         backdrop-blur-md
         transition-all
         duration-200
-        hover:border-[#5CE6A8]
-        hover:text-[#5CE6A8]
+        hover:border-[#4D7CFF]
+        hover:text-[#6D96FF]
         focus:outline-none
         focus-visible:ring-2
-        focus-visible:ring-[#5CE6A8]
+        focus-visible:ring-[#4D7CFF]
       "
     >
       <HiArrowUp className="text-base" />

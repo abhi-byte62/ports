@@ -33,7 +33,7 @@ const tenets = [
 
 const About = () => {
   return (
-    <Section id="about">
+    <Section id="about" className="relative">
       <Container>
         <SectionTitle
           tag="ENGINEERING APPROACH"
@@ -50,23 +50,23 @@ const About = () => {
         >
           {/* Left Column - Engineering Narrative */}
           <div className="flex flex-col justify-between lg:col-span-5">
-            <div className="space-y-5 text-base leading-relaxed text-[#8B96A3]">
+            <div className="space-y-5 text-base leading-relaxed text-[#8D99B5]">
               <p>
                 I am a Software Engineer passionate about designing resilient backend systems, scalable web applications, and developer-centric tooling.
               </p>
               <p>
-                My engineering journey bridges full-stack application development (<span className="text-[#F2F5F7]">Java, Spring Boot, Node.js, React</span>) with low-level systems programming (binary protocol parsers, custom HTTP/HTTPS proxies, and WebGL graphics engines).
+                My engineering journey bridges full-stack application development (<span className="text-[#F5F7FF]">Java, Spring Boot, Node.js, React</span>) with low-level systems programming (binary protocol parsers, custom HTTP/HTTPS proxies, and WebGL graphics engines).
               </p>
               <p>
                 Whether architecting microservices, implementing real-time event pipelines, or solving algorithmic challenges, I focus on building reliable, clean, and well-tested software that scales seamlessly.
               </p>
             </div>
 
-            <div className="mt-8 rounded-xl border border-[#222A32] bg-[#101419] p-5 shadow-sm">
-              <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#5CE6A8]">
+            <div className="mt-8 rounded-xl border border-[#1C2942] bg-[#0D1424] p-5 shadow-sm">
+              <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#4D7CFF]">
                 Core Software Engineering Focus
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-[#8B96A3]">
+              <p className="mt-2 text-xs leading-relaxed text-[#8D99B5]">
                 Full-Stack Web Engineering, Scalable Backend Services, Data Structures & Algorithms, Distributed Systems, and Low-Level Network Tooling.
               </p>
             </div>
@@ -77,17 +77,17 @@ const About = () => {
             {tenets.map((tenet) => (
               <div
                 key={tenet.number}
-                className="group rounded-xl border border-[#222A32] bg-[#101419] p-6 transition-all duration-200 hover:border-[#5CE6A8]/40 hover:bg-[#151B22]"
+                className="group rounded-xl border border-[#1C2942] bg-[#0D1424] p-6 transition-all duration-200 hover:border-[#4D7CFF]/40 hover:bg-[#10182A]"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-xs font-bold text-[#5CE6A8]">
+                  <span className="font-mono text-xs font-bold text-[#4D7CFF]">
                     {tenet.number}
                   </span>
-                  <h3 className="font-['Space_Grotesk'] text-base md:text-lg font-bold text-[#F2F5F7] group-hover:text-[#72F0B5] transition-colors">
+                  <h3 className="font-['Space_Grotesk'] text-base md:text-lg font-bold text-[#F5F7FF] group-hover:text-[#6D96FF] transition-colors">
                     {tenet.title}
                   </h3>
                 </div>
-                <p className="mt-2.5 text-xs md:text-sm leading-relaxed text-[#8B96A3]">
+                <p className="mt-2.5 text-xs md:text-sm leading-relaxed text-[#8D99B5]">
                   {tenet.description}
                 </p>
               </div>

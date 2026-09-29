@@ -8,7 +8,7 @@ import { skillsMatrix } from "../data/skills";
 
 const Skills = () => {
   return (
-    <Section id="skills">
+    <Section id="skills" className="relative">
       <Container>
         <SectionTitle
           tag="COMPETENCY MATRIX"
@@ -24,19 +24,19 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col justify-between rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8 transition-colors hover:border-[#5CE6A8]/40"
+              className="flex flex-col justify-between rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8 transition-colors hover:border-[#4D7CFF]/40"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-['Space_Grotesk'] text-lg md:text-xl font-bold text-[#F2F5F7]">
+                  <h3 className="font-['Space_Grotesk'] text-lg md:text-xl font-bold text-[#F5F7FF]">
                     {group.category}
                   </h3>
-                  <span className="text-[10px] font-mono text-[#8B96A3]/70 uppercase tracking-wider">
+                  <span className="text-[10px] font-mono text-[#5F6B83] uppercase tracking-wider">
                     PILLAR 0{index + 1}
                   </span>
                 </div>
 
-                <p className="mt-2 text-xs md:text-sm text-[#8B96A3] leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm text-[#8D99B5] leading-relaxed">
                   {group.focus}
                 </p>
 
@@ -44,11 +44,11 @@ const Skills = () => {
                   {group.items.map((skill) => (
                     <div
                       key={skill.name}
-                      className="group flex items-center gap-2 rounded-lg border border-[#222A32] bg-[#080A0C] px-3 py-2 text-xs transition-colors hover:border-[#5CE6A8]/40 hover:bg-[#151B22]"
+                      className="group flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#050914] px-3 py-2 text-xs transition-colors hover:border-[#4D7CFF]/40 hover:bg-[#10182A]"
                     >
-                      <span className="font-medium text-[#F2F5F7]">{skill.name}</span>
+                      <span className="font-medium text-[#F5F7FF]">{skill.name}</span>
                       {skill.tag && (
-                        <span className="rounded bg-[#10261C] px-1.5 py-0.5 text-[10px] font-mono font-medium text-[#5CE6A8] border border-[#5CE6A8]/20">
+                        <span className="rounded bg-[#0D1B3A] px-1.5 py-0.5 text-[10px] font-mono font-medium text-[#6D96FF] border border-[#4D7CFF]/20">
                           {skill.tag}
                         </span>
                       )}

@@ -43,7 +43,7 @@ const Navbar = () => {
         duration-300
         ${
           scrolled
-            ? "bg-[#080A0C]/90 backdrop-blur-md border-b border-[#222A32] shadow-sm"
+            ? "bg-[#050914]/90 backdrop-blur-md border-b border-[#1C2942] shadow-sm"
             : "bg-transparent"
         }
       `}
@@ -60,12 +60,12 @@ const Navbar = () => {
               md:text-xl
               font-bold
               tracking-tight
-              text-[#F2F5F7]
-              hover:text-[#5CE6A8]
+              text-[#F5F7FF]
+              hover:text-[#4D7CFF]
               transition-colors
               focus-visible:outline-none
               focus-visible:ring-2
-              focus-visible:ring-[#5CE6A8]
+              focus-visible:ring-[#4D7CFF]
               rounded-md
               px-1
             "
@@ -88,12 +88,12 @@ const Navbar = () => {
                       duration-200
                       ${
                         isActive
-                          ? "text-[#5CE6A8] font-semibold"
-                          : "text-[#8B96A3] hover:text-[#72F0B5]"
+                          ? "text-[#4D7CFF] font-semibold"
+                          : "text-[#8D99B5] hover:text-[#6D96FF]"
                       }
                       focus-visible:outline-none
                       focus-visible:ring-2
-                      focus-visible:ring-[#5CE6A8]
+                      focus-visible:ring-[#4D7CFF]
                       rounded
                       px-2
                       py-1
@@ -120,20 +120,20 @@ const Navbar = () => {
                 justify-center
                 rounded-lg
                 border
-                border-[#222A32]
-                bg-[#101419]
+                border-[#1C2942]
+                bg-[#0D1424]
                 px-4
                 py-2
                 text-sm
                 font-medium
-                text-[#F2F5F7]
+                text-[#F5F7FF]
                 transition-all
                 duration-200
-                hover:border-[#5CE6A8]
-                hover:text-[#5CE6A8]
+                hover:border-[#4D7CFF]
+                hover:text-[#6D96FF]
                 focus-visible:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-[#5CE6A8]
+                focus-visible:ring-[#4D7CFF]
               "
               aria-label="Download Resume (opens in new tab)"
             >
@@ -144,7 +144,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="text-xl text-[#8B96A3] hover:text-[#F2F5F7] md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-[#222A32] bg-[#101419] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5CE6A8]"
+            className="text-xl text-[#8D99B5] hover:text-[#F5F7FF] md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-[#1C2942] bg-[#0D1424] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -161,8 +161,8 @@ const Navbar = () => {
               md:hidden
               rounded-2xl
               border
-              border-[#222A32]
-              bg-[#101419]/95
+              border-[#1C2942]
+              bg-[#0D1424]/95
               p-6
               mt-2
               mb-4
@@ -189,12 +189,12 @@ const Navbar = () => {
                         transition-colors
                         ${
                           isActive
-                            ? "text-[#5CE6A8] font-semibold"
-                            : "text-[#8B96A3] hover:text-[#72F0B5]"
+                            ? "text-[#4D7CFF] font-semibold"
+                            : "text-[#8D99B5] hover:text-[#6D96FF]"
                         }
                         focus-visible:outline-none
                         focus-visible:ring-2
-                        focus-visible:ring-[#5CE6A8]
+                        focus-visible:ring-[#4D7CFF]
                         rounded
                       `}
                       role="menuitem"
@@ -207,7 +207,7 @@ const Navbar = () => {
               })}
             </ul>
 
-            <div className="mt-6 pt-4 border-t border-[#222A32]">
+            <div className="mt-6 pt-4 border-t border-[#1C2942]">
               <a
                 href="/resume.pdf"
                 target="_blank"
@@ -219,19 +219,19 @@ const Navbar = () => {
                   text-center
                   rounded-lg
                   border
-                  border-[#222A32]
-                  bg-[#080A0C]
+                  border-[#1C2942]
+                  bg-[#050914]
                   px-4
                   py-2.5
                   text-sm
                   font-medium
-                  text-[#F2F5F7]
+                  text-[#F5F7FF]
                   transition-colors
-                  hover:border-[#5CE6A8]
-                  hover:text-[#5CE6A8]
+                  hover:border-[#4D7CFF]
+                  hover:text-[#6D96FF]
                   focus-visible:outline-none
                   focus-visible:ring-2
-                  focus-visible:ring-[#5CE6A8]
+                  focus-visible:ring-[#4D7CFF]
                 "
                 aria-label="Download Resume (opens in new tab)"
               >

@@ -28,11 +28,11 @@ const Button = ({
         duration-200
         focus-visible:outline-none
         focus-visible:ring-2
-        focus-visible:ring-[#5CE6A8]
+        focus-visible:ring-[#4D7CFF]
         ${
           isPrimary
-            ? "bg-[#5CE6A8] text-[#080A0C] hover:bg-[#72F0B5] hover:shadow-sm"
-            : "border border-[#222A32] bg-[#101419] text-[#F2F5F7] hover:border-[#5CE6A8] hover:text-[#5CE6A8]"
+            ? "bg-[#4D7CFF] text-[#050914] hover:bg-[#6D96FF] hover:shadow-sm"
+            : "border border-[#1C2942] bg-transparent text-[#F5F7FF] hover:border-[#4D7CFF] hover:text-[#6D96FF]"
         }
         ${className}
       `}

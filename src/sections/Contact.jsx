@@ -39,26 +39,26 @@ const contacts = [
 
 const Contact = () => {
   return (
-    <Section id="contact">
+    <Section id="contact" className="relative">
       <Container>
-        <div className="rounded-3xl border border-[#222A32] bg-[#101419] p-8 md:p-16 text-center shadow-lg relative overflow-hidden">
-          {/* Subtle faint mint radial highlight */}
+        <div className="rounded-3xl border border-[#1C2942] bg-[#0D1424] p-8 md:p-16 text-center shadow-lg relative overflow-hidden">
+          {/* Subtle faint blue radial highlight */}
           <div
             className="pointer-events-none absolute inset-0 -z-0 opacity-40"
             style={{
-              background: "radial-gradient(circle at 50% 0%, rgba(16, 38, 28, 0.5) 0%, transparent 65%)",
+              background: "radial-gradient(circle at 50% 0%, rgba(24, 58, 145, 0.35) 0%, transparent 65%)",
             }}
           />
 
           <div className="relative z-10">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
               GET IN TOUCH
             </span>
-            <h2 className="mt-2 font-['Space_Grotesk'] text-3xl md:text-5xl font-bold tracking-tight text-[#F2F5F7]">
+            <h2 className="mt-2 font-['Space_Grotesk'] text-3xl md:text-5xl font-bold tracking-tight text-[#F5F7FF]">
               Let's connect.
             </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-base md:text-lg text-[#8B96A3] leading-relaxed">
+            <p className="mx-auto mt-4 max-w-xl text-base md:text-lg text-[#8D99B5] leading-relaxed">
               I'm open to software engineering opportunities, backend infrastructure roles, and collaborative projects. Feel free to reach out.
             </p>
 
@@ -69,11 +69,11 @@ const Contact = () => {
                   href={contact.link}
                   target={contact.name === "Email" ? "_self" : "_blank"}
                   rel="noreferrer"
-                  className="flex flex-col items-center justify-center rounded-2xl border border-[#222A32] bg-[#080A0C] p-6 transition-all duration-200 hover:border-[#5CE6A8]/50 hover:bg-[#151B22]"
+                  className="flex flex-col items-center justify-center rounded-2xl border border-[#1C2942] bg-[#050914] p-6 transition-all duration-200 hover:border-[#4D7CFF]/50 hover:bg-[#10182A]"
                 >
-                  <div className="mb-3 text-[#5CE6A8]">{contact.icon}</div>
-                  <h3 className="text-sm font-semibold text-[#F2F5F7]">{contact.name}</h3>
-                  <p className="mt-1 font-mono text-xs text-[#8B96A3]">{contact.value}</p>
+                  <div className="mb-3 text-[#4D7CFF]">{contact.icon}</div>
+                  <h3 className="text-sm font-semibold text-[#F5F7FF]">{contact.name}</h3>
+                  <p className="mt-1 font-mono text-xs text-[#8D99B5]">{contact.value}</p>
                 </a>
               ))}
             </div>
