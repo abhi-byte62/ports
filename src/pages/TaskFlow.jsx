@@ -229,7 +229,7 @@ const TaskFlow = () => {
     <main className="min-h-screen bg-[#050914] py-32 text-[#F5F7FF]">
       <SEO
         title="TaskFlow | Real-Time Collaborative Task Management Case Study | Abhishek M R"
-        description="Engineering case study: FAANG-grade real-time collaborative Kanban workspace built with React 18, Node.js, PostgreSQL 17, Prisma ORM, Socket.io, and OCC concurrency."
+        description="Engineering case study: Real-time collaborative Kanban workspace built with React 18, Node.js, PostgreSQL 17, Prisma ORM, Socket.io, and OCC concurrency."
         keywords="React 18, Node.js, PostgreSQL 17, Prisma, Socket.io, Concurrency Control, Kanban, @dnd-kit, Full Stack Engineering"
       />
 
@@ -264,7 +264,7 @@ const TaskFlow = () => {
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-[#8D99B5] leading-relaxed max-w-3xl">
-            A production-grade, FAANG-level collaborative workspace engineered for high-concurrency real-time teams. Features optimistic concurrency control (OCC), gap-based float positioning algorithms, strict server-side RBAC, and atomic Prisma transactional pipelines.
+            A real-time collaborative workspace engineered for concurrent teams. Features version-checked optimistic concurrency control (OCC), float-gap positioning algorithms for O(1) card moves, server-side RBAC, and atomic Prisma transactional pipelines.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
@@ -381,7 +381,7 @@ const TaskFlow = () => {
                 </li>
               </ul>
               <p>
-                TaskFlow was engineered from the ground up to solve these hurdles using FAANG-grade architectural patterns: mathematical float-gap positioning, version-checked Optimistic Concurrency Control (OCC), and atomic Prisma transactions.
+                TaskFlow was engineered from the ground up to address these challenges with deliberate architectural patterns: mathematical float-gap positioning, version-checked Optimistic Concurrency Control (OCC), and atomic Prisma transactions.
               </p>
             </div>
           </section>

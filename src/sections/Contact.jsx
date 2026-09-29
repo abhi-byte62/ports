@@ -7,73 +7,102 @@ import Section from "../components/Section/Section";
 const contacts = [
   {
     name: "Email",
-    icon: <FaEnvelope size={20} />,
+    icon: <FaEnvelope size={18} />,
     link: "mailto:mrabhisheak@gmail.com",
     value: "mrabhisheak@gmail.com",
+    label: "Direct Email",
   },
   {
     name: "LinkedIn",
-    icon: <FaLinkedin size={20} />,
+    icon: <FaLinkedin size={18} />,
     link: "https://www.linkedin.com/in/abhishekmr029/",
     value: "linkedin.com/in/abhishekmr029",
+    label: "Professional Profile",
   },
   {
     name: "GitHub",
-    icon: <FaGithub size={20} />,
+    icon: <FaGithub size={18} />,
     link: "https://github.com/abhi-byte62",
     value: "github.com/abhi-byte62",
+    label: "Source Code & Repos",
   },
   {
     name: "LeetCode",
-    icon: <SiLeetcode size={20} />,
+    icon: <SiLeetcode size={18} />,
     link: "https://leetcode.com/u/playboldAbhi/",
     value: "leetcode.com/u/playboldAbhi",
+    label: "Problem Solving",
   },
   {
     name: "Codeforces",
-    icon: <SiCodeforces size={20} />,
+    icon: <SiCodeforces size={18} />,
     link: "https://codeforces.com/profile/playboldAbhi",
     value: "codeforces.com/profile/playboldAbhi",
+    label: "Competitive Programming",
   },
 ];
 
 const Contact = () => {
   return (
-    <Section id="contact" className="relative">
+    <Section id="contact" className="relative pb-24">
       <Container>
-        <div className="rounded-3xl border border-[#1C2942] bg-[#0D1424] p-8 md:p-16 text-center shadow-lg relative overflow-hidden">
-          {/* Subtle faint blue radial highlight */}
+        <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-8 md:p-12 shadow-sm relative overflow-hidden">
+          {/* Subtle faint blue ambient glow */}
           <div
-            className="pointer-events-none absolute inset-0 -z-0 opacity-40"
+            className="pointer-events-none absolute inset-0 -z-0 opacity-25"
             style={{
-              background: "radial-gradient(circle at 50% 0%, rgba(24, 58, 145, 0.35) 0%, transparent 65%)",
+              background: "radial-gradient(ellipse at 50% 0%, rgba(24, 58, 145, 0.3) 0%, transparent 60%)",
             }}
           />
 
-          <div className="relative z-10">
+          <div className="relative z-10 max-w-2xl">
             <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
               GET IN TOUCH
             </span>
-            <h2 className="mt-2 font-['Space_Grotesk'] text-3xl md:text-5xl font-bold tracking-tight text-[#F5F7FF]">
-              Let's connect.
+            <h2 className="mt-2 font-['Space_Grotesk'] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#F5F7FF]">
+              Have a problem worth solving?
             </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-base md:text-lg text-[#8D99B5] leading-relaxed">
-              I'm open to software engineering opportunities, backend infrastructure roles, and collaborative projects. Feel free to reach out.
+            <p className="mt-3 text-sm sm:text-base text-[#8D99B5] leading-relaxed">
+              I am open to software engineering opportunities, backend infrastructure roles, and technical discussions. The best way to reach me is via email.
             </p>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="mailto:mrabhisheak@gmail.com"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-4 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
+              >
+                <FaEnvelope size={14} />
+                Send Email
+              </a>
+
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#050914] px-4 py-2.5 text-sm font-medium text-[#F5F7FF] transition-colors hover:border-[#4D7CFF] hover:text-[#6D96FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+
+          <div className="relative z-10 mt-10 pt-8 border-t border-[#1C2942]">
+            <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {contacts.map((contact) => (
                 <a
                   key={contact.name}
                   href={contact.link}
                   target={contact.name === "Email" ? "_self" : "_blank"}
                   rel="noreferrer"
-                  className="flex flex-col items-center justify-center rounded-2xl border border-[#1C2942] bg-[#050914] p-6 transition-all duration-200 hover:border-[#4D7CFF]/50 hover:bg-[#10182A]"
+                  className="group flex flex-col rounded-xl border border-[#1C2942] bg-[#050914] p-4 transition-all duration-200 hover:border-[#4D7CFF]/50 hover:bg-[#10182A]"
                 >
-                  <div className="mb-3 text-[#4D7CFF]">{contact.icon}</div>
-                  <h3 className="text-sm font-semibold text-[#F5F7FF]">{contact.name}</h3>
-                  <p className="mt-1 font-mono text-xs text-[#8D99B5]">{contact.value}</p>
+                  <div className="flex items-center justify-between text-[#8D99B5] group-hover:text-[#4D7CFF] transition-colors mb-2">
+                    {contact.icon}
+                    <span className="text-[10px] font-mono text-[#5F6B83]">{contact.name}</span>
+                  </div>
+                  <span className="text-xs font-semibold text-[#F5F7FF] truncate">{contact.label}</span>
+                  <span className="mt-0.5 font-mono text-[11px] text-[#8D99B5] truncate">{contact.value}</span>
                 </a>
               ))}
             </div>

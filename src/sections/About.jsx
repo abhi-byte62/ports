@@ -7,27 +7,27 @@ import SectionTitle from "../components/SectionTitle/SectionTitle";
 const tenets = [
   {
     number: "01",
-    title: "Clean Architecture & Modular Design",
+    title: "Explicit State & Concurrency Control",
     description:
-      "Writing maintainable software requires strict separation of concerns between business domain logic, data streaming pipelines, and presentation layers. I prioritize decoupled modular interfaces and predictable data flow.",
+      "Preventing race conditions and dirty writes requires deliberate concurrency patterns. I rely on optimistic locking (OCC), atomic database transactions, and deterministic event ordering over naive client-side assumptions.",
   },
   {
     number: "02",
-    title: "Algorithmic Efficiency & Memory Predictability",
+    title: "Bounded Memory & Stream Backpressure",
     description:
-      "From choosing optimal data structures (ring buffers, LRU caches, typed array buffers) to mitigating runtime garbage collection pauses, I design software with deterministic time and space complexity.",
+      "High throughput without memory bounds leads to latency spikes and out-of-memory crashes. I design data pipelines with chunked stream transforms, object pooling, and strict highWaterMark backpressure flow control.",
   },
   {
     number: "03",
-    title: "End-to-End Reliability & Verification",
+    title: "End-to-End Correctness & Automated Testing",
     description:
-      "A production system is only as resilient as its failure handling. I build comprehensive automated test suites covering boundary parsing errors, abrupt socket terminations, and graceful degradation under high load.",
+      "A distributed feature is only done when its edge cases are tested. I build automated unit and integration suites covering malformed frame parsing, abrupt socket disconnects, conflict resolution, and graceful degradation.",
   },
   {
     number: "04",
-    title: "Deep Understanding Beyond Framework Abstractions",
+    title: "Foundations Over Framework Transience",
     description:
-      "Frameworks come and go, but foundational engineering remains invariant. Understanding how Node.js coordinates the libuv event loop, how browsers schedule GPU draws, and how TCP handles congestion makes every abstraction easier to master.",
+      "Frameworks evolve, but computer science fundamentals remain constant. Strong understanding of the TCP/IP stack, event loops, OS memory models, and algorithmic complexity informs better architectural decisions.",
   },
 ];
 
@@ -37,47 +37,47 @@ const About = () => {
       <Container>
         <SectionTitle
           tag="ENGINEERING APPROACH"
-          title="Software Engineering Principles & System Design"
-          subtitle="A disciplined software engineering philosophy centered on scalable architecture, clean codebases, algorithmic efficiency, and robust backend reliability."
+          title="Engineering Philosophy & Technical Focus"
+          subtitle="How I approach building reliable software systems, managing concurrency, and structuring maintainable codebases."
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="mt-16 grid gap-10 lg:grid-cols-12"
+          className="mt-14 grid gap-10 lg:grid-cols-12"
         >
           {/* Left Column - Engineering Narrative */}
           <div className="flex flex-col justify-between lg:col-span-5">
-            <div className="space-y-5 text-base leading-relaxed text-[#8D99B5]">
+            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#8D99B5]">
               <p>
-                I am a Software Engineer passionate about designing resilient backend systems, scalable web applications, and developer-centric tooling.
+                I am a software engineer focused on designing robust backend services, real-time collaboration engines, and developer tooling.
               </p>
               <p>
-                My engineering journey bridges full-stack application development (<span className="text-[#F5F7FF]">Java, Spring Boot, Node.js, React</span>) with low-level systems programming (binary protocol parsers, custom HTTP/HTTPS proxies, and WebGL graphics engines).
+                My work spans building scalable web applications with <span className="text-[#F5F7FF]">Java, Spring Boot, Node.js, and React</span> to low-level systems programming involving binary network protocol parsers, custom TLS forward proxies, and WebGL telemetry engines.
               </p>
               <p>
-                Whether architecting microservices, implementing real-time event pipelines, or solving algorithmic challenges, I focus on building reliable, clean, and well-tested software that scales seamlessly.
+                I prioritize clarity over cleverness: clean modular boundaries, explicit error handling, predictable algorithmic complexity, and comprehensive test suites.
               </p>
             </div>
 
-            <div className="mt-8 rounded-xl border border-[#1C2942] bg-[#0D1424] p-5 shadow-sm">
+            <div className="mt-8 rounded-xl border border-[#1C2942] bg-[#0D1424] p-5">
               <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#4D7CFF]">
-                Core Software Engineering Focus
+                Core Technical Focus Areas
               </div>
               <p className="mt-2 text-xs leading-relaxed text-[#8D99B5]">
-                Full-Stack Web Engineering, Scalable Backend Services, Data Structures & Algorithms, Distributed Systems, and Low-Level Network Tooling.
+                Backend Systems, Real-Time WebSockets, Concurrency & Stream Processing, Database Design, and Performance Profiling.
               </p>
             </div>
           </div>
 
           {/* Right Column - Engineering Tenets */}
-          <div className="space-y-4 lg:col-span-7">
+          <div className="space-y-3.5 lg:col-span-7">
             {tenets.map((tenet) => (
               <div
                 key={tenet.number}
-                className="group rounded-xl border border-[#1C2942] bg-[#0D1424] p-6 transition-all duration-200 hover:border-[#4D7CFF]/40 hover:bg-[#10182A]"
+                className="group rounded-xl border border-[#1C2942] bg-[#0D1424] p-5 sm:p-6 transition-all duration-200 hover:border-[#4D7CFF]/40 hover:bg-[#10182A]"
               >
                 <div className="flex items-baseline gap-3">
                   <span className="font-mono text-xs font-bold text-[#4D7CFF]">
@@ -87,7 +87,7 @@ const About = () => {
                     {tenet.title}
                   </h3>
                 </div>
-                <p className="mt-2.5 text-xs md:text-sm leading-relaxed text-[#8D99B5]">
+                <p className="mt-2 text-xs md:text-sm leading-relaxed text-[#8D99B5]">
                   {tenet.description}
                 </p>
               </div>
