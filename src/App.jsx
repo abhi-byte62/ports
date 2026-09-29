@@ -7,6 +7,7 @@ import ScrollTop from "./components/ScrollTop/ScrollTop";
 import MainLayout from "./layout/MainLayout";
 
 import Home from "./pages/Home";
+import TaskFlow from "./pages/TaskFlow";
 import PacketSniffer from "./pages/PacketSniffer";
 import SpecterProxy from "./pages/SpecterProxy";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/taskflow" element={<TaskFlow />} />
           <Route path="/packet-sniffer" element={<PacketSniffer />} />
           <Route path="/specter-proxy" element={<SpecterProxy />} />
         </Route>

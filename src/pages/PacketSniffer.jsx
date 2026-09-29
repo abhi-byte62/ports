@@ -126,7 +126,7 @@ function updatePackets(activePackets, progressRatio) {
 
 const PacketSniffer = () => {
   return (
-    <main className="min-h-screen bg-zinc-950 py-32 text-zinc-100">
+    <main className="min-h-screen bg-[#080A0C] py-32 text-[#F2F5F7]">
       <SEO
         title="Packet Sniffer 3D | Engineering Case Study | Abhishek M R"
         description="Engineering case study: High-performance 3D packet visualization engine built with Three.js, WebGL, and PCAP binary stream decoding."
@@ -138,7 +138,7 @@ const PacketSniffer = () => {
         <div className="mx-auto max-w-5xl mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#8B96A3] hover:text-[#5CE6A8] transition-colors"
           >
             <HiArrowLeft size={16} />
             Back to Engineering Portfolio
@@ -148,19 +148,19 @@ const PacketSniffer = () => {
         {/* Hero Section */}
         <section className="mx-auto max-w-5xl mb-16">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="rounded bg-blue-500/10 px-2.5 py-1 text-xs font-semibold text-blue-400 border border-blue-500/20">
-              CASE STUDY 01
+            <span className="rounded bg-[#10261C] px-2.5 py-1 text-xs font-mono font-semibold text-[#5CE6A8] border border-[#5CE6A8]/20">
+              CASE STUDY 02
             </span>
-            <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs font-mono text-zinc-300">
+            <span className="rounded bg-[#101419] px-2.5 py-1 text-xs font-mono text-[#8B96A3] border border-[#222A32]">
               NETWORKING & GRAPHICS
             </span>
           </div>
 
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F2F5F7]">
             Packet Sniffer 3D: Real-Time Network Topology & PCAP Engine
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
+          <p className="mt-6 text-lg md:text-xl text-[#8B96A3] leading-relaxed max-w-3xl">
             An engineering deep dive into transforming raw binary PCAP captures into a hardware-accelerated 3D spatial graph—rendering 50,000+ concurrent packets at 60 FPS using WebGL instancing.
           </p>
 
@@ -169,7 +169,7 @@ const PacketSniffer = () => {
               (tech) => (
                 <span
                   key={tech}
-                  className="rounded-lg border border-zinc-800 bg-zinc-900/60 px-3.5 py-1.5 text-xs font-medium text-zinc-300"
+                  className="rounded-lg border border-[#222A32] bg-[#101419] px-3.5 py-1.5 text-xs font-medium text-[#8B96A3]"
                 >
                   {tech}
                 </span>
@@ -184,7 +184,7 @@ const PacketSniffer = () => {
         </section>
 
         {/* Featured Image */}
-        <div className="mx-auto max-w-5xl mb-20 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 shadow-2xl">
+        <div className="mx-auto max-w-5xl mb-20 overflow-hidden rounded-2xl border border-[#222A32] bg-[#101419] shadow-2xl">
           <img
             src={packetImage}
             alt="Packet Sniffer 3D WebGL Visualization Interface"
@@ -196,10 +196,10 @@ const PacketSniffer = () => {
         <div className="mx-auto max-w-5xl space-y-20">
           {/* Section 1: The Problem */}
           <section>
-            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F2F5F7] mb-6">
               1. The Engineering Challenge: Overcoming Wireshark's Cognitive Limit
             </h2>
-            <div className="prose prose-invert prose-zinc max-w-none text-zinc-400 text-sm sm:text-base leading-relaxed space-y-4">
+            <div className="prose prose-invert max-w-none text-[#8B96A3] text-sm sm:text-base leading-relaxed space-y-4">
               <p>
                 Standard network diagnostic tools like Wireshark and `tcpdump` represent captures as chronological lists of tabular rows. While accurate for byte-level packet dissection, tabular logs fail to provide situational awareness during complex network incidents such as broadcast storms, multi-hop latency cascades, and distributed routing anomalies.
               </p>
@@ -220,20 +220,20 @@ const PacketSniffer = () => {
           </section>
 
           {/* Section 3: Deep Dive - Draw Call Elimination */}
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8">
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
               TECHNICAL DEEP DIVE
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-white mt-1 mb-4">
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
               Eliminating the Draw Call Bottleneck (10,000 Meshes → 3 Calls)
             </h3>
 
-            <div className="text-zinc-400 text-sm leading-relaxed space-y-4">
+            <div className="text-[#8B96A3] text-sm leading-relaxed space-y-4">
               <p>
-                In the naive initial implementation, each active packet was represented as an independent <code className="text-zinc-200">THREE.Mesh</code> with its own geometry and material. When parsing high-throughput captures (&gt;1,000 packets/sec), the JavaScript thread spent 85% of its execution time dispatching draw calls and synchronizing CPU-to-GPU uniforms. The frame rate plummeted to 12 FPS, accompanied by severe garbage collection pauses.
+                In the naive initial implementation, each active packet was represented as an independent <code className="text-[#F2F5F7] font-mono">THREE.Mesh</code> with its own geometry and material. When parsing high-throughput captures (&gt;1,000 packets/sec), the JavaScript thread spent 85% of its execution time dispatching draw calls and synchronizing CPU-to-GPU uniforms. The frame rate plummeted to 12 FPS, accompanied by severe garbage collection pauses.
               </p>
               <p>
-                <strong>The Architectural Shift:</strong> Re-architected the particle layer to utilize <code className="text-zinc-200">THREE.InstancedMesh</code>. All packet particles now share a single low-poly sphere geometry and shader material. Instead of creating and destroying objects, positions are written directly into a pre-allocated <code className="text-zinc-200">Float32Array</code> transformation matrix buffer.
+                <strong className="text-[#F2F5F7]">The Architectural Shift:</strong> Re-architected the particle layer to utilize <code className="text-[#5CE6A8] font-mono">THREE.InstancedMesh</code>. All packet particles now share a single low-poly sphere geometry and shader material. Instead of creating and destroying objects, positions are written directly into a pre-allocated <code className="text-[#5CE6A8] font-mono">Float32Array</code> transformation matrix buffer.
               </p>
             </div>
 
@@ -258,24 +258,24 @@ const PacketSniffer = () => {
           </section>
 
           {/* Section 5: Testing & Reliability */}
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8">
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
               VERIFICATION & RELIABILITY
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-white mt-1 mb-4">
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
               Parser Correctness & Fuzz Testing Strategy
             </h3>
 
-            <div className="grid gap-6 sm:grid-cols-2 text-xs sm:text-sm text-zinc-400">
-              <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-5">
-                <h4 className="font-semibold text-zinc-200 mb-2">Protocol Boundary Validation</h4>
+            <div className="grid gap-6 sm:grid-cols-2 text-xs sm:text-sm text-[#8B96A3]">
+              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
+                <h4 className="font-semibold text-[#F2F5F7] mb-2">Protocol Boundary Validation</h4>
                 <p className="leading-relaxed">
                   Unit tested frame boundary decoding against known Wireshark test suites. Validated 14-byte Ethernet headers, variable-length IPv4 options, and TCP flag masks (SYN, ACK, RST, FIN) across big-endian and little-endian captures.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-5">
-                <h4 className="font-semibold text-zinc-200 mb-2">Malformed Payload Fuzzing</h4>
+              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
+                <h4 className="font-semibold text-[#F2F5F7] mb-2">Malformed Payload Fuzzing</h4>
                 <p className="leading-relaxed">
                   Subjected binary ingestion to synthetic fuzzed captures containing truncated headers, invalid checksums, and corrupt timestamps. Ensured graceful fallback with zero unhandled exceptions or canvas context loss.
                 </p>
@@ -284,21 +284,30 @@ const PacketSniffer = () => {
           </section>
 
           {/* Bottom Actions */}
-          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-zinc-900 sm:flex-row">
-            <Link
-              to="/specter-proxy"
-              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              Next Case Study: Specter Proxy &rarr;
-            </Link>
+          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#222A32] sm:flex-row">
+            <div className="flex flex-wrap items-center gap-6">
+              <Link
+                to="/taskflow"
+                className="text-sm font-medium text-[#8B96A3] hover:text-[#5CE6A8] transition-colors"
+              >
+                &larr; Previous: TaskFlow
+              </Link>
+              <span className="text-[#222A32]">|</span>
+              <Link
+                to="/specter-proxy"
+                className="text-sm font-medium text-[#5CE6A8] hover:text-[#72F0B5] transition-colors"
+              >
+                Next: Specter Proxy &rarr;
+              </Link>
+            </div>
 
             <a
               href="https://github.com/abhi-byte62/packet-sniffer-3d-"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-zinc-100 px-6 py-3 text-sm font-medium text-zinc-900 transition-colors hover:bg-white"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#5CE6A8] px-5 py-2.5 text-sm font-semibold text-[#080A0C] transition-all hover:bg-[#72F0B5]"
             >
-              <FaGithub size={18} />
+              <FaGithub size={16} />
               Review Source Code on GitHub
             </a>
           </div>

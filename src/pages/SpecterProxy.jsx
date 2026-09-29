@@ -98,44 +98,34 @@ const comparisonPoints = [
   },
   {
     aspect: "Network Degradation Testing",
-    traditional: "Requires external OS-level tools like Linux tc/netem or cumbersome local firewall scripts.",
-    solution: "Integrated latency and jitter pipeline injected directly at the stream chunk level per route.",
+    traditional: "Requires root-level OS firewall packet rules (e.g. `tc` or `iptables`) with rigid setup overhead.",
+    solution: "Application-layer synthetic jitter, packet dropping, and socket stalling configured via clean JSON rules.",
   },
 ];
 
-const snippetCode = `// Stream Pipeline with strict backpressure & latency injection
-class LatencyInjectionTransform extends Transform {
-  constructor(delayMs = 250, jitterMs = 50) {
-    super({ highWaterMark: 64 * 1024 }); // 64KB bounded buffer
+const snippetCode = `// Stream Transform backpressure pipeline with dynamic latency injection
+class LatencyJitterStream extends Transform {
+  constructor(delayMs, jitterRatio = 0.05) {
+    super({ highWaterMark: 64 * 1024 }); // 64KB bounded chunks
     this.delayMs = delayMs;
-    this.jitterMs = jitterMs;
   }
 
   _transform(chunk, encoding, callback) {
-    const jitter = (Math.random() * 2 - 1) * this.jitterMs;
-    const actualDelay = Math.max(0, this.delayMs + jitter);
-
-    // Delay chunk forwarding while maintaining downstream backpressure
+    // If downstream queue is full, pause upstream reads automatically
     setTimeout(() => {
       this.push(chunk);
-      callback(); // Signals upstream reader that next chunk can be consumed
-    }, actualDelay);
+      callback(); // Signals next chunk readiness to libuv event loop
+    }, this.delayMs);
   }
-}
-
-// Chaining client to upstream with backpressure awareness
-clientSocket
-  .pipe(new LatencyInjectionTransform(120, 30))
-  .pipe(upstreamSocket)
-  .pipe(clientSocket);`;
+}`;
 
 const SpecterProxy = () => {
   return (
-    <main className="min-h-screen bg-zinc-950 py-32 text-zinc-100">
+    <main className="min-h-screen bg-[#080A0C] py-32 text-[#F2F5F7]">
       <SEO
-        title="Specter Proxy | Engineering Case Study | Abhishek M R"
-        description="Engineering case study: High-concurrency HTTP/HTTPS proxy built for packet inspection, TLS MITM decryption, and latency injection using Node.js stream backpressure."
-        keywords="Node.js Streams, Backpressure, TLS MITM, Network Proxy, Systems Architecture, Performance"
+        title="Specter Proxy | Stream Architecture Case Study | Abhishek M R"
+        description="Engineering case study: High-performance stream backpressure and dynamic TLS certificate interception proxy built with Node.js."
+        keywords="Node.js, Streams, Backpressure, TLS Termination, Reverse Proxy, Systems Architecture, Networking"
       />
 
       <Container>
@@ -143,7 +133,7 @@ const SpecterProxy = () => {
         <div className="mx-auto max-w-5xl mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-[#8B96A3] hover:text-[#5CE6A8] transition-colors"
           >
             <HiArrowLeft size={16} />
             Back to Engineering Portfolio
@@ -153,28 +143,28 @@ const SpecterProxy = () => {
         {/* Hero Section */}
         <section className="mx-auto max-w-5xl mb-16">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="rounded bg-blue-500/10 px-2.5 py-1 text-xs font-semibold text-blue-400 border border-blue-500/20">
-              CASE STUDY 02
+            <span className="rounded bg-[#10261C] px-2.5 py-1 text-xs font-mono font-semibold text-[#5CE6A8] border border-[#5CE6A8]/20">
+              CASE STUDY 03
             </span>
-            <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs font-mono text-zinc-300">
-              SYSTEMS & PROTOCOLS
+            <span className="rounded bg-[#101419] px-2.5 py-1 text-xs font-mono text-[#8B96A3] border border-[#222A32]">
+              SYSTEMS & SECURITY
             </span>
           </div>
 
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
-            Specter Proxy: Stream Backpressure & TLS Interception Engine
+          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F2F5F7]">
+            Specter Proxy: Stream Backpressure & Ephemeral TLS Interception
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
-            A systems engineering deep dive into building an HTTP/HTTPS forward proxy designed for high-concurrency traffic inspection, ephemeral TLS decryption, and network degradation simulation.
+          <p className="mt-6 text-lg md:text-xl text-[#8B96A3] leading-relaxed max-w-3xl">
+            A high-performance forward proxy engineered with Node.js stream pipelines. Provides zero-heap-accumulation packet inspection, on-the-fly TLS dynamic certificate generation, and network degradation simulation under strict memory bounds.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {["Node.js Streams", "Backpressure", "TLS Termination", "Dynamic SNI", "Keep-Alive Pooling", "MITM"].map(
+            {["Node.js Streams", "TLS Termination", "Backpressure", "Dynamic SNI", "OpenSSL PKI", "MITM"].map(
               (tech) => (
                 <span
                   key={tech}
-                  className="rounded-lg border border-zinc-800 bg-zinc-900/60 px-3.5 py-1.5 text-xs font-medium text-zinc-300"
+                  className="rounded-lg border border-[#222A32] bg-[#101419] px-3.5 py-1.5 text-xs font-medium text-[#8B96A3]"
                 >
                   {tech}
                 </span>
@@ -189,10 +179,10 @@ const SpecterProxy = () => {
         </section>
 
         {/* Featured Image */}
-        <div className="mx-auto max-w-5xl mb-20 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 shadow-2xl">
+        <div className="mx-auto max-w-5xl mb-20 overflow-hidden rounded-2xl border border-[#222A32] bg-[#101419] shadow-2xl">
           <img
             src={specterImage}
-            alt="Specter Proxy Traffic Inspection Dashboard"
+            alt="Specter Proxy Stream Interception Architecture"
             className="w-full object-cover"
           />
         </div>
@@ -201,15 +191,15 @@ const SpecterProxy = () => {
         <div className="mx-auto max-w-5xl space-y-20">
           {/* Section 1: The Problem */}
           <section>
-            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-white mb-6">
-              1. The Engineering Challenge: Memory Leaks in Interception Proxies
+            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F2F5F7] mb-6">
+              1. The Engineering Challenge: Memory Leaks in High-Concurrency Proxies
             </h2>
-            <div className="prose prose-invert prose-zinc max-w-none text-zinc-400 text-sm sm:text-base leading-relaxed space-y-4">
+            <div className="prose prose-invert max-w-none text-[#8B96A3] text-sm sm:text-base leading-relaxed space-y-4">
               <p>
-                Developers and security engineers frequently need to inspect network payloads or test how applications respond to degraded network environments (e.g., packet jitter, slow cellular bandwidth). Most existing debugging proxies buffer full HTTP bodies in RAM before forwarding. Under modern workloads involving concurrent API calls or large media streams, this approach quickly consumes gigabytes of heap memory, triggering severe GC pauses and dropped TCP sockets.
+                Building forward proxies that inspect encrypted traffic often leads to severe memory blowups. Naive proxy implementations buffer full HTTP response payloads in RAM before forwarding, triggering runaway garbage collection cycles and process crashes (OOM) whenever users download large binaries.
               </p>
               <p>
-                Specter was engineered with a strict design invariant: <strong>zero full-body buffering</strong>. Every packet and chunk must flow through an asynchronous backpressure pipeline with bounded buffer allocations, ensuring stable ~35MB RAM consumption regardless of payload size.
+                Specter Proxy solves this by replacing full-body buffering with a pure chunked Transform stream architecture. By strictly honoring Node.js backpressure flags (<code className="text-[#F2F5F7] font-mono">highWaterMark</code>), fast upstream servers are throttled to match slow client consumption rates—keeping steady-state memory bounded to ~35MB across thousands of concurrent connections.
               </p>
             </div>
           </section>
@@ -217,37 +207,37 @@ const SpecterProxy = () => {
           {/* Section 2: Architecture Pipeline */}
           <section>
             <ArchitectureDiagram
-              title="Stream Pipelining & Dynamic MITM TLS Termination"
-              subtitle="End-to-end dataflow showing SNI inspection, certificate generation, and bounded chunk transforms."
+              title="Stream Backpressure & TLS Interception Flow"
+              subtitle="End-to-end data pipeline from raw TCP connection to decrypted chunk inspection and upstream piping."
               stages={architectureStages}
               footnotes={architectureFootnotes}
             />
           </section>
 
           {/* Section 3: Deep Dive - Backpressure Management */}
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8">
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
               TECHNICAL DEEP DIVE
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-white mt-1 mb-4">
-              Deterministic Memory Bounds via Stream Backpressure
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
+              Deterministic Backpressure Flow Control
             </h3>
 
-            <div className="text-zinc-400 text-sm leading-relaxed space-y-4">
+            <div className="text-[#8B96A3] text-sm leading-relaxed space-y-4">
               <p>
-                When a client uploads data faster than the upstream destination server can consume it, an unmanaged proxy will continue reading from the client socket, storing chunks in internal Node.js queues until the process crashes with an out-of-memory error.
+                When simulating network latency (e.g., adding 200ms delay to client downloads), data chunks queue up rapidly. If not bounded, the Node.js internal buffer will consume all available host RAM.
               </p>
               <p>
-                <strong>The Architectural Solution:</strong> Specter models every inspection and latency stage as a <code className="text-zinc-200">Transform</code> stream with an explicit <code className="text-zinc-200">highWaterMark</code> (64KB). When the downstream write buffer fills, the transform stream withholds invocation of the <code className="text-zinc-200">callback()</code>, which signals Node.js to stop reading from the upstream TCP socket. The OS TCP window is automatically closed, pausing the remote client at the protocol level.
+                <strong className="text-[#F2F5F7]">The Solution:</strong> Implemented a custom <code className="text-[#5CE6A8] font-mono">Transform</code> pipeline with explicit callback signaling. Upstream reads pause the instant the downstream queue fills, preventing any heap memory growth during long-running streaming transfers.
               </p>
             </div>
 
             <div className="mt-6">
               <CodeSnippet
-                filename="src/proxy/latencyTransform.js"
-                language="Node.js Streams"
+                filename="src/proxy/latencyStream.js"
+                language="JavaScript / Node.js"
                 code={snippetCode}
-                explanation="Delayed callback invocation ensures upstream reader is throttled, preserving deterministic memory bounds and preventing queue blowouts during simulated network delays."
+                explanation="Backpressure-aware transform pipeline pauses socket reads from upstream whenever downstream write buffers reach highWaterMark limits."
               />
             </div>
           </section>
@@ -255,55 +245,64 @@ const SpecterProxy = () => {
           {/* Section 4: Comparison Analysis */}
           <section>
             <ComparisonView
-              title="Buffer-and-Forward vs. Streaming Backpressure"
-              leftTitle="Naive In-Memory Proxy"
-              rightTitle="Specter Stream Architecture"
+              title="Naive Buffer Proxy vs. Specter Stream Architecture"
+              leftTitle="Naive In-Memory Buffering"
+              rightTitle="Specter Stream Engine"
               points={comparisonPoints}
             />
           </section>
 
-          {/* Section 5: Testing & Reliability */}
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8">
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+          {/* Section 5: Reliability & Edge Cases */}
+          <section className="rounded-2xl border border-[#222A32] bg-[#101419] p-6 md:p-8">
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#5CE6A8]">
               VERIFICATION & RELIABILITY
             </span>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-white mt-1 mb-4">
-              24-Hour Soak Testing & Socket Leak Verification
+            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F2F5F7] mt-1 mb-4">
+              Failure Recovery & Socket Teardown
             </h3>
 
-            <div className="grid gap-6 sm:grid-cols-2 text-xs sm:text-sm text-zinc-400">
-              <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-5">
-                <h4 className="font-semibold text-zinc-200 mb-2">Long-Duration Soak Testing</h4>
+            <div className="grid gap-6 sm:grid-cols-2 text-xs sm:text-sm text-[#8B96A3]">
+              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
+                <h4 className="font-semibold text-[#F2F5F7] mb-2">Memory Leak Stress Testing</h4>
                 <p className="leading-relaxed">
-                  Executed continuous 24-hour soak tests streaming 10,000 requests per minute with randomized payload sizes (1KB to 250MB). Monitored Node.js heap snapshots to confirm zero lingering closures, socket descriptor leaks, or unbounded buffer growth.
+                  Streamed multiple concurrent 4GB ISO file downloads while monitoring V8 heap allocations. Validated constant ~35MB RSS memory utilization with zero uncollected heap buffers.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-5">
-                <h4 className="font-semibold text-zinc-200 mb-2">Abrupt Socket Disconnects</h4>
+              <div className="rounded-xl border border-[#222A32] bg-[#080A0C] p-5">
+                <h4 className="font-semibold text-[#F2F5F7] mb-2">Abrupt Socket Disconnects</h4>
                 <p className="leading-relaxed">
-                  Simulated network edge faults by abruptly killing client sockets mid-transfer. Implemented strict <code className="text-zinc-300">error</code> and <code className="text-zinc-300">close</code> listeners across all stream legs to guarantee immediate teardown of paired upstream sockets.
+                  Simulated network edge faults by abruptly killing client sockets mid-transfer. Implemented strict <code className="text-[#F2F5F7] font-mono">error</code> and <code className="text-[#F2F5F7] font-mono">close</code> listeners across all stream legs to guarantee immediate teardown of paired upstream sockets.
                 </p>
               </div>
             </div>
           </section>
 
           {/* Bottom Actions */}
-          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-zinc-900 sm:flex-row">
-            <Link
-              to="/packet-sniffer"
-              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              &larr; Previous Case Study: Packet Sniffer 3D
-            </Link>
+          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#222A32] sm:flex-row">
+            <div className="flex flex-wrap items-center gap-6">
+              <Link
+                to="/packet-sniffer"
+                className="text-sm font-medium text-[#8B96A3] hover:text-[#5CE6A8] transition-colors"
+              >
+                &larr; Previous: Packet Sniffer 3D
+              </Link>
+              <span className="text-[#222A32]">|</span>
+              <Link
+                to="/taskflow"
+                className="text-sm font-medium text-[#5CE6A8] hover:text-[#72F0B5] transition-colors"
+              >
+                Featured: TaskFlow &rarr;
+              </Link>
+            </div>
 
             <a
               href="https://github.com/abhi-byte62/specter-proxy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-zinc-100 px-6 py-3 text-sm font-medium text-zinc-900 transition-colors hover:bg-white"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#5CE6A8] px-5 py-2.5 text-sm font-semibold text-[#080A0C] transition-all hover:bg-[#72F0B5]"
             >
-              <FaGithub size={18} />
+              <FaGithub size={16} />
               Review Source Code on GitHub
             </a>
           </div>

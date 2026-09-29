@@ -34,21 +34,20 @@ const ScrollTop = () => {
         w-10
         items-center
         justify-center
-        rounded-full
+        rounded-lg
         border
-        border-zinc-700/60
-        bg-zinc-900/90
-        text-zinc-400
+        border-[#222A32]
+        bg-[#101419]/90
+        text-[#8B96A3]
         shadow-lg
         backdrop-blur-md
         transition-all
         duration-200
-        hover:border-zinc-500
-        hover:bg-zinc-800
-        hover:text-white
+        hover:border-[#5CE6A8]
+        hover:text-[#5CE6A8]
         focus:outline-none
         focus-visible:ring-2
-        focus-visible:ring-blue-500
+        focus-visible:ring-[#5CE6A8]
       "
     >
       <HiArrowUp className="text-base" />

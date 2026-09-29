@@ -1,4 +1,13 @@
-const Button = ({ children, href = "#", target, download, className = "" }) => {
+const Button = ({
+  children,
+  href = "#",
+  target,
+  download,
+  variant = "primary",
+  className = "",
+}) => {
+  const isPrimary = variant === "primary";
+
   return (
     <a
       href={href}
@@ -6,39 +15,27 @@ const Button = ({ children, href = "#", target, download, className = "" }) => {
       {...(download ? { download: true } : {})}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={`
-  inline-flex
-  items-center
-  justify-center
-  gap-2
-
-  rounded-xl
-
-  bg-gradient-to-r
-  from-blue-600
-  via-blue-500
-  to-cyan-500
-
-  px-6
-  py-3
-
-  font-medium
-  text-white
-
-  shadow-lg
-  shadow-blue-500/20
-
-  transition-all
-  duration-300
-
-  hover:-translate-y-1
-  hover:scale-105
-  hover:shadow-2xl
-  hover:shadow-blue-500/40
-
-  active:scale-95
-
-  ${className}
-`}
+        inline-flex
+        items-center
+        justify-center
+        gap-2
+        rounded-lg
+        px-5
+        py-2.5
+        text-sm
+        font-semibold
+        transition-all
+        duration-200
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-[#5CE6A8]
+        ${
+          isPrimary
+            ? "bg-[#5CE6A8] text-[#080A0C] hover:bg-[#72F0B5] hover:shadow-sm"
+            : "border border-[#222A32] bg-[#101419] text-[#F2F5F7] hover:border-[#5CE6A8] hover:text-[#5CE6A8]"
+        }
+        ${className}
+      `}
     >
       {children}
     </a>

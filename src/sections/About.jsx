@@ -7,21 +7,27 @@ import SectionTitle from "../components/SectionTitle/SectionTitle";
 const tenets = [
   {
     number: "01",
-    title: "Deterministic Memory Over Blind Buffering",
+    title: "Clean Architecture & Modular Design",
     description:
-      "Unbounded in-memory accumulation is the number one cause of production GC pauses and OOM failures. I design stream pipelines using explicit highWaterMark limits and backpressure propagation.",
+      "Writing maintainable software requires strict separation of concerns between business domain logic, data streaming pipelines, and presentation layers. I prioritize decoupled modular interfaces and predictable data flow.",
   },
   {
     number: "02",
-    title: "Spatial Topology Over Tabular Noise",
+    title: "Algorithmic Efficiency & Memory Predictability",
     description:
-      "Rows of text logs hide multi-hop network anomalies. By projecting binary PCAPs into hardware-accelerated 3D topologies, packet flow relationships and congestion hotspots become instantly apparent.",
+      "From choosing optimal data structures (ring buffers, LRU caches, typed array buffers) to mitigating runtime garbage collection pauses, I design software with deterministic time and space complexity.",
   },
   {
     number: "03",
-    title: "Mastering Protocols from the Wire Up",
+    title: "End-to-End Reliability & Verification",
     description:
-      "True engineering resilience comes from understanding RFC specifications, TLS SNI negotiation, and TCP socket lifecycles—not blindly treating networking libraries as opaque black boxes.",
+      "A production system is only as resilient as its failure handling. I build comprehensive automated test suites covering boundary parsing errors, abrupt socket terminations, and graceful degradation under high load.",
+  },
+  {
+    number: "04",
+    title: "Deep Understanding Beyond Framework Abstractions",
+    description:
+      "Frameworks come and go, but foundational engineering remains invariant. Understanding how Node.js coordinates the libuv event loop, how browsers schedule GPU draws, and how TCP handles congestion makes every abstraction easier to master.",
   },
 ];
 
@@ -30,9 +36,9 @@ const About = () => {
     <Section id="about">
       <Container>
         <SectionTitle
-          tag="ENGINEERING PHILOSOPHY"
-          title="Building Resilient Systems Beyond CRUD"
-          subtitle="A systems-first engineering approach centered on low-level protocols, stream architectures, and deterministic performance."
+          tag="ENGINEERING APPROACH"
+          title="Software Engineering Principles & System Design"
+          subtitle="A disciplined software engineering philosophy centered on scalable architecture, clean codebases, algorithmic efficiency, and robust backend reliability."
         />
 
         <motion.div
@@ -40,28 +46,28 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 grid gap-12 lg:grid-cols-12"
+          className="mt-16 grid gap-10 lg:grid-cols-12"
         >
           {/* Left Column - Engineering Narrative */}
           <div className="flex flex-col justify-between lg:col-span-5">
-            <div className="space-y-6 text-base leading-relaxed text-zinc-400">
+            <div className="space-y-5 text-base leading-relaxed text-[#8B96A3]">
               <p>
-                I am a Software Engineer dedicated to constructing high-performance systems, network developer tooling, and interactive 3D visualizations.
+                I am a Software Engineer passionate about designing resilient backend systems, scalable web applications, and developer-centric tooling.
               </p>
               <p>
-                Rather than building cookie-cutter CRUD applications, I focus on solving foundational engineering challenges: parsing binary PCAP frames in real-time, engineering MITM proxies with zero-copy stream backpressure, and rendering 50,000+ spatial packet particles at 60 FPS in WebGL.
+                My engineering journey bridges full-stack application development (<span className="text-[#F2F5F7]">Java, Spring Boot, Node.js, React</span>) with low-level systems programming (binary protocol parsers, custom HTTP/HTTPS proxies, and WebGL graphics engines).
               </p>
               <p>
-                My approach combines deep curiosity about how protocols operate across the wire with rigorous attention to runtime efficiency and memory predictability.
+                Whether architecting microservices, implementing real-time event pipelines, or solving algorithmic challenges, I focus on building reliable, clean, and well-tested software that scales seamlessly.
               </p>
             </div>
 
-            <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
-              <div className="text-xs font-semibold uppercase tracking-wider text-blue-400">
-                Current Research & Focus
+            <div className="mt-8 rounded-xl border border-[#222A32] bg-[#101419] p-5 shadow-sm">
+              <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#5CE6A8]">
+                Core Software Engineering Focus
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-zinc-400">
-                High-throughput network proxies, distributed consensus mechanisms, WebAssembly protocol decoders, and WebGL shader pipelines.
+              <p className="mt-2 text-xs leading-relaxed text-[#8B96A3]">
+                Full-Stack Web Engineering, Scalable Backend Services, Data Structures & Algorithms, Distributed Systems, and Low-Level Network Tooling.
               </p>
             </div>
           </div>
@@ -71,17 +77,17 @@ const About = () => {
             {tenets.map((tenet) => (
               <div
                 key={tenet.number}
-                className="group rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 transition-all hover:border-zinc-700 hover:bg-zinc-900/50"
+                className="group rounded-xl border border-[#222A32] bg-[#101419] p-6 transition-all duration-200 hover:border-[#5CE6A8]/40 hover:bg-[#151B22]"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-xs font-bold text-blue-400">
+                  <span className="font-mono text-xs font-bold text-[#5CE6A8]">
                     {tenet.number}
                   </span>
-                  <h3 className="font-['Space_Grotesk'] text-base md:text-lg font-bold text-zinc-100">
+                  <h3 className="font-['Space_Grotesk'] text-base md:text-lg font-bold text-[#F2F5F7] group-hover:text-[#72F0B5] transition-colors">
                     {tenet.title}
                   </h3>
                 </div>
-                <p className="mt-3 text-xs md:text-sm leading-relaxed text-zinc-400">
+                <p className="mt-2.5 text-xs md:text-sm leading-relaxed text-[#8B96A3]">
                   {tenet.description}
                 </p>
               </div>
