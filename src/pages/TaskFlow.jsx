@@ -506,12 +506,21 @@ const TaskFlow = () => {
 
           {/* Bottom Actions */}
           <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#1C2942] sm:flex-row">
-            <Link
-              to="/packet-sniffer"
-              className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
-            >
-              Next Case Study: Packet Sniffer 3D &rarr;
-            </Link>
+            <div className="flex flex-wrap items-center gap-6">
+              <Link
+                to="/liquiditylens"
+                className="text-sm font-medium text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+              >
+                &larr; Previous: LiquidityLens
+              </Link>
+              <span className="text-[#1C2942]">|</span>
+              <Link
+                to="/packet-sniffer"
+                className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
+              >
+                Next: Packet Sniffer 3D &rarr;
+              </Link>
+            </div>
 
             <a
               href="https://github.com/abhi-byte62/taskflow"

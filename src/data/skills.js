@@ -1,14 +1,14 @@
 export const skillsMatrix = [
   {
-    category: "Languages & CS Fundamentals",
-    focus: "Object-oriented design, algorithmic efficiency, memory management, and concurrency.",
+    category: "Languages & Systems Programming",
+    focus: "C++17 low-latency engines, Java concurrency, async pipelines, and memory-safe design.",
     items: [
+      { name: "C++17", tag: "Low-Latency & STL" },
       { name: "Java", tag: "Core & Multithreading" },
+      { name: "Python", tag: "NumPy & SciPy" },
       { name: "JavaScript / TypeScript", tag: "ESNext & Async" },
-      { name: "Python", tag: "Scripting & DSA" },
       { name: "C", tag: "Pointers & Memory" },
       { name: "SQL", tag: "Queries & Indexing" },
-      { name: "Data Structures & Algorithms", tag: "Problem Solving" },
     ],
   },
   {
@@ -17,34 +17,34 @@ export const skillsMatrix = [
     items: [
       { name: "Spring Boot", tag: "Java Enterprise" },
       { name: "Node.js & Express", tag: "Async Runtime" },
-      { name: "RESTful API Design", tag: "Clean Architecture" },
+      { name: "FastAPI", tag: "High-Perf Python" },
       { name: "Socket.io & WebSockets", tag: "Real-Time Sync" },
       { name: "PostgreSQL & Prisma", tag: "Transactions & Migrations" },
       { name: "Redis", tag: "Caching & Pub/Sub" },
     ],
   },
   {
-    category: "Frontend & Performance Engineering",
-    focus: "Modern responsive client architectures, state synchronization, and graphics pipelines.",
+    category: "Quantitative & Performance Engineering",
+    focus: "Market microstructure, fixed-point math, GPU instancing, and reactive client architectures.",
     items: [
+      { name: "LOB Replay & Hawkes", tag: "Microstructure" },
+      { name: "Fixed-Point Math", tag: "int64_t Precision" },
       { name: "React 18 / 19", tag: "Component Primitives" },
       { name: "TanStack Query", tag: "Optimistic State" },
-      { name: "@dnd-kit", tag: "Accessible Drag-and-Drop" },
       { name: "Three.js & WebGL", tag: "GPU Instancing" },
       { name: "Tailwind CSS", tag: "Design Systems" },
-      { name: "Vite Bundler", tag: "Build Tooling" },
     ],
   },
   {
     category: "Infrastructure, Quality & Tools",
     focus: "Containerization, automated testing, stream profiling, and continuous integration.",
     items: [
-      { name: "Docker", tag: "Containerization" },
+      { name: "Docker & Compose", tag: "Containerization" },
       { name: "Git & GitHub Actions", tag: "CI/CD" },
-      { name: "Unit & Integration Testing", tag: "Vitest / JUnit" },
-      { name: "Linux / Unix Shell", tag: "POSIX & Bash" },
-      { name: "Postman & API Testing", tag: "Verification" },
+      { name: "Unit & Micro-benchmarks", tag: "GCC -O3 / Vitest" },
+      { name: "Linux / POSIX Shell", tag: "Tooling & Shell" },
       { name: "Wireshark & Sockets", tag: "Packet Inspection" },
+      { name: "Postman & API Testing", tag: "Verification" },
     ],
   },
 ];

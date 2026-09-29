@@ -14,7 +14,7 @@ const Projects = () => {
         <SectionTitle
           tag="ENGINEERING PROJECTS"
           title="Featured Software Engineering Case Studies"
-          subtitle="Production systems demonstrating full-stack architecture, real-time collaboration, stream backpressure, and hardware-accelerated graphics."
+          subtitle="Production systems demonstrating market microstructure simulation, real-time collaboration, stream backpressure, and hardware-accelerated graphics."
         />
 
         <motion.div
@@ -22,7 +22,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
           viewport={{ once: true }}
-          className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-7 md:grid-cols-2"
         >
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />

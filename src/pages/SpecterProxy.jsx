@@ -289,10 +289,10 @@ const SpecterProxy = () => {
               </Link>
               <span className="text-[#1C2942]">|</span>
               <Link
-                to="/taskflow"
+                to="/liquiditylens"
                 className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
               >
-                Featured: TaskFlow &rarr;
+                Featured: LiquidityLens &rarr;
               </Link>
             </div>
 

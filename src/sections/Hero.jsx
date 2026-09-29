@@ -20,7 +20,7 @@ const Hero = () => {
           {/* Engineering Role Label */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#1C2942] bg-[#0D1424] px-3.5 py-1 text-xs font-mono text-[#8D99B5] mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4D7CFF]" />
-            <span>SOFTWARE ENGINEER // SYSTEMS & FULL-STACK</span>
+            <span>SOFTWARE ENGINEER // SYSTEMS, QUANT & FULL-STACK</span>
           </div>
 
           {/* Name & Primary Headline */}
@@ -30,11 +30,14 @@ const Hero = () => {
 
           {/* Concrete Engineering Focus */}
           <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-[#8D99B5]">
-            I build distributed backend architectures, real-time collaborative applications, and performance-critical systems. Focused on concurrency control, stream pipelines, clean API design, and predictable memory footprint.
+            I build distributed backend architectures, market microstructure simulators, and performance-critical systems. Focused on low-latency matching, concurrency control, stream pipelines, and predictable memory footprint.
           </p>
 
           {/* Technical Specialties */}
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-mono text-[#8D99B5]">
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#4D7CFF]">▹</span> C++17 & Low-Latency
+            </span>
             <span className="flex items-center gap-1.5">
               <span className="text-[#4D7CFF]">▹</span> Java & Spring Boot
             </span>
@@ -45,7 +48,7 @@ const Hero = () => {
               <span className="text-[#4D7CFF]">▹</span> PostgreSQL & Redis
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#4D7CFF]">▹</span> WebSockets & Stream Processing
+              <span className="text-[#4D7CFF]">▹</span> Market Microstructure & Streams
             </span>
           </div>
 
