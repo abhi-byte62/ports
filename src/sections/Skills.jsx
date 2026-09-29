@@ -11,20 +11,20 @@ const Skills = () => {
     <Section id="skills" className="relative">
       <Container>
         <SectionTitle
-          tag="COMPETENCY MATRIX"
-          title="Technical Competencies & Systems Knowledge"
-          subtitle="A structured breakdown of core engineering capabilities spanning backend systems, distributed architectures, full-stack frameworks, and developer tooling."
+          tag="TECHNICAL PROFICIENCIES"
+          title="Core Technologies & Engineering Competencies"
+          subtitle="A structured breakdown of core skills spanning distributed systems, client architectures, and development workflows."
         />
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {skillsMatrix.map((group, index) => (
             <motion.div
               key={group.category}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="flex flex-col justify-between rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8 transition-colors hover:border-[#4D7CFF]/40"
+              className="flex flex-col justify-between rounded-xl border border-[#1C2942] bg-[#0D1424] p-6 sm:p-7 transition-colors hover:border-[#4D7CFF]/30"
             >
               <div>
                 <div className="flex items-center justify-between">
@@ -32,7 +32,7 @@ const Skills = () => {
                     {group.category}
                   </h3>
                   <span className="text-[10px] font-mono text-[#5F6B83] uppercase tracking-wider">
-                    PILLAR 0{index + 1}
+                    CATEGORY 0{index + 1}
                   </span>
                 </div>
 
@@ -40,15 +40,15 @@ const Skills = () => {
                   {group.focus}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2.5">
+                <div className="mt-5 flex flex-wrap gap-2">
                   {group.items.map((skill) => (
                     <div
                       key={skill.name}
-                      className="group flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#050914] px-3 py-2 text-xs transition-colors hover:border-[#4D7CFF]/40 hover:bg-[#10182A]"
+                      className="flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#050914] px-2.5 py-1.5 text-xs transition-colors hover:border-[#4D7CFF]/30 hover:bg-[#10182A]"
                     >
                       <span className="font-medium text-[#F5F7FF]">{skill.name}</span>
                       {skill.tag && (
-                        <span className="rounded bg-[#0D1B3A] px-1.5 py-0.5 text-[10px] font-mono font-medium text-[#6D96FF] border border-[#4D7CFF]/20">
+                        <span className="rounded bg-[#080E1B] px-1.5 py-0.5 text-[10px] font-mono text-[#8D99B5]">
                           {skill.tag}
                         </span>
                       )}

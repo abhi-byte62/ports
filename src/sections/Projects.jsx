@@ -9,20 +9,20 @@ import { projects } from "../data/projects";
 
 const Projects = () => {
   return (
-    <Section id="projects">
+    <Section id="projects" className="relative">
       <Container>
         <SectionTitle
-          tag="ENGINEERING PORTFOLIO"
+          tag="ENGINEERING PROJECTS"
           title="Featured Software Engineering Case Studies"
-          subtitle="Production-grade systems demonstrating full-stack architecture, high-concurrency stream processing, real-time data pipelines, and hardware-accelerated graphics."
+          subtitle="Production systems demonstrating full-stack architecture, real-time collaboration, stream backpressure, and hardware-accelerated graphics."
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35 }}
           viewport={{ once: true }}
-          className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
