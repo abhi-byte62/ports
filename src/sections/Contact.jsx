@@ -1,8 +1,10 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 import Container from "../components/Container/Container";
 import Section from "../components/Section/Section";
+
 
 const contacts = [
   {
@@ -68,15 +70,14 @@ const Contact = () => {
                 Send Email
               </a>
 
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/resume"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#050914] px-4 py-2.5 text-sm font-medium text-[#F5F7FF] transition-colors hover:border-[#4D7CFF] hover:text-[#6D96FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
               >
-                Download Resume
-              </a>
+                View Full Resume
+              </Link>
             </div>
+
           </div>
 
           <div className="relative z-10 mt-10 pt-8 border-t border-[#1C2942]">

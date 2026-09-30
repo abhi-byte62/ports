@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiArrowDown, HiArrowRight } from "react-icons/hi";
-
+import { Link } from "react-router-dom";
 
 import Container from "../components/Container/Container";
 import Section from "../components/Section/Section";
@@ -63,14 +63,13 @@ const Hero = () => {
               <HiArrowRight className="h-4 w-4" />
             </a>
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/resume"
               className="inline-flex items-center rounded-lg border border-[#1C2942] bg-[#0D1424] px-4 py-2.5 text-sm font-medium text-[#F5F7FF] transition-colors hover:border-[#4D7CFF] hover:text-[#6D96FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
             >
               Resume
-            </a>
+            </Link>
+
 
             <a
               href="https://github.com/abhi-byte62"

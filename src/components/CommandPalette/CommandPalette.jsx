@@ -107,15 +107,24 @@ const COMMANDS = [
       }, 50);
     },
   },
+  {
+    id: "nav-resume",
+    title: "View Software Engineering Resume (Web & PDF)",
+    category: "PORTFOLIO NAVIGATION",
+    icon: FiFileText,
+    action: (navigate) => navigate("/resume"),
+  },
+
 
   // Actions
   {
     id: "act-resume",
-    title: "View / Download Resume (PDF)",
+    title: "Download Resume (PDF)",
     category: "QUICK ACTIONS",
     icon: FiFileText,
     action: () => window.open("/resume.pdf", "_blank"),
   },
+
   {
     id: "act-github",
     title: "Open GitHub Profile (@abhi-byte62)",

@@ -1,0 +1,67 @@
+ABHISHEK M R
+Bengaluru, India | +91 7259371549 | mrabhisheak@gmail.com
+Portfolio: https://abhishekmr.vercel.app/
+GitHub: https://github.com/abhi-byte62
+LinkedIn: https://www.linkedin.com/in/abhishekmr029/
+LeetCode: https://leetcode.com/u/playboldAbhi/
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+Software Engineer with a strong Computer Science foundation specializing in backend architectures, distributed systems, and low-latency C++/Java applications. Experienced in developing deterministic limit order book matching engines, event-driven microservices with RabbitMQ, stream backpressure pipelines, and optimistic concurrency control systems. Proficient in Data Structures, Algorithms, System Design, and building verified, high-throughput software.
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+• Languages: C++17, Java 21, JavaScript (ES6+), TypeScript, Python 3, C, SQL
+• Backend & Distributed: Spring Boot 3, Node.js, Express, FastAPI, RabbitMQ, WebSockets, RESTful APIs
+• Databases & Caching: PostgreSQL 16/17, MySQL, Redis 7 (Pub/Sub & Caching), Prisma ORM
+• Systems & Architecture: Limit Order Books (LOB), Fixed-Point Math, Stream Backpressure, Concurrency, Zero-Copy Buffers, WebGL
+• Infrastructure & Tools: Docker & Compose, Git, GitHub Actions, Linux / POSIX Shell, Postman, Vitest
+• Core CS Foundations: Data Structures & Algorithms, OOP, OS (Memory, I/O), DBMS, Computer Networks, System Design, OCC
+
+================================================================================
+SELECTED ENGINEERING PROJECTS
+================================================================================
+StackLens — Website Architecture Inference & Intelligence Engine
+Technologies: Java 21, Spring Boot 3, RabbitMQ, PostgreSQL, Redis, React 19, TypeScript
+GitHub: https://github.com/abhi-byte62/stackl | Case Study: https://abhishekmr.vercel.app/stacklens
+• Architected an asynchronous multi-vector probe engine reverse-engineering public web applications across 200+ weighted signatures.
+• Implemented SSRF and DNS-rebinding perimeter defense by validating resolved target IPs against private RFC 1918 subnets prior to worker dispatch.
+• Decoupled long-running external HTTP/TLS crawlers from client APIs using RabbitMQ message queues and Redis caching tiers.
+• Synthesized PostgreSQL DDL schemas and REST/GraphQL API contracts from detected access patterns with interactive DAG topology generation.
+
+LiquidityLens — Market Microstructure Simulator & Matching Engine
+Technologies: C++17, Python 3.10, FastAPI, Fixed-Point Math, Hawkes Processes, WebSockets
+GitHub: https://github.com/abhi-byte62/liqudity | Case Study: https://abhishekmr.vercel.app/liquiditylens
+• Developed a deterministic C++17 limit order book (LOB) matching engine supporting 4.5M+ events/s with ~220ns match latency.
+• Utilized int64_t fixed-point arithmetic across matching and accounting pipelines, eliminating IEEE-754 floating-point drift.
+• Simulated clustered order arrival dynamics with synthetic Hawkes processes and modeled FIFO queue priority across 10µs–500µs latency slips.
+• Calculated zero look-ahead adverse selection markout curves at 10ms, 100ms, and 1s post-trade horizons; streamed L2 depth via WebSockets.
+
+TaskFlow — Real-Time Collaborative Kanban & Distributed State Engine
+Technologies: React 18, Node.js, PostgreSQL 17, Prisma ORM, Socket.io, TanStack Query
+GitHub: https://github.com/abhi-byte62/taskflow | Case Study: https://abhishekmr.vercel.app/taskflow
+• Engineered a real-time collaborative workspace with Optimistic Concurrency Control (OCC) using integer revision tags to reject stale writes.
+• Implemented fractional midpoint indexing for O(1) card drag reordering, preventing expensive cascading updates across database rows.
+• Integrated room-scoped Socket.io state synchronization with role-based access control (RBAC) enforced in atomic Prisma transactions.
+
+Specter Proxy — Stream Backpressure & Ephemeral TLS Interception Proxy
+Technologies: Node.js Streams, HTTP/HTTPS, TLS Termination, Dynamic SNI, Backpressure
+GitHub: https://github.com/abhi-byte62/specter-proxy | Case Study: https://abhishekmr.vercel.app/specter-proxy
+• Built a stream-oriented forward proxy for real-time packet inspection, latency injection, and synthetic network resilience testing.
+• Enforced strict highWaterMark stream backpressure flow control to prevent heap bloat, maintaining a bounded ~35MB memory footprint.
+• Implemented dynamic on-the-fly X.509 SNI certificate generation signed by an ephemeral local CA for seamless TLS MITM inspection.
+
+================================================================================
+EDUCATION
+================================================================================
+Presidency University — Bengaluru, India
+Bachelor of Technology (B.Tech) in Computer Science & Engineering [Sept 2023 – Present | Expected 2027]
+Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Operating Systems, Database Management Systems (DBMS), Computer Networks, System Design, Software Engineering.
+
+================================================================================
+PROBLEM SOLVING & CERTIFICATIONS
+================================================================================
+• Competitive Programming: Active problem solver on LeetCode (u/playboldAbhi) and Codeforces (playboldAbhi), focusing on Graph Algorithms, Dynamic Programming, and Amortized Complexity.
+• HackerRank Certifications: SQL (Advanced), Rest API (Intermediate), Problem Solving (Intermediate), Java (Basic).

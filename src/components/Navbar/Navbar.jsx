@@ -141,10 +141,8 @@ const Navbar = ({ onOpenCommandPalette }) => {
               </button>
             )}
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/resume"
               className="
                 inline-flex
                 items-center
@@ -166,11 +164,12 @@ const Navbar = ({ onOpenCommandPalette }) => {
                 focus-visible:ring-2
                 focus-visible:ring-[#4D7CFF]
               "
-              aria-label="Download Resume (opens in new tab)"
+              aria-label="View Software Engineering Resume"
             >
               Resume
-            </a>
+            </Link>
           </div>
+
 
           {/* Mobile Right Action Area */}
           <div className="flex items-center gap-2 md:hidden">
@@ -251,10 +250,8 @@ const Navbar = ({ onOpenCommandPalette }) => {
             </ul>
 
             <div className="mt-6 pt-4 border-t border-[#1C2942]">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/resume"
                 onClick={closeMenu}
                 className="
                   block
@@ -276,11 +273,12 @@ const Navbar = ({ onOpenCommandPalette }) => {
                   focus-visible:ring-2
                   focus-visible:ring-[#4D7CFF]
                 "
-                aria-label="Download Resume (opens in new tab)"
+                aria-label="View Software Engineering Resume"
               >
-                Download Resume
-              </a>
+                View Resume
+              </Link>
             </div>
+
           </div>
         )}
       </Container>
