@@ -1,15 +1,30 @@
 import { FaGithub } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProjectCard = ({ project }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (e) => {
+    // If the click originated from an interactive element (e.g. GitHub link), let it handle itself
+    if (e.target.closest("a") || e.target.closest("button")) {
+      return;
+    }
+    if (project.route) {
+      navigate(project.route);
+    }
+  };
+
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-[#1C2942] bg-[#0D1424] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#4D7CFF]/35 hover:bg-[#10182A]">
+    <article
+      onClick={handleCardClick}
+      className="group flex flex-col cursor-pointer overflow-hidden rounded-xl border border-[#1C2942] bg-[#0D1424] transition-all duration-200 hover:-translate-y-1 hover:border-[#4D7CFF]/50 hover:bg-[#10182A] hover:shadow-xl hover:shadow-[#4D7CFF]/10"
+    >
       <div className="overflow-hidden bg-[#050914] border-b border-[#1C2942]">
         <img
           src={project.image}
           alt={project.title}
-          className="h-56 sm:h-60 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+          className="h-56 sm:h-60 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
           loading="lazy"
         />
       </div>
@@ -51,7 +66,7 @@ const ProjectCard = ({ project }) => {
         <div className="mt-6 flex items-center justify-between pt-5 border-t border-[#1C2942]">
           <Link
             to={project.route}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#4D7CFF] group-hover:text-[#6D96FF] transition-colors"
           >
             Engineering Case Study
             <HiArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
@@ -61,7 +76,8 @@ const ProjectCard = ({ project }) => {
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#8D99B5] hover:text-[#F5F7FF] transition-colors"
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#8D99B5] hover:text-[#F5F7FF] transition-colors"
           >
             <FaGithub className="h-3.5 w-3.5" />
             GitHub
