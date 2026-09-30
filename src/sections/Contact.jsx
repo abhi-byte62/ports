@@ -7,37 +7,37 @@ import Section from "../components/Section/Section";
 const contacts = [
   {
     name: "Email",
-    icon: <FaEnvelope size={18} />,
+    icon: <FaEnvelope size={16} />,
     link: "mailto:mrabhisheak@gmail.com",
     value: "mrabhisheak@gmail.com",
-    label: "Direct Email",
+    label: "Direct Inquiries",
   },
   {
     name: "LinkedIn",
-    icon: <FaLinkedin size={18} />,
+    icon: <FaLinkedin size={16} />,
     link: "https://www.linkedin.com/in/abhishekmr029/",
-    value: "linkedin.com/in/abhishekmr029",
+    value: "in/abhishekmr029",
     label: "Professional Profile",
   },
   {
     name: "GitHub",
-    icon: <FaGithub size={18} />,
+    icon: <FaGithub size={16} />,
     link: "https://github.com/abhi-byte62",
     value: "github.com/abhi-byte62",
     label: "Source Code & Repos",
   },
   {
     name: "LeetCode",
-    icon: <SiLeetcode size={18} />,
+    icon: <SiLeetcode size={16} />,
     link: "https://leetcode.com/u/playboldAbhi/",
-    value: "leetcode.com/u/playboldAbhi",
+    value: "u/playboldAbhi",
     label: "Problem Solving",
   },
   {
     name: "Codeforces",
-    icon: <SiCodeforces size={18} />,
+    icon: <SiCodeforces size={16} />,
     link: "https://codeforces.com/profile/playboldAbhi",
-    value: "codeforces.com/profile/playboldAbhi",
+    value: "profile/playboldAbhi",
     label: "Competitive Programming",
   },
 ];
@@ -46,25 +46,17 @@ const Contact = () => {
   return (
     <Section id="contact" className="relative pb-24">
       <Container>
-        <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-8 md:p-12 shadow-sm relative overflow-hidden">
-          {/* Subtle faint blue ambient glow */}
-          <div
-            className="pointer-events-none absolute inset-0 -z-0 opacity-25"
-            style={{
-              background: "radial-gradient(ellipse at 50% 0%, rgba(24, 58, 145, 0.3) 0%, transparent 60%)",
-            }}
-          />
-
+        <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-8 md:p-12 relative overflow-hidden">
           <div className="relative z-10 max-w-2xl">
             <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
-              GET IN TOUCH
+              CONTACT & CHANNELS
             </span>
             <h2 className="mt-2 font-['Space_Grotesk'] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#F5F7FF]">
-              Have a problem worth solving?
+              Get in Touch
             </h2>
 
             <p className="mt-3 text-sm sm:text-base text-[#8D99B5] leading-relaxed">
-              I am open to software engineering opportunities, backend infrastructure roles, and technical discussions. The best way to reach me is via email.
+              I am open to software engineering, backend systems, and quant developer roles. Whether you have an engineering problem to discuss or an opportunity, feel free to reach out directly.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

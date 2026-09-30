@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
-  FiSearch, FiCode, FiLayers, FiFileText, FiGithub, FiMail, 
-  FiExternalLink, FiTerminal, FiCheck, FiArrowRight, FiCornerDownLeft 
+  FiSearch, FiCode, FiLayers, FiFileText, FiMail, 
+  FiTerminal, FiCheck, FiCornerDownLeft 
 } from "react-icons/fi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const COMMANDS = [
   // Case Studies
@@ -69,27 +69,27 @@ const COMMANDS = [
     },
   },
   {
-    id: "nav-about",
-    title: "Jump to About Engineer",
-    category: "PORTFOLIO NAVIGATION",
-    icon: FiFileText,
-    action: (navigate) => {
-      navigate("/");
-      setTimeout(() => {
-        const el = document.getElementById("about");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 50);
-    },
-  },
-  {
     id: "nav-skills",
-    title: "Jump to Technical Skills Matrix",
+    title: "Jump to Technical Competencies",
     category: "PORTFOLIO NAVIGATION",
     icon: FiCode,
     action: (navigate) => {
       navigate("/");
       setTimeout(() => {
         const el = document.getElementById("skills");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    },
+  },
+  {
+    id: "nav-about",
+    title: "Jump to Background & Approach",
+    category: "PORTFOLIO NAVIGATION",
+    icon: FiFileText,
+    action: (navigate) => {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById("about");
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 50);
     },
@@ -156,14 +156,11 @@ export default function CommandPalette({ isOpen, onClose }) {
 
   // Focus input when opened
   useEffect(() => {
-    if (isOpen) {
-      setQuery("");
-      setSelectedIndex(0);
-      setTimeout(() => {
-        if (inputRef.current) inputRef.current.focus();
-      }, 50);
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
     }
   }, [isOpen]);
+
 
   // Keyboard navigation inside palette
   useEffect(() => {

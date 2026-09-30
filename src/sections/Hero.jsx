@@ -1,26 +1,27 @@
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiArrowDown, HiArrowRight } from "react-icons/hi";
+
 
 import Container from "../components/Container/Container";
 import Section from "../components/Section/Section";
 
 const Hero = () => {
   return (
-    <Section id="hero" className="relative min-h-[88vh] flex items-center justify-center overflow-hidden pt-28 pb-20">
+    <Section id="hero" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-28 pb-16">
       {/* Restrained subtle navy radial background glow */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
-          background: "radial-gradient(ellipse 60% 45% at 50% 0%, rgba(24, 58, 145, 0.18) 0%, rgba(5, 9, 20, 0) 70%)",
+          background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(24, 58, 145, 0.15) 0%, rgba(5, 9, 20, 0) 75%)",
         }}
       />
 
       <Container>
         <div className="max-w-3xl">
-          {/* Engineering Role Label */}
+          {/* Engineering Role Identifier */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#1C2942] bg-[#0D1424] px-3.5 py-1 text-xs font-mono text-[#8D99B5] mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4D7CFF]" />
-            <span>SOFTWARE ENGINEER // SYSTEMS, QUANT & FULL-STACK</span>
+            <span>SOFTWARE ENGINEER // BACKEND, SYSTEMS & DISTRIBUTED STATE</span>
           </div>
 
           {/* Name & Primary Headline */}
@@ -28,32 +29,32 @@ const Hero = () => {
             Abhishek M R
           </h1>
 
-          {/* Concrete Engineering Focus */}
-          <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-[#8D99B5]">
-            I build distributed backend architectures, market microstructure simulators, and performance-critical systems. Focused on low-latency matching, concurrency control, stream pipelines, and predictable memory footprint.
+          {/* Concrete Engineering Identity */}
+          <p className="mt-5 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-[#8D99B5]">
+            Computer Science background with a focus on building resilient distributed backends, market microstructure matching engines, and high-throughput streaming systems.
           </p>
 
           {/* Technical Specialties */}
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-mono text-[#8D99B5]">
             <span className="flex items-center gap-1.5">
-              <span className="text-[#4D7CFF]">▹</span> C++17 & Low-Latency
-            </span>
-            <span className="flex items-center gap-1.5">
               <span className="text-[#4D7CFF]">▹</span> Java & Spring Boot
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#4D7CFF]">▹</span> Node.js & React
+              <span className="text-[#4D7CFF]">▹</span> C++17 & Low-Latency
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#4D7CFF]">▹</span> Node.js & WebSockets
             </span>
             <span className="flex items-center gap-1.5">
               <span className="text-[#4D7CFF]">▹</span> PostgreSQL & Redis
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#4D7CFF]">▹</span> Market Microstructure & Streams
+              <span className="text-[#4D7CFF]">▹</span> RabbitMQ & Distributed State
             </span>
           </div>
 
-          {/* Compact, purposeful CTAs */}
-          <div className="mt-9 flex flex-wrap items-center gap-3.5">
+          {/* Purposeful CTAs */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
               className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
@@ -80,16 +81,26 @@ const Hero = () => {
               <FaGithub size={15} />
               GitHub
             </a>
+
+            <a
+              href="https://www.linkedin.com/in/abhishekmr029/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#0D1424]/60 px-4 py-2.5 text-sm font-medium text-[#8D99B5] transition-colors hover:border-[#4D7CFF] hover:text-[#F5F7FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
+            >
+              <FaLinkedin size={15} />
+              LinkedIn
+            </a>
           </div>
         </div>
       </Container>
 
       <a
         href="#projects"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#5F6B83] hover:text-[#4D7CFF] transition-colors"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[#5F6B83] hover:text-[#4D7CFF] transition-colors"
         aria-label="Scroll to featured projects"
       >
-        <HiArrowDown size={20} />
+        <HiArrowDown size={18} />
       </a>
     </Section>
   );

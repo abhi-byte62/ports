@@ -1,7 +1,7 @@
 import Hero from "../sections/Hero";
 import Projects from "../sections/Projects";
-import About from "../sections/About";
 import Skills from "../sections/Skills";
+import About from "../sections/About";
 import Contact from "../sections/Contact";
 import SEO from "../components/SEO/SEO";
 
@@ -12,8 +12,8 @@ const Home = () => {
     <>
       <SEO
         title="Abhishek M R | Software Engineer"
-        description="Portfolio of Abhishek M R showcasing networking, backend, developer tools and software engineering projects."
-        keywords="Software Engineer, Java, React, Node.js, Three.js, Networking, Portfolio"
+        description="Portfolio of Abhishek M R showcasing distributed systems, backend engineering, low-latency market simulation, and software architecture."
+        keywords="Software Engineer, Java, Spring Boot, C++, Distributed Systems, PostgreSQL, Redis, RabbitMQ, Portfolio"
       />
       <Hero />
 
@@ -22,11 +22,11 @@ const Home = () => {
       </Reveal>
 
       <Reveal>
-        <About />
+        <Skills />
       </Reveal>
 
       <Reveal>
-        <Skills />
+        <About />
       </Reveal>
 
       <Reveal>
@@ -37,3 +37,4 @@ const Home = () => {
 };
 
 export default Home;
+

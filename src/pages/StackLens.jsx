@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { FaGithub, FaDocker, FaShieldAlt, FaNetworkWired, FaCode, FaSearch, FaLayerGroup, FaCheck, FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaGithub, FaDocker, FaSearch, FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { HiArrowLeft, HiCheckCircle } from "react-icons/hi";
-import { FiDatabase, FiLock, FiZap, FiCpu, FiLayers, FiShield, FiFileText, FiRefreshCw, FiSliders } from "react-icons/fi";
+import { HiArrowLeft } from "react-icons/hi";
+import { FiDatabase, FiZap, FiCpu, FiLayers, FiShield } from "react-icons/fi";
+
 
 import SEO from "../components/SEO/SEO";
 import Container from "../components/Container/Container";

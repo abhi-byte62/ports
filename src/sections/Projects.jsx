@@ -8,26 +8,60 @@ import ProjectCard from "../components/ProjectCard/ProjectCard";
 import { projects } from "../data/projects";
 
 const Projects = () => {
+  const featuredProjects = projects.filter((p) => p.featured);
+  const secondaryProjects = projects.filter((p) => !p.featured);
+
   return (
     <Section id="projects" className="relative">
       <Container>
         <SectionTitle
-          tag="ENGINEERING PROJECTS"
-          title="Featured Software Engineering Case Studies"
-          subtitle="Production systems demonstrating website engineering intelligence, market microstructure simulation, real-time collaboration, stream backpressure, and hardware-accelerated graphics."
+          tag="ENGINEERING CASE STUDIES"
+          title="Featured Systems Architecture & Implementations"
+          subtitle="Production-grade distributed backends, market microstructure matching engines, real-time collaboration platforms, and hardware-accelerated telemetry."
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-          viewport={{ once: true }}
-          className="mt-14 grid gap-7 md:grid-cols-2"
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        {/* Featured Projects - High Visual Prominence */}
+        <div className="mt-14 space-y-8">
+          {featuredProjects.map((project) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              viewport={{ once: true }}
+            >
+              <ProjectCard project={project} isFeatured={true} />
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
+
+        {/* Secondary Specialized Systems */}
+        {secondaryProjects.length > 0 && (
+          <div className="mt-14">
+            <div className="mb-6 flex items-center justify-between border-b border-[#1C2942] pb-3">
+              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8D99B5]">
+                Specialized Systems & Protocol Tooling
+              </span>
+              <span className="text-xs font-mono text-[#5F6B83]">
+                {secondaryProjects.length} Systems
+              </span>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {secondaryProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35 }}
+                  viewport={{ once: true }}
+                >
+                  <ProjectCard project={project} isFeatured={false} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
       </Container>
     </Section>
   );

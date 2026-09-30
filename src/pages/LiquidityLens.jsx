@@ -2,7 +2,8 @@ import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HiArrowLeft } from "react-icons/hi";
-import { FiCpu, FiTrendingUp, FiActivity, FiShield, FiClock, FiLayers } from "react-icons/fi";
+import { FiCpu, FiTrendingUp, FiShield, FiLayers } from "react-icons/fi";
+
 
 import SEO from "../components/SEO/SEO";
 import Container from "../components/Container/Container";

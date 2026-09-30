@@ -4,15 +4,16 @@ export const navigation = [
     href: "#projects",
   },
   {
-    name: "About",
-    href: "#about",
-  },
-  {
     name: "Skills",
     href: "#skills",
+  },
+  {
+    name: "About",
+    href: "#about",
   },
   {
     name: "Contact",
     href: "#contact",
   },
 ];
+
