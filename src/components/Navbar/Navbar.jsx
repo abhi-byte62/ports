@@ -7,7 +7,7 @@ import { navigation } from "../../data/navigation";
 
 import Container from "../Container/Container";
 
-const Navbar = () => {
+const Navbar = ({ onOpenCommandPalette }) => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const activeSection = useActiveSection();
@@ -108,8 +108,39 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Desktop Resume Button */}
+          {/* Desktop Search & Resume Buttons */}
           <div className="hidden md:flex items-center gap-3">
+            {onOpenCommandPalette && (
+              <button
+                onClick={onOpenCommandPalette}
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-lg
+                  border
+                  border-[#1C2942]
+                  bg-[#080E1B]
+                  px-3
+                  py-1.5
+                  text-xs
+                  font-mono
+                  text-[#8D99B5]
+                  transition-all
+                  duration-200
+                  hover:border-[#4D7CFF]
+                  hover:text-[#F5F7FF]
+                  hover:bg-[#0D1424]
+                "
+                aria-label="Search and quick actions (Ctrl+K)"
+              >
+                <span>Search</span>
+                <kbd className="rounded border border-[#1C2942] bg-[#0D1424] px-1.5 py-0.5 text-[10px] text-[#4D7CFF]">
+                  ⌘K
+                </kbd>
+              </button>
+            )}
+
             <a
               href="/resume.pdf"
               target="_blank"
@@ -141,16 +172,28 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="text-xl text-[#8D99B5] hover:text-[#F5F7FF] md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-[#1C2942] bg-[#0D1424] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          >
-            {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
-          </button>
+          {/* Mobile Right Action Area */}
+          <div className="flex items-center gap-2 md:hidden">
+            {onOpenCommandPalette && (
+              <button
+                onClick={onOpenCommandPalette}
+                className="flex items-center justify-center w-10 h-10 rounded-lg border border-[#1C2942] bg-[#0D1424] text-[#4D7CFF] text-xs font-mono"
+                aria-label="Open command search"
+              >
+                ⌘K
+              </button>
+            )}
+
+            <button
+              onClick={toggleMenu}
+              className="text-xl text-[#8D99B5] hover:text-[#F5F7FF] flex items-center justify-center w-10 h-10 rounded-lg border border-[#1C2942] bg-[#0D1424] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Menu Drawer */}
