@@ -2,10 +2,33 @@ import packetImage from "../assets/images/packet-sniffer.png";
 import specterImage from "../assets/images/specter-proxy.png";
 import taskflowImage from "../assets/images/taskflow/04_kanban_board_full.png";
 import liquiditylensImage from "../assets/images/liquiditylens/01_order_book_depth_ladder.png";
+import stacklensImage from "../assets/images/stacklens/01-landing-hero-dashboard.png";
 
 export const projects = [
   {
     id: 1,
+    title: "StackLens",
+    subtitle: "Website Engineering Intelligence & Architecture Inference Engine",
+    description:
+      "A developer-focused platform that performs safe, deep reverse-engineering of public web systems. Combines 200+ weighted signature evaluations, SSRF/DNS-rebinding perimeter defense, interactive system DAG generation, and build-from-scratch engineering blueprints.",
+    technologies: [
+      "Java 21",
+      "Spring Boot 3",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "RabbitMQ",
+      "PostgreSQL 16",
+      "Redis 7.2",
+      "Docker",
+    ],
+    metrics: "200+ Signatures • Sub-Second DAG • SSRF Shield",
+    image: stacklensImage,
+    github: "https://github.com/abhi-byte62/stackl",
+    route: "/stacklens",
+  },
+  {
+    id: 2,
     title: "LiquidityLens",
     subtitle: "Event-Driven Market Microstructure & C++ Execution Simulator",
     description:
@@ -26,7 +49,7 @@ export const projects = [
     route: "/liquiditylens",
   },
   {
-    id: 2,
+    id: 3,
     title: "TaskFlow",
     subtitle: "Real-Time Collaborative Kanban & Distributed State Engine",
     description:
@@ -47,7 +70,7 @@ export const projects = [
     route: "/taskflow",
   },
   {
-    id: 3,
+    id: 4,
     title: "Packet Sniffer 3D",
     subtitle: "Real-Time PCAP Ingestion & WebGL Spatial Topology Engine",
     description:
@@ -59,7 +82,7 @@ export const projects = [
     route: "/packet-sniffer",
   },
   {
-    id: 4,
+    id: 5,
     title: "Specter Proxy",
     subtitle: "Stream Backpressure & Ephemeral TLS Interception Proxy",
     description:

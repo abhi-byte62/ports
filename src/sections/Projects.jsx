@@ -14,7 +14,7 @@ const Projects = () => {
         <SectionTitle
           tag="ENGINEERING PROJECTS"
           title="Featured Software Engineering Case Studies"
-          subtitle="Production systems demonstrating market microstructure simulation, real-time collaboration, stream backpressure, and hardware-accelerated graphics."
+          subtitle="Production systems demonstrating website engineering intelligence, market microstructure simulation, real-time collaboration, stream backpressure, and hardware-accelerated graphics."
         />
 
         <motion.div
