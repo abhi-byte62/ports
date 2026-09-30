@@ -12,6 +12,7 @@ import MainLayout from "./layout/MainLayout";
 const Home = lazy(() => import("./pages/Home"));
 const Resume = lazy(() => import("./pages/Resume"));
 const StackLens = lazy(() => import("./pages/StackLens"));
+const TradeForge = lazy(() => import("./pages/TradeForge"));
 const LiquidityLens = lazy(() => import("./pages/LiquidityLens"));
 const TaskFlow = lazy(() => import("./pages/TaskFlow"));
 const PacketSniffer = lazy(() => import("./pages/PacketSniffer"));
@@ -66,6 +67,7 @@ function App() {
             <Route path="/" element={<Home onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/stacklens" element={<StackLens />} />
+            <Route path="/tradeforge" element={<TradeForge />} />
             <Route path="/liquiditylens" element={<LiquidityLens />} />
             <Route path="/taskflow" element={<TaskFlow />} />
             <Route path="/packet-sniffer" element={<PacketSniffer />} />

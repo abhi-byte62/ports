@@ -534,6 +534,9 @@ const LiquidityLens = () => {
                   <strong className="text-[#F5F7FF]">Zero Look-Ahead Post-Fill Markouts:</strong> Evaluates post-fill price trajectories across discrete horizons (1ms to 1s) to separate genuine spread capture from toxic adverse selection.
                 </li>
               </ul>
+              <div className="mt-4 rounded-xl border border-[#1C2942] bg-[#0D1424] p-3.5 text-xs text-[#8D99B5] font-mono">
+                <span className="text-[#4D7CFF] font-semibold">MARKET SYSTEMS CONTEXT:</span> While LiquidityLens investigates sub-microsecond limit order book physics, FIFO queue degradation, and adverse selection in C++17, these matching foundations also inform the full-lifecycle paper trading terminal in <Link to="/tradeforge" className="text-[#6D96FF] underline hover:text-[#F5F7FF]">TradeForge</Link>.
+              </div>
             </div>
           </section>
 
@@ -752,17 +755,17 @@ const LiquidityLens = () => {
           <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#1C2942] sm:flex-row">
             <div className="flex flex-wrap items-center gap-6">
               <Link
-                to="/taskflow"
-                className="text-sm font-medium text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+                to="/tradeforge"
+                className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors font-semibold"
               >
-                &larr; Next Case Study: TaskFlow
+                &larr; TradeForge Case Study
               </Link>
               <span className="text-[#1C2942]">|</span>
               <Link
-                to="/packet-sniffer"
-                className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
+                to="/taskflow"
+                className="text-sm font-medium text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
               >
-                Packet Sniffer 3D &rarr;
+                TaskFlow Case Study &rarr;
               </Link>
             </div>
 

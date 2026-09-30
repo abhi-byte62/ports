@@ -21,7 +21,7 @@ const Hero = () => {
           {/* Engineering Role Identifier */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#1C2942] bg-[#0D1424] px-3.5 py-1 text-xs font-mono text-[#8D99B5] mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4D7CFF]" />
-            <span>SOFTWARE ENGINEER // BACKEND, SYSTEMS & DISTRIBUTED STATE</span>
+            <span>SOFTWARE ENGINEER // BACKEND • SYSTEMS • DISTRIBUTED APPLICATIONS</span>
           </div>
 
           {/* Name & Primary Headline */}
@@ -30,8 +30,8 @@ const Hero = () => {
           </h1>
 
           {/* Concrete Engineering Identity */}
-          <p className="mt-5 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-[#8D99B5]">
-            Computer Science background with a focus on building resilient distributed backends, market microstructure matching engines, and high-throughput streaming systems.
+          <p className="mt-5 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-[#BAC5D8]">
+            I build backend services, market simulation engines, and low-latency systems. Focused on concurrency control, bounded resource usage, and deterministic verification.
           </p>
 
           {/* Technical Specialties */}
@@ -43,13 +43,13 @@ const Hero = () => {
               <span className="text-[#4D7CFF]">▹</span> C++17 & Low-Latency
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#4D7CFF]">▹</span> Node.js & WebSockets
+              <span className="text-[#4D7CFF]">▹</span> Distributed Systems & OCC
             </span>
             <span className="flex items-center gap-1.5">
               <span className="text-[#4D7CFF]">▹</span> PostgreSQL & Redis
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#4D7CFF]">▹</span> RabbitMQ & Distributed State
+              <span className="text-[#4D7CFF]">▹</span> Algorithmic Problem Solving
             </span>
           </div>
 

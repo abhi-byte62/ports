@@ -914,6 +914,13 @@ volumes:
 
           <div className="flex items-center gap-4">
             <Link
+              to="/tradeforge"
+              className="text-xs font-mono text-[#4D7CFF] hover:text-[#6D96FF] transition-colors font-semibold"
+            >
+              TradeForge →
+            </Link>
+            <span className="text-[#1C2942]">|</span>
+            <Link
               to="/liquiditylens"
               className="text-xs font-mono text-[#8D99B5] hover:text-[#F5F7FF] transition-colors"
             >

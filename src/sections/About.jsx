@@ -9,25 +9,25 @@ const tenets = [
     number: "01",
     title: "Explicit State & Concurrency Control",
     description:
-      "Preventing race conditions and dirty writes requires deliberate concurrency patterns. I rely on optimistic locking (OCC), atomic database transactions, and deterministic event ordering over naive client-side assumptions.",
+      "Preventing race conditions and dirty writes requires deliberate concurrency models. I design systems around optimistic concurrency control (OCC), atomic database transactions, and deterministic event sequences over unvalidated client assumptions.",
   },
   {
     number: "02",
     title: "Bounded Memory & Stream Backpressure",
     description:
-      "High throughput without memory bounds leads to latency spikes and OOM failures. I design data pipelines with chunked stream transforms, object pooling, and strict highWaterMark backpressure flow control.",
+      "Unbounded queues under high throughput cause GC thrashing and out-of-memory failures. I enforce strict stream backpressure (highWaterMark), zero-copy buffer slicing, and fixed-point integer math to keep memory footprints constant.",
   },
   {
     number: "03",
-    title: "End-to-End Correctness & Verification",
+    title: "Deterministic Replay & Invariant Verification",
     description:
-      "A distributed system is only complete when edge cases are verified. I build automated test suites covering malformed packet parsing, abrupt socket disconnects, conflict resolution, and deterministic recovery.",
+      "A distributed or financial system is only reliable when invariants hold unconditionally. I build deterministic seed-based test harnesses and assert book balance conservation (Equity = Cash + Positions × Mid) across all states.",
   },
   {
     number: "04",
-    title: "Foundations Over Framework Transience",
+    title: "Systems Foundations Over Transient Abstractions",
     description:
-      "Frameworks evolve, but computer science fundamentals remain constant. Strong understanding of the TCP/IP stack, event loops, OS memory models, and algorithmic complexity informs better architectural decisions.",
+      "Frameworks shift, but systems fundamentals endure. Deep intuition for the TCP/IP stack, OS memory management, event loop mechanics, and amortized complexity guides robust architectural design.",
   },
 ];
 
@@ -36,9 +36,9 @@ const About = () => {
     <Section id="about" className="relative">
       <Container>
         <SectionTitle
-          tag="ENGINEERING PROFILE"
+          tag="ABOUT"
           title="Background & Architectural Approach"
-          subtitle="How I approach building reliable software systems, managing concurrency, and structuring maintainable codebases."
+          subtitle="How I approach building reliable software systems, concurrency control, and bounded resource utilization."
         />
 
         <motion.div
@@ -50,30 +50,30 @@ const About = () => {
         >
           {/* Left Column - Engineering Narrative & Background */}
           <div className="flex flex-col justify-between lg:col-span-5 space-y-6">
-            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-[#8D99B5]">
+            <div className="space-y-3.5 text-sm sm:text-base leading-relaxed text-[#BAC5D8]">
               <p>
-                I am a software engineer with a strong Computer Science foundation, focused on backend architectures, high-performance engines, and developer tooling.
+                Software engineer with strong Computer Science fundamentals, focusing on distributed backends, market simulation engines, and low-latency systems.
               </p>
               <p>
-                My work spans designing distributed microservices with <span className="text-[#F5F7FF] font-medium">Java, Spring Boot, RabbitMQ, and PostgreSQL</span> to low-level systems programming in <span className="text-[#F5F7FF] font-medium">C++17</span> (limit order book matching engines), custom TLS forward proxies, and WebGL telemetry engines.
+                My work spans enterprise microservice architectures in <span className="text-[#F5F7FF] font-medium">Java 21 / Spring Boot 3</span> with message queues (RabbitMQ), low-level systems in <span className="text-[#F5F7FF] font-medium">C++17</span> (matching engines & fixed-point order books), and real-time state synchronization.
               </p>
-              <p>
-                I prioritize clarity over cleverness: modular architectural boundaries, explicit error handling, predictable algorithmic complexity, and comprehensive verification.
+              <p className="text-xs text-[#8D99B5]">
+                I emphasize modular boundaries, bounded resource utilization, predictable algorithmic complexity, and invariant-driven automated verification.
               </p>
             </div>
 
             {/* Background & Education Summary Card */}
             <div className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-5">
               <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#4D7CFF]">
-                Education & Technical Track
+                Education & Technical Foundations
               </div>
-              <div className="mt-3 space-y-2 text-xs text-[#8D99B5]">
+              <div className="mt-3 space-y-1.5 text-xs text-[#8D99B5]">
                 <div className="flex justify-between items-start">
                   <span className="font-semibold text-[#F5F7FF]">Computer Science & Engineering</span>
                   <span className="font-mono text-[10px] text-[#5F6B83]">B.E.</span>
                 </div>
-                <p className="text-[#8D99B5] leading-relaxed">
-                  Focus on Data Structures, Algorithms, Operating Systems, Computer Networks, Database Management Systems, and Distributed Computing.
+                <p className="text-[#BAC5D8] leading-relaxed">
+                  Data Structures & Algorithms, Operating Systems, Computer Networks, Database Management Systems, Distributed Computing.
                 </p>
               </div>
             </div>
@@ -97,7 +97,7 @@ const About = () => {
                     {tenet.title}
                   </h3>
                 </div>
-                <p className="mt-2 text-xs md:text-sm leading-relaxed text-[#8D99B5]">
+                <p className="mt-2 text-xs md:text-sm leading-relaxed text-[#BAC5D8]">
                   {tenet.description}
                 </p>
               </div>

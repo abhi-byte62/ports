@@ -36,8 +36,8 @@ const ProjectCard = ({ project, isFeatured = false }) => {
         {/* Content container */}
         <div className="lg:w-1/2 flex flex-col justify-between p-6 sm:p-8">
           <div>
-            {/* Header: Category & Metrics */}
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            {/* Line 1: Category & Metrics Header */}
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#4D7CFF] font-semibold">
                 {project.category}
               </span>
@@ -48,28 +48,28 @@ const ProjectCard = ({ project, isFeatured = false }) => {
               )}
             </div>
 
-            {/* Title & Subtitle */}
+            {/* Project Title & System Subtitle */}
             <h3 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#F5F7FF] group-hover:text-[#6D96FF] transition-colors">
               {project.title}
             </h3>
 
-            <p className="mt-1 text-xs font-mono text-[#8D99B5]">
+            <p className="mt-0.5 text-xs font-mono text-[#8D99B5]">
               {project.subtitle}
             </p>
 
-            {/* Problem / Solution Summary */}
-            <p className="mt-4 text-[#8D99B5] text-xs sm:text-sm leading-relaxed">
+            {/* Line 2: Clear, Defensible Engineering Description */}
+            <p className="mt-3.5 text-[#BAC5D8] text-xs sm:text-sm leading-relaxed">
               {project.description}
             </p>
 
-            {/* Key Architectural Decisions */}
+            {/* 2-3 Concise Technical Highlights */}
             {project.keyDecisions && project.keyDecisions.length > 0 && (
               <div className="mt-4 space-y-1.5 pt-3 border-t border-[#1C2942]/60">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[#5F6B83]">
-                  Key Engineering Decisions
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#5F6B83]">
+                  Architectural Highlights
                 </span>
                 <ul className="space-y-1 text-xs text-[#8D99B5]">
-                  {project.keyDecisions.slice(0, 2).map((decision, idx) => (
+                  {project.keyDecisions.slice(0, 3).map((decision, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="text-[#4D7CFF] mt-0.5 shrink-0">▹</span>
                       <span className="leading-snug">{decision}</span>
@@ -79,7 +79,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
               </div>
             )}
 
-            {/* Tech Stack Tags */}
+            {/* Tech Stack Chips */}
             <div className="mt-5 flex flex-wrap gap-1.5">
               {project.technologies.map((tech) => (
                 <span
@@ -98,7 +98,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
               to={project.route}
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#4D7CFF] group-hover:text-[#6D96FF] transition-colors"
             >
-              Deep Architecture Case Study
+              Case Study & Blueprint
               <HiArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
 
@@ -118,7 +118,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
     );
   }
 
-  // Secondary Compact Project Card
+  // Secondary Specialized Systems Card
   return (
     <article
       onClick={handleCardClick}
@@ -144,7 +144,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
           {project.subtitle}
         </p>
 
-        <p className="mt-3 text-[#8D99B5] text-xs sm:text-sm leading-relaxed">
+        <p className="mt-3 text-[#BAC5D8] text-xs sm:text-sm leading-relaxed">
           {project.description}
         </p>
 

@@ -15,9 +15,9 @@ const Projects = () => {
     <Section id="projects" className="relative">
       <Container>
         <SectionTitle
-          tag="ENGINEERING CASE STUDIES"
+          tag="PROJECTS"
           title="Featured Systems Architecture & Implementations"
-          subtitle="Production-grade distributed backends, market microstructure matching engines, real-time collaboration platforms, and hardware-accelerated telemetry."
+          subtitle="Selected software projects across matching engines, distributed architectures, network proxies, and real-time state synchronization."
         />
 
         {/* Featured Projects - High Visual Prominence */}

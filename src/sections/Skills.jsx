@@ -13,9 +13,9 @@ const Skills = () => {
     <Section id="skills" className="relative">
       <Container>
         <SectionTitle
-          tag="TECHNICAL PROFICIENCIES"
-          title="Engineering Capabilities & Technical Depth"
-          subtitle="Core technologies, systems architecture concepts, and foundations verified across production repositories."
+          tag="SKILLS"
+          title="Technical Skills & Focus Areas"
+          subtitle="Languages, systems engineering tools, and data stores used across my implementations."
         />
 
         {/* Skills Grid */}

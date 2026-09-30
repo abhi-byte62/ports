@@ -109,6 +109,10 @@ const Resume = () => {
               <a href="https://leetcode.com/u/playboldAbhi/" target="_blank" rel="noreferrer" className="hover:text-[#4D7CFF]">
                 LeetCode: playboldAbhi
               </a>
+              <span>•</span>
+              <a href="https://codeforces.com/profile/playboldAbhi" target="_blank" rel="noreferrer" className="hover:text-[#4D7CFF]">
+                Codeforces: playboldAbhi
+              </a>
             </div>
           </div>
 
