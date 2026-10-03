@@ -1,9 +1,9 @@
-import packetImage from "../assets/images/packet-sniffer.png";
-import specterImage from "../assets/images/specter-proxy.png";
-import taskflowImage from "../assets/images/taskflow/04_kanban_board_full.png";
+import tradeforgeImage from "../assets/images/tradeforge/01_tradeforge_terminal_overview.png";
 import liquiditylensImage from "../assets/images/liquiditylens/01_order_book_depth_ladder.png";
 import stacklensImage from "../assets/images/stacklens/01-landing-hero-dashboard.png";
-import tradeforgeImage from "../assets/images/tradeforge/01_tradeforge_terminal_overview.png";
+import taskflowImage from "../assets/images/taskflow/04_kanban_board_full.png";
+import specterImage from "../assets/images/specter-proxy.png";
+import packetImage from "../assets/images/packet-sniffer.png";
 
 export const projects = [
   {
@@ -104,6 +104,40 @@ export const projects = [
   },
   {
     id: 4,
+    title: "DontTrust",
+    subtitle: "Application Security Assessment & Attack-Surface Intelligence Platform",
+    category: "Application Security & Distributed Analysis",
+    featured: false,
+    description:
+      "Distributed web application security assessment platform in TypeScript across 17 monorepo workspaces, integrating discovery, AST source-to-sink data flow analysis, multi-identity differential authorization, and SARIF v2.1.0 reporting.",
+    problem:
+      "Traditional heuristic security scanners blindly fire noisy payloads leading to high false-positive rates and potential data corruption without understanding application topology, state transitions, or auth boundaries.",
+    solution:
+      "Engineered an AST-based JavaScript data-flow engine, multi-identity differential authorization matrix, deterministic SHA-256 state graphs, and non-destructive verification probes achieving 100% precision with zero false positives across benchmark suites.",
+    keyDecisions: [
+      "Client-side AST Source-to-Sink data-flow engine detecting DOM-based XSS with zero third-party runtime dependencies.",
+      "Multi-identity differential authorization matrix testing Horizontal BOLA/IDOR and Vertical Privilege Escalation.",
+      "Deterministic SHA-256 application state graph with automated secret redaction and SARIF v2.1.0 exports.",
+    ],
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "React 19",
+      "Cytoscape.js",
+      "AST Analysis",
+      "WebSockets",
+      "Playwright",
+      "Vitest",
+      "Docker",
+      "SARIF",
+    ],
+    metrics: "100% Precision • 0 False Positives • SARIF v2.1.0",
+    image: null,
+    github: "https://github.com/abhi-byte62/dontTrust",
+    route: "/donttrust",
+  },
+  {
+    id: 5,
     title: "Specter Proxy",
     subtitle: "Stream Backpressure & TLS Proxy",
     category: "Networking & Protocol Security",
@@ -125,7 +159,7 @@ export const projects = [
     route: "/specter-proxy",
   },
   {
-    id: 5,
+    id: 6,
     title: "TaskFlow",
     subtitle: "Real-Time Collaborative State Engine",
     category: "Full-Stack & Distributed State",
@@ -157,7 +191,7 @@ export const projects = [
     route: "/taskflow",
   },
   {
-    id: 6,
+    id: 7,
     title: "Packet Sniffer 3D",
     subtitle: "Real-Time PCAP Ingestion & WebGL Spatial Topology Engine",
     category: "Systems & Hardware-Accelerated Graphics",
@@ -179,4 +213,3 @@ export const projects = [
     route: "/packet-sniffer",
   },
 ];
-

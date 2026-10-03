@@ -84,9 +84,13 @@ const Resume = () => {
         <div className="mx-auto max-w-4xl rounded-2xl border border-[#1C2942] bg-[#0D1424] p-8 sm:p-12 shadow-2xl shadow-[#050914]">
           {/* Header */}
           <div className="text-center pb-6 border-b border-[#1C2942]">
-            <h1 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold tracking-tight text-[#F5F7FF]">
+            <Link
+              to="/"
+              className="inline-block font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold tracking-tight text-[#F5F7FF] hover:text-[#4D7CFF] transition-colors"
+              aria-label="Return to Portfolio Home"
+            >
               ABHISHEK M R
-            </h1>
+            </Link>
             <p className="mt-2 text-xs sm:text-sm text-[#8D99B5]">
               Bengaluru, India &nbsp;|&nbsp; +91 7259371549 &nbsp;|&nbsp;{" "}
               <a href="mailto:mrabhisheak@gmail.com" className="text-[#4D7CFF] hover:underline">
@@ -165,6 +169,26 @@ const Resume = () => {
               Selected Engineering Projects
             </h2>
 
+            {/* DontTrust */}
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-baseline justify-between gap-1">
+                <div>
+                  <span className="font-bold text-[#F5F7FF] text-sm">DontTrust — Application Security Assessment & Attack-Surface Intelligence</span>
+                  <span className="text-xs italic text-[#8D99B5] block sm:inline sm:ml-2">| TypeScript, Node.js, React 19, AST Analysis, Cytoscape.js, SARIF, Docker</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#4D7CFF]">
+                  <a href="https://github.com/abhi-byte62/dontTrust" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
+                  <Link to="/donttrust" className="hover:underline">[Case Study]</Link>
+                </div>
+              </div>
+              <ul className="list-disc list-inside space-y-1 text-xs text-[#8D99B5] leading-relaxed">
+                <li>Architected a distributed application security intelligence platform across 17 monorepo workspaces, achieving 100% precision with 0 false positives on benchmark suites.</li>
+                <li>Built an AST-based JavaScript data-flow engine tracking untrusted client sources to dangerous execution sinks for DOM XSS without browser runtime overhead.</li>
+                <li>Engineered a multi-identity differential authorization matrix comparing cross-role tenant responses to verify Horizontal BOLA/IDOR and Vertical Privilege Escalation.</li>
+                <li>Constructed Attack-Surface Graph 2.0 with Cytoscape topology visualization, automated secret redaction, and standard SARIF v2.1.0 report generation.</li>
+              </ul>
+            </div>
+
             {/* StackLens */}
             <div className="space-y-2">
               <div className="flex flex-wrap items-baseline justify-between gap-1">
@@ -223,24 +247,57 @@ const Resume = () => {
                 <li>Integrated room-scoped Socket.io state synchronization with role-based access control (RBAC) enforced in atomic Prisma transactions.</li>
               </ul>
             </div>
+          </div>
 
-            {/* Specter Proxy */}
-            <div className="space-y-2">
-              <div className="flex flex-wrap items-baseline justify-between gap-1">
-                <div>
-                  <span className="font-bold text-[#F5F7FF] text-sm">Specter Proxy — Stream Backpressure & Ephemeral TLS Interception Proxy</span>
-                  <span className="text-xs italic text-[#8D99B5] block sm:inline sm:ml-2">| Node.js Streams, HTTP/HTTPS, TLS Termination, Dynamic SNI, Backpressure</span>
+          {/* Open Source Contributions */}
+          <div className="py-6 border-b border-[#1C2942] space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#4D7CFF]">
+                Upstream Open Source Contributions
+              </h2>
+              <span className="text-xs font-mono text-[#8D99B5]">10+ Merged Commits Across Tier-1 Systems</span>
+            </div>
+
+            <div className="space-y-3 text-xs">
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between">
+                  <span className="font-bold text-[#F5F7FF]">Valkey (Linux Foundation / Key-Value Storage Engine)</span>
+                  <span className="text-[#4D7CFF] font-mono"><a href="https://github.com/valkey-io/valkey" target="_blank" rel="noreferrer" className="hover:underline">[valkey-io/valkey]</a></span>
                 </div>
-                <div className="flex items-center gap-2 text-xs font-mono text-[#4D7CFF]">
-                  <a href="https://github.com/abhi-byte62/specter-proxy" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
-                  <Link to="/specter-proxy" className="hover:underline">[Case Study]</Link>
-                </div>
+                <p className="text-[#8D99B5] mt-0.5 leading-relaxed">
+                  Fixed stream trimming integer truncation when MAXLEN ≥ 2^32 on 32-bit builds (<code className="text-[#6D96FF]">src/t_stream.c</code>); eliminated static compression buffer re-entrancy risks in RDB serialization (<code className="text-[#6D96FF]">src/rdb.c</code>); refactored core key eviction pipeline.
+                </p>
               </div>
-              <ul className="list-disc list-inside space-y-1 text-xs text-[#8D99B5] leading-relaxed">
-                <li>Built a stream-oriented forward proxy for real-time packet inspection, latency injection, and synthetic network resilience testing.</li>
-                <li>Enforced strict highWaterMark stream backpressure flow control to prevent heap bloat, maintaining a bounded ~35MB memory footprint.</li>
-                <li>Implemented dynamic on-the-fly X.509 SNI certificate generation signed by an ephemeral local CA for seamless TLS MITM inspection.</li>
-              </ul>
+
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between">
+                  <span className="font-bold text-[#F5F7FF]">Fastify Ecosystem (fastify-typebox, fastify-swagger, ajv-compiler)</span>
+                  <span className="text-[#4D7CFF] font-mono"><a href="https://github.com/fastify" target="_blank" rel="noreferrer" className="hover:underline">[github.com/fastify]</a></span>
+                </div>
+                <p className="text-[#8D99B5] mt-0.5 leading-relaxed">
+                  Implemented schema <code className="text-[#6D96FF]">$ref</code> reference resolution for TypeBox validator compiler; added OpenAPI 3.x path parameter serialization support; updated route compiler TypeScript interfaces.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between">
+                  <span className="font-bold text-[#F5F7FF]">QuantConnect Lean & QuickFIX (Quantitative & Protocol Engines)</span>
+                  <span className="text-[#4D7CFF] font-mono"><a href="https://github.com/QuantConnect/Lean" target="_blank" rel="noreferrer" className="hover:underline">[Lean]</a> &nbsp; <a href="https://github.com/quickfix/quickfix" target="_blank" rel="noreferrer" className="hover:underline">[QuickFIX]</a></span>
+                </div>
+                <p className="text-[#8D99B5] mt-0.5 leading-relaxed">
+                  Corrected multi-currency future settlement cash adjustments and lunch-break market bar counts in Lean (C#); fixed socket initiator disconnect notification callback propagation in QuickFIX (C++).
+                </p>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between">
+                  <span className="font-bold text-[#F5F7FF]">UnJS Infrastructure (httpxy, pathe, ungh)</span>
+                  <span className="text-[#4D7CFF] font-mono"><a href="https://github.com/unjs" target="_blank" rel="noreferrer" className="hover:underline">[github.com/unjs]</a></span>
+                </div>
+                <p className="text-[#8D99B5] mt-0.5 leading-relaxed">
+                  Forwarded <code className="text-[#6D96FF]">AbortSignal</code> in proxyFetch to terminate orphaned upstream connections; resolved line-terminator regex edge cases in pathe file extension parser.
+                </p>
+              </div>
             </div>
           </div>
 

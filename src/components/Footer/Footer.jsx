@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 import Container from "../Container/Container";
@@ -33,9 +34,14 @@ const Footer = () => {
           <div className="flex flex-col justify-between gap-10 md:flex-row md:items-center">
             {/* Left */}
             <div className="max-w-md">
-              <h2 className="font-['Space_Grotesk'] text-xl font-bold tracking-tight text-[#F5F7FF]">
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="font-['Space_Grotesk'] text-xl font-bold tracking-tight text-[#F5F7FF] hover:text-[#4D7CFF] transition-colors inline-block"
+                aria-label="Back to top / Home"
+              >
                 Abhishek M R
-              </h2>
+              </Link>
               <p className="mt-3 text-sm leading-relaxed text-[#8D99B5]">
                 Software Engineer focused on backend architecture, distributed systems, real-time collaboration engines, and low-level performance.
               </p>

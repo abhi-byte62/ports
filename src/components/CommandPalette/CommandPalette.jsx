@@ -2,12 +2,21 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   FiSearch, FiCode, FiLayers, FiFileText, FiMail, 
-  FiTerminal, FiCheck, FiCornerDownLeft 
+  FiTerminal, FiCheck, FiCornerDownLeft, FiShield 
 } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 
 const COMMANDS = [
   // Case Studies
+  {
+    id: "donttrust",
+    title: "DontTrust — Application Security & Attack-Surface Intelligence Platform",
+    category: "ENGINEERING CASE STUDIES",
+    icon: FiShield,
+    badge: "APP-SEC",
+    tags: ["TypeScript", "Security", "AST", "DOM XSS", "BOLA", "IDOR", "Cytoscape", "SARIF", "React 19"],
+    action: (navigate) => navigate("/donttrust"),
+  },
   {
     id: "tradeforge",
     title: "TradeForge — Real-Time Paper Trading & Market Simulation",
@@ -73,6 +82,20 @@ const COMMANDS = [
       navigate("/");
       setTimeout(() => {
         const el = document.getElementById("projects");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    },
+  },
+  {
+    id: "nav-opensource",
+    title: "Jump to Open Source Contributions (Valkey, Fastify, Lean, QuickFIX)",
+    category: "PORTFOLIO NAVIGATION",
+    icon: FiCode,
+    tags: ["Valkey", "Fastify", "TypeBox", "QuickFIX", "QuantConnect", "Lean", "Open Source", "Upstream"],
+    action: (navigate) => {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById("opensource");
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 50);
     },

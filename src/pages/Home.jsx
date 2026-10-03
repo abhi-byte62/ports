@@ -1,5 +1,6 @@
 import Hero from "../sections/Hero";
 import Projects from "../sections/Projects";
+import OpenSource from "../sections/OpenSource";
 import Skills from "../sections/Skills";
 import About from "../sections/About";
 import Contact from "../sections/Contact";
@@ -19,6 +20,10 @@ const Home = () => {
 
       <Reveal>
         <Projects />
+      </Reveal>
+
+      <Reveal>
+        <OpenSource />
       </Reveal>
 
       <Reveal>

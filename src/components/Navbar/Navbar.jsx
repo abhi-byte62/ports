@@ -54,6 +54,10 @@ const Navbar = ({ onOpenCommandPalette }) => {
           {/* Brand Logo */}
           <Link
             to="/"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              closeMenu();
+            }}
             className="
               font-['Space_Grotesk']
               text-lg

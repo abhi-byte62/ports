@@ -8,50 +8,70 @@ LeetCode: https://leetcode.com/u/playboldAbhi/
 ================================================================================
 PROFESSIONAL SUMMARY
 ================================================================================
-Software Engineer with a strong Computer Science foundation specializing in backend architectures, distributed systems, and low-latency C++/Java applications. Experienced in developing deterministic limit order book matching engines, event-driven microservices with RabbitMQ, stream backpressure pipelines, and optimistic concurrency control systems. Proficient in Data Structures, Algorithms, System Design, and building verified, high-throughput software.
+Software Engineer specializing in backend architectures, distributed systems, application security platforms, and low-latency C++/Java applications. Upstream contributor to Tier-1 open-source systems (Valkey, Fastify, QuantConnect Lean, QuickFIX). Experienced in building AST data-flow analyzers, deterministic order book matching engines, event-driven microservices with RabbitMQ, and stream backpressure pipelines.
 
 ================================================================================
 TECHNICAL SKILLS
 ================================================================================
-• Languages: C++17, Java 21, JavaScript (ES6+), TypeScript, Python 3, C, SQL
+• Languages: C++17, Java 21, JavaScript (ES6+), TypeScript, Python 3, C, C#, SQL
 • Backend & Distributed: Spring Boot 3, Node.js, Express, FastAPI, RabbitMQ, WebSockets, RESTful APIs
-• Databases & Caching: PostgreSQL 16/17, MySQL, Redis 7 (Pub/Sub & Caching), Prisma ORM
-• Systems & Architecture: Limit Order Books (LOB), Fixed-Point Math, Stream Backpressure, Concurrency, Zero-Copy Buffers, WebGL
-• Infrastructure & Tools: Docker & Compose, Git, GitHub Actions, Linux / POSIX Shell, Postman, Vitest
-• Core CS Foundations: Data Structures & Algorithms, OOP, OS (Memory, I/O), DBMS, Computer Networks, System Design, OCC
+• Databases & Storage: PostgreSQL 16/17, MySQL, Redis 7 / Valkey (Pub/Sub & Caching), Prisma ORM
+• Systems & Security: AST Analysis, Source-to-Sink Tracking, SARIF, Limit Order Books, Fixed-Point Math, Stream Backpressure, OCC
+• Infrastructure & Tools: Docker & Compose, Git, GitHub Actions, Linux / POSIX Shell, Vitest, Playwright, Cytoscape.js
+• Core CS Foundations: Data Structures & Algorithms, OOP, OS (Memory, I/O), DBMS, Computer Networks, System Design
+
+================================================================================
+UPSTREAM OPEN SOURCE CONTRIBUTIONS
+================================================================================
+Valkey (Linux Foundation / Key-Value Storage Engine) — C
+GitHub: https://github.com/valkey-io/valkey
+• Resolved stream trimming integer overflow when MAXLEN >= 2^32 on 32-bit builds in src/t_stream.c.
+• Removed static compression buffer in RDB serialization (src/rdb.c) to eliminate re-entrancy and thread-safety hazards.
+• Refactored key eviction core (src/evict.c) by modularizing evictSingleKey().
+
+Fastify Ecosystem (fastify-typebox, fastify-swagger, ajv-compiler) — TypeScript / JavaScript
+GitHub: https://github.com/fastify
+• Implemented schema $ref reference resolution in TypeBox validator compiler.
+• Added OpenAPI 3.x path parameter serialization support in fastify-swagger.
+• Updated route validator and serializer compiler TypeScript signatures in ajv-compiler.
+
+QuantConnect Lean & QuickFIX (Quantitative & Protocol Engines) — C#, C++
+GitHub: https://github.com/QuantConnect/Lean | https://github.com/quickfix/quickfix
+• Fixed non-USD futures settlement cash adjustments in FutureSettlementModel and lunch-break market bar calculations in Lean.
+• Resolved socket initiator disconnect event callback notifications on session disconnect in QuickFIX.
+
+UnJS Infrastructure (httpxy, pathe, ungh) — TypeScript
+GitHub: https://github.com/unjs
+• Forwarded AbortSignal from Request in proxyFetch to terminate orphaned upstream connections.
+• Resolved line-terminator regex edge cases in pathe file extension parser.
 
 ================================================================================
 SELECTED ENGINEERING PROJECTS
 ================================================================================
+DontTrust — Application Security Assessment & Attack-Surface Intelligence Platform
+Technologies: TypeScript, Node.js, React 19, AST Analysis, Cytoscape.js, SARIF, Docker
+GitHub: https://github.com/abhi-byte62/dontTrust | Case Study: https://abhishekmr.vercel.app/donttrust
+• Architected a distributed application security intelligence platform across 17 monorepo workspaces, achieving 100% precision on benchmark suites.
+• Built an AST JavaScript data-flow engine detecting DOM XSS without browser overhead; engineered multi-identity BOLA/IDOR verification matrix.
+• Constructed Attack-Surface Graph 2.0 with Cytoscape topology visualization, automated secret redaction, and SARIF v2.1.0 report generation.
+
 StackLens — Website Architecture Inference & Intelligence Engine
 Technologies: Java 21, Spring Boot 3, RabbitMQ, PostgreSQL, Redis, React 19, TypeScript
 GitHub: https://github.com/abhi-byte62/stackl | Case Study: https://abhishekmr.vercel.app/stacklens
-• Architected an asynchronous multi-vector probe engine reverse-engineering public web applications across 200+ weighted signatures.
-• Implemented SSRF and DNS-rebinding perimeter defense by validating resolved target IPs against private RFC 1918 subnets prior to worker dispatch.
-• Decoupled long-running external HTTP/TLS crawlers from client APIs using RabbitMQ message queues and Redis caching tiers.
-• Synthesized PostgreSQL DDL schemas and REST/GraphQL API contracts from detected access patterns with interactive DAG topology generation.
+• Architected an asynchronous multi-vector probe engine reverse-engineering web architectures across 200+ signatures with RFC 1918 SSRF defense.
+• Decoupled external crawlers from APIs via RabbitMQ & Redis; synthesized PostgreSQL schemas and interactive DAG topologies.
 
 LiquidityLens — Market Microstructure Simulator & Matching Engine
 Technologies: C++17, Python 3.10, FastAPI, Fixed-Point Math, Hawkes Processes, WebSockets
 GitHub: https://github.com/abhi-byte62/liqudity | Case Study: https://abhishekmr.vercel.app/liquiditylens
-• Developed a deterministic C++17 limit order book (LOB) matching engine supporting 4.5M+ events/s with ~220ns match latency.
-• Utilized int64_t fixed-point arithmetic across matching and accounting pipelines, eliminating IEEE-754 floating-point drift.
-• Simulated clustered order arrival dynamics with synthetic Hawkes processes and modeled FIFO queue priority across 10µs–500µs latency slips.
-• Calculated zero look-ahead adverse selection markout curves at 10ms, 100ms, and 1s post-trade horizons; streamed L2 depth via WebSockets.
+• Developed a deterministic C++17 LOB matching engine supporting 4.5M+ events/s with ~220ns match latency using int64_t fixed-point arithmetic.
+• Simulated Hawkes process order clusters, modeled FIFO queue priority across 10µs–500µs latency slips, and calculated adverse selection markouts.
 
 TaskFlow — Real-Time Collaborative Kanban & Distributed State Engine
 Technologies: React 18, Node.js, PostgreSQL 17, Prisma ORM, Socket.io, TanStack Query
 GitHub: https://github.com/abhi-byte62/taskflow | Case Study: https://abhishekmr.vercel.app/taskflow
 • Engineered a real-time collaborative workspace with Optimistic Concurrency Control (OCC) using integer revision tags to reject stale writes.
-• Implemented fractional midpoint indexing for O(1) card drag reordering, preventing expensive cascading updates across database rows.
-• Integrated room-scoped Socket.io state synchronization with role-based access control (RBAC) enforced in atomic Prisma transactions.
-
-Specter Proxy — Stream Backpressure & Ephemeral TLS Interception Proxy
-Technologies: Node.js Streams, HTTP/HTTPS, TLS Termination, Dynamic SNI, Backpressure
-GitHub: https://github.com/abhi-byte62/specter-proxy | Case Study: https://abhishekmr.vercel.app/specter-proxy
-• Built a stream-oriented forward proxy for real-time packet inspection, latency injection, and synthetic network resilience testing.
-• Enforced strict highWaterMark stream backpressure flow control to prevent heap bloat, maintaining a bounded ~35MB memory footprint.
-• Implemented dynamic on-the-fly X.509 SNI certificate generation signed by an ephemeral local CA for seamless TLS MITM inspection.
+• Implemented fractional midpoint indexing for O(1) card drag reordering and room-scoped Socket.io state synchronization.
 
 ================================================================================
 EDUCATION

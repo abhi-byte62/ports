@@ -11,6 +11,7 @@ import MainLayout from "./layout/MainLayout";
 // Route-level code splitting for lightning-fast initial load
 const Home = lazy(() => import("./pages/Home"));
 const Resume = lazy(() => import("./pages/Resume"));
+const DontTrust = lazy(() => import("./pages/DontTrust"));
 const StackLens = lazy(() => import("./pages/StackLens"));
 const TradeForge = lazy(() => import("./pages/TradeForge"));
 const LiquidityLens = lazy(() => import("./pages/LiquidityLens"));
@@ -66,6 +67,7 @@ function App() {
           <Route element={<MainLayout onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />}>
             <Route path="/" element={<Home onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/donttrust" element={<DontTrust />} />
             <Route path="/stacklens" element={<StackLens />} />
             <Route path="/tradeforge" element={<TradeForge />} />
             <Route path="/liquiditylens" element={<LiquidityLens />} />
