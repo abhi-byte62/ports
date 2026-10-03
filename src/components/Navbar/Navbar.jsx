@@ -1,291 +1,130 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-
 import useActiveSection from "../../hooks/useActiveSection";
-import { navigation } from "../../data/navigation";
 
-import Container from "../Container/Container";
+const navLinks = [
+  { name: "Projects", href: "#projects" },
+  { name: "Open Source", href: "#opensource" },
+  { name: "Skills", href: "#skills" },
+  { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
+];
 
-const Navbar = ({ onOpenCommandPalette }) => {
+const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const activeSection = useActiveSection();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 30);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <header
-      className={`
-        fixed
-        top-0
-        left-0
-        w-full
-        z-50
-        transition-all
-        duration-300
-        ${
-          scrolled
-            ? "bg-[#050914]/90 backdrop-blur-md border-b border-[#1C2942] shadow-sm"
-            : "bg-transparent"
-        }
-      `}
-      role="banner"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#08080C]/80 backdrop-blur-md border-b border-white/[0.08] py-4"
+          : "bg-transparent py-6"
+      }`}
     >
-      <Container>
-        <nav className="flex h-16 md:h-20 items-center justify-between" aria-label="Main navigation">
-          {/* Brand Logo */}
-          <Link
-            to="/"
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              closeMenu();
-            }}
-            className="
-              font-['Space_Grotesk']
-              text-lg
-              md:text-xl
-              font-bold
-              tracking-tight
-              text-[#F5F7FF]
-              hover:text-[#4D7CFF]
-              transition-colors
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-[#4D7CFF]
-              rounded-md
-              px-1
-            "
-            aria-label="Abhishek M R - Home"
-          >
-            Abhishek M R
-          </Link>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
+        {/* Brand */}
+        <Link
+          to="/"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            closeMenu();
+          }}
+          className="font-['Space_Grotesk'] text-lg font-bold tracking-tight text-white hover:text-sky-400 transition-colors"
+          aria-label="Abhishek M R - Home"
+        >
+          AMR
+        </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden items-center gap-8 md:flex text-sm font-medium" role="menubar">
-            {navigation.map((item) => {
-              const targetHref = isHome ? item.href : `/${item.href}`;
-              const isActive = isHome && activeSection === item.href.replace("#", "");
-              return (
-                <li key={item.name} role="none">
-                  <a
-                    href={targetHref}
-                    className={`
-                      transition-colors
-                      duration-200
-                      ${
-                        isActive
-                          ? "text-[#4D7CFF] font-semibold"
-                          : "text-[#8D99B5] hover:text-[#6D96FF]"
-                      }
-                      focus-visible:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-[#4D7CFF]
-                      rounded
-                      px-2
-                      py-1
-                    `}
-                    role="menuitem"
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Desktop Search & Resume Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            {onOpenCommandPalette && (
-              <button
-                onClick={onOpenCommandPalette}
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-lg
-                  border
-                  border-[#1C2942]
-                  bg-[#080E1B]
-                  px-3
-                  py-1.5
-                  text-xs
-                  font-mono
-                  text-[#8D99B5]
-                  transition-all
-                  duration-200
-                  hover:border-[#4D7CFF]
-                  hover:text-[#F5F7FF]
-                  hover:bg-[#0D1424]
-                "
-                aria-label="Search and quick actions (Ctrl+K)"
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-normal text-neutral-400">
+          {navLinks.map((link) => {
+            const targetHref = isHome ? link.href : `/${link.href}`;
+            const isActive = isHome && activeSection === link.href.replace("#", "");
+            return (
+              <a
+                key={link.name}
+                href={targetHref}
+                className={`transition-colors duration-200 ${
+                  isActive ? "text-white font-medium" : "hover:text-white"
+                }`}
               >
-                <span>Search</span>
-                <kbd className="rounded border border-[#1C2942] bg-[#0D1424] px-1.5 py-0.5 text-[10px] text-[#4D7CFF]">
-                  ⌘K
-                </kbd>
-              </button>
-            )}
-
-            <Link
-              to="/resume"
-              className="
-                inline-flex
-                items-center
-                justify-center
-                rounded-lg
-                border
-                border-[#1C2942]
-                bg-[#0D1424]
-                px-4
-                py-2
-                text-sm
-                font-medium
-                text-[#F5F7FF]
-                transition-all
-                duration-200
-                hover:border-[#4D7CFF]
-                hover:text-[#6D96FF]
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-[#4D7CFF]
-              "
-              aria-label="View Software Engineering Resume"
-            >
-              Resume
-            </Link>
-          </div>
-
-
-          {/* Mobile Right Action Area */}
-          <div className="flex items-center gap-2 md:hidden">
-            {onOpenCommandPalette && (
-              <button
-                onClick={onOpenCommandPalette}
-                className="flex items-center justify-center w-10 h-10 rounded-lg border border-[#1C2942] bg-[#0D1424] text-[#4D7CFF] text-xs font-mono"
-                aria-label="Open command search"
-              >
-                ⌘K
-              </button>
-            )}
-
-            <button
-              onClick={toggleMenu}
-              className="text-xl text-[#8D99B5] hover:text-[#F5F7FF] flex items-center justify-center w-10 h-10 rounded-lg border border-[#1C2942] bg-[#0D1424] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4D7CFF]"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-menu"
-              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            >
-              {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
-            </button>
-          </div>
+                {link.name}
+              </a>
+            );
+          })}
         </nav>
 
-        {/* Mobile Menu Drawer */}
-        {menuOpen && (
-          <div
-            id="mobile-menu"
-            className="
-              md:hidden
-              rounded-2xl
-              border
-              border-[#1C2942]
-              bg-[#0D1424]/95
-              p-6
-              mt-2
-              mb-4
-              backdrop-blur-xl
-              shadow-xl
-            "
-            role="navigation"
-            aria-label="Mobile navigation menu"
+        {/* Resume Action Link */}
+        <div className="hidden md:flex items-center">
+          <Link
+            to="/resume"
+            className="text-sm font-medium text-neutral-300 hover:text-white transition-colors flex items-center gap-1.5"
           >
-            <ul className="space-y-4" role="menubar">
-              {navigation.map((item) => {
-                const targetHref = isHome ? item.href : `/${item.href}`;
-                const isActive = isHome && activeSection === item.href.replace("#", "");
-                return (
-                  <li key={item.name} role="none">
-                    <a
-                      href={targetHref}
-                      onClick={closeMenu}
-                      className={`
-                        block
-                        py-2
-                        text-base
-                        font-medium
-                        transition-colors
-                        ${
-                          isActive
-                            ? "text-[#4D7CFF] font-semibold"
-                            : "text-[#8D99B5] hover:text-[#6D96FF]"
-                        }
-                        focus-visible:outline-none
-                        focus-visible:ring-2
-                        focus-visible:ring-[#4D7CFF]
-                        rounded
-                      `}
-                      role="menuitem"
-                      aria-current={isActive ? "page" : undefined}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <span>Resume</span>
+            <span className="text-sky-400">→</span>
+          </Link>
+        </div>
 
-            <div className="mt-6 pt-4 border-t border-[#1C2942]">
-              <Link
-                to="/resume"
-                onClick={closeMenu}
-                className="
-                  block
-                  w-full
-                  text-center
-                  rounded-lg
-                  border
-                  border-[#1C2942]
-                  bg-[#050914]
-                  px-4
-                  py-2.5
-                  text-sm
-                  font-medium
-                  text-[#F5F7FF]
-                  transition-colors
-                  hover:border-[#4D7CFF]
-                  hover:text-[#6D96FF]
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-[#4D7CFF]
-                "
-                aria-label="View Software Engineering Resume"
-              >
-                View Resume
-              </Link>
-            </div>
+        {/* Mobile Hamburger Toggle */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-neutral-400 hover:text-white p-2 focus:outline-none"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
+            {mobileMenuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}
+          </button>
+        </div>
+      </div>
 
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#0C0C12] border-b border-white/10 px-6 py-6 space-y-4">
+          <nav className="flex flex-col space-y-3">
+            {navLinks.map((link) => {
+              const targetHref = isHome ? link.href : `/${link.href}`;
+              const isActive = isHome && activeSection === link.href.replace("#", "");
+              return (
+                <a
+                  key={link.name}
+                  href={targetHref}
+                  onClick={closeMenu}
+                  className={`text-base transition-colors ${
+                    isActive ? "text-white font-semibold" : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
+          </nav>
+          <div className="pt-4 border-t border-white/10">
+            <Link
+              to="/resume"
+              onClick={closeMenu}
+              className="text-sm font-medium text-sky-400 hover:text-sky-300 flex items-center gap-2"
+            >
+              <span>View Resume</span>
+              <span>→</span>
+            </Link>
           </div>
-        )}
-      </Container>
+        </div>
+      )}
     </header>
   );
 };
