@@ -2,24 +2,24 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#050914] px-6 text-[#F5F7FF]">
-      <div className="w-full max-w-md rounded-2xl border border-[#1C2942] bg-[#0D1424] p-8 text-center shadow-xl">
-        <span className="inline-flex rounded-full bg-[#0D1B3A] px-3 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-[#6D96FF] border border-[#4D7CFF]/20">
-          HTTP 404
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#08080C] px-6 text-white selection:bg-white/10 selection:text-white">
+      <div className="w-full max-w-md rounded-xl border border-white/[0.08] bg-[#0C0C12] p-8 text-center">
+        <span className="inline-flex rounded bg-white/[0.06] px-2.5 py-1 text-xs font-mono font-medium text-neutral-300 border border-white/[0.08]">
+          404 NOT FOUND
         </span>
 
-        <h1 className="mt-4 font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold tracking-tight text-[#F5F7FF]">
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white">
           Page Not Found
         </h1>
 
-        <p className="mt-3 text-sm leading-relaxed text-[#8D99B5]">
+        <p className="mt-3 text-sm leading-relaxed text-neutral-400">
           The route you navigated to does not exist or has been relocated within the architecture.
         </p>
 
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-lg bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF]"
+            className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-black transition-colors hover:bg-neutral-200"
           >
             Return to Portfolio
           </Link>

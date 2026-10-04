@@ -254,7 +254,7 @@ export default function StackLens() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050914] text-[#F5F7FF] pt-24 pb-20 selection:bg-[#4D7CFF]/30 selection:text-white">
+    <div className="min-h-screen bg-[#08080C] text-white pt-24 pb-20 font-sans">
       <SEO
         title="StackLens — Website Engineering Intelligence Platform | Abhishek M R"
         description="Safe, deep reverse-engineering of public web systems with 200+ weighted signatures, SSRF protection, interactive architecture DAGs, and build-from-scratch blueprints."
@@ -265,9 +265,9 @@ export default function StackLens() {
         <div className="mb-8 flex items-center justify-between">
           <Link
             to="/#projects"
-            className="group inline-flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#0D1424] px-4 py-2 text-xs font-mono font-medium text-[#8D99B5] transition-colors hover:border-[#4D7CFF] hover:text-[#F5F7FF]"
+            className="group inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors"
           >
-            <HiArrowLeft className="transition-transform group-hover:-translate-x-1 text-[#4D7CFF]" />
+            <HiArrowLeft className="transition-transform group-hover:-translate-x-1 text-neutral-400" />
             <span>BACK TO PORTFOLIO</span>
           </Link>
 
@@ -280,67 +280,61 @@ export default function StackLens() {
         </div>
 
         {/* Project Header */}
-        <div className="rounded-3xl border border-[#1C2942] bg-[#0D1424]/90 p-8 md:p-12 relative overflow-hidden backdrop-blur-xl">
-          {/* Subtle Glow */}
-          <div
-            className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full opacity-20 blur-3xl"
-            style={{ background: "radial-gradient(circle, #4D7CFF 0%, rgba(5,9,20,0) 70%)" }}
-          />
-
+        <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-8 md:p-12 relative overflow-hidden shadow-sm">
           <div className="relative z-10">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="rounded-md bg-[#162238] px-2.5 py-1 text-xs font-mono font-semibold text-[#4D7CFF] border border-[#4D7CFF]/30">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <span className="rounded bg-white/[0.04] px-2.5 py-1 text-xs font-mono font-medium text-neutral-300 border border-white/[0.08]">
                 JAVA 21 & SPRING BOOT 3
               </span>
-              <span className="rounded-md bg-[#162238] px-2.5 py-1 text-xs font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
+              <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
                 REACT 19 + TYPESCRIPT
               </span>
-              <span className="rounded-md bg-[#162238] px-2.5 py-1 text-xs font-mono font-semibold text-[#8D99B5] border border-[#1C2942]">
+              <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
                 RABBITMQ + REDIS
               </span>
-              <span className="rounded-md bg-[#162238] px-2.5 py-1 text-xs font-mono font-semibold text-[#8D99B5] border border-[#1C2942]">
+              <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
                 POSTGRESQL 16
               </span>
             </div>
 
-            <h1 className="font-['Space_Grotesk'] text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#F5F7FF] leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.15]">
               StackLens
             </h1>
-            <p className="mt-2 font-mono text-sm sm:text-base text-[#6D96FF]">
+            <p className="mt-2 font-mono text-sm sm:text-base text-neutral-300">
               Website Engineering Intelligence Platform & Architecture Inference Engine
             </p>
 
-            <p className="mt-6 max-w-3xl text-sm sm:text-base leading-relaxed text-[#8D99B5]">
-              Transforming <span className="text-[#F5F7FF] italic font-serif">"What technologies does this website use?"</span> into <span className="text-[#4D7CFF] font-medium">"How is this system structured, what concrete evidence supports that conclusion, and how could I build a similar system myself?"</span> StackLens performs safe multi-vector inspection, evaluates 200+ weighted signatures, separates observable facts from architectural deductions, and generates complete production blueprints.
+            <p className="mt-6 max-w-3xl text-sm sm:text-base leading-relaxed text-neutral-300 font-sans">
+              Transforming <span className="text-white italic">"What technologies does this website use?"</span> into <span className="text-white font-medium">"How is this system structured, what concrete evidence supports that conclusion, and how could I build a similar system myself?"</span> StackLens performs safe multi-vector inspection, evaluates 200+ weighted signatures, separates observable facts from architectural deductions, and generates complete production blueprints.
             </p>
 
             {/* Action Bar */}
-            <div className="mt-8 flex flex-wrap items-center gap-4 pt-6 border-t border-[#1C2942]">
+            <div className="mt-8 flex flex-wrap items-center gap-3 pt-6 border-t border-white/[0.08]">
               <a
-                href="https://github.com/abhi-byte62/stackl"
+                href="https://github.com/abhi-byte62/stacklens"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF] shadow-lg shadow-[#4D7CFF]/20"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2.5 text-xs font-semibold hover:bg-neutral-200 transition-colors shadow-sm"
               >
-                <FaGithub size={16} />
+                <FaGithub size={14} />
                 <span>View Source on GitHub</span>
-                <FaExternalLinkAlt size={11} className="opacity-70 ml-0.5" />
+                <FaExternalLinkAlt size={10} className="opacity-70 ml-0.5" />
               </a>
 
               <a
                 href="#screenshots-gallery"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#1C2942] bg-[#050914] px-4 py-2.5 text-sm font-medium text-[#F5F7FF] transition-colors hover:border-[#4D7CFF] hover:text-[#6D96FF]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-xs font-medium text-neutral-300 transition-colors hover:bg-white/[0.08] hover:text-white"
               >
-                <FiLayers className="text-[#4D7CFF]" />
+                <FiLayers className="text-neutral-400" />
                 <span>Explore 8 UI Walkthroughs</span>
               </a>
 
               <a
                 href="#interactive-demo"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#1C2942] bg-[#050914] px-4 py-2.5 text-sm font-medium text-[#8D99B5] transition-colors hover:border-[#4D7CFF] hover:text-[#F5F7FF]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-xs font-medium text-neutral-300 transition-colors hover:bg-white/[0.08] hover:text-white"
               >
-                <FiZap className="text-[#4D7CFF]" />
-                <span>Live Intelligence Prober</span>
+                <FiZap className="text-neutral-400" />
+                <span>Live Target Simulations</span>
               </a>
             </div>
           </div>
@@ -355,27 +349,27 @@ export default function StackLens() {
         <section id="screenshots-gallery" className="mt-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
                 System Visual Interface
               </span>
-              <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#F5F7FF] mt-1">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-1 tracking-tight">
                 High-Resolution Application Walkthrough
               </h2>
-              <p className="mt-1 text-sm text-[#8D99B5]">
-                Click any screenshot to open the interactive high-resolution viewer with technical deep-dive notes.
+              <p className="mt-1 text-xs sm:text-sm text-neutral-400 font-sans">
+                Click any screenshot to open the high-resolution viewer with technical deep-dive notes.
               </p>
             </div>
 
             {/* Category Filter Pills */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 p-1 rounded-lg bg-white/[0.02] border border-white/[0.06]">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`rounded-lg px-3 py-1 text-xs font-mono transition-all ${
+                  className={`rounded px-3 py-1 text-xs font-mono transition-colors ${
                     selectedCategory === cat
-                      ? "bg-[#4D7CFF] text-[#050914] font-semibold shadow-md shadow-[#4D7CFF]/20"
-                      : "border border-[#1C2942] bg-[#0D1424] text-[#8D99B5] hover:border-[#4D7CFF]/50 hover:text-[#F5F7FF]"
+                      ? "bg-white text-black font-semibold shadow-xs"
+                      : "text-neutral-400 hover:text-white"
                   }`}
                 >
                   {cat}
@@ -385,24 +379,23 @@ export default function StackLens() {
           </div>
 
           {/* Screenshot Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {filteredScreenshots.map((item, index) => (
               <div
                 key={item.id}
                 onClick={() => openLightbox(index)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-[#1C2942] bg-[#0D1424] transition-all duration-300 hover:-translate-y-1 hover:border-[#4D7CFF]/60 hover:shadow-xl hover:shadow-[#4D7CFF]/10 flex flex-col"
+                className="group relative cursor-pointer overflow-hidden rounded-xl border border-white/[0.08] bg-[#0C0C12] transition-colors duration-200 hover:border-white/[0.18] flex flex-col"
               >
                 {/* Image Thumbnail */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#050914]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#08080C] border-b border-white/[0.06]">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D1424] via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
                   
-                  <span className="absolute top-3 left-3 rounded bg-[#050914]/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-mono text-[#6D96FF] border border-[#4D7CFF]/30">
+                  <span className="absolute top-2.5 left-2.5 rounded bg-black/70 backdrop-blur-sm px-2 py-0.5 text-[10px] font-mono text-neutral-300 border border-white/[0.1]">
                     {item.badge}
                   </span>
                 </div>
@@ -410,16 +403,16 @@ export default function StackLens() {
                 {/* Card Content */}
                 <div className="p-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-sm font-bold text-[#F5F7FF] group-hover:text-[#6D96FF] transition-colors">
+                    <h3 className="text-xs font-semibold text-white tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="mt-1.5 text-xs text-[#8D99B5] line-clamp-2 leading-relaxed">
+                    <p className="mt-1 text-xs text-neutral-400 line-clamp-2 leading-relaxed font-sans">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="mt-3 pt-3 border-t border-[#1C2942] flex items-center justify-between text-[11px] font-mono text-[#4D7CFF]">
-                    <span>CLICK TO EXPAND</span>
+                  <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                    <span>INSPECT</span>
                     <FaSearch size={10} />
                   </div>
                 </div>
@@ -430,36 +423,36 @@ export default function StackLens() {
 
         {/* Modal Lightbox */}
         {selectedImageIndex !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#050914]/95 p-4 backdrop-blur-xl animate-in fade-in duration-200">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-in fade-in duration-200">
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 z-50 rounded-full border border-[#1C2942] bg-[#0D1424] p-3 text-[#8D99B5] hover:border-[#4D7CFF] hover:text-[#F5F7FF] transition-all"
+              className="absolute top-6 right-6 z-50 rounded-full border border-white/[0.12] bg-[#0C0C12] p-2.5 text-neutral-300 hover:text-white hover:border-white/[0.25] transition-colors"
               aria-label="Close modal"
             >
-              <FaTimes size={18} />
+              <FaTimes size={16} />
             </button>
 
             {/* Navigation Arrows */}
             <button
               onClick={prevImage}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-50 rounded-full border border-[#1C2942] bg-[#0D1424]/80 p-3 text-[#8D99B5] hover:border-[#4D7CFF] hover:text-[#F5F7FF] transition-all"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-50 rounded-full border border-white/[0.12] bg-[#0C0C12]/80 p-2.5 text-neutral-300 hover:text-white hover:border-white/[0.25] transition-colors"
               aria-label="Previous image"
             >
-              <FaChevronLeft size={20} />
+              <FaChevronLeft size={16} />
             </button>
 
             <button
               onClick={nextImage}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-50 rounded-full border border-[#1C2942] bg-[#0D1424]/80 p-3 text-[#8D99B5] hover:border-[#4D7CFF] hover:text-[#F5F7FF] transition-all"
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-50 rounded-full border border-white/[0.12] bg-[#0C0C12]/80 p-2.5 text-neutral-300 hover:text-white hover:border-white/[0.25] transition-colors"
               aria-label="Next image"
             >
-              <FaChevronRight size={20} />
+              <FaChevronRight size={16} />
             </button>
 
             {/* Modal Body */}
-            <div className="relative max-h-[92vh] max-w-5xl w-full flex flex-col rounded-2xl border border-[#1C2942] bg-[#0D1424] overflow-hidden shadow-2xl">
-              <div className="relative flex-1 overflow-auto bg-[#050914] flex items-center justify-center p-2">
+            <div className="relative max-h-[92vh] max-w-5xl w-full flex flex-col rounded-xl border border-white/[0.08] bg-[#0C0C12] overflow-hidden shadow-2xl">
+              <div className="relative flex-1 overflow-auto bg-[#08080C] flex items-center justify-center p-2">
                 <img
                   src={filteredScreenshots[selectedImageIndex].image}
                   alt={filteredScreenshots[selectedImageIndex].title}
@@ -467,20 +460,20 @@ export default function StackLens() {
                 />
               </div>
 
-              <div className="p-6 border-t border-[#1C2942] bg-[#0D1424] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-5 border-t border-white/[0.06] bg-[#0C0C12] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="rounded bg-[#162238] px-2 py-0.5 text-[11px] font-mono text-[#4D7CFF] border border-[#4D7CFF]/30">
+                    <span className="rounded bg-white/[0.04] px-2 py-0.5 text-[10px] font-mono text-neutral-300 border border-white/[0.06]">
                       {filteredScreenshots[selectedImageIndex].badge}
                     </span>
-                    <span className="text-xs font-mono text-[#5F6B83]">
+                    <span className="text-[10px] font-mono text-neutral-500">
                       SCREENSHOT {selectedImageIndex + 1} OF {filteredScreenshots.length}
                     </span>
                   </div>
-                  <h3 className="mt-1 text-lg font-bold text-[#F5F7FF]">
+                  <h3 className="mt-1 text-sm font-semibold text-white">
                     {filteredScreenshots[selectedImageIndex].title}
                   </h3>
-                  <p className="mt-1 text-xs text-[#8D99B5] max-w-2xl leading-relaxed">
+                  <p className="mt-1 text-xs text-neutral-400 max-w-2xl leading-relaxed font-sans">
                     {filteredScreenshots[selectedImageIndex].description}
                   </p>
                 </div>
@@ -490,7 +483,7 @@ export default function StackLens() {
                     href={filteredScreenshots[selectedImageIndex].image}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-lg border border-[#1C2942] bg-[#050914] px-3.5 py-2 text-xs font-mono text-[#8D99B5] hover:text-[#F5F7FF] hover:border-[#4D7CFF] transition-colors"
+                    className="rounded-full border border-white/[0.12] bg-white/[0.03] px-3.5 py-1.5 text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/[0.08] transition-colors"
                   >
                     Open Raw Asset
                   </a>
@@ -516,16 +509,16 @@ export default function StackLens() {
         </div>
 
         {/* Interactive Simulated Target Intelligence Explorer */}
-        <section id="interactive-demo" className="mt-16 rounded-3xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-10">
+        <section id="interactive-demo" className="mt-16 rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8 shadow-sm">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
                 Live Intelligence Engine
               </span>
-              <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#F5F7FF] mt-1">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-1 tracking-tight">
                 Audited Website Target Simulations
               </h2>
-              <p className="mt-1 text-sm text-[#8D99B5]">
+              <p className="mt-1 text-xs sm:text-sm text-neutral-400 font-sans">
                 Select real-world architectural archetypes to inspect how StackLens infers infrastructure tiers and generates blueprint schemas.
               </p>
             </div>
@@ -536,14 +529,14 @@ export default function StackLens() {
                 <button
                   key={target.name}
                   onClick={() => setActiveScanIndex(idx)}
-                  className={`rounded-xl px-3.5 py-2 text-xs font-mono transition-all text-left ${
+                  className={`rounded-lg px-3 py-2 text-xs font-mono transition-colors text-left border ${
                     activeScanIndex === idx
-                      ? "border border-[#4D7CFF] bg-[#162238] text-[#F5F7FF] shadow-md shadow-[#4D7CFF]/20"
-                      : "border border-[#1C2942] bg-[#050914] text-[#8D99B5] hover:border-[#4D7CFF]/40 hover:text-[#F5F7FF]"
+                      ? "border-white/[0.2] bg-white/[0.08] text-white"
+                      : "border-white/[0.06] bg-white/[0.02] text-neutral-400 hover:text-white"
                   }`}
                 >
-                  <div className="font-semibold">{target.name}</div>
-                  <div className="text-[10px] text-[#5F6B83]">{target.url}</div>
+                  <div className="font-medium text-xs">{target.name}</div>
+                  <div className="text-[10px] text-neutral-500">{target.url}</div>
                 </button>
               ))}
             </div>
@@ -551,56 +544,56 @@ export default function StackLens() {
 
           {/* Active Target Details Panel */}
           {sampleTargetScans[activeScanIndex] && (
-            <div className="rounded-2xl border border-[#1C2942] bg-[#050914] p-6 md:p-8">
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#1C2942]">
+            <div className="rounded-lg border border-white/[0.06] bg-[#08080C] p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-white/[0.06]">
                 <div>
-                  <span className="text-xs font-mono text-[#5F6B83]">TARGET IDENTIFIER</span>
-                  <h3 className="text-lg font-bold font-mono text-[#4D7CFF]">
+                  <span className="text-[10px] font-mono text-neutral-500">TARGET IDENTIFIER</span>
+                  <h3 className="text-sm font-semibold font-mono text-white mt-0.5">
                     {sampleTargetScans[activeScanIndex].url}
                   </h3>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-center">
-                    <span className="text-[10px] font-mono text-emerald-400 block">SECURITY GRADE</span>
-                    <span className="text-lg font-bold font-mono text-emerald-300">
+                  <div className="rounded-md border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-center">
+                    <span className="text-[9px] font-mono text-emerald-400 block">SECURITY</span>
+                    <span className="text-base font-bold font-mono text-emerald-300">
                       {sampleTargetScans[activeScanIndex].grade}
                     </span>
                   </div>
-                  <div className="rounded-xl border border-[#1C2942] bg-[#0D1424] px-3 py-1.5 text-center">
-                    <span className="text-[10px] font-mono text-[#8D99B5] block">CONFIDENCE</span>
-                    <span className="text-lg font-bold font-mono text-[#6D96FF]">96.4%</span>
+                  <div className="rounded-md border border-white/[0.06] bg-white/[0.02] px-3 py-1 text-center">
+                    <span className="text-[9px] font-mono text-neutral-400 block">CONFIDENCE</span>
+                    <span className="text-base font-bold font-mono text-neutral-200">96.4%</span>
                   </div>
                 </div>
               </div>
 
               {/* Tier Flow */}
-              <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-4">
-                  <span className="text-[10px] font-mono font-semibold text-sky-400">01 // EDGE CDN & TLS</span>
-                  <p className="mt-2 text-xs font-semibold text-[#F5F7FF]">{sampleTargetScans[activeScanIndex].edge}</p>
+              <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5">
+                  <span className="text-[10px] font-mono font-medium text-neutral-500">01 // EDGE CDN & TLS</span>
+                  <p className="mt-1.5 text-xs font-medium text-white">{sampleTargetScans[activeScanIndex].edge}</p>
                 </div>
 
-                <div className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-4">
-                  <span className="text-[10px] font-mono font-semibold text-indigo-400">02 // FRONTEND TIER</span>
-                  <p className="mt-2 text-xs font-semibold text-[#F5F7FF]">{sampleTargetScans[activeScanIndex].frontend}</p>
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5">
+                  <span className="text-[10px] font-mono font-medium text-neutral-500">02 // FRONTEND TIER</span>
+                  <p className="mt-1.5 text-xs font-medium text-white">{sampleTargetScans[activeScanIndex].frontend}</p>
                 </div>
 
-                <div className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-4">
-                  <span className="text-[10px] font-mono font-semibold text-amber-400">03 // INFERRED BACKEND</span>
-                  <p className="mt-2 text-xs font-semibold text-[#F5F7FF]">{sampleTargetScans[activeScanIndex].backend}</p>
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5">
+                  <span className="text-[10px] font-mono font-medium text-neutral-500">03 // INFERRED BACKEND</span>
+                  <p className="mt-1.5 text-xs font-medium text-white">{sampleTargetScans[activeScanIndex].backend}</p>
                 </div>
 
-                <div className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-4">
-                  <span className="text-[10px] font-mono font-semibold text-emerald-400">04 // PERSISTENCE & QUEUES</span>
-                  <p className="mt-2 text-xs font-semibold text-[#F5F7FF]">{sampleTargetScans[activeScanIndex].persistence}</p>
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5">
+                  <span className="text-[10px] font-mono font-medium text-neutral-500">04 // PERSISTENCE</span>
+                  <p className="mt-1.5 text-xs font-medium text-white">{sampleTargetScans[activeScanIndex].persistence}</p>
                 </div>
               </div>
 
               {/* Security Headers Box */}
-              <div className="mt-4 rounded-xl border border-[#1C2942] bg-[#0D1424] p-4">
-                <span className="text-[10px] font-mono text-[#5F6B83]">VALIDATED PERIMETER POLICIES</span>
-                <p className="mt-1 font-mono text-xs text-[#8D99B5]">
+              <div className="mt-3 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5">
+                <span className="text-[10px] font-mono text-neutral-500">VALIDATED PERIMETER POLICIES</span>
+                <p className="mt-1 font-mono text-xs text-neutral-300">
                   {sampleTargetScans[activeScanIndex].securityHeaders}
                 </p>
               </div>
@@ -611,16 +604,16 @@ export default function StackLens() {
         {/* Deep Technical Pillars Tabs */}
         <section className="mt-16">
           <div className="mb-6">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
-              Deep Technical Architecture
+            <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
+              Technical Architecture
             </span>
-            <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl font-bold text-[#F5F7FF] mt-1">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mt-1 tracking-tight">
               Engineering Implementation Details
             </h2>
           </div>
 
           {/* Sub Navigation */}
-          <div className="flex border-b border-[#1C2942] overflow-x-auto gap-4">
+          <div className="flex border-b border-white/[0.08] overflow-x-auto gap-4">
             {[
               { id: "pipeline", label: "SSRF & Safe Prober", icon: FiShield },
               { id: "engine", label: "200+ Signatures & Confidence", icon: FiCpu },
@@ -634,8 +627,8 @@ export default function StackLens() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 pb-3 text-xs font-mono font-medium transition-colors border-b-2 whitespace-nowrap ${
                     activeTab === tab.id
-                      ? "border-[#4D7CFF] text-[#4D7CFF]"
-                      : "border-transparent text-[#8D99B5] hover:text-[#F5F7FF]"
+                      ? "border-white text-white"
+                      : "border-transparent text-neutral-400 hover:text-neutral-200"
                   }`}
                 >
                   <Icon size={14} />
@@ -649,30 +642,30 @@ export default function StackLens() {
           <div className="mt-8">
             {activeTab === "pipeline" && (
               <div className="space-y-6">
-                <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
-                  <h3 className="text-lg font-bold text-[#F5F7FF]">SSRF & DNS Rebinding Defensive Architecture</h3>
-                  <p className="mt-2 text-sm text-[#8D99B5] leading-relaxed">
+                <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
+                  <h3 className="text-lg font-bold text-white">SSRF & DNS Rebinding Defensive Architecture</h3>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed font-sans">
                     Scanning public websites creates inherent security exposure to Server-Side Request Forgery (SSRF) and DNS rebinding attacks. StackLens intercepts all submitted URLs before socket creation, enforcing strict RFC 1918 blacklist validation, IP pinning, 5MB response payload limits, and 10s strict network timeouts.
                   </p>
 
-                  <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4">
-                      <div className="text-xs font-mono font-bold text-red-400">RFC 1918 BLACKLIST</div>
-                      <p className="mt-1 text-xs text-[#8D99B5]">
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                      <div className="text-xs font-mono font-bold text-rose-400">RFC 1918 BLACKLIST</div>
+                      <p className="mt-1 text-xs text-neutral-400 font-sans">
                         Blocks 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, loopback 127.0.0.0/8, and AWS/GCP metadata 169.254.169.254.
                       </p>
                     </div>
 
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4">
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
                       <div className="text-xs font-mono font-bold text-amber-400">DNS REBINDING PIN</div>
-                      <p className="mt-1 text-xs text-[#8D99B5]">
+                      <p className="mt-1 text-xs text-neutral-400 font-sans">
                         Resolves host DNS records upfront and pins the validated IP address for the active outbound HTTP transport.
                       </p>
                     </div>
 
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4">
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
                       <div className="text-xs font-mono font-bold text-emerald-400">PAYLOAD CAPPING</div>
-                      <p className="mt-1 text-xs text-[#8D99B5]">
+                      <p className="mt-1 text-xs text-neutral-400 font-sans">
                         Hard 5MB limit prevents decompression bombs (zip bombs / infinite HTML streams) from consuming worker RAM.
                       </p>
                     </div>
@@ -718,28 +711,28 @@ public class SsrfGuardValidator {
 
             {activeTab === "engine" && (
               <div className="space-y-6">
-                <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
-                  <h3 className="text-lg font-bold text-[#F5F7FF]">Weighted Signature Matrix & Evidence Trails</h3>
-                  <p className="mt-2 text-sm text-[#8D99B5] leading-relaxed">
+                <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
+                  <h3 className="text-lg font-bold text-white">Weighted Signature Matrix & Evidence Trails</h3>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed font-sans">
                     StackLens avoids simple naive keyword matches. Each technology signature in the catalog carries vector weights across 5 distinct surfaces: HTTP Response Headers, HTML Meta Generators, DOM Elements & ID Attributes, Script Filenames / Hashes, and TLS Certificate Extensions.
                   </p>
 
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4 text-center">
-                      <span className="text-2xl font-bold font-mono text-[#4D7CFF]">16</span>
-                      <span className="block mt-1 text-xs text-[#8D99B5]">Architectural Domains</span>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                      <span className="text-2xl font-bold font-mono text-white">16</span>
+                      <span className="block mt-1 text-xs text-neutral-400 font-sans">Architectural Domains</span>
                     </div>
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4 text-center">
-                      <span className="text-2xl font-bold font-mono text-[#6D96FF]">200+</span>
-                      <span className="block mt-1 text-xs text-[#8D99B5]">Active Signatures</span>
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                      <span className="text-2xl font-bold font-mono text-white">200+</span>
+                      <span className="block mt-1 text-xs text-neutral-400 font-sans">Active Signatures</span>
                     </div>
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4 text-center">
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 text-center">
                       <span className="text-2xl font-bold font-mono text-emerald-400">5-Vector</span>
-                      <span className="block mt-1 text-xs text-[#8D99B5]">Multi-Surface Probing</span>
+                      <span className="block mt-1 text-xs text-neutral-400 font-sans">Multi-Surface Probing</span>
                     </div>
-                    <div className="rounded-xl border border-[#1C2942] bg-[#050914] p-4 text-center">
-                      <span className="text-2xl font-bold font-mono text-amber-400">96.4%</span>
-                      <span className="block mt-1 text-xs text-[#8D99B5]">Mean Confidence Rate</span>
+                    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                      <span className="text-2xl font-bold font-mono text-sky-400">96.4%</span>
+                      <span className="block mt-1 text-xs text-neutral-400 font-sans">Mean Confidence Rate</span>
                     </div>
                   </div>
                 </div>
@@ -788,9 +781,9 @@ public class TechDetectionEngine {
 
             {activeTab === "blueprint" && (
               <div className="space-y-6">
-                <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
-                  <h3 className="text-lg font-bold text-[#F5F7FF]">Build-from-Scratch Engineering Blueprint Generator</h3>
-                  <p className="mt-2 text-sm text-[#8D99B5] leading-relaxed">
+                <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
+                  <h3 className="text-lg font-bold text-white">Build-from-Scratch Engineering Blueprint Generator</h3>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed font-sans">
                     Unlike standard analyzers that only produce a list of names, StackLens generates a ready-to-use software architecture spec to clone or build a similar platform from scratch. This includes PostgreSQL DDL schemas, REST/GraphQL endpoint specifications, RS256 JWT auth flow, and a 4-phase milestone roadmap.
                   </p>
                 </div>
@@ -826,9 +819,9 @@ CREATE INDEX idx_scan_stack_gin ON scan_audits USING GIN (detected_stack);`}
 
             {activeTab === "docker" && (
               <div className="space-y-6">
-                <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
-                  <h3 className="text-lg font-bold text-[#F5F7FF]">Production Multi-Container Topology</h3>
-                  <p className="mt-2 text-sm text-[#8D99B5] leading-relaxed">
+                <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
+                  <h3 className="text-lg font-bold text-white">Production Multi-Container Topology</h3>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed font-sans">
                     StackLens is fully containerized with Docker Compose, spinning up the React 19 frontend, Spring Boot 3 REST API, PostgreSQL 16 database, Redis 7.2 cache & rate limiter, and RabbitMQ job queue with a single command.
                   </p>
                 </div>
@@ -903,10 +896,10 @@ volumes:
         </div>
 
         {/* Footer Navigation */}
-        <div className="mt-16 pt-8 border-t border-[#1C2942] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-xs font-mono text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors"
           >
             <HiArrowLeft />
             <span>RETURN TO ALL CASE STUDIES</span>
@@ -915,21 +908,21 @@ volumes:
           <div className="flex items-center gap-4">
             <Link
               to="/tradeforge"
-              className="text-xs font-mono text-[#4D7CFF] hover:text-[#6D96FF] transition-colors font-semibold"
+              className="text-xs font-mono text-white hover:text-neutral-300 transition-colors font-medium"
             >
               TradeForge →
             </Link>
-            <span className="text-[#1C2942]">|</span>
+            <span className="text-neutral-700">|</span>
             <Link
               to="/liquiditylens"
-              className="text-xs font-mono text-[#8D99B5] hover:text-[#F5F7FF] transition-colors"
+              className="text-xs font-mono text-neutral-400 hover:text-white transition-colors"
             >
               LiquidityLens →
             </Link>
-            <span className="text-[#1C2942]">|</span>
+            <span className="text-neutral-700">|</span>
             <Link
               to="/taskflow"
-              className="text-xs font-mono text-[#8D99B5] hover:text-[#F5F7FF] transition-colors"
+              className="text-xs font-mono text-neutral-400 hover:text-white transition-colors"
             >
               TaskFlow →
             </Link>

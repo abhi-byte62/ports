@@ -7,14 +7,14 @@ const About = () => {
       <Container>
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="mb-12">
-            <h2 className="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold tracking-tight text-white">
+          <div className="mb-10">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
               About & Technical Focus
             </h2>
           </div>
 
           {/* Editorial Narrative */}
-          <div className="space-y-6 text-base sm:text-lg text-neutral-300 font-sans leading-relaxed">
+          <div className="space-y-5 text-base sm:text-lg text-neutral-300 font-sans leading-relaxed">
             <p>
               I am a software engineer focused on systems programming, quantitative infrastructure, distributed backends, and security tooling.
             </p>
@@ -33,12 +33,12 @@ const About = () => {
           </div>
 
           {/* Academic Foundation Footnote */}
-          <div className="mt-14 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between text-sm text-neutral-400 font-sans gap-2">
+          <div className="mt-12 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between text-xs text-neutral-400 font-sans gap-2">
             <div>
-              <strong className="text-white font-medium">B.Tech in Computer Science & Engineering</strong> &bull; Presidency University
+              <strong className="text-white font-medium">B.Tech in Computer Science & Engineering</strong> · Presidency University
             </div>
-            <div className="text-xs font-mono text-neutral-500">
-              DSA &bull; OS &bull; Networks &bull; Distributed Systems &bull; DBMS
+            <div className="font-mono text-neutral-500">
+              DSA · OS · Networks · Distributed Systems · DBMS
             </div>
           </div>
         </div>

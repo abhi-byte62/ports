@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
-const sections = ["hero", "projects", "skills", "about", "contact"];
+const sections = ["hero", "projects", "opensource", "skills", "about", "contact"];
 
 const useActiveSection = () => {
-
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
@@ -16,7 +15,8 @@ const useActiveSection = () => {
         });
       },
       {
-        threshold: 0.5,
+        rootMargin: "-80px 0px -40% 0px",
+        threshold: 0.1,
       },
     );
 

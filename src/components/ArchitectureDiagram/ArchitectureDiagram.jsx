@@ -2,17 +2,17 @@ import { HiArrowNarrowRight, HiCheckCircle } from "react-icons/hi";
 
 const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) => {
   return (
-    <div className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+    <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8 shadow-sm">
       <div className="mb-6 flex flex-col justify-between gap-2 md:flex-row md:items-end">
         <div>
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+          <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
             System Architecture
           </span>
-          <h3 className="font-['Space_Grotesk'] text-xl font-bold text-[#F5F7FF] mt-1">
+          <h3 className="text-xl font-semibold text-white mt-1 tracking-tight">
             {title}
           </h3>
         </div>
-        {subtitle && <p className="text-xs text-[#8D99B5] max-w-sm">{subtitle}</p>}
+        {subtitle && <p className="text-xs text-neutral-400 max-w-sm font-sans leading-relaxed">{subtitle}</p>}
       </div>
 
       {/* Pipeline Flow Stages */}
@@ -20,26 +20,28 @@ const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) =
         {stages.map((stage, idx) => (
           <div
             key={idx}
-            className="relative flex flex-col rounded-xl border border-[#1C2942] bg-[#050914] p-4 transition-all duration-200 hover:border-[#4D7CFF]/40"
+            className="relative flex flex-col justify-between rounded-lg border border-white/[0.06] bg-white/[0.01] p-4 transition-colors duration-200 hover:border-white/[0.15]"
           >
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-semibold text-[#4D7CFF]">
-                STAGE 0{idx + 1}
-              </span>
-              {stage.protocol && (
-                <span className="rounded bg-[#0D1B3A] px-1.5 py-0.5 text-[10px] font-mono text-[#6D96FF] border border-[#4D7CFF]/20">
-                  {stage.protocol}
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-500 font-medium">
+                  STAGE 0{idx + 1}
                 </span>
-              )}
+                {stage.protocol && (
+                  <span className="rounded bg-white/[0.04] px-1.5 py-0.5 text-[10px] font-mono text-neutral-300 border border-white/[0.06]">
+                    {stage.protocol}
+                  </span>
+                )}
+              </div>
+
+              <h4 className="mt-3 text-sm font-semibold text-white tracking-tight">{stage.name}</h4>
+              <p className="mt-1.5 text-xs text-neutral-400 leading-relaxed font-sans">{stage.description}</p>
             </div>
 
-            <h4 className="mt-3 text-sm font-semibold text-[#F5F7FF]">{stage.name}</h4>
-            <p className="mt-1 text-xs text-[#8D99B5] leading-relaxed">{stage.description}</p>
-
             {stage.tags && (
-              <div className="mt-3 flex flex-wrap gap-1.5 pt-3 border-t border-[#1C2942]">
+              <div className="mt-3.5 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
                 {stage.tags.map((t) => (
-                  <span key={t} className="text-[10px] font-mono text-[#5F6B83]">
+                  <span key={t} className="text-[10px] font-mono text-neutral-500">
                     #{t}
                   </span>
                 ))}
@@ -48,7 +50,7 @@ const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) =
 
             {/* Desktop Direction Indicator */}
             {idx < stages.length - 1 && (
-              <div className="hidden md:flex absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-[#0D1424] border border-[#1C2942] items-center justify-center text-[#4D7CFF]">
+              <div className="hidden md:flex absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-[#0C0C12] border border-white/[0.12] items-center justify-center text-neutral-400">
                 <HiArrowNarrowRight size={10} />
               </div>
             )}
@@ -58,11 +60,11 @@ const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) =
 
       {/* Footnotes / Invariants */}
       {footnotes.length > 0 && (
-        <div className="mt-6 border-t border-[#1C2942] pt-4 grid gap-2 sm:grid-cols-2 text-xs text-[#8D99B5]">
+        <div className="mt-6 border-t border-white/[0.06] pt-4 grid gap-2 sm:grid-cols-2 text-xs text-neutral-400 font-sans">
           {footnotes.map((fn, i) => (
             <div key={i} className="flex items-start gap-2">
-              <HiCheckCircle className="text-[#4D7CFF] shrink-0 mt-0.5" size={14} />
-              <span>{fn}</span>
+              <HiCheckCircle className="text-emerald-400 shrink-0 mt-0.5" size={14} />
+              <span className="leading-relaxed">{fn}</span>
             </div>
           ))}
         </div>

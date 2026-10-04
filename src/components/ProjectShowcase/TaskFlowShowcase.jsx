@@ -1,76 +1,86 @@
 import { useState } from "react";
+import kanbanImg from "../../assets/images/taskflow/04_kanban_board_full.png";
+import dashboardImg from "../../assets/images/taskflow/02_dashboard_overview.png";
+import modalImg from "../../assets/images/taskflow/05_task_detail_modal.png";
+import workspacesImg from "../../assets/images/taskflow/03_workspaces_management.png";
+
+const tabs = [
+  {
+    id: "kanban",
+    label: "Kanban Board",
+    image: kanbanImg,
+    caption: "Real-time collaborative Kanban board with fractional midpoint ordering & live Socket.io peer presence.",
+  },
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    image: dashboardImg,
+    caption: "Operational overview displaying active sprints, velocity distributions, and workspace health.",
+  },
+  {
+    id: "modal",
+    label: "Task Inspector",
+    image: modalImg,
+    caption: "Version-tracked task inspector with optimistic locking (OCC) preventing dirty concurrent overwrites.",
+  },
+  {
+    id: "workspaces",
+    label: "Workspaces",
+    image: workspacesImg,
+    caption: "Multi-tenant workspace manager with server-enforced role permissions (OWNER > ADMIN > MEMBER).",
+  },
+];
 
 const TaskFlowShowcase = () => {
-  const [vectorVersion, setVectorVersion] = useState(14);
-  const [events, setEvents] = useState([
-    { client: "Client A", action: "TASK_REORDER", key: "idx: 1.500", time: "14:10:02" },
-    { client: "Client B", action: "STATE_MUTATION", key: "ver: 13 -> 14", time: "14:10:04" },
-  ]);
-
-  const pushEvent = () => {
-    const nextVer = vectorVersion + 1;
-    setVectorVersion(nextVer);
-    setEvents((prev) => [
-      {
-        client: Math.random() > 0.5 ? "Client A" : "Client C",
-        action: "OCC_MIDPOINT_INSERT",
-        key: `ver: ${nextVer}`,
-        time: new Date().toTimeString().split(" ")[0],
-      },
-      ...prev.slice(0, 2),
-    ]);
-  };
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <div className="w-full rounded-2xl border border-white/[0.08] bg-[#0A0A10] p-5 sm:p-6 text-neutral-300 font-mono text-xs">
-      <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+    <div className="w-full rounded-xl border border-white/[0.08] bg-[#0C0C12] overflow-hidden">
+      {/* Window Titlebar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] bg-[#0A0A0E] px-4 py-2.5">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-sky-400" />
-          <span className="text-white font-medium">Collaborative State Synchronization</span>
-        </div>
-        <button
-          onClick={pushEvent}
-          className="px-2.5 py-1 rounded bg-white/10 text-white hover:bg-white/20 transition-colors text-[11px]"
-        >
-          Dispatch Sync Event
-        </button>
-      </div>
-
-      <div className="pt-4 space-y-4">
-        {/* Client -> Event -> Server -> Synchronized State Pipeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-center">
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div className="text-[10px] text-neutral-500">1. CLIENT</div>
-            <div className="text-xs text-white font-semibold mt-1">WebSocket Client</div>
+          <div className="flex items-center gap-1.5">
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
           </div>
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div className="text-[10px] text-neutral-500">2. EVENT</div>
-            <div className="text-xs text-sky-400 font-semibold mt-1">Fractional Index Delta</div>
-          </div>
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div className="text-[10px] text-neutral-500">3. SERVER</div>
-            <div className="text-xs text-neutral-200 font-semibold mt-1">Spring Boot OCC Engine</div>
-          </div>
-          <div className="p-3 rounded-xl bg-sky-500/[0.06] border border-sky-500/20">
-            <div className="text-[10px] text-sky-400">4. STATE</div>
-            <div className="text-xs text-white font-bold mt-1">v.{vectorVersion} Synchronized</div>
-          </div>
+          <span className="text-[11px] font-mono text-neutral-400 pl-2">
+            taskflow // {activeTab.label.toLowerCase().replace(/ /g, "-")}
+          </span>
         </div>
 
-        {/* Event Log */}
-        <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5">
-          <div className="text-[10px] text-neutral-500 pb-1 border-b border-white/[0.06]">
-            Recent Vector Log
-          </div>
-          {events.map((ev, i) => (
-            <div key={i} className="flex items-center justify-between text-[11px]">
-              <span className="text-sky-400">{ev.client}</span>
-              <span className="text-neutral-300">{ev.action}</span>
-              <span className="text-neutral-500">{ev.key}</span>
-              <span className="text-neutral-500">{ev.time}</span>
-            </div>
+        {/* View Switcher Tabs */}
+        <div className="flex items-center gap-1 rounded-md bg-white/[0.04] p-0.5 border border-white/[0.06]">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab)}
+              className={`rounded px-2.5 py-1 text-[11px] font-mono transition-colors ${
+                activeTab.id === tab.id
+                  ? "bg-white text-black font-semibold"
+                  : "text-neutral-400 hover:text-white"
+              }`}
+            >
+              {tab.label}
+            </button>
           ))}
         </div>
+      </div>
+
+      {/* Screen Frame */}
+      <div className="bg-[#08080C] p-3 sm:p-4">
+        <div className="overflow-hidden rounded-lg border border-white/[0.06] bg-[#050508]">
+          <img
+            src={activeTab.image}
+            alt={activeTab.label}
+            className="w-full h-auto max-h-[380px] object-contain object-top"
+          />
+        </div>
+      </div>
+
+      {/* Footer Caption */}
+      <div className="border-t border-white/[0.06] bg-[#0A0A0E] px-4 py-2.5 text-[11px] font-mono text-neutral-400">
+        {activeTab.caption}
       </div>
     </div>
   );

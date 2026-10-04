@@ -1,78 +1,125 @@
 import { useState } from "react";
 
+const scenarios = [
+  {
+    id: "taint",
+    label: "AST Taint Trace",
+    title: "Source-to-Sink Abstract Syntax Tree Propagation",
+    terminalLines: [
+      { type: "cmd", text: "$ donttrust analyze --entrypoint src/routes/users.ts --track-sinks" },
+      { type: "info", text: "[AST_PARSER] Babel AST parsed 48 AST nodes across 3 scopes" },
+      { type: "taint", text: "  [SOURCE]  req.params.userId (Identifier: HTTP_UNTRUSTED)" },
+      { type: "trace", text: "  [PROP]    ├── BinaryExpression: const tenantKey = req.params.userId" },
+      { type: "trace", text: "  [PROP]    └── CallExpression:   UserContext.findUnique({ id: tenantKey })" },
+      { type: "sink",  text: "  [SINK]    prisma.user.update() without RBAC guard (BOLA/IDOR)" },
+      { type: "alert", text: "[VERDICT]   HIGH RISK: Parameter reaches sink without authorization check" },
+    ],
+    summary: "Babel AST traversal maps untrusted HTTP inputs through variable assignments to sensitive execution sinks.",
+  },
+  {
+    id: "diff_auth",
+    label: "Differential BOLA Replay",
+    title: "Multi-Tenant Authorization Discrepancy Engine",
+    terminalLines: [
+      { type: "cmd", text: "$ donttrust replay --baseline tenant_a.jwt --adversary tenant_b.jwt" },
+      { type: "info", text: "[PROBE] Dispatching dual concurrent mutation requests..." },
+      { type: "trace", text: "  [TENANT_A] GET /api/v1/workspaces/ws_9841  → HTTP 200 (Payload: 4.2KB)" },
+      { type: "trace", text: "  [TENANT_B] GET /api/v1/workspaces/ws_9841  → HTTP 200 (LEAK DETECTED)" },
+      { type: "alert", text: "[DISCREPANCY] Status match 200/200: Tenant B accessed Tenant A resource" },
+      { type: "sink",  text: "[INTERCEPT] Generating deterministic regression reproduction script" },
+    ],
+    summary: "Replays authenticated sessions across different tenant tokens to detect Broken Object Level Authorization.",
+  },
+  {
+    id: "ssrf",
+    label: "RFC 1918 Guard",
+    title: "Loopback & Private Network SSRF Interceptor",
+    terminalLines: [
+      { type: "cmd", text: "$ donttrust probe-scope --url http://169.254.169.254/latest/meta-data/" },
+      { type: "info", text: "[SCOPE_ENGINE] Resolving DNS A/AAAA records..." },
+      { type: "trace", text: "  [DNS_RESOLVE] 169.254.169.254 -> AWS Link-Local Metadata Service" },
+      { type: "sink",  text: "  [FILTER]      Matched CIDR 169.254.0.0/16 [BLOCKED_PRIVATE_IP]" },
+      { type: "alert", text: "[DEFENSE]     Request terminated prior to socket dispatch (Zero Network I/O)" },
+    ],
+    summary: "Pre-flight IP validation stops requests to loopback, link-local, and RFC 1918 ranges before dispatch.",
+  },
+];
+
 const DontTrustShowcase = () => {
-  const [selectedCase, setSelectedCase] = useState(0);
-
-  const cases = [
-    {
-      source: "req.headers['x-user-id']",
-      transformation: "Babel AST Parser -> Taint Propagator -> Scope Resolver",
-      sink: "UserContext.findUnique({ id: req.headers['x-user-id'] })",
-      finding: "BOLA / IDOR: Missing authorization check on tenant partition boundary",
-      status: "INTERCEPTED",
-    },
-    {
-      source: "req.query.targetUrl",
-      transformation: "AST CallExpression -> URL Parser -> RFC 1918 Address Check",
-      sink: "fetch(req.query.targetUrl)",
-      finding: "SSRF: Unvalidated internal IP range traversal attempt",
-      status: "BLOCKED",
-    },
-  ];
-
-  const current = cases[selectedCase];
+  const [activeTab, setActiveTab] = useState(scenarios[0]);
 
   return (
-    <div className="w-full rounded-2xl border border-white/[0.08] bg-[#0A0A10] p-5 sm:p-6 text-neutral-300 font-mono text-xs">
-      <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+    <div className="w-full rounded-xl border border-white/[0.08] bg-[#0C0C12] overflow-hidden">
+      {/* Window Titlebar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] bg-[#0A0A0E] px-4 py-2.5">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-sky-400" />
-          <span className="text-white font-medium">AST Source-to-Sink Taint Propagation</span>
+          <div className="flex items-center gap-1.5">
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+          </div>
+          <span className="text-[11px] font-mono text-neutral-400 pl-2">
+            donttrust // {activeTab.label.toLowerCase().replace(/ /g, "-")}
+          </span>
         </div>
-        <div className="flex gap-2">
-          {cases.map((_, i) => (
+
+        {/* View Switcher Tabs */}
+        <div className="flex items-center gap-1 rounded-md bg-white/[0.04] p-0.5 border border-white/[0.06]">
+          {scenarios.map((tab) => (
             <button
-              key={i}
-              onClick={() => setSelectedCase(i)}
-              className={`px-2 py-0.5 rounded text-[11px] transition-colors ${
-                selectedCase === i ? "bg-white/10 text-white font-semibold" : "text-neutral-500 hover:text-neutral-300"
+              key={tab.id}
+              onClick={() => setActiveTab(tab)}
+              className={`rounded px-2.5 py-1 text-[11px] font-mono transition-colors ${
+                activeTab.id === tab.id
+                  ? "bg-white text-black font-semibold"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
-              Case #{i + 1}
+              {tab.label}
             </button>
           ))}
         </div>
       </div>
 
-      <div className="pt-4 space-y-4">
-        {/* Source -> Transformation -> Sink Flow */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div className="text-[10px] text-neutral-500 uppercase">1. Source (Entrypoint)</div>
-            <div className="mt-1 text-sky-400 font-medium break-all">{current.source}</div>
+      {/* Screen Frame: Terminal Audit Console */}
+      <div className="bg-[#08080C] p-4 sm:p-5 font-mono text-xs">
+        <div className="rounded-lg border border-white/[0.06] bg-[#050508] p-4 space-y-2">
+          <div className="text-neutral-400 text-[11px] pb-2 border-b border-white/[0.06] flex items-center justify-between">
+            <span>{activeTab.title}</span>
+            <span className="inline-flex items-center gap-1.5 text-emerald-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              ACTIVE ENGINE
+            </span>
           </div>
 
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div className="text-[10px] text-neutral-500 uppercase">2. AST Transformation</div>
-            <div className="mt-1 text-neutral-300 break-all">{current.transformation}</div>
-          </div>
-
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-            <div className="text-[10px] text-neutral-500 uppercase">3. Sink (Execution Point)</div>
-            <div className="mt-1 text-rose-400 font-medium break-all">{current.sink}</div>
+          <div className="space-y-1.5 pt-2 text-[12px] leading-relaxed">
+            {activeTab.terminalLines.map((line, idx) => (
+              <div
+                key={idx}
+                className={`truncate ${
+                  line.type === "cmd"
+                    ? "text-neutral-200 font-medium"
+                    : line.type === "info"
+                    ? "text-neutral-400"
+                    : line.type === "taint"
+                    ? "text-amber-300"
+                    : line.type === "trace"
+                    ? "text-neutral-300"
+                    : line.type === "sink"
+                    ? "text-rose-300"
+                    : "text-rose-400 font-semibold"
+                }`}
+              >
+                {line.text}
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Security Finding Evaluation */}
-        <div className="p-3.5 rounded-xl bg-rose-500/[0.04] border border-rose-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <div className="text-[10px] text-rose-400 font-semibold uppercase">Security Finding</div>
-            <div className="text-neutral-200 text-xs mt-0.5">{current.finding}</div>
-          </div>
-          <span className="self-start sm:self-auto px-2.5 py-1 rounded bg-rose-500/10 text-rose-300 text-[10px] font-bold tracking-wide">
-            {current.status}
-          </span>
-        </div>
+      {/* Footer Caption */}
+      <div className="border-t border-white/[0.06] bg-[#0A0A0E] px-4 py-2.5 text-[11px] font-mono text-neutral-400">
+        {activeTab.summary}
       </div>
     </div>
   );

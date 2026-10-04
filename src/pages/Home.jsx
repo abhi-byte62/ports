@@ -13,8 +13,8 @@ const Home = () => {
     <>
       <SEO
         title="Abhishek M R | Software Engineer"
-        description="Portfolio of Abhishek M R showcasing distributed systems, backend engineering, low-latency market simulation, and software architecture."
-        keywords="Software Engineer, Java, Spring Boot, C++, Distributed Systems, PostgreSQL, Redis, RabbitMQ, Portfolio"
+        description="Software Engineer specializing in low-latency systems, developer infrastructure, and distributed software with a focus on performance and correctness."
+        keywords="Software Engineer, C++, Java, Spring Boot, Distributed Systems, Low-Latency, PostgreSQL, Redis, RabbitMQ"
       />
       <Hero />
 

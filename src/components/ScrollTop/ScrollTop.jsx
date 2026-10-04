@@ -24,33 +24,9 @@ const ScrollTop = () => {
         })
       }
       aria-label="Scroll back to top"
-      className="
-        fixed
-        bottom-6
-        right-6
-        z-40
-        flex
-        h-10
-        w-10
-        items-center
-        justify-center
-        rounded-lg
-        border
-        border-[#1C2942]
-        bg-[#0D1424]/90
-        text-[#8D99B5]
-        shadow-lg
-        backdrop-blur-md
-        transition-all
-        duration-200
-        hover:border-[#4D7CFF]
-        hover:text-[#6D96FF]
-        focus:outline-none
-        focus-visible:ring-2
-        focus-visible:ring-[#4D7CFF]
-      "
+      className="fixed bottom-6 right-6 z-40 flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-[#0C0C12]/90 text-neutral-400 shadow-sm backdrop-blur-md transition-colors duration-200 hover:border-white/[0.25] hover:text-white hover:bg-white/[0.08] focus:outline-none"
     >
-      <HiArrowUp className="text-base" />
+      <HiArrowUp className="text-sm" />
     </button>
   );
 };

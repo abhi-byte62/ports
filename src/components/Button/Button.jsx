@@ -19,20 +19,20 @@ const Button = ({
         items-center
         justify-center
         gap-2
-        rounded-lg
+        rounded-full
         px-5
         py-2.5
-        text-sm
+        text-xs
         font-semibold
-        transition-all
-        duration-200
+        transition-colors
+        duration-150
         focus-visible:outline-none
-        focus-visible:ring-2
-        focus-visible:ring-[#4D7CFF]
+        focus-visible:ring-1
+        focus-visible:ring-white/40
         ${
           isPrimary
-            ? "bg-[#4D7CFF] text-[#050914] hover:bg-[#6D96FF] hover:shadow-sm"
-            : "border border-[#1C2942] bg-transparent text-[#F5F7FF] hover:border-[#4D7CFF] hover:text-[#6D96FF]"
+            ? "bg-white text-black hover:bg-neutral-200"
+            : "border border-white/[0.12] bg-white/[0.03] text-neutral-300 hover:text-white hover:border-white/[0.24] hover:bg-white/[0.06]"
         }
         ${className}
       `}

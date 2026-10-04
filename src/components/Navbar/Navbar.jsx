@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineX, HiArrowRight } from "react-icons/hi";
 import useActiveSection from "../../hooks/useActiveSection";
 
 const navLinks = [
@@ -20,7 +20,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,10 +30,10 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#08080C]/80 backdrop-blur-md border-b border-white/[0.08] py-4"
-          : "bg-transparent py-6"
+          ? "bg-[#08080C]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
@@ -44,27 +44,37 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
             closeMenu();
           }}
-          className="font-['Space_Grotesk'] text-lg font-bold tracking-tight text-white hover:text-sky-400 transition-colors"
+          className="text-sm font-semibold tracking-tight text-white hover:text-neutral-300 transition-colors"
           aria-label="Abhishek M R - Home"
         >
-          AMR
+          Abhishek M R
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-normal text-neutral-400">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-400">
           {navLinks.map((link) => {
-            const targetHref = isHome ? link.href : `/${link.href}`;
             const isActive = isHome && activeSection === link.href.replace("#", "");
+            if (isHome) {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`transition-colors duration-150 ${
+                    isActive ? "text-white" : "hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            }
             return (
-              <a
+              <Link
                 key={link.name}
-                href={targetHref}
-                className={`transition-colors duration-200 ${
-                  isActive ? "text-white font-medium" : "hover:text-white"
-                }`}
+                to={`/${link.href}`}
+                className="transition-colors duration-150 hover:text-white"
               >
                 {link.name}
-              </a>
+              </Link>
             );
           })}
         </nav>
@@ -76,7 +86,7 @@ const Navbar = () => {
             className="text-sm font-medium text-neutral-300 hover:text-white transition-colors flex items-center gap-1.5"
           >
             <span>Resume</span>
-            <span className="text-sky-400">→</span>
+            <HiArrowRight size={13} />
           </Link>
         </div>
 
@@ -87,40 +97,51 @@ const Navbar = () => {
             className="text-neutral-400 hover:text-white p-2 focus:outline-none"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            {mobileMenuOpen ? <HiOutlineX size={22} /> : <HiOutlineMenu size={22} />}
+            {mobileMenuOpen ? <HiOutlineX size={20} /> : <HiOutlineMenu size={20} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0C0C12] border-b border-white/10 px-6 py-6 space-y-4">
-          <nav className="flex flex-col space-y-3">
+        <div className="md:hidden bg-[#0C0C12] border-b border-white/10 px-6 py-5 space-y-4">
+          <nav className="flex flex-col space-y-3 text-sm font-medium">
             {navLinks.map((link) => {
-              const targetHref = isHome ? link.href : `/${link.href}`;
               const isActive = isHome && activeSection === link.href.replace("#", "");
+              if (isHome) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={closeMenu}
+                    className={`transition-colors ${
+                      isActive ? "text-white" : "text-neutral-400 hover:text-white"
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={targetHref}
+                  to={`/${link.href}`}
                   onClick={closeMenu}
-                  className={`text-base transition-colors ${
-                    isActive ? "text-white font-semibold" : "text-neutral-400 hover:text-white"
-                  }`}
+                  className="text-neutral-400 hover:text-white transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
-          <div className="pt-4 border-t border-white/10">
+          <div className="pt-3 border-t border-white/10">
             <Link
               to="/resume"
               onClick={closeMenu}
-              className="text-sm font-medium text-sky-400 hover:text-sky-300 flex items-center gap-2"
+              className="text-sm font-medium text-white flex items-center gap-1.5"
             >
               <span>View Resume</span>
-              <span>→</span>
+              <HiArrowRight size={13} />
             </Link>
           </div>
         </div>

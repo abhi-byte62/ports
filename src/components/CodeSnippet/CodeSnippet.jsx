@@ -16,27 +16,22 @@ const CodeSnippet = ({ filename, title, language = "javascript", code, explanati
   };
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[#1C2942] bg-[#050914] shadow-lg">
-      <div className="flex items-center justify-between border-b border-[#1C2942] bg-[#0D1424] px-4 py-2.5 text-xs">
+    <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0A0A0E] shadow-sm">
+      <div className="flex items-center justify-between border-b border-white/[0.06] bg-[#0E0E14] px-4 py-2.5 text-xs">
         <div className="flex items-center gap-2">
-          <span className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-500/60" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/60" />
-          </span>
           {displayName && (
-            <span className="font-mono text-[#F5F7FF] font-medium ml-2">{displayName}</span>
+            <span className="font-mono text-neutral-300 font-medium text-xs">{displayName}</span>
           )}
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[#6D96FF] bg-[#162238] px-2 py-0.5 rounded border border-[#4D7CFF]/20">
+        <div className="flex items-center gap-2.5">
+          <span className="text-[10px] font-mono text-neutral-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
             {language}
           </span>
 
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 text-[11px] font-mono text-[#8D99B5] hover:text-[#F5F7FF] transition-colors px-2 py-0.5 rounded border border-transparent hover:border-[#1C2942] hover:bg-[#050914]"
+            className="flex items-center gap-1.5 text-[11px] font-mono text-neutral-400 hover:text-white transition-colors px-2 py-0.5 rounded hover:bg-white/[0.06]"
             aria-label="Copy code snippet"
           >
             {copied ? (
@@ -54,13 +49,13 @@ const CodeSnippet = ({ filename, title, language = "javascript", code, explanati
         </div>
       </div>
 
-      <pre className="overflow-x-auto p-4 sm:p-5 font-mono text-xs text-[#F5F7FF] leading-relaxed">
+      <pre className="overflow-x-auto p-4 sm:p-5 font-mono text-xs text-neutral-200 leading-relaxed">
         <code>{code}</code>
       </pre>
 
       {explanation && (
-        <div className="border-t border-[#1C2942] bg-[#0D1424]/60 px-4 py-3 text-xs text-[#8D99B5]">
-          <strong className="text-[#4D7CFF] font-mono">Engineering Note: </strong>
+        <div className="border-t border-white/[0.06] bg-[#0C0C12] px-4 py-3 text-xs text-neutral-400 font-sans">
+          <strong className="text-white font-medium">Engineering Note: </strong>
           {explanation}
         </div>
       )}

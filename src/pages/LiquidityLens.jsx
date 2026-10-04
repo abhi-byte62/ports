@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { HiArrowLeft } from "react-icons/hi";
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { FiCpu, FiTrendingUp, FiShield, FiLayers } from "react-icons/fi";
 
 
@@ -372,7 +372,7 @@ const LiquidityLens = () => {
   const [activeScreenshot, setActiveScreenshot] = useState(screenshots[0]);
 
   return (
-    <main className="min-h-screen bg-[#050914] py-32 text-[#F5F7FF]">
+    <main className="min-h-screen bg-[#08080C] py-32 text-white">
       <SEO
         title="LiquidityLens | Market Microstructure & C++ Execution Simulator Case Study | Abhishek M R"
         description="Engineering case study: Ultra-low-latency market microstructure research engine built in C++17, Python, FastAPI, and React. Analyzes LOB dynamics, FIFO queue priority, latency sensitivity, and adverse selection."
@@ -384,7 +384,7 @@ const LiquidityLens = () => {
         <div className="mx-auto max-w-5xl mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors"
           >
             <HiArrowLeft size={16} />
             Back to Engineering Portfolio
@@ -394,26 +394,26 @@ const LiquidityLens = () => {
         {/* Hero Section */}
         <section className="mx-auto max-w-5xl mb-16">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="rounded bg-[#0D1B3A] px-2.5 py-1 text-xs font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
-              FEATURED QUANTITATIVE CASE STUDY
+            <span className="rounded bg-white/[0.04] px-2.5 py-1 text-xs font-mono font-medium text-neutral-300 border border-white/[0.08]">
+              QUANTITATIVE CASE STUDY
             </span>
-            <span className="rounded bg-[#0D1424] px-2.5 py-1 text-xs font-mono text-[#8D99B5] border border-[#1C2942]">
-              C++17 SYSTEMS & LOW LATENCY
+            <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
+              C++17 SYSTEMS
             </span>
-            <span className="rounded bg-[#0D1424] px-2.5 py-1 text-xs font-mono text-[#8D99B5] border border-[#1C2942]">
-              MARKET MICROSTRUCTURE RESEARCH
+            <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
+              MARKET MICROSTRUCTURE
             </span>
           </div>
 
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F5F7FF]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
             LiquidityLens: Market Microstructure & C++ Execution Simulator
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-[#8D99B5] leading-relaxed max-w-3xl">
-            An ultra-low-latency quantitative research platform and event-driven C++ simulation engine. Reconstructs deterministic limit order book (LOB) states from market event feeds, models FIFO queue positioning with order-level cancellation attribution, simulates multi-stage microsecond latency budgets (10µs &rarr; 500µs), and computes multi-horizon post-fill markouts with zero look-ahead bias.
+          <p className="mt-6 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-3xl font-sans">
+            An ultra-low-latency quantitative research platform and event-driven C++ simulation engine. Reconstructs deterministic limit order book (LOB) states from market event feeds, models FIFO queue positioning with order-level cancellation attribution, simulates multi-stage microsecond latency budgets (10µs → 500µs), and computes multi-horizon post-fill markouts with zero look-ahead bias.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-8 flex flex-wrap gap-1.5">
             {[
               "C++17 Core Engine",
               "Fixed-Point int64_t",
@@ -429,7 +429,7 @@ const LiquidityLens = () => {
             ].map((tech) => (
               <span
                 key={tech}
-                className="rounded-lg border border-[#1C2942] bg-[#0D1424] px-3.5 py-1.5 text-xs font-medium text-[#8D99B5]"
+                className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400"
               >
                 {tech}
               </span>
@@ -446,28 +446,28 @@ const LiquidityLens = () => {
         <section className="mx-auto max-w-5xl mb-20">
           <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
-                RESEARCH WORKSTATION & VISUAL INTERFACES
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
+                RESEARCH WORKSTATION
               </span>
-              <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mt-1">
-                Visual Inspection & Research Terminal Gallery
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mt-1">
+                Visual Inspection & Research Terminal
               </h2>
             </div>
-            <p className="text-xs text-[#8D99B5] font-mono">
+            <p className="text-xs text-neutral-400 font-mono">
               Click tabs to inspect quantitative simulation views
             </p>
           </div>
 
           {/* Screenshot Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 p-1.5 rounded-xl border border-[#1C2942] bg-[#0D1424]">
+          <div className="flex flex-wrap gap-1.5 mb-5 p-1 rounded-lg border border-white/[0.06] bg-[#0C0C12]">
             {screenshots.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveScreenshot(item)}
-                className={`rounded-lg px-3.5 py-2 text-xs font-medium transition-all ${
+                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
                   activeScreenshot.id === item.id
-                    ? "bg-[#4D7CFF] text-[#050914] font-semibold shadow-sm"
-                    : "text-[#8D99B5] hover:text-[#F5F7FF] hover:bg-[#10182A]"
+                    ? "bg-white text-black font-semibold shadow-xs"
+                    : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
                 {item.title}
@@ -476,25 +476,25 @@ const LiquidityLens = () => {
           </div>
 
           {/* Active Screenshot Display */}
-          <div className="overflow-hidden rounded-2xl border border-[#1C2942] bg-[#0D1424] shadow-2xl transition-all">
-            <div className="border-b border-[#1C2942] bg-[#0D1424] px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+          <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0C0C12] shadow-sm">
+            <div className="border-b border-white/[0.06] bg-[#0E0E14] px-5 py-3.5 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <span className="rounded bg-[#0D1B3A] px-2 py-0.5 text-[10px] font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
+                <span className="rounded bg-white/[0.04] px-2 py-0.5 text-[10px] font-mono text-neutral-300 border border-white/[0.06]">
                   {activeScreenshot.badge}
                 </span>
-                <h3 className="font-semibold text-sm text-[#F5F7FF]">
+                <h3 className="font-medium text-xs text-white">
                   {activeScreenshot.title}
                 </h3>
               </div>
-              <p className="text-xs text-[#8D99B5] max-w-xl">
+              <p className="text-xs text-neutral-400 max-w-xl font-sans">
                 {activeScreenshot.description}
               </p>
             </div>
-            <div className="relative bg-[#050914] p-2 sm:p-4">
+            <div className="relative bg-[#08080C] p-2 sm:p-4">
               <img
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
-                className="w-full rounded-xl object-contain shadow-lg"
+                className="w-full rounded-lg object-contain"
               />
             </div>
           </div>
@@ -504,38 +504,38 @@ const LiquidityLens = () => {
         <div className="mx-auto max-w-5xl space-y-20">
           {/* Section 1: The Problem & Engineering Vision */}
           <section>
-            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">
               1. The Research Challenge: Beyond Naive Backtesting in Market Microstructure
             </h2>
-            <div className="prose prose-invert max-w-none text-[#8D99B5] text-sm sm:text-base leading-relaxed space-y-4">
+            <div className="prose prose-invert max-w-none text-neutral-300 text-sm sm:text-base leading-relaxed space-y-4">
               <p>
                 In high-frequency quantitative finance, naive backtesting frameworks fail because they overlook the structural mechanics of limit order book (LOB) matching. Traditional backtesters assume that a passive limit order executes the instant market trade prices touch the limit quote.
               </p>
               <p>
-                In reality, passive market making is governed by the structural adversary of <strong className="text-[#F5F7FF]">Adverse Selection</strong>:
+                In reality, passive market making is governed by the structural adversary of <strong className="text-white">Adverse Selection</strong>:
               </p>
-              <blockquote className="border-l-2 border-[#4D7CFF] pl-4 italic text-[#F5F7FF] my-4 font-mono text-xs sm:text-sm">
+              <blockquote className="border-l-2 border-white/20 pl-4 italic text-neutral-200 my-4 font-mono text-xs sm:text-sm">
                 "When a liquidity provider posts a passive limit order, what is the probability that the order executes immediately before the market moves against the trader?"
               </blockquote>
               <p>
                 LiquidityLens was engineered to simulate true electronic market-making dynamics:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-[#8D99B5]">
+              <ul className="list-disc pl-6 space-y-2 text-neutral-300">
                 <li>
-                  <strong className="text-[#F5F7FF]">Exact FIFO Queue Priority:</strong> Orders must wait in line behind pre-existing resting depth. Market orders consume queue volume first before allocating fills.
+                  <strong className="text-white">Exact FIFO Queue Priority:</strong> Orders must wait in line behind pre-existing resting depth. Market orders consume queue volume first before allocating fills.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Order-Level Cancellation Attribution:</strong> Cancellations ahead in the queue advance priority, while cancellations behind leave volume ahead intact.
+                  <strong className="text-white">Order-Level Cancellation Attribution:</strong> Cancellations ahead in the queue advance priority, while cancellations behind leave volume ahead intact.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Microsecond Latency Budgets:</strong> Simulates wire transmission and exchange gateway transit delays (10µs &rarr; 500µs), capturing fill degradation and race latency.
+                  <strong className="text-white">Microsecond Latency Budgets:</strong> Simulates wire transmission and exchange gateway transit delays (10µs → 500µs), capturing fill degradation and race latency.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Zero Look-Ahead Post-Fill Markouts:</strong> Evaluates post-fill price trajectories across discrete horizons (1ms to 1s) to separate genuine spread capture from toxic adverse selection.
+                  <strong className="text-white">Zero Look-Ahead Post-Fill Markouts:</strong> Evaluates post-fill price trajectories across discrete horizons (1ms to 1s) to separate genuine spread capture from toxic adverse selection.
                 </li>
               </ul>
-              <div className="mt-4 rounded-xl border border-[#1C2942] bg-[#0D1424] p-3.5 text-xs text-[#8D99B5] font-mono">
-                <span className="text-[#4D7CFF] font-semibold">MARKET SYSTEMS CONTEXT:</span> While LiquidityLens investigates sub-microsecond limit order book physics, FIFO queue degradation, and adverse selection in C++17, these matching foundations also inform the full-lifecycle paper trading terminal in <Link to="/tradeforge" className="text-[#6D96FF] underline hover:text-[#F5F7FF]">TradeForge</Link>.
+              <div className="mt-4 rounded-lg border border-white/[0.08] bg-white/[0.02] p-3 text-xs text-neutral-300 font-mono">
+                <span className="text-neutral-400 font-semibold">CONTEXT:</span> While LiquidityLens investigates sub-microsecond limit order book physics, FIFO queue degradation, and adverse selection in C++17, these matching foundations also inform the full-lifecycle paper trading terminal in <Link to="/tradeforge" className="text-neutral-200 underline hover:text-white">TradeForge</Link>.
               </div>
             </div>
           </section>
@@ -551,23 +551,23 @@ const LiquidityLens = () => {
           </section>
 
           {/* Section 3: Deep Dive - Fixed-Point C++ Core */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiCpu className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiCpu className="text-neutral-400" />
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
                 TECHNICAL DEEP DIVE 01
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
-              Fixed-Point <code className="text-[#4D7CFF] font-mono">int64_t</code> Price Representation & Strict Invariant Guarantees
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
+              Fixed-Point <code className="text-neutral-200 font-mono">int64_t</code> Price Representation & Strict Invariant Guarantees
             </h3>
 
-            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4 font-sans">
               <p>
-                Floating-point calculations (<code className="text-[#F5F7FF] font-mono">double</code>, <code className="text-[#F5F7FF] font-mono">float</code>) introduce subtle rounding inaccuracies that cause order book crossing bugs and non-deterministic sorting order in high-frequency matching loops.
+                Floating-point calculations (<code className="text-white font-mono">double</code>, <code className="text-white font-mono">float</code>) introduce subtle rounding inaccuracies that cause order book crossing bugs and non-deterministic sorting order in high-frequency matching loops.
               </p>
               <p>
-                LiquidityLens eliminates floating-point comparisons from the core matching path by representing all price levels and volumes as discrete fixed-point integers (<code className="text-[#4D7CFF] font-mono">using Price = int64_t</code>). Prices are converted to discrete tick counts based on the instrument's minimum tick size (0.01 = 1 tick). This ensures bit-for-bit deterministic replay and unlocks compiler vectorization, accelerating throughput to <strong className="text-[#F5F7FF]">4.5M+ events/second</strong>.
+                LiquidityLens eliminates floating-point comparisons from the core matching path by representing all price levels and volumes as discrete fixed-point integers (<code className="text-neutral-200 font-mono">using Price = int64_t</code>). Prices are converted to discrete tick counts based on the instrument's minimum tick size (0.01 = 1 tick). This ensures bit-for-bit deterministic replay and unlocks compiler vectorization, accelerating throughput to <strong className="text-white">4.5M+ events/second</strong>.
               </p>
             </div>
 
@@ -582,34 +582,34 @@ const LiquidityLens = () => {
           </section>
 
           {/* Section 4: Deep Dive - FIFO Queue Attribution */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiLayers className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiLayers className="text-neutral-400" />
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
                 TECHNICAL DEEP DIVE 02
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
               Deterministic FIFO Queue Tracking with Order-Level Cancellation Attribution
             </h3>
 
-            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4 font-sans">
               <p>
-                When a passive order is submitted at a price level with existing resting volume, it is placed at the tail of that price level's FIFO queue (<code className="text-[#F5F7FF] font-mono">Q_ahead = RestingVolume</code>).
+                When a passive order is submitted at a price level with existing resting volume, it is placed at the tail of that price level's FIFO queue (<code className="text-white font-mono">Q_ahead = RestingVolume</code>).
               </p>
               <p>
                 LiquidityLens tracks the exact set of resting order IDs ahead. When an incoming cancellation occurs, the engine verifies whether the cancelled order ID was ahead in the queue:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-[#8D99B5]">
+              <ul className="list-disc pl-6 space-y-2 text-neutral-300">
                 <li>
-                  <strong className="text-[#F5F7FF]">Cancellation Ahead:</strong> Decrements <code className="text-[#4D7CFF] font-mono">Q_ahead</code> by the cancelled quantity, advancing the order's execution priority.
+                  <strong className="text-white">Cancellation Ahead:</strong> Decrements <code className="text-neutral-200 font-mono">Q_ahead</code> by the cancelled quantity, advancing the order's execution priority.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Cancellation Behind:</strong> Leaves <code className="text-[#4D7CFF] font-mono">Q_ahead</code> unchanged because cancellations behind do not advance queue rank.
+                  <strong className="text-white">Cancellation Behind:</strong> Leaves <code className="text-neutral-200 font-mono">Q_ahead</code> unchanged because cancellations behind do not advance queue rank.
                 </li>
               </ul>
               <p>
-                In empirical trials with 17,500 deterministic simulations (Seed 42), orders at the head of the queue achieved a <strong className="text-[#F5F7FF]">64.5% fill rate</strong> (P50 = 0.08 ms) compared to <strong className="text-[#F5F7FF]">49.2%</strong> for orders 300 units deep (P50 = 1.25 ms).
+                In empirical trials with 17,500 deterministic simulations (Seed 42), orders at the head of the queue achieved a <strong className="text-white">64.5% fill rate</strong> (P50 = 0.08 ms) compared to <strong className="text-white">49.2%</strong> for orders 300 units deep (P50 = 1.25 ms).
               </p>
             </div>
 
@@ -624,18 +624,18 @@ const LiquidityLens = () => {
           </section>
 
           {/* Section 5: Deep Dive - Adverse Selection Markouts */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiTrendingUp className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiTrendingUp className="text-neutral-400" />
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
                 TECHNICAL DEEP DIVE 03
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
               Zero Look-Ahead Multi-Horizon Post-Fill Markouts
             </h3>
 
-            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4 font-sans">
               <p>
                 To quantify toxic flow without look-ahead bias, LiquidityLens isolates the post-fill price evolution across 7 discrete observation windows (1ms, 5ms, 10ms, 50ms, 100ms, 500ms, 1s).
               </p>
@@ -658,43 +658,43 @@ const LiquidityLens = () => {
           <section>
             <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div>
-                <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
-                  QUANTITATIVE RESEARCH HARNESS
+                <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
+                  RESEARCH HARNESS
                 </span>
-                <h3 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mt-1">
-                  Empirical Microstructure Research Suite (EXP-001 &ndash; EXP-007)
+                <h3 className="text-2xl md:text-3xl font-semibold text-white mt-1">
+                  Empirical Microstructure Research Suite
                 </h3>
               </div>
-              <p className="text-xs text-[#8D99B5] font-mono">
-                100% dynamic simulation outputs (No static placeholders)
+              <p className="text-xs text-neutral-400 font-mono">
+                100% dynamic simulation outputs
               </p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-2">
               {researchExperiments.map((exp) => (
                 <div
                   key={exp.id}
-                  className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-5 transition-all duration-200 hover:border-[#4D7CFF]/40 hover:bg-[#10182A]"
+                  className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-5 transition-colors duration-200 hover:border-white/[0.18]"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="rounded bg-[#0D1B3A] px-2.5 py-0.5 text-xs font-mono font-bold text-[#6D96FF] border border-[#4D7CFF]/20">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="rounded bg-white/[0.04] px-2 py-0.5 text-xs font-mono font-medium text-neutral-300 border border-white/[0.06]">
                       {exp.id}
                     </span>
-                    <span className="text-[11px] font-mono text-[#5F6B83]">
+                    <span className="text-[11px] font-mono text-neutral-500">
                       {exp.method}
                     </span>
                   </div>
 
-                  <h4 className="font-semibold text-sm text-[#F5F7FF] mb-1">
+                  <h4 className="font-semibold text-sm text-white mb-1">
                     {exp.title}
                   </h4>
-                  <p className="text-xs text-[#8D99B5] mb-3 leading-relaxed">
+                  <p className="text-xs text-neutral-400 mb-3 leading-relaxed font-sans">
                     {exp.desc}
                   </p>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-[#1C2942] text-xs font-mono">
-                    <span className="text-[#8D99B5]">{exp.source}</span>
-                    <span className="text-[#4D7CFF] font-semibold">{exp.metric}</span>
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-white/[0.06] text-xs font-mono">
+                    <span className="text-neutral-500">{exp.source}</span>
+                    <span className="text-neutral-200 font-medium">{exp.metric}</span>
                   </div>
                 </div>
               ))}
@@ -712,24 +712,24 @@ const LiquidityLens = () => {
           </section>
 
           {/* Section 8: Hardware Benchmarks Matrix */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiShield className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
-                SYSTEM PERFORMANCE VERIFICATION
+              <FiShield className="text-neutral-400" />
+              <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
+                SYSTEM PERFORMANCE
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
               C++17 Engine Micro-Benchmark Profile (150,000 Continuous Events)
             </h3>
 
-            <p className="text-[#8D99B5] text-xs sm:text-sm leading-relaxed mb-6">
-              Single-threaded performance benchmark compiled with MinGW GCC 13.2 C++17 (<code className="text-[#4D7CFF] font-mono">-O3 -Wall -Wextra</code>) on Windows x86_64 hardware:
+            <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed mb-6 font-sans">
+              Single-threaded performance benchmark compiled with MinGW GCC 13.2 C++17 (<code className="text-neutral-300 font-mono">-O3 -Wall -Wextra</code>) on Windows x86_64 hardware:
             </p>
 
-            <div className="overflow-x-auto rounded-xl border border-[#1C2942]">
+            <div className="overflow-x-auto rounded-lg border border-white/[0.08]">
               <table className="w-full text-left text-xs font-mono">
-                <thead className="border-b border-[#1C2942] bg-[#050914] text-[#8D99B5]">
+                <thead className="border-b border-white/[0.08] bg-white/[0.02] text-neutral-400">
                   <tr>
                     <th className="p-3.5">Component / Metric</th>
                     <th className="p-3.5">Floating-Point Baseline</th>
@@ -737,13 +737,13 @@ const LiquidityLens = () => {
                     <th className="p-3.5 text-right">Optimization Delta</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1C2942] bg-[#0D1424]">
+                <tbody className="divide-y divide-white/[0.06] bg-[#08080C]">
                   {hardwareBenchmarks.map((row, i) => (
-                    <tr key={i} className="hover:bg-[#10182A]">
-                      <td className="p-3.5 font-semibold text-[#F5F7FF]">{row.metric}</td>
-                      <td className="p-3.5 text-[#8D99B5]">{row.baseline}</td>
-                      <td className="p-3.5 text-[#4D7CFF] font-semibold">{row.cpp}</td>
-                      <td className="p-3.5 text-right font-semibold text-emerald-400">{row.delta}</td>
+                    <tr key={i} className="hover:bg-white/[0.02]">
+                      <td className="p-3.5 font-medium text-white">{row.metric}</td>
+                      <td className="p-3.5 text-neutral-400">{row.baseline}</td>
+                      <td className="p-3.5 text-neutral-200 font-medium">{row.cpp}</td>
+                      <td className="p-3.5 text-right font-medium text-emerald-400">{row.delta}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -752,30 +752,32 @@ const LiquidityLens = () => {
           </section>
 
           {/* Bottom Actions & Navigation */}
-          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#1C2942] sm:flex-row">
-            <div className="flex flex-wrap items-center gap-6">
-              <Link
-                to="/tradeforge"
-                className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors font-semibold"
-              >
-                &larr; TradeForge Case Study
-              </Link>
-              <span className="text-[#1C2942]">|</span>
+          <div className="flex flex-col items-center justify-between gap-6 pt-10 border-t border-white/[0.08] sm:flex-row">
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
               <Link
                 to="/taskflow"
-                className="text-sm font-medium text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+                className="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors"
               >
-                TaskFlow Case Study &rarr;
+                <HiArrowLeft size={14} />
+                Previous: TaskFlow
+              </Link>
+              <span className="text-white/[0.12]">/</span>
+              <Link
+                to="/tradeforge"
+                className="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors"
+              >
+                Next: TradeForge
+                <HiArrowRight size={14} />
               </Link>
             </div>
 
             <a
-              href="https://github.com/abhi-byte62/liqudity"
+              href="https://github.com/abhi-byte62/liquiditylens"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF]"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-2.5 text-xs font-semibold hover:bg-neutral-200 transition-colors shadow-sm"
             >
-              <FaGithub size={16} />
+              <FaGithub size={14} />
               Review Source Code on GitHub
             </a>
           </div>

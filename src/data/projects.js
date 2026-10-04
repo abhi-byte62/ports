@@ -67,7 +67,7 @@ export const projects = [
     ],
     metrics: "4.5M+ Evt/s • ~220ns Latency • Invariant P&L",
     image: liquiditylensImage,
-    github: "https://github.com/abhi-byte62/liqudity",
+    github: "https://github.com/abhi-byte62/liquiditylens",
     route: "/liquiditylens",
   },
   {
@@ -99,7 +99,7 @@ export const projects = [
     ],
     metrics: "200+ Signatures • Sub-Second DAG • SSRF Shield",
     image: stacklensImage,
-    github: "https://github.com/abhi-byte62/stackl",
+    github: "https://github.com/abhi-byte62/stacklens",
     route: "/stacklens",
   },
   {

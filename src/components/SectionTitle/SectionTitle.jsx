@@ -9,7 +9,7 @@ const SectionTitle = ({ title, subtitle, tag, align = "center" }) => {
         </p>
       )}
 
-      <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F5F7FF]">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
         {title}
       </h2>
 

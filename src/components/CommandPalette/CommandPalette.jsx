@@ -236,16 +236,16 @@ export default function CommandPalette({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-28 bg-[#050914]/80 backdrop-blur-md p-4 animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-28 bg-black/75 backdrop-blur-sm p-4 animate-in fade-in duration-150"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl overflow-hidden rounded-2xl border border-[#1C2942] bg-[#0D1424] shadow-2xl shadow-[#4D7CFF]/10 flex flex-col"
+        className="w-full max-w-2xl overflow-hidden rounded-xl border border-white/[0.08] bg-[#0E0E14] shadow-2xl flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Bar Input */}
-        <div className="flex items-center gap-3 border-b border-[#1C2942] px-4 py-3.5 bg-[#080E1B]">
-          <FiSearch className="text-[#4D7CFF] shrink-0" size={18} />
+        <div className="flex items-center gap-3 border-b border-white/[0.08] px-4 py-3 bg-[#0A0A0E]">
+          <FiSearch className="text-neutral-400 shrink-0" size={16} />
           <input
             ref={inputRef}
             type="text"
@@ -255,19 +255,19 @@ export default function CommandPalette({ isOpen, onClose }) {
               setSelectedIndex(0);
             }}
             placeholder="Type a command, project, technology, or action..."
-            className="w-full bg-transparent font-mono text-sm text-[#F5F7FF] placeholder-[#5F6B83] focus:outline-none"
+            className="w-full bg-transparent font-mono text-xs text-white placeholder-neutral-500 focus:outline-none"
           />
-          <kbd className="hidden sm:inline-block rounded border border-[#1C2942] bg-[#0D1424] px-2 py-0.5 text-[10px] font-mono text-[#8D99B5]">
+          <kbd className="hidden sm:inline-block rounded border border-white/[0.08] bg-white/[0.03] px-1.5 py-0.5 text-[10px] font-mono text-neutral-400">
             ESC
           </kbd>
         </div>
 
         {/* Results List */}
-        <div className="max-h-96 overflow-y-auto p-2 divide-y divide-[#1C2942]/30">
+        <div className="max-h-96 overflow-y-auto p-1.5 divide-y divide-white/[0.04]">
           {filtered.length === 0 ? (
             <div className="p-8 text-center">
-              <p className="text-sm font-mono text-[#8D99B5]">No results found for "{query}"</p>
-              <p className="mt-1 text-xs text-[#5F6B83]">Try searching for "StackLens", "C++", "Spring", "Resume", or "Contact"</p>
+              <p className="text-xs font-mono text-neutral-400">No results found for "{query}"</p>
+              <p className="mt-1 text-xs text-neutral-500">Try searching for "StackLens", "C++", "Spring", "Resume", or "Contact"</p>
             </div>
           ) : (
             filtered.map((item, idx) => {
@@ -281,36 +281,36 @@ export default function CommandPalette({ isOpen, onClose }) {
                     if (!item.isCopyEmail) onClose();
                   }}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs transition-all cursor-pointer ${
+                  className={`flex items-center justify-between rounded-lg px-3 py-2 text-xs transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-[#162238] text-[#F5F7FF] border border-[#4D7CFF]/40 shadow-sm"
-                      : "text-[#8D99B5] hover:bg-[#10182A] border border-transparent"
+                      ? "bg-white/[0.08] text-white"
+                      : "text-neutral-400 hover:bg-white/[0.04]"
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className={`p-2 rounded-lg border ${
-                      isSelected ? "border-[#4D7CFF]/50 bg-[#4D7CFF]/10 text-[#4D7CFF]" : "border-[#1C2942] bg-[#050914] text-[#8D99B5]"
+                    <div className={`p-1.5 rounded-md border ${
+                      isSelected ? "border-white/[0.15] bg-white/[0.08] text-white" : "border-white/[0.06] bg-white/[0.02] text-neutral-400"
                     }`}>
-                      <Icon size={14} />
+                      <Icon size={13} />
                     </div>
 
                     <div className="truncate">
                       <div className="flex items-center gap-2">
-                        <span className={`font-semibold ${isSelected ? "text-[#F5F7FF]" : "text-[#D1D7E6]"}`}>
+                        <span className={`font-medium ${isSelected ? "text-white" : "text-neutral-300"}`}>
                           {item.title}
                         </span>
                         {item.badge && (
-                          <span className="rounded bg-[#050914] px-1.5 py-0.5 text-[10px] font-mono text-[#6D96FF] border border-[#4D7CFF]/30">
+                          <span className="rounded bg-white/[0.04] px-1.5 py-0.2 text-[9px] font-mono text-neutral-400 border border-white/[0.06]">
                             {item.badge}
                           </span>
                         )}
                         {item.isCopyEmail && copiedEmail && (
-                          <span className="inline-flex items-center gap-1 rounded bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-mono text-emerald-400">
+                          <span className="inline-flex items-center gap-1 rounded bg-emerald-500/20 px-1.5 py-0.2 text-[10px] font-mono text-emerald-400">
                             <FiCheck size={10} /> Copied!
                           </span>
                         )}
                       </div>
-                      <span className="text-[10px] font-mono text-[#5F6B83] block mt-0.5">
+                      <span className="text-[10px] font-mono text-neutral-500 block mt-0.5">
                         {item.category}
                       </span>
                     </div>
@@ -318,7 +318,7 @@ export default function CommandPalette({ isOpen, onClose }) {
 
                   <div className="flex items-center gap-2 shrink-0">
                     {isSelected && (
-                      <span className="hidden sm:flex items-center gap-1 font-mono text-[10px] text-[#4D7CFF]">
+                      <span className="hidden sm:flex items-center gap-1 font-mono text-[10px] text-neutral-400">
                         <span>SELECT</span>
                         <FiCornerDownLeft size={10} />
                       </span>
@@ -331,13 +331,13 @@ export default function CommandPalette({ isOpen, onClose }) {
         </div>
 
         {/* Footer Shortcut Helper */}
-        <div className="flex items-center justify-between border-t border-[#1C2942] bg-[#080E1B] px-4 py-2.5 text-[11px] font-mono text-[#5F6B83]">
+        <div className="flex items-center justify-between border-t border-white/[0.08] bg-[#0A0A0E] px-4 py-2 text-[11px] font-mono text-neutral-500">
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>
             <span>ESC Dismiss</span>
           </div>
-          <span className="text-[#4D7CFF]">ABHISHEK M R PORTFOLIO</span>
+          <span className="text-neutral-400">ABHISHEK M R</span>
         </div>
       </div>
     </div>

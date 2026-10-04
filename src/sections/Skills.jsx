@@ -6,35 +6,37 @@ import Section from "../components/Section/Section";
 const skillGroups = [
   {
     category: "Languages",
-    items: ["C++17 / C++20", "Java 21", "Go", "TypeScript / JavaScript", "Python 3", "C", "SQL"],
+    items: ["C++17 / C++20", "Java 21", "TypeScript", "Python 3", "Go", "C", "SQL"],
   },
   {
-    category: "Systems & Backend",
+    category: "Systems",
+    items: [
+      "Distributed Concurrency (OCC)",
+      "Memory Modeling & Cache Locality",
+      "Network Protocols & Sockets",
+      "Zero-Allocation Buffers",
+      "Amortized Complexity (Big-O)",
+    ],
+  },
+  {
+    category: "Backend",
     items: [
       "Spring Boot 3",
       "Node.js & Express",
       "FastAPI",
-      "WebSocket & Socket.io",
+      "PostgreSQL 16 / 17",
+      "Redis 7 / Valkey Cluster",
       "RabbitMQ",
-      "RESTful API Design",
     ],
   },
   {
-    category: "Databases & Caching",
-    items: ["PostgreSQL 16 / 17", "Redis 7 / Valkey Cluster", "Prisma ORM", "ACID Transactions"],
-  },
-  {
-    category: "Infrastructure & Tooling",
-    items: ["Docker & Compose", "Linux / POSIX Shell", "Git & GitHub Actions", "CI/CD Workflows"],
-  },
-  {
-    category: "Core CS & Engineering Foundations",
+    category: "Infrastructure",
     items: [
-      "Data Structures & Algorithms",
-      "Distributed Concurrency (OCC)",
-      "Network Protocols & Sockets",
-      "Zero-Allocation Memory Modeling",
-      "Time & Space Complexity (Big-O)",
+      "Docker & Compose",
+      "Linux / POSIX Shell",
+      "Git & GitHub Actions",
+      "CI/CD Pipelines",
+      "Network Telemetry",
     ],
   },
 ];
@@ -45,25 +47,25 @@ const Skills = () => {
       <Container>
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <h2 className="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
             Technical Foundation
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-400 leading-relaxed font-sans">
+          <p className="mt-3 text-base sm:text-lg text-neutral-400 leading-relaxed font-sans">
             Core competencies across systems programming, backend architectures, data stores, and foundational computer science.
           </p>
         </div>
 
         {/* Natural Categorized Lists */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skillGroups.map((group) => (
-            <div key={group.category} className="space-y-4">
-              <h3 className="font-['Space_Grotesk'] text-lg font-bold text-white pb-2 border-b border-white/[0.08]">
+            <div key={group.category} className="space-y-3">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider font-mono pb-2 border-b border-white/[0.08]">
                 {group.category}
               </h3>
-              <ul className="space-y-2 text-sm text-neutral-300 font-sans">
+              <ul className="space-y-1.5 text-xs font-mono text-neutral-300">
                 {group.items.map((item) => (
                   <li key={item} className="flex items-center gap-2">
-                    <span className="text-neutral-500 font-mono text-xs">&bull;</span>
+                    <span className="text-neutral-500">·</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -72,12 +74,12 @@ const Skills = () => {
           ))}
 
           {/* Problem Solving & Verification */}
-          <div className="space-y-4">
-            <h3 className="font-['Space_Grotesk'] text-lg font-bold text-white pb-2 border-b border-white/[0.08]">
-              Algorithmic Problem Solving
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider font-mono pb-2 border-b border-white/[0.08]">
+              Problem Solving & Verification
             </h3>
-            <p className="text-sm text-neutral-400 font-sans leading-relaxed">
-              Active verification across trees, dynamic programming, graphs, and amortized complexity bounds.
+            <p className="text-xs text-neutral-400 font-sans leading-relaxed">
+              Active algorithmic verification across dynamic programming, graph theory, and amortized complexity bounds.
             </p>
             <div className="pt-2 space-y-2 text-xs font-mono">
               <a
@@ -88,7 +90,7 @@ const Skills = () => {
               >
                 <SiLeetcode className="text-[#FFA116]" size={14} />
                 <span>LeetCode (700+ Solved)</span>
-                <HiArrowRight size={12} className="text-sky-400" />
+                <HiArrowRight size={12} className="text-neutral-500" />
               </a>
 
               <a
@@ -99,7 +101,7 @@ const Skills = () => {
               >
                 <SiCodeforces className="text-[#1F8ACB]" size={14} />
                 <span>Codeforces Profile</span>
-                <HiArrowRight size={12} className="text-sky-400" />
+                <HiArrowRight size={12} className="text-neutral-500" />
               </a>
             </div>
           </div>

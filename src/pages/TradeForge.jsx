@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { HiArrowLeft } from "react-icons/hi";
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { FiCpu, FiTrendingUp, FiShield, FiActivity, FiLayers, FiZap } from "react-icons/fi";
 
 import SEO from "../components/SEO/SEO";
@@ -303,7 +303,7 @@ const TradeForge = () => {
   const [activeScreenshot, setActiveScreenshot] = useState(screenshots[0]);
 
   return (
-    <main className="min-h-screen bg-[#050914] py-32 text-[#F5F7FF]">
+    <main className="min-h-screen bg-[#08080C] py-32 text-white selection:bg-white/10 selection:text-white">
       <SEO
         title="TradeForge | Real-Time Paper Trading & Market Simulation Platform | Abhishek M R"
         description="Engineering case study: High-performance paper trading platform and market simulator. In-memory FIFO double-sided limit order book, synchronous pre-trade risk engine, and sub-10µs latency."
@@ -315,36 +315,36 @@ const TradeForge = () => {
         <div className="mx-auto max-w-5xl mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors"
           >
-            <HiArrowLeft size={16} />
-            Back to Engineering Portfolio
+            <HiArrowLeft size={14} />
+            Back to projects
           </Link>
         </div>
 
         {/* Hero Section */}
         <section className="mx-auto max-w-5xl mb-16">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="rounded bg-[#0D1B3A] px-2.5 py-1 text-xs font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
-              FEATURED FINTECH CASE STUDY
+            <span className="rounded bg-white/[0.06] px-2 py-0.5 text-xs font-mono font-medium text-neutral-200 border border-white/[0.08]">
+              FINTECH CASE STUDY
             </span>
-            <span className="rounded bg-[#0D1424] px-2.5 py-1 text-xs font-mono text-[#8D99B5] border border-[#1C2942]">
-              REAL-TIME MATCHING ENGINE
+            <span className="rounded bg-white/[0.03] px-2 py-0.5 text-xs font-mono text-neutral-400 border border-white/[0.06]">
+              MATCHING ENGINE
             </span>
-            <span className="rounded bg-[#0D1424] px-2.5 py-1 text-xs font-mono text-[#8D99B5] border border-[#1C2942]">
+            <span className="rounded bg-white/[0.03] px-2 py-0.5 text-xs font-mono text-neutral-400 border border-white/[0.06]">
               PRE-TRADE RISK & SIMULATION
             </span>
           </div>
 
-          <h1 className="font-['Space_Grotesk'] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F5F7FF]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white">
             TradeForge: Real-Time Paper Trading & Market Simulator
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-[#8D99B5] leading-relaxed max-w-3xl">
+          <p className="mt-5 text-base md:text-lg text-neutral-400 leading-relaxed max-w-3xl">
             A modular, high-performance electronic paper trading workstation and market simulator. Engineered with an in-memory double-sided FIFO limit order book, synchronous pre-trade risk controls (5x MIS leverage & ±10% circuit limits), stochastic GBM jump-diffusion pricing, and sub-10µs matching engine latency.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-8 flex flex-wrap gap-1.5">
             {[
               "TypeScript 5.6",
               "Node.js v20+",
@@ -360,7 +360,7 @@ const TradeForge = () => {
             ].map((tech) => (
               <span
                 key={tech}
-                className="rounded-lg border border-[#1C2942] bg-[#0D1424] px-3.5 py-1.5 text-xs font-medium text-[#8D99B5]"
+                className="rounded border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400"
               >
                 {tech}
               </span>
@@ -375,30 +375,30 @@ const TradeForge = () => {
 
         {/* Interactive Screenshot Showcase */}
         <section className="mx-auto max-w-5xl mb-20">
-          <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="mb-5 flex flex-col md:flex-row md:items-end md:justify-between gap-3">
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
                 INTERACTIVE TERMINAL INTERFACES
               </span>
-              <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mt-1">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mt-1">
                 Visual Inspection & Live Trading Gallery
               </h2>
             </div>
-            <p className="text-xs text-[#8D99B5] font-mono">
+            <p className="text-xs text-neutral-500 font-mono">
               Click tabs to inspect trading workspace panels
             </p>
           </div>
 
           {/* Screenshot Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 p-1.5 rounded-xl border border-[#1C2942] bg-[#0D1424]">
+          <div className="flex flex-wrap gap-1.5 mb-4 p-1 rounded-lg border border-white/[0.08] bg-[#0C0C12]">
             {screenshots.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveScreenshot(item)}
-                className={`rounded-lg px-3.5 py-2 text-xs font-medium transition-all ${
+                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
                   activeScreenshot.id === item.id
-                    ? "bg-[#4D7CFF] text-[#050914] font-semibold shadow-sm"
-                    : "text-[#8D99B5] hover:text-[#F5F7FF] hover:bg-[#10182A]"
+                    ? "bg-white text-black font-semibold"
+                    : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
                 {item.title}
@@ -407,66 +407,66 @@ const TradeForge = () => {
           </div>
 
           {/* Active Screenshot Display */}
-          <div className="overflow-hidden rounded-2xl border border-[#1C2942] bg-[#0D1424] shadow-2xl transition-all">
-            <div className="border-b border-[#1C2942] bg-[#0D1424] px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="rounded bg-[#0D1B3A] px-2 py-0.5 text-[10px] font-mono font-semibold text-[#6D96FF] border border-[#4D7CFF]/20">
+          <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0C0C12]">
+            <div className="border-b border-white/[0.08] px-5 py-3.5 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5">
+                <span className="rounded bg-white/[0.05] px-2 py-0.5 text-[10px] font-mono font-medium text-neutral-300 border border-white/[0.08]">
                   {activeScreenshot.badge}
                 </span>
-                <h3 className="font-semibold text-sm text-[#F5F7FF]">
+                <h3 className="font-medium text-sm text-white">
                   {activeScreenshot.title}
                 </h3>
               </div>
-              <p className="text-xs text-[#8D99B5] max-w-xl">
+              <p className="text-xs text-neutral-400 max-w-xl">
                 {activeScreenshot.description}
               </p>
             </div>
-            <div className="relative bg-[#050914] p-2 sm:p-4">
+            <div className="bg-[#08080C] p-2 sm:p-4">
               <img
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
-                className="w-full rounded-xl object-contain shadow-lg"
+                className="w-full rounded-lg object-contain border border-white/[0.06]"
               />
             </div>
           </div>
         </section>
 
         {/* Narrative & Engineering Deep Dives */}
-        <div className="mx-auto max-w-5xl space-y-20">
+        <div className="mx-auto max-w-5xl space-y-16">
           {/* Section 1: The Problem & Engineering Vision */}
-          <section>
-            <h2 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mb-6">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
+            <h2 className="text-xl font-semibold text-white mb-4">
               1. The Engineering Challenge: Building Realistic Electronic Trading Workflows
             </h2>
-            <div className="prose prose-invert max-w-none text-[#8D99B5] text-sm sm:text-base leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4">
               <p>
                 Most educational and retail paper-trading platforms rely on naive midpoint fills: submitting a buy order fills immediately at the Last Traded Price (LTP), regardless of whether there is counterparty liquidity, how deep the order book is, or whether the price breaches realistic circuit bands.
               </p>
-              <p>
-                In production electronic exchange architectures, execution is strictly governed by <strong className="text-[#F5F7FF]">Price-Time Priority (FIFO)</strong> matching and <strong className="text-[#F5F7FF]">Pre-Trade Risk Gates</strong>:
+              <p className="text-neutral-400">
+                In production electronic exchange architectures, execution is strictly governed by <strong className="text-white font-medium">Price-Time Priority (FIFO)</strong> matching and <strong className="text-white font-medium">Pre-Trade Risk Gates</strong>:
               </p>
-              <blockquote className="border-l-2 border-[#4D7CFF] pl-4 italic text-[#F5F7FF] my-4 font-mono text-xs sm:text-sm">
+              <blockquote className="border-l-2 border-white/20 pl-4 italic text-neutral-300 my-4 font-mono text-xs">
                 "Can a trader test institutional-grade intraday strategies with 5x leverage, multi-level price sweeps, and stop-loss triggers in an ultra-low-latency simulation that behaves identically to an electronic exchange?"
               </blockquote>
-              <p>
+              <p className="text-neutral-400">
                 TradeForge was constructed from first principles to address these demands:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-[#8D99B5]">
+              <ul className="list-disc pl-5 space-y-2 text-neutral-400">
                 <li>
-                  <strong className="text-[#F5F7FF]">Deterministic FIFO Matching:</strong> In-memory double-sided order books matching at 247,000+ orders/sec with hash map indexing for O(1) cancellations.
+                  <strong className="text-neutral-200">Deterministic FIFO Matching:</strong> In-memory double-sided order books matching at 247,000+ orders/sec with hash map indexing for O(1) cancellations.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Synchronous Pre-Trade Risk Engine:</strong> Enforces real-time margin availability, 5x MIS leverage limits, tick size validation (0.05), and ±10% circuit bounds.
+                  <strong className="text-neutral-200">Synchronous Pre-Trade Risk Engine:</strong> Enforces real-time margin availability, 5x MIS leverage limits, tick size validation (0.05), and ±10% circuit bounds.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Stochastic Jump Diffusion Simulator:</strong> Geometric Brownian Motion with mean reversion and Poisson shocks yielding realistic volatility spikes and bid/ask spreads.
+                  <strong className="text-neutral-200">Stochastic Jump Diffusion Simulator:</strong> Geometric Brownian Motion with mean reversion and Poisson shocks yielding realistic volatility spikes and bid/ask spreads.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">High-Performance Trading Terminal:</strong> Canvas-based interactive candlestick chart, 5-level market depth ladder, order execution ticket, and position ledger.
+                  <strong className="text-neutral-200">High-Performance Trading Terminal:</strong> Canvas-based interactive candlestick chart, 5-level market depth ladder, order execution ticket, and position ledger.
                 </li>
               </ul>
-              <div className="mt-4 rounded-xl border border-[#1C2942] bg-[#0D1424] p-3.5 text-xs text-[#8D99B5] font-mono">
-                <span className="text-[#4D7CFF] font-semibold">SYSTEM ARCHITECTURE CONTEXT:</span> TradeForge translates the electronic matching and queue mechanics (modeled deeply in the <Link to="/liquiditylens" className="text-[#6D96FF] underline hover:text-[#F5F7FF]">LiquidityLens</Link> research engine) into a complete real-time paper trading terminal with synchronous risk controls and WebSocket updates.
+              <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 text-xs text-neutral-400 font-mono">
+                <span className="text-neutral-200 font-semibold">SYSTEM ARCHITECTURE CONTEXT:</span> TradeForge translates the electronic matching and queue mechanics (modeled deeply in the <Link to="/liquiditylens" className="text-neutral-300 underline hover:text-white">LiquidityLens</Link> research engine) into a complete real-time paper trading terminal with synchronous risk controls and WebSocket updates.
               </div>
             </div>
           </section>
@@ -482,23 +482,23 @@ const TradeForge = () => {
           </section>
 
           {/* Section 3: Deep Dive - Deterministic FIFO Matching Core */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiCpu className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiCpu className="text-neutral-400" />
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
                 TECHNICAL DEEP DIVE 01
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Deterministic Price-Time Priority (FIFO) Matching Core & Multi-Level VWAP
             </h3>
 
-            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4">
               <p>
                 The TradeForge matching core maintains two sorted collections of price levels: bids sorted in descending order and asks sorted in ascending order. At each price level, orders are stored in a contiguous FIFO queue.
               </p>
-              <p>
-                When an aggressive market or marketable limit order arrives, the engine traverses multiple price levels until the entire quantity is consumed, calculating the Volume-Weighted Average Price (VWAP) across all fills. An auxiliary <code className="text-[#4D7CFF] font-mono">orderIndex</code> hash map maps order IDs directly to price levels, ensuring <strong className="text-[#F5F7FF]">O(1) cancellation performance</strong>.
+              <p className="text-neutral-400">
+                When an aggressive market or marketable limit order arrives, the engine traverses multiple price levels until the entire quantity is consumed, calculating the Volume-Weighted Average Price (VWAP) across all fills. An auxiliary <code className="text-neutral-200 font-mono bg-white/[0.04] px-1 py-0.5 rounded">orderIndex</code> hash map maps order IDs directly to price levels, ensuring <strong className="text-neutral-200 font-medium">O(1) cancellation performance</strong>.
               </p>
             </div>
 
@@ -513,30 +513,30 @@ const TradeForge = () => {
           </section>
 
           {/* Section 4: Deep Dive - Pre-Trade Risk Engine */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiShield className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiShield className="text-neutral-400" />
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
                 TECHNICAL DEEP DIVE 02
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Synchronous Pre-Trade Risk Gate & 5x Intraday Leverage Accounting
             </h3>
 
-            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4">
               <p>
                 Before any order touches the matching book, it must pass synchronous risk evaluation. The risk engine enforces:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-[#8D99B5]">
+              <ul className="list-disc pl-5 space-y-2 text-neutral-400">
                 <li>
-                  <strong className="text-[#F5F7FF]">Leverage Verification:</strong> Validates 5x leverage for MIS (Margin Intraday Square-off) products and 100% upfront capital for CNC delivery products.
+                  <strong className="text-neutral-200">Leverage Verification:</strong> Validates 5x leverage for MIS (Margin Intraday Square-off) products and 100% upfront capital for CNC delivery products.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Circuit Limits:</strong> Rejects limit orders priced outside the regulatory ±10% dynamic price band around the reference price.
+                  <strong className="text-neutral-200">Circuit Limits:</strong> Rejects limit orders priced outside the regulatory ±10% dynamic price band around the reference price.
                 </li>
                 <li>
-                  <strong className="text-[#F5F7FF]">Idempotency Guard:</strong> Uses in-memory cache tokens to prevent duplicate order placement on client network retries.
+                  <strong className="text-neutral-200">Idempotency Guard:</strong> Uses in-memory cache tokens to prevent duplicate order placement on client network retries.
                 </li>
               </ul>
             </div>
@@ -552,25 +552,25 @@ const TradeForge = () => {
           </section>
 
           {/* Section 5: Deep Dive - Stochastic Market Simulator */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiTrendingUp className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiTrendingUp className="text-neutral-400" />
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
                 TECHNICAL DEEP DIVE 03
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Geometric Brownian Motion with Mean Reversion & Poisson Jump Diffusion
             </h3>
 
-            <div className="text-[#8D99B5] text-sm leading-relaxed space-y-4">
+            <div className="text-neutral-300 text-sm leading-relaxed space-y-4">
               <p>
                 To generate authentic market tick streams, TradeForge implements a continuous stochastic process modeled by the SDE:
               </p>
-              <div className="p-4 rounded-xl bg-[#050914] border border-[#1C2942] font-mono text-xs text-[#6D96FF] text-center my-3">
+              <div className="p-3.5 rounded-lg bg-[#08080C] border border-white/[0.08] font-mono text-xs text-neutral-300 text-center my-3">
                 dS_t = θ(μ - S_t) dt + σ S_t dW_t + J_t dN_t
               </div>
-              <p>
+              <p className="text-neutral-400">
                 Mean-reverting drift anchors the asset to equilibrium, volatility diffusion provides micro-fluctuations, and Poisson jump processes simulate sudden institutional order flow and liquidity shocks.
               </p>
             </div>
@@ -587,11 +587,11 @@ const TradeForge = () => {
 
           {/* Section 6: Order Lifecycle State Machine */}
           <section>
-            <div className="mb-6">
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+            <div className="mb-5">
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
                 FINITE STATE MACHINE
               </span>
-              <h3 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-bold text-[#F5F7FF] mt-1">
+              <h3 className="text-xl md:text-2xl font-semibold text-white mt-1">
                 Deterministic Order Lifecycle State Machine
               </h3>
             </div>
@@ -600,17 +600,17 @@ const TradeForge = () => {
               {lifecycleStates.map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-[#1C2942] bg-[#0D1424] p-4 transition-all hover:border-[#4D7CFF]/40"
+                  className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-white/[0.14]"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs font-bold text-[#4D7CFF]">
+                    <span className="font-mono text-xs font-semibold text-white">
                       {item.state}
                     </span>
-                    <span className="text-[10px] font-mono text-[#5F6B83]">
+                    <span className="text-[10px] font-mono text-neutral-500">
                       STAGE {idx + 1}
                     </span>
                   </div>
-                  <p className="text-xs text-[#8D99B5] leading-relaxed">
+                  <p className="text-xs text-neutral-400 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -629,36 +629,36 @@ const TradeForge = () => {
           </section>
 
           {/* Section 8: Hardware Benchmark Profile */}
-          <section className="rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 md:p-8">
+          <section className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8">
             <div className="flex items-center gap-2 mb-1">
-              <FiActivity className="text-[#4D7CFF]" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-[#4D7CFF]">
+              <FiActivity className="text-neutral-400" />
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
                 BENCHMARK & TELEMETRY VERIFICATION
               </span>
             </div>
-            <h3 className="font-['Space_Grotesk'] text-xl md:text-2xl font-bold text-[#F5F7FF] mb-4">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Local Hardware Benchmark Profile (16-Core Intel Core i5-13450HX)
             </h3>
 
-            <p className="text-[#8D99B5] text-xs sm:text-sm leading-relaxed mb-6">
+            <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed mb-6">
               Measured using in-memory matching algorithm benchmarks (excluding external network latency):
             </p>
 
-            <div className="overflow-x-auto rounded-xl border border-[#1C2942]">
+            <div className="overflow-x-auto rounded-lg border border-white/[0.08]">
               <table className="w-full text-left text-xs font-mono">
-                <thead className="border-b border-[#1C2942] bg-[#050914] text-[#8D99B5]">
+                <thead className="border-b border-white/[0.08] bg-[#08080C] text-neutral-400">
                   <tr>
-                    <th className="p-3.5">Component / Benchmark</th>
-                    <th className="p-3.5">Measured Performance</th>
-                    <th className="p-3.5">Operating Condition</th>
+                    <th className="p-3.5 font-medium">Component / Benchmark</th>
+                    <th className="p-3.5 font-medium">Measured Performance</th>
+                    <th className="p-3.5 font-medium">Operating Condition</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1C2942] bg-[#0D1424]">
+                <tbody className="divide-y divide-white/[0.06] bg-[#0C0C12]">
                   {benchmarkTable.map((row, i) => (
-                    <tr key={i} className="hover:bg-[#10182A]">
-                      <td className="p-3.5 font-semibold text-[#F5F7FF]">{row.component}</td>
-                      <td className="p-3.5 text-[#4D7CFF] font-semibold">{row.metric}</td>
-                      <td className="p-3.5 text-[#8D99B5]">{row.condition}</td>
+                    <tr key={i} className="hover:bg-white/[0.02]">
+                      <td className="p-3.5 font-medium text-white">{row.component}</td>
+                      <td className="p-3.5 text-neutral-200 font-semibold">{row.metric}</td>
+                      <td className="p-3.5 text-neutral-400">{row.condition}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -667,20 +667,22 @@ const TradeForge = () => {
           </section>
 
           {/* Bottom Actions & Navigation */}
-          <div className="flex flex-col items-center justify-between gap-6 pt-12 border-t border-[#1C2942] sm:flex-row">
-            <div className="flex flex-wrap items-center gap-6">
-              <Link
-                to="/stacklens"
-                className="text-sm font-medium text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
-              >
-                &larr; Previous Case Study: StackLens
-              </Link>
-              <span className="text-[#1C2942]">|</span>
+          <div className="flex flex-col items-center justify-between gap-6 pt-10 border-t border-white/[0.08] sm:flex-row">
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
               <Link
                 to="/liquiditylens"
-                className="text-sm font-medium text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
+                className="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors"
               >
-                LiquidityLens Case Study &rarr;
+                <HiArrowLeft size={14} />
+                Previous: LiquidityLens
+              </Link>
+              <span className="text-white/[0.12]">/</span>
+              <Link
+                to="/stacklens"
+                className="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors"
+              >
+                Next: StackLens
+                <HiArrowRight size={14} />
               </Link>
             </div>
 
@@ -688,9 +690,9 @@ const TradeForge = () => {
               href="https://github.com/abhi-byte62/tradeforge"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-5 py-2.5 text-sm font-semibold text-[#050914] transition-all hover:bg-[#6D96FF]"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2.5 text-xs font-semibold hover:bg-neutral-200 transition-colors"
             >
-              <FaGithub size={16} />
+              <FaGithub size={14} />
               Review Source Code on GitHub
             </a>
           </div>

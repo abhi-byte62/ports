@@ -1,60 +1,86 @@
 import { useState } from "react";
+import dagImg from "../../assets/images/stacklens/03-architecture-dag-interactive.png";
+import overviewImg from "../../assets/images/stacklens/02-full-inspector-overview.png";
+import heroImg from "../../assets/images/stacklens/01-landing-hero-dashboard.png";
+import techImg from "../../assets/images/stacklens/04-technologies-detection-table.png";
+
+const tabs = [
+  {
+    id: "dag",
+    label: "Architecture DAG",
+    image: dagImg,
+    caption: "Interactive multi-tier architecture DAG mapping frontend, gateway, services & database tiers.",
+  },
+  {
+    id: "overview",
+    label: "Full Inspector",
+    image: overviewImg,
+    caption: "Complete inspection overview with automated technology fingerprinting & header security auditing.",
+  },
+  {
+    id: "hero",
+    label: "Endpoint Scanner",
+    image: heroImg,
+    caption: "Live domain reconnaissance engine with RFC 1918 private network SSRF protection.",
+  },
+  {
+    id: "tech",
+    label: "Detection Matrix",
+    image: techImg,
+    caption: "Deterministic signature catalog matching server response headers, cookies & script fingerprints.",
+  },
+];
 
 const StackLensShowcase = () => {
-  const [activeStep, setActiveStep] = useState(2);
-
-  const architectureSteps = [
-    { title: "Target Website", detail: "DNS records, TLS certificates, CDN edge headers" },
-    { title: "Frontend Tier", detail: "React / Next.js static asset bundles, bundle analyzer" },
-    { title: "API Gateway", detail: "Fastify reverse proxy, RFC 1918 private IP defense" },
-    { title: "Backend Services", detail: "C++ matching engine & Node.js microservices" },
-    { title: "Database & Cache", detail: "PostgreSQL 17 replicas & Valkey distributed cluster" },
-    { title: "Infrastructure", detail: "Docker containers, Linux kernel socket tuning, POSIX" },
-  ];
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <div className="w-full rounded-2xl border border-white/[0.08] bg-[#0A0A10] p-5 sm:p-6 text-neutral-300 font-mono text-xs">
-      <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+    <div className="w-full rounded-xl border border-white/[0.08] bg-[#0C0C12] overflow-hidden">
+      {/* Window Titlebar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] bg-[#0A0A0E] px-4 py-2.5">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-sky-400" />
-          <span className="text-white font-medium">Architecture & Dependency Stack Inspector</span>
+          <div className="flex items-center gap-1.5">
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.15]" />
+          </div>
+          <span className="text-[11px] font-mono text-neutral-400 pl-2">
+            stacklens // {activeTab.label.toLowerCase().replace(/ /g, "-")}
+          </span>
         </div>
-        <span className="text-neutral-500 text-[11px]">Layered Decomposition</span>
+
+        {/* View Switcher Tabs */}
+        <div className="flex items-center gap-1 rounded-md bg-white/[0.04] p-0.5 border border-white/[0.06]">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab)}
+              className={`rounded px-2.5 py-1 text-[11px] font-mono transition-colors ${
+                activeTab.id === tab.id
+                  ? "bg-white text-black font-semibold"
+                  : "text-neutral-400 hover:text-white"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="pt-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
-          {architectureSteps.map((step, idx) => {
-            const isSelected = activeStep === idx;
-            return (
-              <button
-                key={step.title}
-                onClick={() => setActiveStep(idx)}
-                className={`p-3 rounded-xl text-left border transition-all ${
-                  isSelected
-                    ? "border-sky-400/60 bg-sky-500/10 text-white"
-                    : "border-white/[0.06] bg-white/[0.02] text-neutral-400 hover:border-white/20 hover:text-neutral-200"
-                }`}
-              >
-                <div className="text-[10px] text-neutral-500">0{idx + 1}</div>
-                <div className="text-xs font-semibold mt-1 truncate">{step.title}</div>
-              </button>
-            );
-          })}
+      {/* Screen Frame */}
+      <div className="bg-[#08080C] p-3 sm:p-4">
+        <div className="overflow-hidden rounded-lg border border-white/[0.06] bg-[#050508]">
+          <img
+            src={activeTab.image}
+            alt={activeTab.label}
+            className="w-full h-auto max-h-[380px] object-contain object-top"
+          />
         </div>
+      </div>
 
-        {/* Selected Layer Breakdown */}
-        <div className="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-          <div className="flex items-center justify-between">
-            <span className="text-sky-400 font-semibold text-xs">
-              Layer 0{activeStep + 1}: {architectureSteps[activeStep].title}
-            </span>
-            <span className="text-[10px] text-neutral-500">Automated Fingerprint</span>
-          </div>
-          <p className="mt-1.5 text-neutral-300 text-xs font-sans leading-relaxed">
-            {architectureSteps[activeStep].detail}
-          </p>
-        </div>
+      {/* Footer Caption */}
+      <div className="border-t border-white/[0.06] bg-[#0A0A0E] px-4 py-2.5 text-[11px] font-mono text-neutral-400">
+        {activeTab.caption}
       </div>
     </div>
   );

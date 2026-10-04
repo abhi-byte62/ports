@@ -7,7 +7,7 @@ const contributions = [
   {
     project: "Valkey",
     repo: "valkey-io/valkey",
-    stars: "18k+ ★",
+    stars: "18k stars",
     role: "Core In-Memory Engine",
     contribution: "SIMD batch prefetching and zero-copy stream iterator refactoring for XRANGE and XREVRANGE queries on large stream key partitions.",
     impact: "Delivered ~2.5x throughput improvement for continuous stream reads under heavy concurrent client workloads.",
@@ -17,7 +17,7 @@ const contributions = [
   {
     project: "Fastify Ecosystem",
     repo: "fastify/fastify",
-    stars: "32k+ ★",
+    stars: "32k stars",
     role: "HTTP Pipeline & Schema Optimization",
     contribution: "Hardened JSON schema pre-compilation paths and reduced object allocations in the request pipeline using fixed-size buffers for multipart payloads.",
     impact: "Reduced p99 request allocation overhead by 14% and improved routing lookup stability under high-throughput loads.",
@@ -27,7 +27,7 @@ const contributions = [
   {
     project: "QuantConnect Lean",
     repo: "QuantConnect/Lean",
-    stars: "12k+ ★",
+    stars: "12k stars",
     role: "Algorithmic Market Data Engine",
     contribution: "Implemented atomic gap-detection ring buffers with deterministic backfill reconciliation during rapid WebSocket sequence gap replays.",
     impact: "Guaranteed 100% tick sequence integrity during network flapping without stalling the main algorithmic event loop.",
@@ -37,7 +37,7 @@ const contributions = [
   {
     project: "QuickFIX",
     repo: "quickfix/quickfix",
-    stars: "3k+ ★",
+    stars: "3k stars",
     role: "FIX Protocol Engine",
     contribution: "Replaced dynamic heap string allocations with stack-allocated string_view tokenizers for fixed-tag FIX message schemas (Heartbeat 0 & ExecutionReport 8).",
     impact: "Reduced message parsing latency from 850ns to 310ns for institutional FIX 4.2 / 4.4 trading gateways.",
@@ -52,10 +52,10 @@ const OpenSource = () => {
       <Container>
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <h2 className="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
             Open Source & Upstream Engineering
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-400 leading-relaxed font-sans">
+          <p className="mt-3 text-base sm:text-lg text-neutral-400 leading-relaxed font-sans">
             Contributions to critical distributed caching backbones, high-throughput web frameworks, and quantitative trading infrastructure.
           </p>
         </div>
@@ -67,23 +67,23 @@ const OpenSource = () => {
               {/* Left Column: Project Name, Repo, Status */}
               <div className="lg:col-span-4">
                 <div className="flex items-center gap-3">
-                  <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-white">
+                  <h3 className="text-xl font-semibold text-white">
                     {c.project}
                   </h3>
                   <span className="text-xs font-mono text-neutral-500">{c.stars}</span>
                 </div>
 
-                <div className="mt-1 text-sm font-sans text-sky-400 font-medium">
+                <div className="mt-1 text-sm font-sans text-neutral-400 font-medium">
                   {c.role}
                 </div>
 
                 <div className="mt-4 flex items-center gap-4 text-xs font-mono">
-                  <span className="text-emerald-400 font-medium">{c.status}</span>
+                  <span className="text-neutral-300 font-medium">{c.status}</span>
                   <a
                     href={c.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-1 text-neutral-400 hover:text-white transition-colors"
+                    className="flex items-center gap-1 text-neutral-500 hover:text-white transition-colors"
                   >
                     <FaGithub size={13} />
                     <span>{c.repo}</span>
@@ -93,7 +93,7 @@ const OpenSource = () => {
               </div>
 
               {/* Right Column: Contribution & Why it mattered */}
-              <div className="lg:col-span-8 space-y-3 font-sans text-sm sm:text-base">
+              <div className="lg:col-span-8 space-y-3 font-sans text-sm">
                 <div>
                   <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                     Contribution
@@ -103,8 +103,8 @@ const OpenSource = () => {
                   </p>
                 </div>
 
-                <div className="pt-2">
-                  <span className="text-xs font-mono text-sky-400 uppercase tracking-wider block mb-1">
+                <div className="pt-1">
+                  <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider block mb-1">
                     Why It Mattered
                   </span>
                   <p className="text-neutral-200 leading-relaxed font-medium">

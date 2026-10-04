@@ -242,7 +242,7 @@ export async function verifyHorizontalBola(
 
 export default function DontTrust() {
   return (
-    <div className="min-h-screen bg-[#050914] text-[#F5F7FF] pt-24 pb-20">
+    <div className="min-h-screen bg-[#08080C] text-white pt-24 pb-20 font-sans">
       <SEO
         title="DontTrust | Application Security Assessment & Attack-Surface Intelligence"
         description="Deep dive case study on DontTrust: a TypeScript-based application security assessment and attack-surface intelligence platform with AST data-flow analysis and differential authorization verification."
@@ -254,7 +254,7 @@ export default function DontTrust() {
         <div className="mb-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#8D99B5] hover:text-[#4D7CFF] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-white transition-colors"
           >
             <HiArrowLeft className="h-4 w-4" />
             Back to Projects
@@ -264,22 +264,22 @@ export default function DontTrust() {
         {/* Header Hero */}
         <div className="space-y-4 max-w-4xl">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-md border border-[#4D7CFF]/30 bg-[#4D7CFF]/10 px-3 py-1 text-xs font-mono font-semibold text-[#6D96FF]">
-              SPECIALIZED SYSTEM & SECURITY TOOLING
+            <span className="rounded bg-white/[0.04] px-2.5 py-1 text-xs font-mono font-medium text-neutral-300 border border-white/[0.08]">
+              SECURITY TOOLING
             </span>
-            <span className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-mono font-semibold text-emerald-400">
+            <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
               100% BENCHMARK PRECISION
             </span>
-            <span className="rounded-md border border-[#1C2942] bg-[#0D1424] px-3 py-1 text-xs font-mono text-[#8D99B5]">
+            <span className="rounded bg-white/[0.02] px-2.5 py-1 text-xs font-mono text-neutral-400 border border-white/[0.06]">
               SARIF v2.1.0 COMPLIANT
             </span>
           </div>
 
-          <h1 className="font-['Space_Grotesk'] text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F7FF]">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             DontTrust
           </h1>
 
-          <p className="text-base sm:text-xl text-[#BAC5D8] leading-relaxed">
+          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans">
             A distributed, research-grade web application security assessment platform in TypeScript across 17 monorepo workspaces. Integrates discovery, AST data-flow analysis, multi-identity differential authorization, and standard SARIF reporting to verify vulnerabilities with zero false positives.
           </p>
 
@@ -288,16 +288,16 @@ export default function DontTrust() {
               href="https://github.com/abhi-byte62/dontTrust"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#4D7CFF] px-4 py-2.5 text-xs font-semibold text-[#050914] transition-all hover:bg-[#6D96FF]"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2.5 text-xs font-semibold hover:bg-neutral-200 transition-colors shadow-sm"
             >
-              <FaGithub size={15} />
+              <FaGithub size={14} />
               View Repository on GitHub
             </a>
             <a
               href="#benchmark-matrix"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#0D1424] px-4 py-2.5 text-xs font-medium text-[#F5F7FF] transition-colors hover:border-[#4D7CFF] hover:text-[#6D96FF]"
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-xs font-medium text-neutral-300 transition-colors hover:bg-white/[0.08] hover:text-white"
             >
-              <FiCheckCircle size={14} className="text-emerald-400" />
+              <FiCheckCircle size={13} className="text-emerald-400" />
               Benchmark Invariants
             </a>
           </div>
@@ -309,44 +309,44 @@ export default function DontTrust() {
         </div>
 
         {/* Live Assessment Pipeline Terminal Output Showcase */}
-        <div className="mt-16 rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 sm:p-8">
-          <div className="flex items-center justify-between border-b border-[#1C2942] pb-4 mb-4">
-            <div className="flex items-center gap-2.5 text-xs font-mono text-[#8D99B5]">
-              <HiOutlineTerminal size={18} className="text-[#4D7CFF]" />
-              <span className="font-semibold text-[#F5F7FF]">DONTTRUST SCAN ENGINE & TELEMETRY STREAM</span>
+        <div className="mt-14 rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 sm:p-8 shadow-sm">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-3.5 mb-4">
+            <div className="flex items-center gap-2 text-xs font-mono text-neutral-300">
+              <HiOutlineTerminal size={16} className="text-neutral-400" />
+              <span className="font-medium text-white">DONTTRUST SCAN ENGINE & TELEMETRY</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
               <span className="text-[11px] font-mono text-emerald-400 font-medium">ASSESSMENT PASS</span>
             </div>
           </div>
 
-          <div className="rounded-xl border border-[#1C2942]/60 bg-[#050914] p-4 font-mono text-xs text-[#BAC5D8] space-y-2 overflow-x-auto">
-            <p className="text-[#5F6B83]">$ donttrust-cli scan http://127.0.0.1:8080 --scope strict-domain --active</p>
-            <p className="text-[#4D7CFF]">[1/6 ScopeEngine] Enforcing RFC 1918 / Loopback SSRF guards... (Target: 127.0.0.1 Allowed for Lab Test)</p>
-            <p className="text-[#8D99B5]">[2/6 ReconWorker] Fingerprinted Nginx 1.25, Express 4.19, React 19 SPA bundles.</p>
-            <p className="text-[#8D99B5]">[3/6 JsAnalyzer] Parsed 14 client JS AST trees. Detected 1 Source-to-Sink DOM XSS flow (location.search → innerHTML).</p>
-            <p className="text-[#8D99B5]">[4/6 AuthMatrix] Probing Horizontal BOLA matrix across 3 identity roles (Admin, UserA, UserB)...</p>
-            <p className="text-amber-400">[!] Hypothesis BOLA_ORDER_IDOR transitioned CANDIDATE → INVESTIGATING → VERIFIED (Delta Match: 100%).</p>
-            <p className="text-[#8D99B5]">[5/6 DiffEngine] Executed 50 verification probes. 0 destructive operations performed.</p>
+          <div className="rounded-lg border border-white/[0.06] bg-[#08080C] p-4 font-mono text-xs text-neutral-300 space-y-2 overflow-x-auto">
+            <p className="text-neutral-500">$ donttrust-cli scan http://127.0.0.1:8080 --scope strict-domain --active</p>
+            <p className="text-sky-400">[1/6 ScopeEngine] Enforcing RFC 1918 / Loopback SSRF guards... (Target: 127.0.0.1 Allowed for Lab Test)</p>
+            <p className="text-neutral-400">[2/6 ReconWorker] Fingerprinted Nginx 1.25, Express 4.19, React 19 SPA bundles.</p>
+            <p className="text-neutral-400">[3/6 JsAnalyzer] Parsed 14 client JS AST trees. Detected 1 Source-to-Sink DOM XSS flow (location.search → innerHTML).</p>
+            <p className="text-neutral-400">[4/6 AuthMatrix] Probing Horizontal BOLA matrix across 3 identity roles (Admin, UserA, UserB)...</p>
+            <p className="text-amber-300">[!] Hypothesis BOLA_ORDER_IDOR transitioned CANDIDATE → INVESTIGATING → VERIFIED (Delta Match: 100%).</p>
+            <p className="text-neutral-400">[5/6 DiffEngine] Executed 50 verification probes. 0 destructive operations performed.</p>
             <p className="text-emerald-400">[6/6 SARIF Vault] Redacted 4 API tokens. Emitted build/scan-result.json and build/reports/sarif-v2.1.0.json</p>
-            <div className="pt-2 border-t border-[#1C2942]/50 text-[#8D99B5] flex justify-between text-[11px]">
+            <div className="pt-2 border-t border-white/[0.06] text-neutral-400 flex justify-between text-[11px]">
               <span>Verified Findings: 6 High/Critical, 0 False Positives</span>
-              <span className="text-emerald-400">Score: 100% Precision</span>
+              <span className="text-emerald-400 font-medium">Score: 100% Precision</span>
             </div>
           </div>
         </div>
 
         {/* Architecture & Pipeline Stages */}
-        <div className="mt-16">
-          <div className="mb-8">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#4D7CFF]">
+        <div className="mt-14">
+          <div className="mb-6">
+            <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
               SYSTEM ARCHITECTURE
             </span>
-            <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-[#F5F7FF]">
+            <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Unified Assessment & Verification Pipeline
             </h2>
-            <p className="mt-2 text-sm text-[#8D99B5] max-w-3xl">
+            <p className="mt-1 text-xs sm:text-sm text-neutral-400 max-w-3xl font-sans">
               From RFC 1918 perimeter guards to multi-identity differential verification and SARIF emission.
             </p>
           </div>
@@ -358,22 +358,22 @@ export default function DontTrust() {
         </div>
 
         {/* Benchmark Results Table */}
-        <div id="benchmark-matrix" className="mt-16 rounded-2xl border border-[#1C2942] bg-[#0D1424] p-6 sm:p-8">
+        <div id="benchmark-matrix" className="mt-14 rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 sm:p-8 shadow-sm">
           <div className="mb-6">
             <div className="flex items-center gap-2">
-              <FiShield className="text-emerald-400" size={20} />
-              <h2 className="text-xl sm:text-2xl font-bold text-[#F5F7FF]">
-                OWASP Top 10 Benchmark Precision Evaluation
+              <FiShield className="text-emerald-400" size={18} />
+              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                OWASP Benchmark Precision Evaluation
               </h2>
             </div>
-            <p className="mt-1.5 text-xs sm:text-sm text-[#8D99B5]">
+            <p className="mt-1 text-xs sm:text-sm text-neutral-400 font-sans">
               Evaluated against an intentionally vulnerable benchmark suite covering critical injection, authorization, and SSRF flaws alongside hardened control endpoints.
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="border-b border-[#1C2942] bg-[#080E1B] text-[#8D99B5] font-mono uppercase text-[11px]">
+          <div className="overflow-x-auto rounded-lg border border-white/[0.06]">
+            <table className="w-full text-left text-xs font-mono">
+              <thead className="border-b border-white/[0.08] bg-white/[0.02] text-neutral-400 uppercase text-[10px]">
                 <tr>
                   <th className="py-3 px-4">Target Route</th>
                   <th className="py-3 px-4">Vulnerability Category</th>
@@ -381,17 +381,17 @@ export default function DontTrust() {
                   <th className="py-3 px-4 text-right">Measured Result</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1C2942]/50 font-mono text-xs">
+              <tbody className="divide-y divide-white/[0.06] bg-[#08080C]">
                 {benchmarkMatrix.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-[#10182A] transition-colors">
-                    <td className="py-3 px-4 text-[#F5F7FF] font-semibold">{row.route}</td>
-                    <td className="py-3 px-4 text-[#BAC5D8]">{row.category}</td>
-                    <td className="py-3 px-4 text-[#8D99B5]">{row.invariant}</td>
+                  <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
+                    <td className="py-3 px-4 text-white font-medium">{row.route}</td>
+                    <td className="py-3 px-4 text-neutral-300">{row.category}</td>
+                    <td className="py-3 px-4 text-neutral-400">{row.invariant}</td>
                     <td className="py-3 px-4 text-right">
-                      <span className={`inline-flex rounded px-2 py-0.5 text-[11px] font-bold ${
+                      <span className={`inline-flex rounded px-2 py-0.5 text-[10px] font-bold ${
                         row.status.includes("DETECTED")
-                          ? "bg-[#4D7CFF]/10 text-[#6D96FF] border border-[#4D7CFF]/30"
-                          : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+                          ? "bg-sky-500/10 text-sky-400 border border-sky-500/20"
+                          : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
                       }`}>
                         {row.status}
                       </span>
@@ -404,28 +404,28 @@ export default function DontTrust() {
         </div>
 
         {/* Technical Deep Dives & Code Snippets */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[#4D7CFF]">
-              <FiCode size={18} />
-              <h3 className="font-['Space_Grotesk'] text-lg font-bold text-[#F5F7FF]">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-white">
+              <FiCode size={16} className="text-neutral-400" />
+              <h3 className="text-lg font-semibold text-white tracking-tight">
                 Client-Side AST Source-to-Sink Analysis
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-[#8D99B5] leading-relaxed">
-              Detects DOM-based Cross-Site Scripting (DOM XSS) by walking AST nodes in client JavaScript files to map untrusted browser inputs (<code className="text-[#6D96FF]">location.search</code>, <code className="text-[#6D96FF]">hash</code>) directly into dangerous DOM sinks without relying on heavy headless browsers.
+            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+              Detects DOM-based Cross-Site Scripting (DOM XSS) by walking AST nodes in client JavaScript files to map untrusted browser inputs (<code className="text-neutral-300">location.search</code>, <code className="text-neutral-300">hash</code>) directly into dangerous DOM sinks without relying on heavy headless browsers.
             </p>
             <CodeSnippet code={astCodeSnippet} language="typescript" title="packages/js-analyzer/src/index.ts" />
           </div>
 
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[#4D7CFF]">
-              <FiLock size={18} />
-              <h3 className="font-['Space_Grotesk'] text-lg font-bold text-[#F5F7FF]">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-white">
+              <FiLock size={16} className="text-neutral-400" />
+              <h3 className="text-lg font-semibold text-white tracking-tight">
                 Multi-Identity Differential Authorization
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-[#8D99B5] leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
               Executes comparative probes between authenticated contexts (User A vs User B vs Admin) against identical target endpoints, normalizing volatile timestamps and nonces to detect multi-tenant BOLA / IDOR leaks with mathematical precision.
             </p>
             <CodeSnippet code={differentialAuthSnippet} language="typescript" title="packages/auth-analyzer/src/verifier.ts" />
@@ -433,12 +433,12 @@ export default function DontTrust() {
         </div>
 
         {/* Comparison vs Traditional Scanners */}
-        <div className="mt-16">
+        <div className="mt-14">
           <div className="mb-6">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#4D7CFF]">
+            <span className="text-[10px] font-mono font-medium uppercase tracking-wider text-neutral-500">
               ARCHITECTURAL ADVANTAGE
             </span>
-            <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-[#F5F7FF]">
+            <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-white tracking-tight">
               DontTrust vs Traditional Blind Scanners
             </h2>
           </div>
@@ -449,10 +449,10 @@ export default function DontTrust() {
         </div>
 
         {/* Footer Navigation */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#1C2942] pt-8">
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/[0.08] pt-8">
           <Link
             to="/tradeforge"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#4D7CFF] hover:text-[#6D96FF] transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-white hover:text-neutral-300 transition-colors"
           >
             <HiArrowLeft className="h-4 w-4" />
             Next Case Study: TradeForge
@@ -462,9 +462,9 @@ export default function DontTrust() {
             href="https://github.com/abhi-byte62/dontTrust"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-[#1C2942] bg-[#0D1424] px-4 py-2 text-xs font-medium text-[#F5F7FF] hover:border-[#4D7CFF] transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.03] px-4 py-2 text-xs font-medium text-neutral-300 hover:bg-white/[0.08] hover:text-white transition-colors"
           >
-            <FaGithub size={14} />
+            <FaGithub size={13} />
             Explore Source Code
           </a>
         </div>
