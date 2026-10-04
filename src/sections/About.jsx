@@ -28,7 +28,7 @@ const About = () => {
             </p>
 
             <p>
-              Beyond standalone projects, I actively contribute upstream to critical open-source systems like <span className="text-white font-medium">Valkey</span>, <span className="text-white font-medium">Fastify</span>, <span className="text-white font-medium">QuantConnect Lean</span>, and <span className="text-white font-medium">QuickFIX</span>, optimizing message parsers and stream iterators for high-throughput production environments.
+              Beyond standalone projects, I actively contribute upstream to critical open-source systems like <span className="text-white font-medium">Checkstyle</span>, <span className="text-white font-medium">Valkey</span>, <span className="text-white font-medium">Fastify</span>, <span className="text-white font-medium">QuantConnect Lean</span>, and <span className="text-white font-medium">QuickFIX</span>, optimizing compiler AST validators, message parsers, and stream iterators for high-throughput and correct production environments.
             </p>
           </div>
 

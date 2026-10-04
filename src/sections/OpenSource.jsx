@@ -5,6 +5,16 @@ import Section from "../components/Section/Section";
 
 const contributions = [
   {
+    project: "Checkstyle",
+    repo: "checkstyle/checkstyle",
+    stars: "8k+ stars",
+    role: "Java Static Analysis & AST Engine",
+    contribution: "Resolved duplicate empty line separator check violations for enum constants defined on shared lines by traversing preceding AST sibling nodes in EmptyLineSeparatorCheck.",
+    impact: "Eliminated false-positive linter errors in multi-constant Java enum definitions while preserving strict AST formatting validation.",
+    link: "https://github.com/checkstyle/checkstyle",
+    status: "Upstream Issue #21761",
+  },
+  {
     project: "Valkey",
     repo: "valkey-io/valkey",
     stars: "18k stars",
@@ -56,7 +66,7 @@ const OpenSource = () => {
             Open Source & Upstream Engineering
           </h2>
           <p className="mt-3 text-base sm:text-lg text-neutral-400 leading-relaxed font-sans">
-            Contributions to critical distributed caching backbones, high-throughput web frameworks, and quantitative trading infrastructure.
+            Contributions to Java AST static analysis tools, distributed caching backbones, high-throughput web frameworks, and quantitative trading infrastructure.
           </p>
         </div>
 

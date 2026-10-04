@@ -1,5 +1,43 @@
 export const openSourceContributions = [
   {
+    id: "checkstyle-enum-empty-line",
+    repo: "checkstyle/checkstyle",
+    repoUrl: "https://github.com/checkstyle/checkstyle",
+    org: "Checkstyle",
+    category: "Developer Tooling & Compilers",
+    title: "Fix Duplicate Empty Line Violation for Enum Constants on Shared Line (#21761)",
+    commit: "96f28fd",
+    commitUrl: "https://github.com/checkstyle/checkstyle/commit/96f28fd893969580b5939b24606f26044d5ddebd",
+    date: "Oct 2026",
+    type: "STATIC ANALYSIS FIX",
+    language: "Java",
+    stars: "8.5k+",
+    description:
+      "Resolved false-positive duplicate empty line separator warnings in `EmptyLineSeparatorCheck.java` by traversing previous AST siblings to ensure multi-constant enums defined on the same line are accurately evaluated.",
+    impact:
+      "Prevents erroneous linter failures and ensures reliable AST whitespace validation in complex Java enum declarations.",
+    tags: ["Java", "Checkstyle", "AST Analysis", "Static Analysis", "Compilers", "Linters"],
+  },
+  {
+    id: "ungh-ratelimit-exempt-routes",
+    repo: "unjs/ungh",
+    repoUrl: "https://github.com/unjs/ungh",
+    org: "UnJS Organization",
+    category: "Web Infrastructure & Tooling",
+    title: "Correctly Exempt Underscore Routes from Ratelimit Middleware (#177)",
+    commit: "cf794ae",
+    commitUrl: "https://github.com/unjs/ungh/commit/cf794aefe4532a583e643b1043c3a956e1b37f7f",
+    date: "Oct 2026",
+    type: "MIDDLEWARE FIX",
+    language: "TypeScript",
+    stars: "1.1k+",
+    description:
+      "Corrected path matching in `middleware/ratelimit.ts` to inspect leading slash route prefixes (`/_`), preventing internal utility and cache management endpoints from triggering rate limit blocks.",
+    impact:
+      "Guarantees uninterrupted internal telemetry and cached asset delivery across GitHub proxy microservices.",
+    tags: ["TypeScript", "UnJS", "API Proxy", "Middleware", "Rate Limiting"],
+  },
+  {
     id: "valkey-stream-trimming",
     repo: "valkey-io/valkey",
     repoUrl: "https://github.com/valkey-io/valkey",
