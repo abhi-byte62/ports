@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
@@ -20,10 +20,42 @@ const PacketSniffer = lazy(() => import("./pages/PacketSniffer"));
 const SpecterProxy = lazy(() => import("./pages/SpecterProxy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Prevent browser from restoring scroll down to section anchor on refresh
+if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
 function ScrollToTopOnRoute() {
   const { pathname, hash } = useLocation();
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
+    // Check if the page is being reloaded / refreshed
+    const isReload = (() => {
+      try {
+        const navEntries = performance.getEntriesByType("navigation");
+        if (navEntries && navEntries.length > 0) {
+          return navEntries[0].type === "reload";
+        }
+        return performance.navigation && performance.navigation.type === 1;
+      } catch {
+        return false;
+      }
+    })();
+
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+
+      if (isReload || hash) {
+        // Clear section hash from URL and reset to top of page on reload
+        if (hash) {
+          window.history.replaceState(null, "", pathname || "/");
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        return;
+      }
+    }
+
     if (hash) {
       setTimeout(() => {
         const id = hash.replace("#", "");
@@ -36,6 +68,18 @@ function ScrollToTopOnRoute() {
       window.scrollTo(0, 0);
     }
   }, [pathname, hash]);
+
+  // Clean hash prior to page unload / reload
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname || "/");
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, []);
 
   return null;
 }
