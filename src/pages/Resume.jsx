@@ -329,7 +329,7 @@ const Resume = () => {
             <ul className="list-disc list-inside space-y-1.5 text-xs text-neutral-300 font-sans">
               <li>
                 <strong className="text-white">Competitive Programming:</strong> Active problem solver on{" "}
-                <a href="https://leetcode.com/u/playboldAbhi/" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">LeetCode (700+ Solved)</a>
+                <a href="https://leetcode.com/u/playboldAbhi/" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">LeetCode</a>
                 {" "}and{" "}
                 <a href="https://codeforces.com/profile/playboldAbhi" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">Codeforces</a>, focusing on Graph Algorithms, Dynamic Programming, and Amortized Complexity.
               </li>

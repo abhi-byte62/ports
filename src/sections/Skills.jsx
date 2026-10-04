@@ -89,7 +89,7 @@ const Skills = () => {
                 className="flex items-center gap-2 text-neutral-300 hover:text-white transition-colors"
               >
                 <SiLeetcode className="text-[#FFA116]" size={14} />
-                <span>LeetCode (700+ Solved)</span>
+                <span>LeetCode Profile</span>
                 <HiArrowRight size={12} className="text-neutral-500" />
               </a>
 
