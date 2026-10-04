@@ -41,15 +41,14 @@ const Resume = () => {
             Back to Portfolio
           </Link>
 
-          <div className="flex flex-wrap items-center gap-2.5">
-            <a
-              href="/resume.pdf"
-              download="Abhishek_M_R_Resume.pdf"
-              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-xs font-semibold hover:bg-neutral-200 transition-colors shadow-sm"
+          <div className="flex flex-wrap items-center gap-2.5 print:hidden">
+            <button
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-xs font-semibold hover:bg-neutral-200 transition-colors shadow-sm cursor-pointer"
             >
               <FaFilePdf size={13} />
-              Download PDF (ATS)
-            </a>
+              Print / Save PDF (ATS)
+            </button>
 
             <a
               href="/Abhishek_M_R_Resume.docx"
@@ -164,23 +163,42 @@ const Resume = () => {
               Selected Engineering Projects
             </h2>
 
-            {/* DontTrust */}
+            {/* TradeForge */}
             <div className="space-y-2">
               <div className="flex flex-wrap items-baseline justify-between gap-1">
                 <div>
-                  <span className="font-bold text-white text-sm">DontTrust — Application Security Assessment & Attack-Surface Intelligence</span>
-                  <span className="text-xs italic text-neutral-400 block sm:inline sm:ml-2">| TypeScript, Node.js, React 19, AST Analysis, Cytoscape.js, SARIF, Docker</span>
+                  <span className="font-bold text-white text-sm">TradeForge — Real-Time Paper Trading & Market Simulation Platform</span>
+                  <span className="text-xs italic text-neutral-400 block sm:inline sm:ml-2">| TypeScript, Node.js, React 19, Native WebSockets, PostgreSQL 16, Canvas API, Docker</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono text-sky-400">
-                  <a href="https://github.com/abhi-byte62/dontTrust" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
-                  <Link to="/donttrust" className="hover:underline">[Case Study]</Link>
+                  <a href="https://github.com/abhi-byte62/tradeforge" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
+                  <Link to="/tradeforge" className="hover:underline">[Case Study]</Link>
                 </div>
               </div>
               <ul className="list-disc list-inside space-y-1 text-xs text-neutral-300 leading-relaxed font-sans">
-                <li>Architected a distributed application security intelligence platform across 17 monorepo workspaces, achieving 100% precision with 0 false positives on benchmark suites.</li>
-                <li>Built an AST-based JavaScript data-flow engine tracking untrusted client sources to dangerous execution sinks for DOM XSS without browser runtime overhead.</li>
-                <li>Engineered a multi-identity differential authorization matrix comparing cross-role tenant responses to verify Horizontal BOLA/IDOR and Vertical Privilege Escalation.</li>
-                <li>Constructed Attack-Surface Graph 2.0 with Cytoscape topology visualization, automated secret redaction, and standard SARIF v2.1.0 report generation.</li>
+                <li>Engineered an in-memory double-sided FIFO matching engine benchmarked at 247,000+ orders/sec with 4.10µs median execution latency.</li>
+                <li>Built synchronous pre-trade risk engine enforcing 5x MIS leverage limits, tick increments, and ±10% circuit bands; modeled stochastic GBM jump pricing.</li>
+                <li>Developed canvas-based candlestick charting with 5-level market depth ladder, atomic position ledger, and sub-10ms WebSocket distribution.</li>
+              </ul>
+            </div>
+
+            {/* LiquidityLens */}
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-baseline justify-between gap-1">
+                <div>
+                  <span className="font-bold text-white text-sm">LiquidityLens — Market Microstructure Simulator & Matching Engine</span>
+                  <span className="text-xs italic text-neutral-400 block sm:inline sm:ml-2">| C++17, Python 3.10, FastAPI, Fixed-Point Math, Hawkes Processes, WebSockets</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-mono text-sky-400">
+                  <a href="https://github.com/abhi-byte62/liquiditylens" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
+                  <Link to="/liquiditylens" className="hover:underline">[Case Study]</Link>
+                </div>
+              </div>
+              <ul className="list-disc list-inside space-y-1 text-xs text-neutral-300 leading-relaxed font-sans">
+                <li>Developed a deterministic C++17 limit order book (LOB) matching engine supporting 4.5M+ events/s with ~220ns match latency.</li>
+                <li>Utilized int64_t fixed-point arithmetic across matching and accounting pipelines, eliminating IEEE-754 floating-point drift.</li>
+                <li>Simulated clustered order arrival dynamics with synthetic Hawkes processes and modeled FIFO queue priority across 10µs–500µs latency slips.</li>
+                <li>Calculated zero look-ahead adverse selection markout curves at 10ms, 100ms, and 1s post-trade horizons; streamed L2 depth via WebSockets.</li>
               </ul>
             </div>
 
@@ -204,23 +222,23 @@ const Resume = () => {
               </ul>
             </div>
 
-            {/* LiquidityLens */}
+            {/* DontTrust */}
             <div className="space-y-2">
               <div className="flex flex-wrap items-baseline justify-between gap-1">
                 <div>
-                  <span className="font-bold text-white text-sm">LiquidityLens — Market Microstructure Simulator & Matching Engine</span>
-                  <span className="text-xs italic text-neutral-400 block sm:inline sm:ml-2">| C++17, Python 3.10, FastAPI, Fixed-Point Math, Hawkes Processes, WebSockets</span>
+                  <span className="font-bold text-white text-sm">DontTrust — Application Security Assessment & Attack-Surface Intelligence</span>
+                  <span className="text-xs italic text-neutral-400 block sm:inline sm:ml-2">| TypeScript, Node.js, React 19, AST Analysis, Cytoscape.js, SARIF, Docker</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono text-sky-400">
-                  <a href="https://github.com/abhi-byte62/liquiditylens" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
-                  <Link to="/liquiditylens" className="hover:underline">[Case Study]</Link>
+                  <a href="https://github.com/abhi-byte62/dontTrust" target="_blank" rel="noreferrer" className="hover:underline">[GitHub]</a>
+                  <Link to="/donttrust" className="hover:underline">[Case Study]</Link>
                 </div>
               </div>
               <ul className="list-disc list-inside space-y-1 text-xs text-neutral-300 leading-relaxed font-sans">
-                <li>Developed a deterministic C++17 limit order book (LOB) matching engine supporting 4.5M+ events/s with ~220ns match latency.</li>
-                <li>Utilized int64_t fixed-point arithmetic across matching and accounting pipelines, eliminating IEEE-754 floating-point drift.</li>
-                <li>Simulated clustered order arrival dynamics with synthetic Hawkes processes and modeled FIFO queue priority across 10µs–500µs latency slips.</li>
-                <li>Calculated zero look-ahead adverse selection markout curves at 10ms, 100ms, and 1s post-trade horizons; streamed L2 depth via WebSockets.</li>
+                <li>Architected a distributed application security intelligence platform across 17 monorepo workspaces, achieving 100% precision with 0 false positives on benchmark suites.</li>
+                <li>Built an AST-based JavaScript data-flow engine tracking untrusted client sources to dangerous execution sinks for DOM XSS without browser runtime overhead.</li>
+                <li>Engineered a multi-identity differential authorization matrix comparing cross-role tenant responses to verify Horizontal BOLA/IDOR and Vertical Privilege Escalation.</li>
+                <li>Constructed Attack-Surface Graph 2.0 with Cytoscape topology visualization, automated secret redaction, and standard SARIF v2.1.0 report generation.</li>
               </ul>
             </div>
 

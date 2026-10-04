@@ -55,17 +55,24 @@ GitHub: https://github.com/abhi-byte62/dontTrust | Case Study: https://abhishekm
 • Built an AST JavaScript data-flow engine detecting DOM XSS without browser overhead; engineered multi-identity BOLA/IDOR verification matrix.
 • Constructed Attack-Surface Graph 2.0 with Cytoscape topology visualization, automated secret redaction, and SARIF v2.1.0 report generation.
 
-StackLens — Website Architecture Inference & Intelligence Engine
-Technologies: Java 21, Spring Boot 3, RabbitMQ, PostgreSQL, Redis, React 19, TypeScript
-GitHub: https://github.com/abhi-byte62/stackl | Case Study: https://abhishekmr.vercel.app/stacklens
-• Architected an asynchronous multi-vector probe engine reverse-engineering web architectures across 200+ signatures with RFC 1918 SSRF defense.
-• Decoupled external crawlers from APIs via RabbitMQ & Redis; synthesized PostgreSQL schemas and interactive DAG topologies.
+TradeForge — Real-Time Paper Trading & Market Simulator
+Technologies: TypeScript, Node.js, React 19, WebSockets, PostgreSQL 16, Canvas API, Docker
+GitHub: https://github.com/abhi-byte62/tradeforge | Case Study: https://abhishekmr.vercel.app/tradeforge
+• Engineered an in-memory double-sided FIFO limit order book matching engine benchmarked at 247,000+ orders/sec with 4.10µs median latency.
+• Built synchronous pre-trade risk engine enforcing 5x MIS margin limits, tick increments, and ±10% circuit limits; modeled stochastic GBM jump pricing.
+• Developed canvas-based candlestick chart with 5-level market depth ladder and sub-10ms WebSocket distribution.
 
 LiquidityLens — Market Microstructure Simulator & Matching Engine
 Technologies: C++17, Python 3.10, FastAPI, Fixed-Point Math, Hawkes Processes, WebSockets
-GitHub: https://github.com/abhi-byte62/liqudity | Case Study: https://abhishekmr.vercel.app/liquiditylens
+GitHub: https://github.com/abhi-byte62/liquiditylens | Case Study: https://abhishekmr.vercel.app/liquiditylens
 • Developed a deterministic C++17 LOB matching engine supporting 4.5M+ events/s with ~220ns match latency using int64_t fixed-point arithmetic.
 • Simulated Hawkes process order clusters, modeled FIFO queue priority across 10µs–500µs latency slips, and calculated adverse selection markouts.
+
+StackLens — Website Architecture Inference & Intelligence Engine
+Technologies: Java 21, Spring Boot 3, RabbitMQ, PostgreSQL, Redis, React 19, TypeScript
+GitHub: https://github.com/abhi-byte62/stacklens | Case Study: https://abhishekmr.vercel.app/stacklens
+• Architected an asynchronous multi-vector probe engine reverse-engineering web architectures across 200+ signatures with RFC 1918 SSRF defense.
+• Decoupled external crawlers from APIs via RabbitMQ & Redis; synthesized PostgreSQL schemas and interactive DAG topologies.
 
 TaskFlow — Real-Time Collaborative Kanban & Distributed State Engine
 Technologies: React 18, Node.js, PostgreSQL 17, Prisma ORM, Socket.io, TanStack Query

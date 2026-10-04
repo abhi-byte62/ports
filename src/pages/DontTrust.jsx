@@ -13,6 +13,7 @@ import MetricsGrid from "../components/Metrics/MetricsGrid";
 import ArchitectureDiagram from "../components/ArchitectureDiagram/ArchitectureDiagram";
 import ComparisonView from "../components/Comparison/ComparisonView";
 import CodeSnippet from "../components/CodeSnippet/CodeSnippet";
+import ASTTaintMicroSimulator from "../components/Simulators/ASTTaintMicroSimulator";
 
 const metrics = [
   {
@@ -336,6 +337,9 @@ export default function DontTrust() {
             </div>
           </div>
         </div>
+
+        {/* Live In-Browser AST Taint Micro-Simulator */}
+        <ASTTaintMicroSimulator />
 
         {/* Architecture & Pipeline Stages */}
         <div className="mt-14">

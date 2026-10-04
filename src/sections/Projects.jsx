@@ -209,9 +209,10 @@ const Projects = () => {
                   >
                     <img
                       src={p.image}
-                      alt={p.title}
+                      alt={`Case study interface overview for ${p.title}`}
                       className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                       loading="lazy"
+                      decoding="async"
                     />
                   </Link>
                 </div>

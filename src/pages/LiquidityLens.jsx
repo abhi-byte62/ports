@@ -11,6 +11,7 @@ import MetricsGrid from "../components/Metrics/MetricsGrid";
 import ArchitectureDiagram from "../components/ArchitectureDiagram/ArchitectureDiagram";
 import ComparisonView from "../components/Comparison/ComparisonView";
 import CodeSnippet from "../components/CodeSnippet/CodeSnippet";
+import OrderBookMicroSimulator from "../components/Simulators/OrderBookMicroSimulator";
 
 // High-resolution screenshots from desktop quant directory
 import depthLadderImg from "../assets/images/liquiditylens/01_order_book_depth_ladder.png";
@@ -440,6 +441,11 @@ const LiquidityLens = () => {
         {/* Benchmark Metrics Grid */}
         <section className="mx-auto max-w-5xl mb-16">
           <MetricsGrid metrics={metrics} />
+        </section>
+
+        {/* Live In-Browser Micro-Simulator */}
+        <section className="mx-auto max-w-5xl">
+          <OrderBookMicroSimulator title="LiquidityLens C++ Simulation Kernel (Interactive Live LOB & FIFO Ladder)" />
         </section>
 
         {/* Interactive Screenshot Showcase */}

@@ -90,3 +90,46 @@
     background: #3A3A4C;
   }
 }
+
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  header, footer, nav, button, a[href="/resume.pdf"], a[href="/Abhishek_M_R_Resume.docx"] {
+    display: none !important;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  #root {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .bg-\\[\\#08080C\\], .bg-\\[\\#0C0C12\\], .bg-\\[\\#0A0A0F\\] {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .text-white, .text-neutral-200, .text-neutral-300, .text-neutral-400 {
+    color: #000000 !important;
+  }
+
+  .text-neutral-500, .text-neutral-600 {
+    color: #444444 !important;
+  }
+
+  .text-sky-400, .text-emerald-400 {
+    color: #111111 !important;
+  }
+
+  .border-white\\/\\[0\\.08\\], .border-white\\/\\[0\\.06\\] {
+    border-color: #CCCCCC !important;
+  }
+}

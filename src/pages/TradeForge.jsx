@@ -10,6 +10,7 @@ import MetricsGrid from "../components/Metrics/MetricsGrid";
 import ArchitectureDiagram from "../components/ArchitectureDiagram/ArchitectureDiagram";
 import ComparisonView from "../components/Comparison/ComparisonView";
 import CodeSnippet from "../components/CodeSnippet/CodeSnippet";
+import OrderBookMicroSimulator from "../components/Simulators/OrderBookMicroSimulator";
 
 // High-resolution screenshots from desktop tf directory
 import terminalOverviewImg from "../assets/images/tradeforge/01_tradeforge_terminal_overview.png";
@@ -371,6 +372,11 @@ const TradeForge = () => {
         {/* Benchmark Metrics Grid */}
         <section className="mx-auto max-w-5xl mb-16">
           <MetricsGrid metrics={metrics} />
+        </section>
+
+        {/* Live In-Browser Micro-Simulator */}
+        <section className="mx-auto max-w-5xl">
+          <OrderBookMicroSimulator title="TradeForge Matching Engine Micro-Simulator (Live FIFO LOB & Execution Tape)" />
         </section>
 
         {/* Interactive Screenshot Showcase */}
