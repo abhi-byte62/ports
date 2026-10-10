@@ -126,6 +126,8 @@ const Navbar = ({ onOpenCommandPalette }) => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-drawer"
             className="text-[#94A3B8] hover:text-white p-2 border-2 border-[#334366] bg-[#0F172A] shadow-[2px_2px_0px_#04070D]"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
@@ -136,7 +138,7 @@ const Navbar = ({ onOpenCommandPalette }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0F172A] border-b-2 border-[#334366] px-4 py-4 space-y-3 shadow-2xl animate-in fade-in duration-100">
+        <div id="mobile-navigation-drawer" className="md:hidden bg-[#0F172A] border-b-2 border-[#334366] px-4 py-4 space-y-3 shadow-2xl animate-in fade-in duration-100">
           <div className="font-pixel text-[9px] text-[#55E6C1] pb-2 border-b border-[#334366]">
             [ NAVIGATION MATRIX ]
           </div>

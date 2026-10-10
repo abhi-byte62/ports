@@ -185,10 +185,12 @@ const Projects = () => {
           </p>
 
           {/* Filter Tabs */}
-          <div className="mt-6 flex flex-wrap items-center gap-2">
+          <div className="mt-6 flex flex-wrap items-center gap-2" role="tablist" aria-label="Project mission category filters">
             {filterCategories.map((cat) => (
               <button
                 key={cat.key}
+                role="tab"
+                aria-selected={activeFilter === cat.key}
                 onClick={() => setActiveFilter(cat.key)}
                 className={`pixel-btn !py-2 !px-3 !text-[8px] ${
                   activeFilter === cat.key
@@ -223,6 +225,8 @@ const Projects = () => {
                   <div>
                     <button
                       onClick={() => toggleViewMode(p.id)}
+                      aria-pressed={isArtwork}
+                      aria-label={`Toggle between blueprint diagram and screenshot for ${p.title}`}
                       className="pixel-btn !py-1 !px-2.5 !text-[8px] !bg-[#0F172A] !text-[#FFD166] hover:!text-[#55E6C1]"
                     >
                       MODE: {isArtwork ? "BLUEPRINT ART" : "SCREENSHOT"}

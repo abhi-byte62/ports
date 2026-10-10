@@ -236,6 +236,9 @@ export default function CommandPalette({ isOpen, onClose }) {
     <div
       className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-100"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="PLAYBOLD OS Command Terminal"
     >
       <div
         className="w-full max-w-2xl overflow-hidden pixel-frame-elevated shadow-2xl flex flex-col"

@@ -172,7 +172,8 @@
   position: relative;
 }
 
-.pixel-frame-interactive:hover {
+.pixel-frame-interactive:hover,
+.pixel-frame-interactive:focus-within {
   border-color: #55E6C1;
   transform: translate(-2px, -2px);
   box-shadow: 
@@ -204,6 +205,13 @@
   cursor: pointer;
   user-select: none;
   text-decoration: none;
+  outline: none;
+}
+
+.pixel-btn:focus-visible {
+  outline: 2px solid #55E6C1;
+  outline-offset: 3px;
+  border-color: #55E6C1;
 }
 
 .pixel-btn:hover {
