@@ -1,11 +1,7 @@
-import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HiArrowLeft, HiOutlineTerminal } from "react-icons/hi";
-import { 
-  FiShield, FiLayers, FiZap, FiActivity, 
-  FiCheckCircle, FiCpu, FiCode, FiSearch, FiLock, FiPlay 
-} from "react-icons/fi";
+import { FiCheckCircle, FiShield, FiCode, FiLock } from "react-icons/fi";
 
 import SEO from "../components/SEO/SEO";
 import Container from "../components/Container/Container";

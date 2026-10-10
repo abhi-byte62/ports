@@ -300,7 +300,6 @@ const Spline3DInteractiveScene = () => {
         }
 
         // Update floating orbital data packets
-        const posAttr = packetGeom.attributes.position;
         for (let p = 0; p < PACKET_COUNT; p++) {
           const pkt = packetData[p];
           pkt.theta += pkt.speedTheta;

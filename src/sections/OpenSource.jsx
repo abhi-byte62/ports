@@ -2,124 +2,98 @@ import { FaGithub } from "react-icons/fa";
 import { HiExternalLink } from "react-icons/hi";
 import Container from "../components/Container/Container";
 import Section from "../components/Section/Section";
-
-const contributions = [
-  {
-    project: "Checkstyle",
-    repo: "checkstyle/checkstyle",
-    stars: "8k+ stars",
-    role: "Java Static Analysis & AST Engine",
-    contribution: "Resolved duplicate empty line separator check violations for enum constants defined on shared lines by traversing preceding AST sibling nodes in EmptyLineSeparatorCheck.",
-    impact: "Eliminated false-positive linter errors in multi-constant Java enum definitions while preserving strict AST formatting validation.",
-    link: "https://github.com/checkstyle/checkstyle",
-    status: "Upstream Issue #21761",
-  },
-  {
-    project: "Valkey",
-    repo: "valkey-io/valkey",
-    stars: "18k stars",
-    role: "Core In-Memory Engine",
-    contribution: "SIMD batch prefetching and zero-copy stream iterator refactoring for XRANGE and XREVRANGE queries on large stream key partitions.",
-    impact: "Delivered ~2.5x throughput improvement for continuous stream reads under heavy concurrent client workloads.",
-    link: "https://github.com/valkey-io/valkey",
-    status: "Merged Upstream",
-  },
-  {
-    project: "Fastify Ecosystem",
-    repo: "fastify/fastify",
-    stars: "32k stars",
-    role: "HTTP Pipeline & Schema Optimization",
-    contribution: "Hardened JSON schema pre-compilation paths and reduced object allocations in the request pipeline using fixed-size buffers for multipart payloads.",
-    impact: "Reduced p99 request allocation overhead by 14% and improved routing lookup stability under high-throughput loads.",
-    link: "https://github.com/fastify/fastify",
-    status: "Merged Upstream",
-  },
-  {
-    project: "QuantConnect Lean",
-    repo: "QuantConnect/Lean",
-    stars: "12k stars",
-    role: "Algorithmic Market Data Engine",
-    contribution: "Implemented atomic gap-detection ring buffers with deterministic backfill reconciliation during rapid WebSocket sequence gap replays.",
-    impact: "Guaranteed 100% tick sequence integrity during network flapping without stalling the main algorithmic event loop.",
-    link: "https://github.com/QuantConnect/Lean",
-    status: "Merged Upstream",
-  },
-  {
-    project: "QuickFIX",
-    repo: "quickfix/quickfix",
-    stars: "3k stars",
-    role: "FIX Protocol Engine",
-    contribution: "Replaced dynamic heap string allocations with stack-allocated string_view tokenizers for fixed-tag FIX message schemas (Heartbeat 0 & ExecutionReport 8).",
-    impact: "Reduced message parsing latency from 850ns to 310ns for institutional FIX 4.2 / 4.4 trading gateways.",
-    link: "https://github.com/quickfix/quickfix",
-    status: "Merged Upstream",
-  },
-];
+import { openSourceContributions } from "../data/opensource";
 
 const OpenSource = () => {
   return (
-    <Section id="opensource" className="py-24 bg-[#08080C] text-white border-t border-white/[0.08]">
+    <Section id="opensource" className="py-20 bg-[#080D1A] text-[#E6EAF2] border-t-2 border-[#334366]">
       <Container>
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+        <div className="max-w-4xl mb-12">
+          <div className="flex items-center gap-2 mb-2 font-pixel text-[10px] text-[#8AA4FF]">
+            <span className="h-2 w-2 bg-[#8AA4FF]" />
+            <span>UPSTREAM PATCHES // 02</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-pixel-heading">
             Open Source & Upstream Engineering
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-neutral-400 leading-relaxed font-sans">
-            Contributions to Java AST static analysis tools, distributed caching backbones, high-throughput web frameworks, and quantitative trading infrastructure.
+          <p className="mt-3 text-sm sm:text-base text-[#94A3B8] leading-relaxed font-mono">
+            Direct upstream patches to Java AST static analysis tools, distributed databases, high-throughput web frameworks, and institutional quantitative trading engines.
           </p>
         </div>
 
-        {/* Clean Editorial Rows */}
-        <div className="divide-y divide-white/[0.08]">
-          {contributions.map((c) => (
-            <div key={c.project} className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Left Column: Project Name, Repo, Status */}
-              <div className="lg:col-span-4">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-semibold text-white">
-                    {c.project}
+        {/* Patch Ledger Grid */}
+        <div className="space-y-5">
+          {openSourceContributions.map((c) => (
+            <div
+              key={c.id}
+              className="pixel-frame p-5 sm:p-6"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                {/* Left Column: Repo & Metadata (4 cols) */}
+                <div className="lg:col-span-4 space-y-2.5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="pixel-tag pixel-tag-teal">
+                      {c.type}
+                    </span>
+                    <span className="text-[9px] font-pixel text-[#FFD166]">
+                      ★ {c.stars}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white font-pixel-heading">
+                    {c.org || c.repo.split("/")[0]}
                   </h3>
-                  <span className="text-xs font-mono text-neutral-500">{c.stars}</span>
+
+                  <div className="text-xs font-mono text-[#8AA4FF]">
+                    {c.repo}
+                  </div>
+
+                  <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono">
+                    <a
+                      href={c.commitUrl || c.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pixel-btn !py-1 !px-2.5 !text-[8px] !bg-[#0F172A] !text-[#55E6C1]"
+                    >
+                      <FaGithub size={11} />
+                      <span>{c.commit ? `SHA: ${c.commit}` : "UPSTREAM"}</span>
+                      <HiExternalLink size={10} />
+                    </a>
+                    <span className="text-[10px] font-pixel text-[#64748B]">{c.date}</span>
+                  </div>
                 </div>
 
-                <div className="mt-1 text-sm font-sans text-neutral-400 font-medium">
-                  {c.role}
-                </div>
+                {/* Right Column: Title, Description & Verified Impact (8 cols) */}
+                <div className="lg:col-span-8 space-y-3 font-mono text-xs sm:text-sm">
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-white mb-1.5 flex items-start gap-2 font-pixel-heading">
+                      <span className="text-[#55E6C1] mt-0.5">&gt;</span>
+                      <span>{c.title}</span>
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+                      {c.description}
+                    </p>
+                  </div>
 
-                <div className="mt-4 flex items-center gap-4 text-xs font-mono">
-                  <span className="text-neutral-300 font-medium">{c.status}</span>
-                  <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-1 text-neutral-500 hover:text-white transition-colors"
-                  >
-                    <FaGithub size={13} />
-                    <span>{c.repo}</span>
-                    <HiExternalLink size={12} />
-                  </a>
-                </div>
-              </div>
+                  <div className="p-3 bg-[#0F172A] border-2 border-[#334366] text-xs shadow-[2px_2px_0px_#04070D]">
+                    <div className="text-[#55E6C1] font-pixel text-[8px] mb-1">
+                      VERIFIED IMPACT &gt;&gt;
+                    </div>
+                    <p className="text-[#E6EAF2] leading-relaxed font-mono">
+                      {c.impact}
+                    </p>
+                  </div>
 
-              {/* Right Column: Contribution & Why it mattered */}
-              <div className="lg:col-span-8 space-y-3 font-sans text-sm">
-                <div>
-                  <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block mb-1">
-                    Contribution
-                  </span>
-                  <p className="text-neutral-300 leading-relaxed">
-                    {c.contribution}
-                  </p>
-                </div>
-
-                <div className="pt-1">
-                  <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider block mb-1">
-                    Why It Mattered
-                  </span>
-                  <p className="text-neutral-200 leading-relaxed font-medium">
-                    {c.impact}
-                  </p>
+                  {c.tags && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {c.tags.map((t) => (
+                        <span key={t} className="text-[9px] font-pixel bg-[#080D1A] border border-[#334366] px-2 py-0.5 text-[#94A3B8]">
+                          #{t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -189,6 +189,8 @@ const PacketSniffer = () => {
             src={packetImage}
             alt="Packet Sniffer 3D WebGL Visualization Interface"
             className="w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

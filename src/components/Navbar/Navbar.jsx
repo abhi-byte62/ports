@@ -1,17 +1,18 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { HiOutlineMenu, HiOutlineX, HiArrowRight } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import useActiveSection from "../../hooks/useActiveSection";
 
 const navLinks = [
-  { name: "Projects", href: "#projects" },
-  { name: "Open Source", href: "#opensource" },
-  { name: "Skills", href: "#skills" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "PROJECTS", href: "#projects", num: "01" },
+  { name: "OPEN_SOURCE", href: "#opensource", num: "02" },
+  { name: "SKILLS", href: "#skills", num: "03" },
+  { name: "ABOUT", href: "#about", num: "04" },
+  { name: "CONTACT", href: "#contact", num: "05" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ onOpenCommandPalette }) => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const activeSection = useActiveSection();
@@ -30,13 +31,13 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
+      className={`sticky top-0 inset-x-0 z-50 transition-all duration-150 ${
         scrolled
-          ? "bg-[#08080C]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5"
-          : "bg-transparent py-5"
+          ? "bg-[#080D1A]/95 backdrop-blur-md border-b-2 border-[#334366] py-2.5 shadow-[0_4px_0px_#04070D]"
+          : "bg-[#080D1A]/85 backdrop-blur-sm border-b-2 border-[#334366]/70 py-3"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand */}
         <Link
           to="/"
@@ -44,14 +45,22 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
             closeMenu();
           }}
-          className="text-sm font-semibold tracking-tight text-white hover:text-neutral-300 transition-colors"
-          aria-label="Abhishek M R - Home"
+          className="group flex items-center gap-2.5 text-[#E6EAF2] hover:text-[#55E6C1] transition-colors"
+          aria-label="PLAYBOLD OS - Home"
         >
-          Abhishek M R
+          <span className="h-3 w-3 bg-[#55E6C1] border border-[#080D1A] shadow-[2px_2px_0px_#334366] animate-pixel-blink" />
+          <div className="flex flex-col">
+            <span className="font-pixel text-[11px] text-white tracking-wider group-hover:text-[#55E6C1]">
+              PLAYBOLD<span className="text-[#55E6C1]">_OS</span>
+            </span>
+            <span className="text-[9px] font-mono text-[#64748B] -mt-0.5">
+              ABHISHEK M R
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-400">
+        <nav className="hidden md:flex items-center gap-1 font-pixel text-[9px]">
           {navLinks.map((link) => {
             const isActive = isHome && activeSection === link.href.replace("#", "");
             if (isHome) {
@@ -59,11 +68,14 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`transition-colors duration-150 ${
-                    isActive ? "text-white" : "hover:text-white"
+                  className={`px-3 py-1.5 transition-all duration-100 border ${
+                    isActive
+                      ? "bg-[#141E36] border-[#55E6C1] text-[#55E6C1] shadow-[2px_2px_0px_#04070D]"
+                      : "border-transparent text-[#94A3B8] hover:text-white hover:bg-[#0F172A] hover:border-[#334366]"
                   }`}
                 >
-                  {link.name}
+                  <span className="text-[#55E6C1] mr-1">{link.num}.</span>
+                  <span>{link.name}</span>
                 </a>
               );
             }
@@ -71,41 +83,64 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={`/${link.href}`}
-                className="transition-colors duration-150 hover:text-white"
+                className="px-3 py-1.5 border border-transparent text-[#94A3B8] hover:text-white hover:bg-[#0F172A] hover:border-[#334366] transition-colors"
               >
-                {link.name}
+                <span className="text-[#55E6C1] mr-1">{link.num}.</span>
+                <span>{link.name}</span>
               </Link>
             );
           })}
         </nav>
 
-        {/* Resume Action Link */}
-        <div className="hidden md:flex items-center">
+        {/* Actions (Terminal & Resume) */}
+        <div className="hidden md:flex items-center gap-3">
+          {onOpenCommandPalette && (
+            <button
+              onClick={onOpenCommandPalette}
+              className="pixel-btn !py-1.5 !px-2.5 !text-[8px] !bg-[#0F172A]"
+              title="Open Command Terminal (Ctrl+K)"
+            >
+              <span>CMD</span>
+              <span className="text-[#55E6C1]">[CTRL+K]</span>
+            </button>
+          )}
+
           <Link
             to="/resume"
-            className="text-sm font-medium text-neutral-300 hover:text-white transition-colors flex items-center gap-1.5"
+            className="pixel-btn pixel-btn-primary !py-1.5 !px-3 !text-[8px]"
           >
-            <span>Resume</span>
-            <HiArrowRight size={13} />
+            <span>RESUME.EXE</span>
           </Link>
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center gap-2">
+          {onOpenCommandPalette && (
+            <button
+              onClick={onOpenCommandPalette}
+              className="pixel-btn !p-1.5 !text-[8px] !bg-[#0F172A]"
+            >
+              CMD
+            </button>
+          )}
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-neutral-400 hover:text-white p-2 focus:outline-none"
+            className="text-[#94A3B8] hover:text-white p-2 border-2 border-[#334366] bg-[#0F172A] shadow-[2px_2px_0px_#04070D]"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            {mobileMenuOpen ? <HiOutlineX size={20} /> : <HiOutlineMenu size={20} />}
+            {mobileMenuOpen ? <HiOutlineX size={18} /> : <HiOutlineMenu size={18} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0C0C12] border-b border-white/10 px-6 py-5 space-y-4">
-          <nav className="flex flex-col space-y-3 text-sm font-medium">
+        <div className="md:hidden bg-[#0F172A] border-b-2 border-[#334366] px-4 py-4 space-y-3 shadow-2xl animate-in fade-in duration-100">
+          <div className="font-pixel text-[9px] text-[#55E6C1] pb-2 border-b border-[#334366]">
+            [ NAVIGATION MATRIX ]
+          </div>
+          <nav className="flex flex-col space-y-2 font-pixel text-[9px]">
             {navLinks.map((link) => {
               const isActive = isHome && activeSection === link.href.replace("#", "");
               if (isHome) {
@@ -114,11 +149,13 @@ const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={closeMenu}
-                    className={`transition-colors ${
-                      isActive ? "text-white" : "text-neutral-400 hover:text-white"
+                    className={`px-3 py-2 border-2 transition-all ${
+                      isActive
+                        ? "bg-[#141E36] border-[#55E6C1] text-[#55E6C1] shadow-[2px_2px_0px_#04070D]"
+                        : "bg-[#080D1A] border-[#334366] text-[#94A3B8] hover:text-white"
                     }`}
                   >
-                    {link.name}
+                    &gt; {link.num}. {link.name}
                   </a>
                 );
               }
@@ -127,27 +164,30 @@ const Navbar = () => {
                   key={link.name}
                   to={`/${link.href}`}
                   onClick={closeMenu}
-                  className="text-neutral-400 hover:text-white transition-colors"
+                  className="px-3 py-2 bg-[#080D1A] border-2 border-[#334366] text-[#94A3B8] hover:text-white transition-colors"
                 >
-                  {link.name}
+                  &gt; {link.num}. {link.name}
                 </Link>
               );
             })}
           </nav>
-          <div className="pt-3 border-t border-white/10">
+          <div className="pt-2 border-t border-[#334366]">
             <Link
               to="/resume"
               onClick={closeMenu}
-              className="text-sm font-medium text-white flex items-center gap-1.5"
+              className="pixel-btn pixel-btn-primary w-full text-center"
             >
-              <span>View Resume</span>
-              <HiArrowRight size={13} />
+              ACCESS RESUME.EXE
             </Link>
           </div>
         </div>
       )}
     </header>
   );
+};
+
+Navbar.propTypes = {
+  onOpenCommandPalette: PropTypes.func,
 };
 
 export default Navbar;

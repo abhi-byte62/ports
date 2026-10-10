@@ -1,27 +1,34 @@
 import { Link } from "react-router-dom";
+import { HiArrowLeft } from "react-icons/hi";
 
 const NotFound = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#08080C] px-6 text-white selection:bg-white/10 selection:text-white">
-      <div className="w-full max-w-md rounded-xl border border-white/[0.08] bg-[#0C0C12] p-8 text-center">
-        <span className="inline-flex rounded bg-white/[0.06] px-2.5 py-1 text-xs font-mono font-medium text-neutral-300 border border-white/[0.08]">
-          404 NOT FOUND
-        </span>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#0B1020] px-6 text-[#E6EAF2] pixel-grid-bg">
+      <div className="w-full max-w-md pixel-frame p-8 text-center space-y-4">
+        <div className="flex items-center justify-between pb-3 border-b-2 border-[#34415D] text-[9px] font-pixel text-[#FF6B6B]">
+          <span>[ERROR: 404_NOT_FOUND]</span>
+          <span>SYSTEM_HALT</span>
+        </div>
 
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-          Page Not Found
+        <div className="text-4xl font-pixel text-[#FF6B6B] my-2">
+          404
+        </div>
+
+        <h1 className="text-xl font-bold tracking-tight text-white font-sans">
+          Route Not Found in Architecture
         </h1>
 
-        <p className="mt-3 text-sm leading-relaxed text-neutral-400">
-          The route you navigated to does not exist or has been relocated within the architecture.
+        <p className="text-xs leading-relaxed text-[#A5B0C5] font-mono">
+          The requested memory address or route is undefined in the PLAYBOLD OS filesystem.
         </p>
 
-        <div className="mt-8">
+        <div className="pt-4 border-t border-[#34415D]">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-black transition-colors hover:bg-neutral-200"
+            className="pixel-btn pixel-btn-primary w-full"
           >
-            Return to Portfolio
+            <HiArrowLeft size={13} />
+            <span>RETURN TO HOME</span>
           </Link>
         </div>
       </div>

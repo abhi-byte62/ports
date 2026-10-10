@@ -1,70 +1,96 @@
 import { HiArrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import Container from "../components/Container/Container";
+import PixelWorldScene from "../components/PixelHero/PixelWorldScene";
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 bg-[#08080C] text-white overflow-hidden"
+      className="relative min-h-[90vh] flex flex-col justify-center pt-8 pb-16 bg-[#080D1A] text-[#E6EAF2] overflow-hidden"
     >
-      {/* Subtle Environmental Atmospheric Gradient */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 50% 15%, rgba(255, 255, 255, 0.03) 0%, transparent 80%)",
-        }}
-      />
-
       <Container>
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-3.5 py-1 text-xs font-mono text-neutral-400 mb-8">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            <span>SYSTEMS · PERFORMANCE · QUANTITATIVE SOFTWARE</span>
+        <div className="max-w-6xl mx-auto space-y-8">
+          {/* Top Retro HUD Status Ribbon */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#334366] pb-3 text-[9px] font-pixel text-[#94A3B8]">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 bg-[#55E6C1] animate-pixel-blink" />
+              <span className="text-[#55E6C1]">PLAYER: ABHISHEK_M_R</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-[#8AA4FF]">CLASS: SYSTEMS_ARCHITECT</span>
+              <span className="text-[#334366] hidden sm:inline">|</span>
+              <span className="text-[#FFD166] hidden sm:inline">STATUS: AVAILABLE_FOR_ROLES</span>
+            </div>
           </div>
 
-          {/* Confident Name Title */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white leading-none">
-            Abhishek M R
-          </h1>
+          {/* Two-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Narrative Column (6 cols) */}
+            <div className="lg:col-span-6 space-y-6">
+              {/* Retro Badge */}
+              <div className="inline-flex items-center gap-2 pixel-tag pixel-tag-teal">
+                <span className="h-1.5 w-1.5 bg-[#55E6C1]" />
+                <span>LOW-LATENCY · DISTRIBUTED INFRASTRUCTURE</span>
+              </div>
 
-          {/* Role & Specialization */}
-          <div className="mt-5 text-xl sm:text-2xl md:text-3xl font-medium text-neutral-300">
-            Software Engineer
-          </div>
+              {/* Developer Headline */}
+              <div className="space-y-2">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none font-pixel-heading">
+                  Abhishek M R
+                </h1>
+                <div className="text-lg sm:text-2xl font-pixel text-[#55E6C1]">
+                  Software Engineer
+                </div>
+              </div>
 
-          {/* Narrative Statement */}
-          <p className="mt-6 max-w-2xl text-base sm:text-lg text-neutral-400 font-normal leading-relaxed font-sans">
-            Building low-latency systems, developer infrastructure, and distributed software with a focus on performance and correctness.
-          </p>
+              {/* Narrative Statement */}
+              <p className="text-sm sm:text-base text-[#94A3B8] font-mono leading-relaxed max-w-xl">
+                Building low-latency matching engines, website architecture topology synthesizers, and distributed systems with a focus on mechanical sympathy, deterministic invariants, and verified correctness.
+              </p>
 
-          {/* Simple & Confident CTAs */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-2.5 text-xs font-semibold hover:bg-neutral-200 transition-colors shadow-sm"
-            >
-              <span>Selected Projects</span>
-              <HiArrowRight size={14} />
-            </a>
+              {/* 3D Pixel Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <a
+                  href="#projects"
+                  className="pixel-btn pixel-btn-primary"
+                >
+                  <span>SELECTED PROJECTS</span>
+                  <HiArrowRight size={13} />
+                </a>
 
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.03] px-6 py-2.5 text-xs font-semibold text-neutral-300 hover:text-white hover:border-white/[0.24] transition-colors"
-            >
-              Get in Touch
-            </a>
-          </div>
-        </div>
+                <a
+                  href="#contact"
+                  className="pixel-btn pixel-btn-secondary"
+                >
+                  <span>GET IN TOUCH</span>
+                </a>
 
-        {/* Editorial Divider / Accent Anchor */}
-        <div className="mt-20 max-w-5xl mx-auto pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-neutral-500 gap-3">
-          <div className="flex items-center gap-2">
-            <span className="text-neutral-400">Low-latency architecture & upstream open-source</span>
-          </div>
-          <div className="text-neutral-500">
-            C++17 · Java · Go · TypeScript · Python
+                <Link
+                  to="/resume"
+                  className="pixel-btn pixel-btn-warm"
+                >
+                  <span>RESUME.EXE</span>
+                </Link>
+              </div>
+
+              {/* Technical Stack Pixel Tags */}
+              <div className="pt-4 border-t-2 border-[#334366] flex flex-wrap items-center gap-2 text-[9px] font-pixel text-[#94A3B8]">
+                <span className="text-[#55E6C1]">STACK:</span>
+                <span className="pixel-tag">C++17</span>
+                <span className="pixel-tag">Java 21</span>
+                <span className="pixel-tag">Go</span>
+                <span className="pixel-tag">TypeScript</span>
+                <span className="pixel-tag">Python 3</span>
+                <span className="pixel-tag">PostgreSQL</span>
+                <span className="pixel-tag">RabbitMQ</span>
+              </div>
+            </div>
+
+            {/* Right Interactive Pixel Scene Column (6 cols) */}
+            <div className="lg:col-span-6">
+              <PixelWorldScene />
+            </div>
           </div>
         </div>
       </Container>

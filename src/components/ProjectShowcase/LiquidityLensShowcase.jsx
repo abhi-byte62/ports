@@ -67,6 +67,8 @@ const LiquidityLensShowcase = () => {
             src={activeTab.image}
             alt={activeTab.label}
             className="w-full h-auto max-h-[380px] object-contain object-top"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

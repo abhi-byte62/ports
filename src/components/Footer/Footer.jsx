@@ -1,50 +1,65 @@
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode, SiCodeforces } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/[0.08] bg-[#08080C] text-neutral-500 py-12 text-xs font-mono">
+    <footer className="border-t-2 border-[#334366] bg-[#050811] text-[#94A3B8] py-8 text-xs font-mono select-none">
       <Container>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Link
               to="/"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="font-medium text-neutral-300 hover:text-white transition-colors"
+              className="font-pixel text-[10px] text-[#E6EAF2] hover:text-[#55E6C1] transition-colors flex items-center gap-1.5"
             >
-              Abhishek M R
+              <span className="h-2 w-2 bg-[#55E6C1] animate-pixel-blink" />
+              <span>PLAYBOLD_OS</span>
             </Link>
-            <span className="text-white/[0.12]">/</span>
-            <span className="text-neutral-500">Software Engineer</span>
+            <span className="text-[#334366]">/</span>
+            <span className="text-[#94A3B8] text-xs">Abhishek M R</span>
           </div>
 
-          <div className="flex items-center gap-5 text-neutral-400">
+          <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
             <a
               href="https://github.com/abhi-byte62"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors"
+              className="flex items-center gap-1 hover:text-[#55E6C1] transition-colors"
             >
-              GitHub
+              <FaGithub size={12} />
+              <span>GitHub</span>
             </a>
             <a
               href="https://www.linkedin.com/in/abhishekmr029/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors"
+              className="flex items-center gap-1 hover:text-[#8AA4FF] transition-colors"
             >
-              LinkedIn
+              <FaLinkedin size={12} />
+              <span>LinkedIn</span>
             </a>
             <a
               href="https://leetcode.com/u/playboldAbhi/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-white transition-colors"
+              className="flex items-center gap-1 hover:text-[#FFD166] transition-colors"
             >
-              LeetCode
+              <SiLeetcode size={12} />
+              <span>LeetCode</span>
             </a>
-            <Link to="/resume" className="text-neutral-300 hover:text-white transition-colors">
-              Resume →
+            <a
+              href="https://codeforces.com/profile/playboldAbhi"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-[#8AA4FF] transition-colors"
+            >
+              <SiCodeforces size={12} />
+              <span>Codeforces</span>
+            </a>
+            <Link to="/resume" className="text-[#55E6C1] hover:underline font-pixel text-[9px]">
+              RESUME.EXE &gt;&gt;
             </Link>
           </div>
         </div>

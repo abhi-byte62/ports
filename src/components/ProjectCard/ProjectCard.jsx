@@ -28,6 +28,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
               alt={project.title}
               className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

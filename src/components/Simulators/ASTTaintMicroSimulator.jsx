@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiShield, FiAlertTriangle, FiCheckCircle, FiTerminal, FiPlay } from "react-icons/fi";
+import { FiAlertTriangle, FiCheckCircle, FiTerminal } from "react-icons/fi";
 
 const PRESETS = [
   {
@@ -56,7 +56,7 @@ export default function ASTTaintMicroSimulator() {
   const handleSelect = (preset) => {
     setIsAnalyzing(true);
     setSelectedPreset(preset);
-    setTimeout(() => setIsAnalyzing(false), 300);
+    setTimeout(() => setIsAnalyzing(false), 200);
   };
 
   return (
@@ -67,7 +67,7 @@ export default function ASTTaintMicroSimulator() {
           <div className="flex items-center gap-2 mb-1">
             <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
-              LIVE AST TAINT INSPECTION ENGINE
+              {isAnalyzing ? "ANALYZING AST GRAPH..." : "LIVE AST TAINT INSPECTION ENGINE"}
             </span>
           </div>
           <h3 className="text-lg sm:text-xl font-semibold text-white tracking-tight">

@@ -184,6 +184,8 @@ const SpecterProxy = () => {
             src={specterImage}
             alt="Specter Proxy Stream Interception Architecture"
             className="w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

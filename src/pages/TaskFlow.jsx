@@ -350,6 +350,8 @@ const TaskFlow = () => {
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
                 className="w-full rounded-lg object-contain border border-white/[0.06]"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

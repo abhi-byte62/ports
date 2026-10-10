@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
-import { FiCpu, FiTrendingUp, FiShield, FiActivity, FiLayers, FiZap } from "react-icons/fi";
+import { FiCpu, FiTrendingUp, FiShield, FiActivity } from "react-icons/fi";
 
 import SEO from "../components/SEO/SEO";
 import Container from "../components/Container/Container";
@@ -432,6 +432,8 @@ const TradeForge = () => {
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
                 className="w-full rounded-lg object-contain border border-white/[0.06]"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

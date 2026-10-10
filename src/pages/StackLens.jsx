@@ -393,6 +393,7 @@ export default function StackLens() {
                     alt={item.title}
                     className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                     loading="lazy"
+                    decoding="async"
                   />
                   
                   <span className="absolute top-2.5 left-2.5 rounded bg-black/70 backdrop-blur-sm px-2 py-0.5 text-[10px] font-mono text-neutral-300 border border-white/[0.1]">
@@ -457,6 +458,7 @@ export default function StackLens() {
                   src={filteredScreenshots[selectedImageIndex].image}
                   alt={filteredScreenshots[selectedImageIndex].title}
                   className="max-h-[75vh] w-auto object-contain rounded-lg"
+                  decoding="async"
                 />
               </div>
 

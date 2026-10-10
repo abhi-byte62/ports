@@ -501,6 +501,8 @@ const LiquidityLens = () => {
                 src={activeScreenshot.image}
                 alt={activeScreenshot.title}
                 className="w-full rounded-lg object-contain"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
