@@ -6,6 +6,13 @@ import techImg from "../../assets/images/stacklens/04-technologies-detection-tab
 
 const tabs = [
   {
+    id: "loadtest",
+    label: "⚡ Live Scan Pipeline",
+    image: "/clips/stacklens-loadtest.webp",
+    caption: "5-second stress profile: asynchronous multi-vector probe dispatch, RabbitMQ workers & real-time DAG synthesis.",
+    isLive: true,
+  },
+  {
     id: "dag",
     label: "Architecture DAG",
     image: dagImg,

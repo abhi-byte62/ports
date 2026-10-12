@@ -6,6 +6,13 @@ import workspacesImg from "../../assets/images/taskflow/03_workspaces_management
 
 const tabs = [
   {
+    id: "loadtest",
+    label: "⚡ Live Sync Stress",
+    image: "/clips/taskflow-loadtest.webp",
+    caption: "5-second stress profile: concurrent Socket.io broadcasts, fractional drag indexing & OCC write conflict rejection.",
+    isLive: true,
+  },
+  {
     id: "kanban",
     label: "Kanban Board",
     image: kanbanImg,

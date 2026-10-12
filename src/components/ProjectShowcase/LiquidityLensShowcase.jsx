@@ -5,6 +5,13 @@ import benchImg from "../../assets/images/liquiditylens/07_cpp_hardware_benchmar
 
 const tabs = [
   {
+    id: "loadtest",
+    label: "⚡ Live Load Test",
+    image: "/clips/liquiditylens-loadtest.webp",
+    caption: "5-second stress profile: 4.5M+ events/s ingestion, microsecond L2 queue decay & deterministic PnL replay.",
+    isLive: true,
+  },
+  {
     id: "ladder",
     label: "L2 Depth Ladder",
     image: ladderImg,

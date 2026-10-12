@@ -21,6 +21,14 @@ import orderExecutionPositionsImg from "../assets/images/tradeforge/05_tradeforg
 
 const screenshots = [
   {
+    id: "live-loadtest-clip",
+    title: "Live Execution Engine Stress Profile",
+    badge: "⚡ 5-SEC LOAD TEST CLIP",
+    image: "/clips/tradeforge-loadtest.webp",
+    description:
+      "Live 5-second execution capture under simulated high-frequency load: 247k orders/s, canvas candle re-renders, and WebSocket tick multiplexing.",
+  },
+  {
     id: "terminal-overview",
     title: "Live Paper Trading Terminal & Workspace",
     badge: "CANVAS + L2 DEPTH",
