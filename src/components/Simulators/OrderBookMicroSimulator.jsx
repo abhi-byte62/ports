@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { FiPlay, FiPause, FiZap, FiActivity, FiArrowDown, FiArrowUp } from "react-icons/fi";
 
-export default function OrderBookMicroSimulator({ title = "Interactive Market Microstructure & LOB Simulator" }) {
+export default function OrderBookMicroSimulator({ title = "Interactive Market Microstructure & LOB Simulator", className = "" }) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [speed, setSpeed] = useState(10); // ticks per second
   const [midPrice, setMidPrice] = useState(184.50);
@@ -157,7 +157,7 @@ export default function OrderBookMicroSimulator({ title = "Interactive Market Mi
   const spread = (asks[0]?.price - bids[0]?.price || 0.1).toFixed(2);
 
   return (
-    <div className="my-12 rounded-2xl border border-white/[0.1] bg-[#09090E] p-6 sm:p-8 text-white shadow-2xl">
+    <div className={`rounded-2xl border border-neutral-800/80 bg-[#0C0D13] p-5 sm:p-7 text-white shadow-xl ${className || "my-12"}`}>
       {/* Header & Controls */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
         <div>

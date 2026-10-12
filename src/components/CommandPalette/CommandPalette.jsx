@@ -5,7 +5,7 @@ import {
   FiSearch, FiCode, FiLayers, FiFileText, FiMail, 
   FiTerminal, FiCheck, FiCornerDownLeft, FiShield 
 } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaWhatsapp } from "react-icons/fa";
 
 const COMMANDS = [
   // Case Studies
@@ -164,6 +164,15 @@ const COMMANDS = [
     action: () => window.open("https://github.com/abhi-byte62", "_blank"),
   },
   {
+    id: "act-whatsapp",
+    title: "Chat on WhatsApp (Direct Message)",
+    category: "QUICK ACTIONS",
+    icon: FaWhatsapp,
+    badge: "DIRECT",
+    tags: ["whatsapp", "chat", "message", "contact", "ping", "wa", "direct"],
+    action: () => window.open("https://wa.me/917259371549?text=Hi%20Abhishek,%20I%20saw%20your%20portfolio!", "_blank"),
+  },
+  {
     id: "act-copy-email",
     title: "Copy Primary Email (mrabhisheak@gmail.com)",
     category: "QUICK ACTIONS",
@@ -234,28 +243,19 @@ export default function CommandPalette({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-100"
+      className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 bg-black/75 backdrop-blur-md p-4 animate-in fade-in duration-150"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label="PLAYBOLD OS Command Terminal"
+      aria-label="Command Palette"
     >
       <div
-        className="w-full max-w-2xl overflow-hidden pixel-frame-elevated shadow-2xl flex flex-col"
+        className="w-full max-w-2xl overflow-hidden rounded-2xl bg-[#0B0F19]/95 border border-white/[0.12] shadow-2xl backdrop-blur-2xl flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top OS Window Header */}
-        <div className="flex items-center justify-between px-3.5 py-1.5 bg-[#141E36] border-b-2 border-[#334366] text-[9px] font-pixel text-[#94A3B8]">
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 bg-[#55E6C1]" />
-            <span className="text-[#55E6C1]">PLAYBOLD_COMMAND_TERMINAL.EXE</span>
-          </div>
-          <span className="text-[#FFD166]">[ESC TO EXIT]</span>
-        </div>
-
         {/* Search Bar Input */}
-        <div className="flex items-center gap-3 border-b-2 border-[#334366] px-4 py-3 bg-[#080D1A]">
-          <FiSearch className="text-[#55E6C1] shrink-0" size={16} />
+        <div className="flex items-center gap-3 border-b border-white/[0.08] px-4 py-3.5 bg-white/[0.02]">
+          <FiSearch className="text-slate-400 shrink-0" size={18} />
           <input
             ref={inputRef}
             type="text"
@@ -264,20 +264,20 @@ export default function CommandPalette({ isOpen, onClose }) {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            placeholder="Type a command, project, technology, or action..."
-            className="w-full bg-transparent font-mono text-xs text-white placeholder-[#64748B] focus:outline-none"
+            placeholder="Search projects, open source, skills, or actions..."
+            className="w-full bg-transparent text-sm text-white placeholder-slate-500 focus:outline-none"
           />
-          <kbd className="hidden sm:inline-block border-2 border-[#334366] bg-[#141E36] px-1.5 py-0.5 text-[9px] font-pixel text-[#94A3B8]">
+          <kbd className="hidden sm:inline-block border border-white/[0.1] bg-white/[0.05] px-2 py-0.5 text-[11px] font-mono text-slate-400 rounded">
             ESC
           </kbd>
         </div>
 
         {/* Results List */}
-        <div className="max-h-96 overflow-y-auto p-2 divide-y divide-[#334366]/40">
+        <div className="max-h-96 overflow-y-auto p-2 space-y-1">
           {filtered.length === 0 ? (
-            <div className="p-8 text-center">
-              <p className="text-xs font-pixel text-[#FF6B6B]">NO_MATCHING_COMMANDS: "{query}"</p>
-              <p className="mt-2 text-xs text-[#94A3B8] font-mono">Try searching for "LiquidityLens", "C++", "Spring", "Resume", or "Contact"</p>
+            <div className="p-10 text-center">
+              <p className="text-sm font-medium text-slate-300">No results found for &quot;{query}&quot;</p>
+              <p className="mt-1 text-xs text-slate-500">Try searching for &quot;LiquidityLens&quot;, &quot;C++&quot;, &quot;Valkey&quot;, &quot;Resume&quot;, or &quot;WhatsApp&quot;</p>
             </div>
           ) : (
             filtered.map((item, idx) => {
@@ -291,36 +291,36 @@ export default function CommandPalette({ isOpen, onClose }) {
                     if (!item.isCopyEmail) onClose();
                   }}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-center justify-between p-2.5 text-xs transition-colors cursor-pointer border-2 ${
+                  className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-[#1A2744] border-[#55E6C1] text-white shadow-[2px_2px_0px_#04070D]"
-                      : "border-transparent text-[#94A3B8] hover:bg-[#141E36]"
+                      ? "bg-white/[0.08] text-white"
+                      : "text-slate-300 hover:bg-white/[0.04]"
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className={`p-1.5 border-2 ${
-                      isSelected ? "border-[#55E6C1] bg-[#080D1A] text-[#55E6C1]" : "border-[#334366] bg-[#0F172A] text-[#94A3B8]"
+                    <div className={`p-2 rounded-md ${
+                      isSelected ? "bg-emerald-500/20 text-emerald-400" : "bg-white/[0.05] text-slate-400"
                     }`}>
-                      <Icon size={14} />
+                      <Icon size={15} />
                     </div>
 
                     <div className="truncate">
                       <div className="flex items-center gap-2">
-                        <span className={`font-medium ${isSelected ? "text-white" : "text-[#E6EAF2]"}`}>
+                        <span className={`font-medium ${isSelected ? "text-white" : "text-slate-200"}`}>
                           {item.title}
                         </span>
                         {item.badge && (
-                          <span className="pixel-tag pixel-tag-teal !text-[7px]">
+                          <span className="badge-modern text-[10px] py-0 px-1.5">
                             {item.badge}
                           </span>
                         )}
                         {item.isCopyEmail && copiedEmail && (
-                          <span className="inline-flex items-center gap-1 bg-[#55E6C1]/20 px-1.5 py-0.2 text-[9px] font-pixel text-[#55E6C1] border border-[#55E6C1]">
-                            <FiCheck size={9} /> COPIED!
+                          <span className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-mono border border-emerald-500/30">
+                            <FiCheck size={10} /> Copied!
                           </span>
                         )}
                       </div>
-                      <span className="text-[10px] font-mono text-[#64748B] block mt-0.5">
+                      <span className="text-[11px] text-slate-400 block mt-0.5">
                         {item.category}
                       </span>
                     </div>
@@ -328,9 +328,9 @@ export default function CommandPalette({ isOpen, onClose }) {
 
                   <div className="flex items-center gap-2 shrink-0">
                     {isSelected && (
-                      <span className="hidden sm:flex items-center gap-1 font-pixel text-[8px] text-[#55E6C1]">
-                        <span>SELECT</span>
-                        <FiCornerDownLeft size={10} />
+                      <span className="hidden sm:flex items-center gap-1 font-mono text-[11px] text-emerald-400">
+                        <span>Select</span>
+                        <FiCornerDownLeft size={11} />
                       </span>
                     )}
                   </div>
@@ -341,12 +341,12 @@ export default function CommandPalette({ isOpen, onClose }) {
         </div>
 
         {/* Footer Shortcut Helper */}
-        <div className="flex items-center justify-between border-t-2 border-[#334366] bg-[#080D1A] px-4 py-2 text-[9px] font-pixel text-[#94A3B8]">
+        <div className="flex items-center justify-between border-t border-white/[0.08] bg-white/[0.02] px-4 py-2.5 text-xs text-slate-400 font-mono">
           <div className="flex items-center gap-3">
-            <span>[UP/DOWN] NAVIGATE</span>
-            <span>[ENTER] SELECT</span>
+            <span>↑↓ Navigate</span>
+            <span>↵ Select</span>
           </div>
-          <span className="text-[#55E6C1]">STATUS: ONLINE</span>
+          <span className="text-emerald-400">Active</span>
         </div>
       </div>
     </div>

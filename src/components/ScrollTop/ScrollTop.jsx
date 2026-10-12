@@ -24,7 +24,7 @@ const ScrollTop = () => {
         })
       }
       aria-label="Scroll back to top"
-      className="fixed bottom-6 right-6 z-40 flex h-9 w-9 items-center justify-center border-2 border-[#34415D] bg-[#171F35] text-[#A5B0C5] shadow-[3px_3px_0px_#060913] hover:border-[#55E6C1] hover:text-[#55E6C1] hover:translate-x-[1px] hover:translate-y-[1px] transition-all focus:outline-none"
+      className="fixed bottom-20 right-6 z-40 flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-[#0E1526]/90 backdrop-blur-md text-slate-300 shadow-lg shadow-black/30 hover:border-emerald-400 hover:text-emerald-400 hover:scale-105 transition-all focus:outline-none"
     >
       <HiArrowUp className="text-base" />
     </button>

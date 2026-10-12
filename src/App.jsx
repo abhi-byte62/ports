@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import ScrollTop from "./components/ScrollTop/ScrollTop";
+import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 import CommandPalette from "./components/CommandPalette/CommandPalette";
 import PageLoading from "./components/Loading/PageLoading";
 
@@ -108,6 +109,7 @@ function App() {
       <ScrollToTopOnRoute />
       <ScrollProgress />
       <ScrollTop />
+      <WhatsAppButton />
       
       <GlobalShortcuts onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
       

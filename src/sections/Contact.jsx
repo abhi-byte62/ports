@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 import { HiArrowRight, HiOutlineClipboardCopy, HiCheck } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -8,39 +8,40 @@ import Section from "../components/Section/Section";
 
 const links = [
   {
-    name: "EMAIL",
+    name: "Email",
     value: "mrabhisheak@gmail.com",
     href: "mailto:mrabhisheak@gmail.com",
-    icon: <FaEnvelope size={14} />,
-    color: "#55E6C1",
+    icon: <FaEnvelope size={15} />,
   },
   {
-    name: "LINKEDIN",
+    name: "WhatsApp",
+    value: "Direct Chat",
+    href: "https://wa.me/917259371549?text=Hi%20Abhishek,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!",
+    icon: <FaWhatsapp size={15} />,
+  },
+  {
+    name: "LinkedIn",
     value: "in/abhishekmr029",
     href: "https://www.linkedin.com/in/abhishekmr029/",
-    icon: <FaLinkedin size={14} />,
-    color: "#8AA4FF",
+    icon: <FaLinkedin size={15} />,
   },
   {
-    name: "GITHUB",
+    name: "GitHub",
     value: "github.com/abhi-byte62",
     href: "https://github.com/abhi-byte62",
-    icon: <FaGithub size={14} />,
-    color: "#E6EAF2",
+    icon: <FaGithub size={15} />,
   },
   {
-    name: "LEETCODE",
+    name: "LeetCode",
     value: "u/playboldAbhi",
     href: "https://leetcode.com/u/playboldAbhi/",
-    icon: <SiLeetcode size={14} />,
-    color: "#FFD166",
+    icon: <SiLeetcode size={15} />,
   },
   {
-    name: "CODEFORCES",
+    name: "Codeforces",
     value: "profile/playboldAbhi",
     href: "https://codeforces.com/profile/playboldAbhi",
-    icon: <SiCodeforces size={14} />,
-    color: "#8AA4FF",
+    icon: <SiCodeforces size={15} />,
   },
 ];
 
@@ -54,72 +55,77 @@ const Contact = () => {
   };
 
   return (
-    <Section id="contact" className="py-20 bg-[#080D1A] text-[#E6EAF2] border-t-2 border-[#334366]">
+    <Section id="contact" className="py-24 bg-[#090A0F] text-[#EDEDED] border-t border-white/[0.06]">
       <Container>
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="max-w-2xl mb-10">
-            <div className="flex items-center gap-2 mb-2 font-pixel text-[10px] text-[#55E6C1]">
-              <span className="h-2 w-2 bg-[#55E6C1] animate-pixel-blink" />
-              <span>FINAL CHECKPOINT // 05</span>
+          <div className="max-w-2xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-mono mb-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span>Get in Touch</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-pixel-heading">
-              Let's build something difficult.
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+              Let&apos;s build something exceptional.
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#94A3B8] leading-relaxed font-mono">
-              I am interested in systems engineering, low-latency infrastructure, distributed backends, and quantitative engineering roles. If you are solving performance-critical or technically demanding challenges, reach out directly.
+            <p className="mt-3 text-base text-neutral-400 leading-relaxed font-normal">
+              I am open to systems engineering, low-latency infrastructure, distributed backends, and quantitative engineering roles. Feel free to reach out directly.
             </p>
           </div>
 
-          {/* Action Console Box */}
-          <div className="pixel-frame p-6 sm:p-8 mb-8 space-y-6">
-            <div className="flex items-center justify-between pb-3 border-b-2 border-[#334366] text-[9px] font-pixel text-[#94A3B8]">
-              <span>COMMUNICATION_CONSOLES</span>
-              <span className="text-[#55E6C1]">[READY_TO_TRANSMIT]</span>
-            </div>
-
+          {/* Action Box */}
+          <div className="rounded-2xl border border-neutral-800/80 bg-[#0C0D13] p-6 sm:p-7 mb-8">
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="mailto:mrabhisheak@gmail.com"
-                className="pixel-btn pixel-btn-primary"
+                className="btn-primary"
               >
-                <FaEnvelope size={12} />
+                <FaEnvelope size={13} />
                 <span>mrabhisheak@gmail.com</span>
+              </a>
+
+              <a
+                href="https://wa.me/917259371549?text=Hi%20Abhishek,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary text-emerald-400 border-emerald-900/60 hover:border-emerald-800 bg-emerald-950/20 hover:bg-emerald-950/40"
+              >
+                <FaWhatsapp size={14} />
+                <span>Chat on WhatsApp</span>
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="pixel-btn pixel-btn-secondary"
+                className="btn-secondary"
               >
-                {copied ? <HiCheck size={14} className="text-[#55E6C1]" /> : <HiOutlineClipboardCopy size={14} />}
-                <span>{copied ? "COPIED TO CLIPBOARD!" : "COPY EMAIL"}</span>
+                {copied ? <HiCheck size={14} className="text-emerald-400" /> : <HiOutlineClipboardCopy size={14} />}
+                <span>{copied ? "Copied" : "Copy email"}</span>
               </button>
 
               <Link
                 to="/resume"
-                className="pixel-btn pixel-btn-warm"
+                className="btn-secondary"
               >
-                <span>VIEW RESUME.EXE</span>
+                <span>Resume</span>
                 <HiArrowRight size={12} />
               </Link>
             </div>
           </div>
 
           {/* Clean Contact Directory */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {links.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                target={item.name === "EMAIL" ? "_self" : "_blank"}
+                target={item.name === "Email" ? "_self" : "_blank"}
                 rel="noreferrer"
-                className="pixel-frame-interactive p-3.5 group block"
+                className="rounded-xl border border-neutral-800/80 bg-[#0C0D13] p-4 group block hover:border-neutral-700 transition-colors"
               >
-                <div className="flex items-center gap-2 text-[#94A3B8] group-hover:text-white transition-colors">
-                  <span style={{ color: item.color }}>{item.icon}</span>
-                  <span className="text-[10px] font-pixel text-white">{item.name}</span>
+                <div className="flex items-center gap-2 text-neutral-400 group-hover:text-white transition-colors">
+                  <span>{item.icon}</span>
+                  <span className="text-xs font-semibold text-white">{item.name}</span>
                 </div>
-                <div className="text-xs font-mono text-[#64748B] group-hover:text-[#94A3B8] mt-2 truncate transition-colors">
+                <div className="text-xs font-mono text-neutral-500 group-hover:text-neutral-300 mt-2 truncate transition-colors">
                   {item.value}
                 </div>
               </a>
