@@ -150,7 +150,7 @@ const Projects = () => {
       <Container>
         {/* Section Header */}
         <div className="max-w-4xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-mono mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium mb-3">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             <span>Featured Engineering Work</span>
           </div>
@@ -193,7 +193,7 @@ const Projects = () => {
               >
                 {/* Top Category & View Mode Bar */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-white/[0.06] text-xs">
-                  <span className="font-mono text-neutral-400 text-xs">
+                  <span className="font-medium text-neutral-400 text-xs">
                     {p.category}
                   </span>
                   <div>

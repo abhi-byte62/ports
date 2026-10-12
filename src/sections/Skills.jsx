@@ -10,7 +10,7 @@ const Skills = () => {
       <Container>
         {/* Section Header */}
         <div className="max-w-4xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-mono mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium mb-3">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             <span>Technical Competencies</span>
           </div>

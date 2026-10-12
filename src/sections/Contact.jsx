@@ -55,12 +55,12 @@ const Contact = () => {
   };
 
   return (
-    <Section id="contact" className="py-24 bg-[#090A0F] text-[#EDEDED] border-t border-white/[0.06]">
+    <Section id="contact" className="!py-16 sm:!py-20 !pb-12 bg-[#090A0F] text-[#EDEDED] border-t border-white/[0.06]">
       <Container>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="max-w-2xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-mono mb-3">
+          <div className="max-w-2xl mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium mb-3">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               <span>Get in Touch</span>
             </div>
@@ -112,7 +112,7 @@ const Contact = () => {
           </div>
 
           {/* Clean Contact Directory */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
             {links.map((item) => (
               <a
                 key={item.name}
@@ -125,7 +125,7 @@ const Contact = () => {
                   <span>{item.icon}</span>
                   <span className="text-xs font-semibold text-white">{item.name}</span>
                 </div>
-                <div className="text-xs font-mono text-neutral-500 group-hover:text-neutral-300 mt-2 truncate transition-colors">
+                <div className="text-[11.5px] font-mono text-neutral-400 group-hover:text-neutral-200 mt-2 truncate transition-colors" title={item.value}>
                   {item.value}
                 </div>
               </a>

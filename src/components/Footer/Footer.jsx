@@ -5,7 +5,7 @@ import { SiLeetcode, SiCodeforces } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/[0.08] bg-[#070B14] text-slate-400 py-10 text-xs font-mono select-none">
+    <footer className="border-t border-white/[0.08] bg-[#070B14] text-slate-400 py-7 text-xs select-none">
       <Container>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-2">
@@ -18,7 +18,7 @@ const Footer = () => {
               <span>Abhishek M R</span>
             </Link>
             <span className="text-slate-600">/</span>
-            <span className="text-slate-400 text-xs">Bengaluru, India</span>
+            <span className="text-slate-400 text-xs font-normal">Bengaluru, India</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-5 text-xs">

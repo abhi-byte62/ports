@@ -12,7 +12,7 @@ const Hero = () => {
       <Container>
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Top Status Header */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/[0.06] text-xs font-mono text-neutral-400">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/[0.06] text-xs text-neutral-400">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
               <span className="text-neutral-200 font-medium">Abhishek M R</span>
@@ -29,7 +29,7 @@ const Hero = () => {
             {/* Left Narrative Column (6 cols) */}
             <div className="lg:col-span-6 space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-mono">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 <span>Low-Latency Systems · Distributed Architecture</span>
               </div>

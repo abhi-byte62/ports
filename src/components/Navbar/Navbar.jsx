@@ -54,7 +54,7 @@ const Navbar = ({ onOpenCommandPalette }) => {
             <span className="font-semibold text-sm tracking-tight text-white group-hover:text-emerald-300 transition-colors">
               Abhishek M R
             </span>
-            <span className="hidden sm:inline-block text-[11px] font-mono text-slate-500 border-l border-slate-700 pl-2">
+            <span className="hidden sm:inline-block text-[11px] font-medium text-slate-400 border-l border-slate-700/80 pl-2">
               Software Engineer
             </span>
           </div>
@@ -96,12 +96,12 @@ const Navbar = ({ onOpenCommandPalette }) => {
           {onOpenCommandPalette && (
             <button
               onClick={onOpenCommandPalette}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-mono bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.18] transition-all"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.18] transition-all"
               title="Open Command Palette (Ctrl+K)"
             >
               <FiCommand size={12} />
               <span>Search</span>
-              <kbd className="text-[10px] bg-white/[0.06] px-1 py-0.5 rounded text-slate-400 border border-white/[0.08]">
+              <kbd className="text-[10px] font-sans font-medium bg-white/[0.06] px-1.5 py-0.5 rounded text-slate-400 border border-white/[0.08]">
                 Ctrl K
               </kbd>
             </button>

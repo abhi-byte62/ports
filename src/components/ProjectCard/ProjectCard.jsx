@@ -38,7 +38,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
           <div>
             {/* Header: Category & Metrics */}
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span className="text-[11px] font-mono text-neutral-400 font-medium tracking-tight">
+              <span className="text-[11px] text-neutral-400 font-medium tracking-tight">
                 {project.category}
               </span>
               {project.metrics && (
@@ -126,7 +126,7 @@ const ProjectCard = ({ project, isFeatured = false }) => {
     >
       <div>
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-          <span className="text-[10px] font-mono text-neutral-400 font-medium">
+          <span className="text-[10px] text-neutral-400 font-medium">
             {project.category}
           </span>
           {project.metrics && (
