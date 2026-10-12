@@ -29,23 +29,36 @@ const CodeSnippet = ({ filename, title, language = "javascript", code, explanati
             {language}
           </span>
 
-          <button
-            onClick={handleCopy}
-            className="flex items-center gap-1.5 text-[11px] font-mono text-neutral-400 hover:text-white transition-colors px-2 py-0.5 rounded hover:bg-white/[0.06]"
-            aria-label="Copy code snippet"
-          >
-            {copied ? (
-              <>
-                <FiCheck className="text-emerald-400" size={12} />
-                <span className="text-emerald-400">Copied</span>
-              </>
-            ) : (
-              <>
-                <FiCopy size={12} />
-                <span>Copy</span>
-              </>
+          <div className="relative flex items-center">
+            <button
+              onClick={handleCopy}
+              className={`flex items-center gap-1.5 text-[11px] font-mono transition-all px-2 py-0.5 rounded border ${
+                copied
+                  ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 font-semibold"
+                  : "bg-white/[0.04] border-white/[0.06] text-neutral-300 hover:text-white hover:border-white/[0.18]"
+              }`}
+              aria-label="Copy code snippet"
+            >
+              {copied ? (
+                <>
+                  <FiCheck className="text-emerald-400" size={12} />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <FiCopy size={12} />
+                  <span>Copy</span>
+                </>
+              )}
+            </button>
+
+            {/* Instant Floating Tooltip */}
+            {copied && (
+              <div className="absolute right-0 -top-7 animate-fadeIn rounded bg-emerald-950 border border-emerald-500/40 px-2 py-0.5 text-[10px] font-mono text-emerald-300 shadow-lg pointer-events-none whitespace-nowrap">
+                Copied to clipboard!
+              </div>
             )}
-          </button>
+          </div>
         </div>
       </div>
 

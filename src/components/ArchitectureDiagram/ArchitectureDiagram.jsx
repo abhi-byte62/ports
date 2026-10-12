@@ -109,6 +109,10 @@ const getStageTelemetry = (stage, idx) => {
 const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) => {
   const [activeStageIdx, setActiveStageIdx] = useState(null);
 
+  const handleToggleStage = (idx) => {
+    setActiveStageIdx((prev) => (prev === idx ? null : idx));
+  };
+
   return (
     <div className="rounded-xl border border-white/[0.08] bg-[#0C0C12] p-6 md:p-8 shadow-sm">
       {/* Title Header */}
@@ -120,7 +124,7 @@ const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) =
             </span>
             <span className="inline-flex items-center gap-1 rounded bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
               <span className="h-1 w-1 rounded-full bg-emerald-400 animate-pulse" />
-              Live Hover Telemetry
+              Hover or Tap to Inspect
             </span>
           </div>
           <h3 className="text-xl font-semibold text-white mt-1 tracking-tight">
@@ -144,9 +148,19 @@ const ArchitectureDiagram = ({ title, subtitle, stages = [], footnotes = [] }) =
           return (
             <div
               key={idx}
+              onClick={() => handleToggleStage(idx)}
               onMouseEnter={() => setActiveStageIdx(idx)}
               onMouseLeave={() => setActiveStageIdx(null)}
-              className={`relative flex flex-col justify-between rounded-xl border p-4.5 transition-all duration-200 cursor-pointer select-none ${
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleToggleStage(idx);
+                }
+              }}
+              aria-label={`Inspect ${stage.name} telemetry`}
+              className={`relative flex flex-col justify-between rounded-xl border p-4.5 transition-all duration-200 cursor-pointer select-none outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 ${
                 isHovered
                   ? "border-emerald-500/40 bg-[#11131C] shadow-lg shadow-black/40 scale-[1.01]"
                   : "border-white/[0.07] bg-white/[0.015] hover:border-white/[0.16] hover:bg-white/[0.025]"
